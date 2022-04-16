@@ -1,0 +1,923 @@
+{
+
+	"song1" : 	{
+
+		"Title" : "Titolo",
+		"Autor" : "Autore",
+		"Year" : "Anno",
+		"Album" : "Album",
+		"Duration" : "Durata",
+		"Type" : "Genere"
+	},
+
+	"song2" : 	{
+
+		"Title" : "voce ",
+		"Autor" : "madame ",
+		"Year" : "2021",
+		"Album" : "MADAME",
+		"Duration" : "3:31",
+		"Type" : "elettro pop "
+	},
+
+	"song3" : 	{
+
+		"Title" : "partire da te ",
+		"Autor" : "rkomi",
+		"Year" : "2021",
+		"Album" : "TAXI DRIVER",
+		"Duration" : "3:41",
+		"Type" : "indie rock"
+	},
+
+	"song4" : 	{
+
+		"Title" : "crudelia ",
+		"Autor" : "marracash ",
+		"Year" : "2020",
+		"Album" : "persona",
+		"Duration" : "3:50",
+		"Type" : "hip hop rap"
+	},
+
+	"song5" : 	{
+
+		"Title" : "notti in bianco ",
+		"Autor" : "blanco",
+		"Year" : "2020",
+		"Album" : "blu celeste",
+		"Duration" : "2:56",
+		"Type" : "hip hop rap"
+	},
+
+	"song6" : 	{
+
+		"Title" : "l'ultima volta ",
+		"Autor" : "emis killa ",
+		"Year" : "2020",
+		"Album" : "17",
+		"Duration" : "3:30",
+		"Type" : "hip hop rap"
+	},
+
+	"song7" : 	{
+
+		"Title" : "kumite",
+		"Autor" : "salmo",
+		"Year" : "2021",
+		"Album" : "flop",
+		"Duration" : "2:50",
+		"Type" : "hip hop rap"
+	},
+
+	"song8" : 	{
+
+		"Title" : "mezz'ora di sole ",
+		"Autor" : "blanco",
+		"Year" : "2021",
+		"Album" : "blu celeste",
+		"Duration" : "1:58",
+		"Type" : "hip hop rap"
+	},
+
+	"song9" : 	{
+
+		"Title" : "stronger",
+		"Autor" : "kanye west",
+		"Year" : "2007",
+		"Album" : "graduation ",
+		"Duration" : "5:11",
+		"Type" : "hip hop rap"
+	},
+
+	"song10" : 	{
+
+		"Title" : "simba",
+		"Autor" : "ernia",
+		"Year" : "2018",
+		"Album" : "68",
+		"Duration" : "3:19",
+		"Type" : "hip hop rap"
+	},
+
+	"song11" : 	{
+
+		"Title" : "mood",
+		"Autor" : "24k glodn",
+		"Year" : "2021",
+		"Album" : "el dorado",
+		"Duration" : "2:20",
+		"Type" : "hip hop rap"
+	},
+
+	"song12" : 	{
+
+		"Title" : "remember the name",
+		"Autor" : "fort minor",
+		"Year" : "2005",
+		"Album" : "The rising tied",
+		"Duration" : "3:50",
+		"Type" : "RAP"
+	},
+
+	"song13" : 	{
+
+		"Title" : "monster",
+		"Autor" : "skillet",
+		"Year" : "2009",
+		"Album" : "awake",
+		"Duration" : "2:58",
+		"Type" : "metal"
+	},
+
+	"song14" : 	{
+
+		"Title" : "fight back ",
+		"Autor" : "neeffex",
+		"Year" : "2018",
+		"Album" : "fight back:the collection",
+		"Duration" : "3:20",
+		"Type" : "metal"
+	},
+
+	"song15" : 	{
+
+		"Title" : "fair trade ",
+		"Autor" : "drake e travis scott",
+		"Year" : "2021",
+		"Album" : "certified lover boy",
+		"Duration" : "4:51",
+		"Type" : "trap "
+	},
+
+	"song16" : 	{
+
+		"Title" : "SEVEN 7oo",
+		"Autor" : "SEVEN 7oo",
+		"Year" : "2021",
+		"Album" : "SEVEN 7oo",
+		"Duration" : "3:29",
+		"Type" : "trap "
+	},
+
+	"song17" : 	{
+
+		"Title" : "yoshi",
+		"Autor" : "Ddani faiv e tha supreme ",
+		"Year" : "2019",
+		"Album" : "machete mixtape vol 4",
+		"Duration" : "3:31",
+		"Type" : "trap "
+	},
+
+	"song18" : 	{
+
+		"Title" : "brividi",
+		"Autor" : "mahamood e blanco",
+		"Year" : "2022",
+		"Album" : "brividi",
+		"Duration" : "3:19",
+		"Type" : "pop"
+	},
+
+	"song19" : 	{
+
+		"Title" : "cherefobia",
+		"Autor" : "martina attili",
+		"Year" : "2018",
+		"Album" : "cherofobia",
+		"Duration" : "2:51",
+		"Type" : "pop"
+	},
+
+	"song20" : 	{
+
+		"Title" : "abcdefu",
+		"Autor" : "Gayle",
+		"Year" : "2021",
+		"Album" : "abcdefu",
+		"Duration" : "2:48",
+		"Type" : "pop"
+	},
+
+	"song21" : 	{
+
+		"Title" : "sapore ",
+		"Autor" : "fedez",
+		"Year" : "2021",
+		"Album" : "disumano",
+		"Duration" : "3:15",
+		"Type" : "dance elettrica"
+	},
+
+	"song22" : 	{
+
+		"Title" : "paradise ",
+		"Autor" : "meduza",
+		"Year" : "2020",
+		"Album" : "paradise",
+		"Duration" : "2:47",
+		"Type" : "dance elettrica"
+	},
+
+	"song23" : 	{
+
+		"Title" : "roses",
+		"Autor" : "SAINT JHN",
+		"Year" : "2020",
+		"Album" : "roses",
+		"Duration" : "3:17",
+		"Type" : "dance elettrica"
+	},
+
+	"song24" : 	{
+
+		"Title" : "umbrella",
+		"Autor" : "Rihanna",
+		"Year" : "2008",
+		"Album" : "good girl gone bad",
+		"Duration" : "4:35",
+		"Type" : "dance elettrica"
+	},
+
+	"song25" : 	{
+
+		"Title" : "polly",
+		"Autor" : "naska",
+		"Year" : "2022",
+		"Album" : "rebel",
+		"Duration" : "2:45",
+		"Type" : "pop punk"
+	},
+
+	"song26" : 	{
+
+		"Title" : "mamma non mi parla ",
+		"Autor" : "naska",
+		"Year" : "2022",
+		"Album" : "rebel",
+		"Duration" : "2:49",
+		"Type" : "pop punk"
+	},
+
+	"song27" : 	{
+
+		"Title" : "punkabbestia",
+		"Autor" : "naska",
+		"Year" : "2022",
+		"Album" : "rebel",
+		"Duration" : "2:40",
+		"Type" : "pop punk"
+	},
+
+	"song28" : 	{
+
+		"Title" : "legends never die",
+		"Autor" : "league of legends",
+		"Year" : "2017",
+		"Album" : "legends never die",
+		"Duration" : "3:55",
+		"Type" : "pop rock"
+	},
+
+	"song29" : 	{
+
+		"Title" : "warriors",
+		"Autor" : "league of legends",
+		"Year" : "2020",
+		"Album" : "warriors",
+		"Duration" : "3:24",
+		"Type" : "pop rock"
+	},
+
+	"song30" : 	{
+
+		"Title" : "Back In Black",
+		"Autor" : "AC/DC",
+		"Year" : "1980",
+		"Album" : "Back In Black",
+		"Duration" : "4:15",
+		"Type" : "Rock"
+	},
+
+	"song31" : 	{
+
+		"Title" : "Highway to hell",
+		"Autor" : "AC/DC",
+		"Year" : "1979",
+		"Album" : "Highway to hell",
+		"Duration" : "3:28",
+		"Type" : "Rock"
+	},
+
+	"song32" : 	{
+
+		"Title" : "Eye of the Tiger",
+		"Autor" : "Survivor",
+		"Year" : "1982",
+		"Album" : "Eye of the Tiger",
+		"Duration" : "4:03",
+		"Type" : "Rock"
+	},
+
+	"song33" : 	{
+
+		"Title" : "diecimilavoci ",
+		"Autor" : "rkomi ",
+		"Year" : "2021",
+		"Album" : "taxi driver",
+		"Duration" : "2:50",
+		"Type" : "indie"
+	},
+
+	"song34" : 	{
+
+		"Title" : "l'ultima notte ",
+		"Autor" : "ariete",
+		"Year" : "2021",
+		"Album" : "n.c",
+		"Duration" : "2:37",
+		"Type" : "indie"
+	},
+
+	"song35" : 	{
+
+		"Title" : "nei treni la notte",
+		"Autor" : "frah quintale",
+		"Year" : "2017",
+		"Album" : "regardez moi",
+		"Duration" : "3:04",
+		"Type" : "indie"
+	},
+
+	"song36" : 	{
+
+		"Title" : "pastello bianco",
+		"Autor" : "pinguini tattici nucleari ",
+		"Year" : "2020",
+		"Album" : "AHIA",
+		"Duration" : "3:56",
+		"Type" : "indie"
+	},
+
+	"song37" : 	{
+
+		"Title" : "Ain't no sunshine",
+		"Autor" : "the' 70s soul lounge",
+		"Year" : "n.c",
+		"Album" : "n.c",
+		"Duration" : "n.c",
+		"Type" : "soul"
+	},
+
+	"song38" : 	{
+
+		"Title" : "kiss of life",
+		"Autor" : "lovers live",
+		"Year" : "n.c",
+		"Album" : "n.c",
+		"Duration" : "n.c",
+		"Type" : "soul"
+	},
+
+	"song39" : 	{
+
+		"Title" : "i'd rather go blind ",
+		"Autor" : "etta jones",
+		"Year" : "n.c",
+		"Album" : "n.c",
+		"Duration" : "n.c",
+		"Type" : "soul"
+	},
+
+	"song40" : 	{
+
+		"Title" : "you are not alone",
+		"Autor" : "micheal jackson",
+		"Year" : "n.c",
+		"Album" : "n.c",
+		"Duration" : "n.c",
+		"Type" : "soul"
+	},
+
+	"song41" : 	{
+
+		"Title" : "believer ",
+		"Autor" : "imagine dragons"
+	},
+
+	"song42" : 	{
+
+		"Title" : "blinding lights",
+		"Autor" : "the weekend"
+	},
+
+	"song43" : 	{
+
+		"Title" : "blue",
+		"Autor" : "eiffel 65"
+	},
+
+	"song44" : 	{
+
+		"Title" : "californication",
+		"Autor" : "red hot chili pepper"
+	},
+
+	"song45" : 	{
+
+		"Title" : "call me maybe",
+		"Autor" : "charly "
+	},
+
+	"song46" : 	{
+
+		"Title" : "Like a Rolling Stone",
+		"Autor" : "Bob dylan",
+		"Year" : "1965",
+		"Album" : "highway 61 reviseted "
+	},
+
+	"song47" : 	{
+
+		"Title" : "(I Can't Get No) Satisfaction",
+		"Autor" : "Rolling stones",
+		"Year" : "1965"
+	},
+
+	"song48" : 	{
+
+		"Title" : "Imagine",
+		"Autor" : "john lennon",
+		"Year" : "1971",
+		"Album" : "imagine"
+	},
+
+	"song49" : 	{
+
+		"Title" : "What's Going On",
+		"Autor" : "Marvin gaye",
+		"Year" : "1971",
+		"Album" : "hey jude"
+	},
+
+	"song50" : 	{
+
+		"Title" : "Respect",
+		"Autor" : "Aretha Franklin",
+		"Year" : "1967"
+	},
+
+	"song51" : 	{
+
+		"Title" : "Good Vibrations",
+		"Autor" : "The beach boys",
+		"Year" : "1966"
+	},
+
+	"song52" : 	{
+
+		"Title" : "Johnny B. Goode",
+		"Autor" : "chuck berry",
+		"Year" : "1958"
+	},
+
+	"song53" : 	{
+
+		"Title" : "Hey Jude",
+		"Autor" : "the beatles",
+		"Year" : "1968"
+	},
+
+	"song54" : 	{
+
+		"Title" : "Smells Like Teen Spirit",
+		"Autor" : "nirvana",
+		"Year" : "1991"
+	},
+
+	"song55" : 	{
+
+		"Title" : "What'd I Say",
+		"Autor" : "ray charles",
+		"Year" : "1959"
+	},
+
+	"song56" : 	{
+
+		"Title" : "My Generation",
+		"Autor" : "the who",
+		"Year" : "1965"
+	},
+
+	"song57" : 	{
+
+		"Title" : "A Change Is Gonna Come",
+		"Autor" : "sam cooke",
+		"Year" : "1964"
+	},
+
+	"song58" : 	{
+
+		"Title" : "Yesterday",
+		"Autor" : "the beatles",
+		"Year" : "1965"
+	},
+
+	"song59" : 	{
+
+		"Title" : "Blowin' in the Wind",
+		"Autor" : "bob dylan",
+		"Year" : "1963"
+	},
+
+	"song60" : 	{
+
+		"Title" : "London Calling",
+		"Autor" : "the cash",
+		"Year" : "1967"
+	},
+
+	"song61" : 	{
+
+		"Title" : "I Want to Hold Your Hand",
+		"Autor" : "the beatles",
+		"Year" : "1955"
+	},
+
+	"song62" : 	{
+
+		"Title" : "Purple Haze",
+		"Autor" : "the jimi hendrix experience",
+		"Year" : "1956"
+	},
+
+	"song63" : 	{
+
+		"Title" : "Maybellene",
+		"Autor" : "chuck berry",
+		"Year" : "1970"
+	},
+
+	"song64" : 	{
+
+		"Title" : "Hound Dog",
+		"Autor" : "elvis presley",
+		"Year" : "1975"
+	},
+
+	"song65" : 	{
+
+		"Title" : "Let It Be",
+		"Autor" : "the beatles",
+		"Year" : "1963"
+	},
+
+	"song66" : 	{
+
+		"Title" : "Born to Run",
+		"Autor" : "bruce springsteen",
+		"Year" : "1965"
+	},
+
+	"song67" : 	{
+
+		"Title" : "Be My Baby",
+		"Autor" : "the ronettes",
+		"Year" : "1965"
+	},
+
+	"song68" : 	{
+
+		"Title" : "In My Life",
+		"Autor" : "the beatles",
+		"Year" : "1966"
+	},
+
+	"song69" : 	{
+
+		"Title" : "People Get Ready",
+		"Autor" : "the impressions",
+		"Year" : "1968"
+	},
+
+	"song70" : 	{
+
+		"Title" : "God Only Knows",
+		"Autor" : "the beach boys",
+		"Year" : "1971"
+	},
+
+	"song71" : 	{
+
+		"Title" : "(Sittin' on) the Dock of the Bay",
+		"Autor" : "otis redding",
+		"Year" : "1967"
+	},
+
+	"song72" : 	{
+
+		"Title" : "Layla",
+		"Autor" : "derek and the dominos",
+		"Year" : "1965"
+	},
+
+	"song73" : 	{
+
+		"Title" : "A Day in the Life",
+		"Autor" : "the beatles",
+		"Year" : "1956"
+	},
+
+	"song74" : 	{
+
+		"Title" : "Help! ",
+		"Autor" : "the beatles",
+		"Year" : "1971"
+	},
+
+	"song75" : 	{
+
+		"Title" : "I Walk the Line",
+		"Autor" : "johnny cash",
+		"Year" : "1968"
+	},
+
+	"song76" : 	{
+
+		"Title" : "Stairway to Heaven",
+		"Autor" : "led zeppenin",
+		"Year" : "1966"
+	},
+
+	"song77" : 	{
+
+		"Title" : "Sympathy for the Devil",
+		"Autor" : "the rolling stones",
+		"Year" : "1965"
+	},
+
+	"song78" : 	{
+
+		"Title" : "River Deep - Mountain High",
+		"Autor" : "ike & tina turner",
+		"Year" : "1966"
+	},
+
+	"song79" : 	{
+
+		"Title" : "You've Lost That Lovin' Feelin'",
+		"Autor" : "the righteous brothers",
+		"Year" : "1992"
+	},
+
+	"song80" : 	{
+
+		"Title" : "Light My Fire",
+		"Autor" : "the doors",
+		"Year" : "1975"
+	},
+
+	"song81" : 	{
+
+		"Title" : "One",
+		"Autor" : "U2",
+		"Year" : "1992"
+	},
+
+	"song82" : 	{
+
+		"Title" : "No Woman",
+		"Autor" : " No Cry",
+		"Year" : "bob marley & the wailers",
+		"Album" : "1975"
+	},
+
+	"song83" : 	{
+
+		"Title" : "Gimme Shelter",
+		"Autor" : "the rolling stones",
+		"Year" : "1969"
+	},
+
+	"song84" : 	{
+
+		"Title" : "That'll Be the Day -",
+		"Autor" : "the crickets",
+		"Year" : "1957"
+	},
+
+	"song85" : 	{
+
+		"Title" : "Dancing in the Street",
+		"Autor" : "martha reeves ",
+		"Year" : "1964"
+	},
+
+	"song86" : 	{
+
+		"Title" : "The Way You Look Tonight",
+		"Autor" : "Paul Desmond ",
+		"Year" : "2003",
+		"Album" : "n.c",
+		"Duration" : "7:19",
+		"Type" : "Jazz"
+	},
+
+	"song87" : 	{
+
+		"Title" : "There's No Business Like Show Business",
+		"Autor" : "Sonny Rollins ",
+		"Year" : "1956",
+		"Album" : "Worktime ",
+		"Duration" : "6:18",
+		"Type" : "Jazz"
+	},
+
+	"song88" : 	{
+
+		"Title" : "Line for Lyons ",
+		"Autor" : "Gerry Mulligan",
+		"Year" : " Paul Desmond"
+	},
+
+	"song89" : 	{
+
+		"Title" : "moonlight  suonata n.14",
+		"Autor" : "beethoven ",
+		"Year" : "1801",
+		"Album" : "n.c",
+		"Duration" : "15:00",
+		"Type" : "Classica"
+	},
+
+	"song90" : 	{
+
+		"Title" : "Fantaisie-Impromptu Op. 66",
+		"Autor" : " Fryderyk Chopin",
+		"Year" : "1835",
+		"Album" : "n.c",
+		"Duration" : "6:00",
+		"Type" : "Classica"
+	},
+
+	"song91" : 	{
+
+		"Title" : "Nocturne op.9 No.2",
+		"Autor" : " Fryderyk Chopin",
+		"Year" : "1829",
+		"Album" : "n.c",
+		"Duration" : "4:30",
+		"Type" : "Classica"
+	},
+
+	"song92" : 	{
+
+		"Title" : "Clair de lune",
+		"Autor" : "Claude Debussy",
+		"Year" : "1905",
+		"Album" : "n.c",
+		"Duration" : "18:00",
+		"Type" : "Classica"
+	},
+
+	"song93" : 	{
+
+		"Title" : "Rondo Alla Turca Sonata No.11",
+		"Autor" : "Mozart",
+		"Year" : "1783",
+		"Album" : "n.c",
+		"Duration" : "3:30",
+		"Type" : "Classica"
+	},
+
+	"song94" : 	{
+
+		"Title" : "Requiem K. 626: Sequentia. Confutatis & Lacrymosa",
+		"Autor" : "Mozart",
+		"Year" : "1791",
+		"Album" : "n.c",
+		"Duration" : "8:12",
+		"Type" : "Classica"
+	},
+
+	"song95" : 	{
+
+		"Title" : "Symphony No. 40 in G Minor",
+		"Autor" : "Mozart",
+		"Year" : "1788",
+		"Album" : "n.c",
+		"Duration" : "26:30",
+		"Type" : "Classica"
+	},
+
+	"song96" : 	{
+
+		"Title" : "Eine Kleine Nachtmusik in G Major",
+		"Autor" : "Mozart",
+		"Year" : "1727",
+		"Album" : "n.c",
+		"Duration" : "19:00",
+		"Type" : "Classica"
+	},
+
+	"song97" : 	{
+
+		"Title" : "Symphony No. 29 in A Major",
+		"Autor" : "Mozart",
+		"Year" : "1744",
+		"Album" : "n.c",
+		"Duration" : "23:30",
+		"Type" : "Classica"
+	},
+
+	"song98" : 	{
+
+		"Title" : "Honky Tonk Train Blues",
+		"Autor" : "Keith Emerson",
+		"Year" : "1976",
+		"Album" : "n.c",
+		"Duration" : "3:00",
+		"Type" : "Rock ?"
+	},
+
+	"song99" : 	{
+
+		"Title" : "woogie boogie stomp",
+		"Autor" : "Albert Ammons",
+		"Year" : "1998",
+		"Album" : "n.c",
+		"Duration" : "4:00",
+		"Type" : "woogie boogie"
+	},
+
+	"song100" : 	{
+
+		"Title" : "Maple Leaf Rag",
+		"Autor" : "Scott Joplin",
+		"Year" : "1899",
+		"Album" : "n.c",
+		"Duration" : "3:00",
+		"Type" : "Ragtime"
+	},
+
+	"song101" : 	{
+
+		"Title" : "The Entertainer",
+		"Autor" : "Scott Joplin",
+		"Year" : "1902",
+		"Album" : "n.c",
+		"Duration" : "4:00",
+		"Type" : "Ragtime"
+	},
+
+	"song102" : 	{
+
+		"Title" : "boogie woogie swanee river",
+		"Autor" : "Albert Ammons",
+		"Year" : "1946",
+		"Album" : "n.c",
+		"Duration" : "3:00",
+		"Type" : "boogie woogie"
+	},
+
+	"song103" : 	{
+
+		"Title" : "Hungarian Rhapsody No. 2",
+		"Autor" : "Franz List",
+		"Year" : "1847",
+		"Album" : "n.c",
+		"Duration" : "13:06",
+		"Type" : "Classica"
+	},
+
+	"song104" : 	{
+
+		"Title" : "Hungarian Dance No. 5",
+		"Autor" : "Johannes Brahms",
+		"Year" : "1873",
+		"Album" : "n.c",
+		"Duration" : "5:00",
+		"Type" : "Classica"
+	},
+
+	"song105" : 	{
+
+		"Title" : "Requiem K. 626: Sequentia. Dies Irae",
+		"Autor" : "Mozart",
+		"Year" : "1756",
+		"Album" : "n.c",
+		"Duration" : "46:55",
+		"Type" : "Classica"
+	},
+
+	"song106" : 	{
+
+		"Title" : "All Night",
+		"Autor" : "Parov Stelar",
+		"Year" : "n.c",
+		"Album" : "The Art of Sampling",
+		"Duration" : "n.c",
+		"Type" : "Swing "
+	}
+}

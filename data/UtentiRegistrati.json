@@ -1,0 +1,52 @@
+{
+
+	"User1" : 	{
+
+		"name" : "A",
+		"surname" : "A",
+		"email"	: "@1",
+		"password" : "p"	
+	},
+
+	
+	"User2" : 	{
+		
+		"name" : "B",
+		"surname" : "B",
+		"email"	: "@2",
+		"password" : "p"	
+	},
+	
+	"User3" : 	{
+
+		"name" : "C",
+		"surname" : "C",
+		"email"	: "@3",
+		"password" : "p"	
+	},
+
+	"User4" : 	{
+
+		"name" : "D",
+		"surname" : "D",
+		"email"	: "@4",
+		"password" : "p"	
+	},
+
+	"User5" : 	{
+
+		"name" : "E",
+		"surname" : "E",
+		"email"	: "@5",
+		"password" : "p"	
+	},
+
+	"User6" : 	{
+
+		"name" : "matteo",
+		"surname" : "F",
+		"email"	: "@6",
+		"password" : "p"	
+	}
+	
+}
