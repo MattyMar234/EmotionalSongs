@@ -40,7 +40,7 @@ public class EmotionalSongs extends Application{
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Runnning...");
+        //System.out.println("Runnning...");
         //new EmotionalSongs();
         launch(args);
     }
