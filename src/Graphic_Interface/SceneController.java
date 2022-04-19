@@ -53,22 +53,23 @@ public class SceneController extends Controller implements Initializable{
 
     }
 
-    public void validateNewUser(ActionEvent event) throws IOException {
+    public void validateNewUser() throws IOException {
         System.out.println("validate data");
-        event.consume();
+        //event.consume();
 
         if(name.getText() != null || name.getText() != "") {
             Account temporaneo = new Account();
             
             temporaneo.setName(name.getText());
-            if(!application.exitingAccount(temporaneo)) {
+            if(!application.checkAccaunt(temporaneo)) {
                 System.out.println("accaunt non valido");
                 //name.setText("nome non valido");
                 label1.setVisible(true);
             }
             else {
-                event.consume();
-                application.ChangeStage(1);
+                //event.consume();
+                Stage Window = (Stage) confirmButton.getScene().getWindow();
+                Window.setScene(new Scene(application.loaders[1].load()));
                 
                 /*stage.setOnCloseRequest(event -> {
                     event.consume();

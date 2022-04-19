@@ -38,8 +38,7 @@ public class MainPageController extends Controller implements Initializable {
     @FXML private TableColumn<Song, String> Title;
     @FXML private TableColumn<Song, String> Year;
 
-    @FXML
-    private Button icon;
+    @FXML private ImageView icon;
 
 
     
@@ -114,14 +113,16 @@ public class MainPageController extends Controller implements Initializable {
     }
 
     @FXML
-    void Selezione(ActionEvent event) {
+    public void Selezione(ActionEvent event) {
         System.out.println("pressed");
 
     }
 
     @FXML
-    void LogIn(ActionEvent event) throws IOException {
-        event.consume();
-        application.ChangeStage(2);      
+    public void access(MouseEvent event) throws IOException 
+    {
+        Stage Window = (Stage) icon.getScene().getWindow();
+        Window.setScene(new Scene(application.loaders[2].load()));
+           
     }
 }

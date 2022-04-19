@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -24,7 +23,7 @@
       </TableView>
       <Label layoutX="25.0" layoutY="89.0" prefHeight="18.0" prefWidth="78.0" text="Serach song" />
       <TextField fx:id="KeywordTextField" layoutX="113.0" layoutY="85.0" prefHeight="26.0" prefWidth="620.0" promptText="Keyword..." />
-      <ImageView disable="true" fitHeight="54.0" fitWidth="66.0" layoutX="813.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="icon" fitHeight="54.0" fitWidth="66.0" layoutX="813.0" layoutY="14.0" onMouseClicked="#access" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../data/image/UserIcon.png" />
          </image>
@@ -32,6 +31,5 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Button fx:id="icon" layoutX="293.0" layoutY="29.0" mnemonicParsing="false" onAction="#LogIn" text="Button" />
    </children>
 </AnchorPane>

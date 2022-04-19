@@ -28,6 +28,13 @@ public class EmotionalSongs extends Application{
     private final String UsersDataFilePath2 = "\\data\\UtentiRegistrati2.json";   //prova
     private final String songsDataFilePath = "\\data\\canzoni.json";
     private final String SongDataFilePath  = "data.txt";    //?
+
+    private final String [] XML_Paths = {
+        
+        "fxml_Page/UserRegistration.fxml",
+        "fxml_Page/MainPage.fxml",
+        "fxml_Page/LoadAccaunt.fxml"
+    };
     
     public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
     public ArrayList<Account> Users = new ArrayList<>();
@@ -35,12 +42,12 @@ public class EmotionalSongs extends Application{
 
     
 
-    public FXMLLoader[] loaders = new FXMLLoader[3];
+    public FXMLLoader[] loaders = new FXMLLoader[XML_Paths.length];
     public Stage actualStage;
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Runnning...");
+        System.out.println("Application Runnning...\n");
         //new EmotionalSongs();
         launch(args);
     }
@@ -49,17 +56,13 @@ public class EmotionalSongs extends Application{
     public void start(Stage stage) 
     {
         try {
+            System.out.println("Start loading XML file:");
 
-            this.actualStage = stage;
-            LoadAccounts();
-            LoadSongs();
-            System.out.print("caricamento file:\t");
-            //qui viene anche eseguita la creazione della classe
-            //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml_Page/UserRegistration.fxml"));
-
-            loaders[0] = new FXMLLoader(getClass().getClassLoader().getResource("fxml_Page/UserRegistration.fxml"));
-            loaders[1] = new FXMLLoader(getClass().getClassLoader().getResource("fxml_Page/MainPage.fxml"));
-            loaders[2] = new FXMLLoader(getClass().getClassLoader().getResource("fxml_Page/LoadAccaunt.fxml"));
+            for(int index = 0; index < XML_Paths.length; index++) 
+            {
+                System.out.println(XML_Paths[index]);
+                loaders[index] = new FXMLLoader(getClass().getClassLoader().getResource(XML_Paths[index]));
+            }
 
             //per utilizzare il costruttore della classe
             loaders[0].setControllerFactory(c -> {
@@ -73,31 +76,40 @@ public class EmotionalSongs extends Application{
             loaders[2].setControllerFactory(c -> {
                 return new EnterController(this); // <-- parametri costruttore classe
             });
-            
+
             Parent root = loaders[0].load();
-            System.out.println("Completato");
-            
-            System.out.print("impostazione root:\t");
             Scene scene = new Scene(root);
-            System.out.println("Completato");
+
+            System.out.println("loading completed\n");
+            System.out.println("accounts credentials recovery:");
+            LoadAccounts();
+            System.out.println();
+            System.out.println("loading songs:");
+            LoadSongs();
+            System.out.println();
+            System.out.println();
             
-            stage.setTitle("EmotionaSong");
-            stage.setScene(scene);
+            System.out.println("root settings:");
 
             stage.setOnCloseRequest(event -> {
                 event.consume();
                 logout(stage);
             });
 
+            stage.setTitle("EmotionaSong");
+            stage.setScene(scene);
             stage.show();
-
+            System.out.println("completed\n");
+            System.out.println("starting...");
+            
 
         } catch(NullPointerException e) {
             System.out.println("file non trovato, errore nel percorso del file fxml");
 
         } catch (IOException e) {
-            //e.printStackTrace(); 
-            //System.out.println(e);  
+            e.printStackTrace(); 
+            System.out.println(e);  
+
         } catch (Exception e) {
             e.printStackTrace(); 
             System.out.println(e);  
@@ -111,16 +123,7 @@ public class EmotionalSongs extends Application{
 
     public EmotionalSongs() throws IOException
     {
-    /*    
-        //Load accaunt
-        if(!LoadAccounts()) {
-            System.out.println("reading account data error");
-        }
 
-        if(!SaveAccounts()) {
-            System.out.println("error");
-        }
-        */
     }
 
     @SuppressWarnings("unchecked")
@@ -131,8 +134,6 @@ public class EmotionalSongs extends Application{
 
         for(String UserKey : Json.getKeys(Accounts)) {
             ArchivioGolobaleCanzoni.add(new Song((LinkedHashMap<String, Object>) Json.GetElement(Accounts, Arrays.asList(UserKey))));
-            
-            System.out.println(Users.get(Users.size() - 1));
         }
         return true;
     }
@@ -145,8 +146,6 @@ public class EmotionalSongs extends Application{
 
         for(String UserKey : Json.getKeys(Accounts)) {
             Users.add(new Account((LinkedHashMap<String, Object>) Json.GetElement(Accounts, Arrays.asList(UserKey))));
-            
-            //System.out.println(Users.get(Users.size() - 1));
         }
         return true;
     }
@@ -177,7 +176,7 @@ public class EmotionalSongs extends Application{
         return true;
     }
 
-    public boolean exitingAccount(Account temp) {
+    public boolean checkAccaunt(Account temp) {
 
         return true;
 

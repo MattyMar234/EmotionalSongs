@@ -2,7 +2,6 @@ package emotionalsongs;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
-
 import JsonFile.Json;
 
 public class Account {
@@ -37,27 +36,33 @@ public class Account {
     }
 
 
-
     @Override
     public String toString() {
-        String information = "";
+        String informations = "";
 
-        information += "Name: "     + this.name      + "\n\r";
-        information += "surname: "  + this.surname   + "\n\r";
-        information += "email: "    + this.email     + "\n\r";
-        information += "password: " + this.password  + "\n\r";
+        informations += "Name: "     + this.name      + "\n\r";
+        informations += "surname: "  + this.surname   + "\n\r";
+        informations += "email: "    + this.email     + "\n\r";
+        informations += "password: " + this.password  + "\n\r";
         
-        return information;
+        return informations;
     }
 
     @Override
     public boolean equals(Object obj) {
-        // TODO Auto-generated method stub
-        return super.equals(obj);
+
+        if(obj instanceof Account) {
+            Account accountToTest = (Account) obj;
+
+            //verifico solo l'email ????
+            if(accountToTest.getEmail() == this.email) {
+                return true;
+            }
+        }
+        return false;
     }
 
     
-
     public LinkedHashMap<String, Object> getDataStructure()
     {
         LinkedHashMap<String, Object> data = new LinkedHashMap<String, Object>();
