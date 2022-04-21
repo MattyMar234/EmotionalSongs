@@ -24,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class MainPageController extends Controller implements Initializable {
 
@@ -46,8 +47,8 @@ public class MainPageController extends Controller implements Initializable {
     private ObservableList<Song> list = FXCollections.observableArrayList();
 
 
-    public MainPageController(EmotionalSongs application) {
-        this.application = application;
+    public MainPageController() {
+        super();
     }
 
 
@@ -56,7 +57,7 @@ public class MainPageController extends Controller implements Initializable {
 
         System.out.println("loding songs data...");
 
-        for(Song song : this.application.ArchivioGolobaleCanzoni) {
+        for(Song song : application.ArchivioGolobaleCanzoni) {
             list.add(song);
         }
 
@@ -122,7 +123,7 @@ public class MainPageController extends Controller implements Initializable {
     public void access(MouseEvent event) throws IOException 
     {
         Stage Window = (Stage) icon.getScene().getWindow();
-        Window.setScene(new Scene(application.loaders[2].load()));
+        super.SwitchScene(Window, "LoadAccaunt");
            
     }
 }

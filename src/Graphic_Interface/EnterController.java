@@ -14,8 +14,8 @@ public class EnterController extends Controller implements Initializable{
         
     }
 
-    public EnterController(EmotionalSongs application){
-        this.application = application;
+    public EnterController(){
+        super();
     }
     
 }

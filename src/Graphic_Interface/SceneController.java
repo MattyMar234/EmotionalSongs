@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class SceneController extends Controller implements Initializable{
+public class SceneController extends Controller implements Initializable {
     
     private Stage stage;
     private Scene scene;
@@ -42,15 +42,9 @@ public class SceneController extends Controller implements Initializable{
     @FXML private Label label1;
 
 
-    
 
-    public SceneController(EmotionalSongs application){
-        this.application = application;
-    }
-
-    public void switchScene()
-    {
-
+    public SceneController() {
+        super();
     }
 
     public void validateNewUser() throws IOException {
@@ -69,8 +63,7 @@ public class SceneController extends Controller implements Initializable{
             else {
                 //event.consume();
                 Stage Window = (Stage) confirmButton.getScene().getWindow();
-                Window.setScene(new Scene(application.loaders[1].load()));
-                
+                super.SwitchScene(Window, "MainPage");
                 /*stage.setOnCloseRequest(event -> {
                     event.consume();
                     application.logout(stage);

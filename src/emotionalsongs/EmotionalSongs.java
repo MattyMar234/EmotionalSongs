@@ -6,11 +6,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import Graphic_Interface.EnterController;
 import Graphic_Interface.MainPageController;
 import Graphic_Interface.SceneController;
+import Graphic_Interface.Controller;
 import JsonFile.Json;
 import PlayListSongs.Song;
 import javafx.application.Application;
@@ -23,96 +25,94 @@ import javafx.stage.Stage;
 
 public class EmotionalSongs extends Application{
 
+    // =================== percorsi =================== //
     private final String Directory = System.getProperty("user.dir");
     private final String UsersDataFilePath = "\\data\\UtentiRegistrati.json";
     private final String UsersDataFilePath2 = "\\data\\UtentiRegistrati2.json";   //prova
     private final String songsDataFilePath = "\\data\\canzoni.json";
     private final String SongDataFilePath  = "data.txt";    //?
-
     private final String [] XML_Paths = {
-        
+
         "fxml_Page/UserRegistration.fxml",
         "fxml_Page/MainPage.fxml",
-        "fxml_Page/LoadAccaunt.fxml"
+        "fxml_Page/LoadAccaunt.fxml",
+        "fxml_Page/AccessPage.fxml"
     };
-    
+
+
+    // =================== variabili globali =================== //
+    public static EmotionalSongs classReference;
     public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
     public ArrayList<Account> Users = new ArrayList<>();
+    public Stage stage;
+    public FXMLLoader[] loaders = new FXMLLoader[XML_Paths.length];
+    public HashMap<String, Parent> pageLoaders = new HashMap<String, Parent>();
+    public String rand = "patate";
+   
+    // =================== variabili locali =================== //
+   
     private Json jsonFileReader;
 
-    
-
-    public FXMLLoader[] loaders = new FXMLLoader[XML_Paths.length];
-    public Stage actualStage;
-
-
+       
     public static void main(String[] args) throws Exception {
         System.out.println("Application Runnning...\n");
         //new EmotionalSongs();
         launch(args);
     }
 
+
     @Override
     public void start(Stage stage) 
     {
+        EmotionalSongs.classReference = this;
+
         try {
-            System.out.println("Start loading XML file:");
-
-            for(int index = 0; index < XML_Paths.length; index++) 
-            {
-                System.out.println(XML_Paths[index]);
-                loaders[index] = new FXMLLoader(getClass().getClassLoader().getResource(XML_Paths[index]));
-            }
-
-            //per utilizzare il costruttore della classe
-            loaders[0].setControllerFactory(c -> {
-                return new SceneController(this); // <-- parametri costruttore classe
-            });
-
-            loaders[1].setControllerFactory(c -> {
-                return new MainPageController(this); // <-- parametri costruttore classe
-            });
-
-            loaders[2].setControllerFactory(c -> {
-                return new EnterController(this); // <-- parametri costruttore classe
-            });
-
-            Parent root = loaders[0].load();
-            Scene scene = new Scene(root);
-
-            System.out.println("loading completed\n");
-            System.out.println("accounts credentials recovery:");
+            System.out.println("Accounts Credentials Recovery:");
             LoadAccounts();
             System.out.println();
-            System.out.println("loading songs:");
+            System.out.println("\nLoading Songs:");
             LoadSongs();
-            System.out.println();
-            System.out.println();
+            System.out.println("\n\nStart loading XML file...");
+
+            for(String path : XML_Paths) {
+                System.out.println("loading " + path);
+                
+                String key = path.split("/")[path.split("/").length - 1].replace(".fxml", "");
+                FXMLLoader file = new FXMLLoader(getClass().getClassLoader().getResource(path));
+                Parent root = file.load();
+                
+                //per utilizzare il costruttore della classe
+                /*file.setControllerFactory(c -> {    
+                    return new Controller(this); // <-- parametri costruttore classe
+                });*/
+                pageLoaders.put(key, root);
+            }
+            System.out.println("\nLoading Completed\n");
             
-            System.out.println("root settings:");
 
             stage.setOnCloseRequest(event -> {
                 event.consume();
                 logout(stage);
             });
 
+            //pagina iniziale
             stage.setTitle("EmotionaSong");
-            stage.setScene(scene);
+            stage.setScene(new Scene(pageLoaders.get("AccessPage")));
             stage.show();
-            System.out.println("completed\n");
-            System.out.println("starting...");
-            
+           
+            System.out.println("starting..."); 
+        
 
         } catch(NullPointerException e) {
             System.out.println("file non trovato, errore nel percorso del file fxml");
 
-        } catch (IOException e) {
-            e.printStackTrace(); 
+        /*} catch (IOException e) {
             System.out.println(e);  
+            e.printStackTrace(); */
 
         } catch (Exception e) {
-            e.printStackTrace(); 
             System.out.println(e);  
+            e.printStackTrace(); 
         }
     }
 
@@ -192,10 +192,5 @@ public class EmotionalSongs extends Application{
         
         return true;*/
 
-    }
-
-
-    public void ChangeStage(int number) throws IOException  {
-        actualStage.setScene(new Scene(loaders[number].load()));
     }
 }

@@ -9,7 +9,7 @@ The workspace contains two folders by default, where:
 - `src` : the folder to maintain sources
 - `lib` : the folder to maintain dependencies
 - `data`: the folder to maintain image and data information
-- 'doc' : the folder to maintain documentations
+- `doc` : the folder to maintain documentations
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
