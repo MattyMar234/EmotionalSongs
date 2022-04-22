@@ -176,21 +176,18 @@ public class EmotionalSongs extends Application{
         return true;
     }
 
-    public boolean checkAccaunt(Account temp) {
+    public int checkAccaunt(Account temp) {
 
-        return true;
-
-        /*
+        //return true;
         for(Account existingAcaunt : Users) {
-            System.out.println("test: " + existingAcaunt.getName() + " con " + temp.getName());
-            if(existingAcaunt.getName().equals(temp.getName())) {
-                System.out.println("l'account esiste");
-
-                break;
-            }
+            if(existingAcaunt.getEmail().equals(temp.getEmail())) {
+                return 1;
+            }  
         }
-        
-        return true;*/
 
+        //test cap
+
+        //test posto
+        return 0;
     }
 }
