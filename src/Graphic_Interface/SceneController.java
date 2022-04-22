@@ -1,7 +1,9 @@
 package Graphic_Interface;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import emotionalsongs.Account;
@@ -41,24 +43,39 @@ public class SceneController extends Controller implements Initializable {
 
     @FXML private Label label1;
 
+    private ArrayList<TextField> fileds = new ArrayList<TextField>();
+
 
 
     public SceneController() {
         super();
+        fileds.add(name);
     }
 
     public void validateNewUser() throws IOException {
         System.out.println("validate data");
         //event.consume();
 
-        if(name.getText() != null || name.getText() != "") {
-            Account temporaneo = new Account();
+        if(name.getText() != null || name.getText() != "") 
+        {
+            String [] data = new String[4];
             
-            temporaneo.setName(name.getText());
-            if(!application.checkAccaunt(temporaneo)) {
-                System.out.println("accaunt non valido");
-                //name.setText("nome non valido");
+            data[0] = name.getText();
+            data[1] = surname.getText();
+            data[2] = email.getText();
+            data[3] = password1.getText();
+
+            Account testAccount = new Account(data);
+            System.out.println(testAccount);
+        
+            int result = application.checkAccaunt(testAccount);
+            if(result == 1) {
+                System.out.println("email o ID già utilizzata");
                 label1.setVisible(true);
+            }
+            else if(result > 1)
+            {
+                System.out.println("credenziali non valide");
             }
             else {
                 //event.consume();

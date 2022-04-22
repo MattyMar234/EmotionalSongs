@@ -6,13 +6,16 @@ import JsonFile.Json;
 
 public class Account {
 
-    protected String name;
-    protected String surname;
-    protected String email;
-    protected String password;
+    protected String name = new String();
+    protected String surname = new String();
+    protected String email = new String();
+    protected String password = new String();
 
     protected String TaxIDcode; 
     protected String UserID;
+    protected int cap;
+    protected String comune;
+
 
     //costruttore1 
     public Account()
@@ -23,7 +26,10 @@ public class Account {
     //costruttore2
     public Account(String[] data)
     {
-
+        name     = data[0];
+        surname = data[1];
+        email = data[2];
+        password = data[3];
     }
 
     //costruttore3
@@ -54,11 +60,15 @@ public class Account {
         if(obj instanceof Account) {
             Account accountToTest = (Account) obj;
 
-            //verifico solo l'email ????
-            if(accountToTest.getEmail() == this.email) {
+            if(accountToTest.getEmail() == this.email || accountToTest.getUserID() == this.UserID) {
                 return true;
             }
         }
+        return false;
+    }
+
+    public boolean IsIndentical(Account totest)
+    {
         return false;
     }
 
