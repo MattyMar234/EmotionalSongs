@@ -1,5 +1,6 @@
 package PlayListSongs;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 
@@ -13,6 +14,7 @@ public class Song {
     protected String album;
     protected String duration;
     protected String genre;
+    protected ArrayList<Emotion> emotions = new ArrayList<Emotion>();
 
     public Song(String n1) {
         this.title = n1;
@@ -41,6 +43,16 @@ public class Song {
         information += "type: "     + this.genre     + "\n\r";
         
         return information;
+    }
+
+    
+
+    public ArrayList<Emotion> getEmotions() {
+        return this.emotions;
+    }
+
+    public void setEmotions(ArrayList<Emotion> emotions) {
+        this.emotions = emotions;
     }
 
     public String getTitle() {

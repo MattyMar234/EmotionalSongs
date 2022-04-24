@@ -26,8 +26,7 @@ public class Account {
     }
 
     //costruttore2
-    public Account(String[] data)
-    {
+    public Account(String[] data) {
         name     = data[0];
         surname  = data[1];
         email    = data[2];

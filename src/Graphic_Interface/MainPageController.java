@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import PlayListSongs.Song;
+import PlayListSongs.SongWindow;
 import emotionalsongs.EmotionalSongs;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -28,6 +29,7 @@ import javafx.stage.Window;
 
 public class MainPageController extends Controller implements Initializable {
 
+    // ========================= FXML object =========================//
     @FXML private TextField KeywordTextField;
     @FXML private TableView<Song> SongsTable;
     @FXML private TableColumn<Song, String> Album;
@@ -41,11 +43,14 @@ public class MainPageController extends Controller implements Initializable {
 
     @FXML private ImageView icon;
 
-
-    
-
     private ObservableList<Song> list = FXCollections.observableArrayList();
 
+    // ========================= variabili =========================//
+    //doppio click variabili 
+    float fistclick;
+    float secondClick;
+    float maxDt = 0.320f;   //320ms
+    int state = 0;
 
     public MainPageController() {
         super();
@@ -128,9 +133,42 @@ public class MainPageController extends Controller implements Initializable {
     }
 
     @FXML
-    void elementSelected(MouseEvent event) {
+    public void elementSelected(MouseEvent event) throws Exception {
+        
+        if(doubleClick()) {
+            System.out.println("song selected");
+            Song selected = SongsTable.getSelectionModel().getSelectedItem();
+            SongWindow windowSong = new SongWindow(application, selected);
+        }
+    }
 
-        //test double click
-        System.out.println("clicked");
+    protected boolean doubleClick()
+    {
+        if(state == 0) {
+            this.fistclick = System.nanoTime();
+            state++;
+
+            return false;
+        }
+        else {
+            this.secondClick = System.nanoTime();
+            state = 0;
+
+            float dt = secondClick - fistclick; //ns
+            //System.out.println("dt = " + dt + " ns");
+            
+            //converto da nano a secondi
+            dt = (float) (dt/Math.pow(10, 9));
+
+            //System.out.println("dt = " + dt + " s"); //s
+            //System.out.println("dtmx = " + maxDt + " s"); //s
+            //System.out.println("" + (this.maxDt - dt));
+           
+            if(this.maxDt - dt >= 0.0) {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

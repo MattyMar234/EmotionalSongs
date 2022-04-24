@@ -34,6 +34,7 @@
 
 .button {
     -fx-background-color: linear-gradient(to right, #ee8700, #f14804);
+    /*-fx-background-color: linear-gradient(to right, #ee8700, #3bf104);*/
     -fx-font-size: 15;
 }
 

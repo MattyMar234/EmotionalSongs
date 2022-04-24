@@ -37,7 +37,8 @@ public class EmotionalSongs extends Application{
         "fxml_Page/UserRegistration.fxml",
         "fxml_Page/MainPage.fxml",
         "fxml_Page/LoadAccaunt.fxml",
-        "fxml_Page/AccessPage.fxml"
+        "fxml_Page/AccessPage.fxml",
+        "fxml_Page/SongPageInformation.fxml"
     };
 
 
@@ -198,5 +199,13 @@ public class EmotionalSongs extends Application{
         Scene scene = new Scene(XMLloader.load());
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void getNewStageWindow(Stage newstage, String name) throws IOException 
+    {
+        FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource(pageLoaders.get(name)));
+        Scene scene = new Scene(XMLloader.load());
+        newstage.setScene(scene);
+        newstage.show();
     }
 }
