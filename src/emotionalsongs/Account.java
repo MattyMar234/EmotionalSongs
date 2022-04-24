@@ -163,7 +163,7 @@ public class Account {
     public void crea_playlist_vuota(){
         String nome="";
         ArrayList<Song> daje=new ArrayList<Song>();
-        PlayList k=new PlayList(nome,daje);
+        PlayList k = new PlayList(nome,daje);
         album.add_playlist(k);
     }
 

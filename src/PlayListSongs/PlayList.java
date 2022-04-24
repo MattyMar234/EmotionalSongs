@@ -5,10 +5,10 @@ public class PlayList {
     String nome;
     ArrayList<Song>canzoni=new ArrayList<Song>();
 
-        PlayList(String nome, ArrayList<Song> canzoni){
-            this.nome=nome;
-            this.canzoni=canzoni;
-        }
+    public PlayList(String nome, ArrayList<Song> canzoni) {
+        this.nome=nome;
+        this.canzoni=canzoni;
+    }
 
     public void cambianome(String nuovo_nome){
         this.nome=nuovo_nome;
@@ -21,6 +21,8 @@ public class PlayList {
     public void removecanzone(Song a){
         canzoni.remove(a);
     }
+
+    public void clear(){}
     
     
 }
