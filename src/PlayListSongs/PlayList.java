@@ -23,6 +23,22 @@ public class PlayList {
     }
 
     public void clear(){}
+
+
+    @Override
+    public String toString() {
+        String contenuto;
+
+        contenuto = "playlist " + nome + "\nelementi presenti (" + canzoni.size() + "):\n";  
+
+        int index = 1;
+        for(Song a : canzoni){
+            contenuto += "canzone " + index++ + ": " + a.getTitle();
+        }
+
+        return contenuto;
+
+    }
     
     
 }
