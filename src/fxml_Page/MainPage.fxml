@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" styleClass="backgroundColor" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Graphic_Interface.MainPageController">
    <children>
-      <TableView fx:id="SongsTable" layoutX="25.0" layoutY="130.0" onSort="#Selezione" prefHeight="630.0" prefWidth="850.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="130.0">
+      <TableView fx:id="SongsTable" layoutX="25.0" layoutY="130.0" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="630.0" prefWidth="850.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="130.0">
         <columns>
           <TableColumn fx:id="Title" prefWidth="218.0" text="Title" />
           <TableColumn fx:id="Autor" prefWidth="142.0" text="Autor" />

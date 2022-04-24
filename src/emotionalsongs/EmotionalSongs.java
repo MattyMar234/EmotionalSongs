@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 
 import Graphic_Interface.EnterController;
 import Graphic_Interface.MainPageController;
-import Graphic_Interface.SceneController;
+import Graphic_Interface.NewUserRegistrationController;
 import Graphic_Interface.Controller;
 import JsonFile.Json;
 import PlayListSongs.Song;
@@ -31,6 +31,7 @@ public class EmotionalSongs extends Application{
     private final String UsersDataFilePath2 = "\\data\\UtentiRegistrati2.json";   //prova
     private final String songsDataFilePath = "\\data\\canzoni.json";
     private final String SongDataFilePath  = "data.txt";    //?
+    
     private final String [] XML_Paths = {
 
         "fxml_Page/UserRegistration.fxml",
@@ -46,11 +47,11 @@ public class EmotionalSongs extends Application{
     public ArrayList<Account> Users = new ArrayList<>();
     public Stage stage;
     public FXMLLoader[] loaders = new FXMLLoader[XML_Paths.length];
-    public HashMap<String, Parent> pageLoaders = new HashMap<String, Parent>();
-    public String rand = "patate";
+    public HashMap<String, String> pageLoaders = new HashMap<String, String>();
+    public Account activeAccount = null;
    
+
     // =================== variabili locali =================== //
-   
     private Json jsonFileReader;
 
        
@@ -74,22 +75,21 @@ public class EmotionalSongs extends Application{
             LoadSongs();
             System.out.println("\n\nStart loading XML file...");
 
-            for(String path : XML_Paths) {
-                System.out.println("loading " + path);
-                
+            for(String path : XML_Paths) 
+            {
                 String key = path.split("/")[path.split("/").length - 1].replace(".fxml", "");
-                FXMLLoader file = new FXMLLoader(getClass().getClassLoader().getResource(path));
-                Parent root = file.load();
+                pageLoaders.put(key, path);
+                System.out.println("loading " + path);
                 
                 //per utilizzare il costruttore della classe
                 /*file.setControllerFactory(c -> {    
                     return new Controller(this); // <-- parametri costruttore classe
                 });*/
-                pageLoaders.put(key, root);
+                
             }
             System.out.println("\nLoading Completed\n");
             
-
+                //labda function 
             stage.setOnCloseRequest(event -> {
                 event.consume();
                 logout(stage);
@@ -97,7 +97,7 @@ public class EmotionalSongs extends Application{
 
             //pagina iniziale
             stage.setTitle("EmotionaSong");
-            stage.setScene(new Scene(pageLoaders.get("AccessPage")));
+            changeScreen(stage, "AccessPage");
             stage.show();
            
             System.out.println("starting..."); 
@@ -187,7 +187,16 @@ public class EmotionalSongs extends Application{
 
         //test cap
 
-        //test posto
+        //tutto aposto
         return 0;
+    }
+
+
+    public void changeScreen(Stage stage, String name) throws IOException 
+    {
+        FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource(pageLoaders.get(name)));
+        Scene scene = new Scene(XMLloader.load());
+        stage.setScene(scene);
+        stage.show();
     }
 }

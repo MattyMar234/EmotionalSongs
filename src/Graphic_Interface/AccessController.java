@@ -1,5 +1,6 @@
 package Graphic_Interface;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -36,13 +37,13 @@ public class AccessController extends Controller implements Initializable {
     }
 
     @FXML
-    void NoAccount(ActionEvent event) {
+    void NoAccount(ActionEvent event) throws IOException {
         Stage Window = (Stage) NoAccountButton.getScene().getWindow();
         super.SwitchScene(Window, "MainPage");
     }
 
     @FXML
-    void CreateNewAccount(MouseEvent event) {
+    void CreateNewAccount(MouseEvent event) throws IOException {
         Stage Window = (Stage) NoAccountButton.getScene().getWindow();
         super.SwitchScene(Window, "UserRegistration");
     }

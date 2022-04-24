@@ -1,20 +1,22 @@
 package emotionalsongs;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import JsonFile.Json;
 
 public class Account {
 
-    protected String name = new String();
-    protected String surname = new String();
-    protected String email = new String();
-    protected String password = new String();
-
+    protected String name;
+    protected String surname;
+    protected String email;
+    protected String password;
+    protected String userID;
     protected String TaxIDcode; 
-    protected String UserID;
-    protected int cap;
     protected String comune;
+    protected String provincia;
+    protected String viaPiazza;
+    protected int cap;
 
 
     //costruttore1 
@@ -27,8 +29,8 @@ public class Account {
     public Account(String[] data)
     {
         name     = data[0];
-        surname = data[1];
-        email = data[2];
+        surname  = data[1];
+        email    = data[2];
         password = data[3];
     }
 
@@ -39,6 +41,17 @@ public class Account {
         this.surname    = (String) Json.GetElement(Account, Arrays.asList("surname"));
         this.email      = (String) Json.GetElement(Account, Arrays.asList("email"));
         this.password   = (String) Json.GetElement(Account, Arrays.asList("password"));
+        
+    }
+
+    //costruttore4
+    public Account(HashMap<String, String> AccountData)
+    {
+        this.name       = AccountData.get("name");
+        this.surname    = AccountData.get("surname");
+        this.email      = AccountData.get("email");
+        this.password   = AccountData.get("password1");
+        this.userID     = AccountData.get("userID");
     }
 
 
@@ -60,15 +73,14 @@ public class Account {
         if(obj instanceof Account) {
             Account accountToTest = (Account) obj;
 
-            if(accountToTest.getEmail() == this.email || accountToTest.getUserID() == this.UserID) {
+            if(accountToTest.getEmail() == this.email || accountToTest.getUserID() == this.userID) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean IsIndentical(Account totest)
-    {
+    public boolean IsIndentical(Account totest)  {
         return false;
     }
 
@@ -131,11 +143,11 @@ public class Account {
 
     
     public String getUserID() {
-        return UserID;
+        return userID;
     }
 
     public void setUserID(String userID) {
-        UserID = userID;
+        userID = userID;
     }
 
     

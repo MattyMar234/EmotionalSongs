@@ -126,4 +126,11 @@ public class MainPageController extends Controller implements Initializable {
         super.SwitchScene(Window, "LoadAccaunt");
            
     }
+
+    @FXML
+    void elementSelected(MouseEvent event) {
+
+        //test double click
+        System.out.println("clicked");
+    }
 }

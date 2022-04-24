@@ -27,8 +27,8 @@
     -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
-    -fx-border-color: #616161;
-    -fx-border-width: 2px;
+    -fx-border-color: #333333;
+    -fx-border-width: 3px;
     -fx-color:transparent;
 }
 
