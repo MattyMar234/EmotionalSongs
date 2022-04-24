@@ -9,7 +9,16 @@
             "name": "Launch EmotionalSongs",
             "request": "launch",
             "mainClass": "emotionalsongs.EmotionalSongs",
-            "projectName": "EmotionalSongs - GitHub_c9e62c14"
+            "projectName": "EmotionalSongs_60de147",
+            "vmArgs": "--module-path lib/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Launch EmotionalSongs",
+            "request": "launch",
+            "mainClass": "emotionalsongs.EmotionalSongs",
+            "projectName": "EmotionalSongs - GitHub_c9e62c14",
+            "vmArgs": "--module-path lib/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
