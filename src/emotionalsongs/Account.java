@@ -25,7 +25,6 @@ public class Account {
     protected Album album;
 
 
-
     //costruttore1 
     public Account()
     {
@@ -33,7 +32,8 @@ public class Account {
     }
 
     //costruttore2
-    public Account(String[] data) {
+    public Account(String[] data)
+    {
         name     = data[0];
         surname  = data[1];
         email    = data[2];
@@ -155,7 +155,6 @@ public class Account {
     public void setUserID(String userID) {
         userID = userID;
     }
-
 
     public void elimina_playlist(){
         playlist.clear();
