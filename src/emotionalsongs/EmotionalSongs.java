@@ -58,6 +58,7 @@ public class EmotionalSongs extends Application{
        
     public static void main(String[] args) throws Exception {
         System.out.println("Application Runnning...\n");
+        
         //new EmotionalSongs();
         launch(args);
     }
