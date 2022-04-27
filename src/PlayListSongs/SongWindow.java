@@ -11,8 +11,8 @@ public class SongWindow {
 
     protected EmotionalSongs main;
     protected Song selectedSong;
-    private int test;
-    private int test2;
+    public int test;
+    public int test2;
 
     //costructor
     public SongWindow(EmotionalSongs main, Song selectedSong) throws Exception 

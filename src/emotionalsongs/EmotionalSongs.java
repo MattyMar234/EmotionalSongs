@@ -49,7 +49,7 @@ public class EmotionalSongs extends Application{
     public Stage stage;
     public FXMLLoader[] loaders = new FXMLLoader[XML_Paths.length];
     public HashMap<String, String> pageLoaders = new HashMap<String, String>();
-    public Account activeAccount = null;
+    public Account ConnectedAccount;
    
 
     // =================== variabili locali =================== //

@@ -16,13 +16,8 @@ public class Account {
     protected String email;
     protected String password;
     protected String userID;
-    protected String TaxIDcode; 
-    protected String comune;
-    protected String provincia;
-    protected String viaPiazza;
-    protected int cap;
-    protected PlayList playlist;
-    protected Album album;
+    
+    
 
 
     //costruttore1 
@@ -73,18 +68,7 @@ public class Account {
         return informations;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-
-        if(obj instanceof Account) {
-            Account accountToTest = (Account) obj;
-
-            if(accountToTest.getEmail() == this.email || accountToTest.getUserID() == this.userID) {
-                return true;
-            }
-        }
-        return false;
-    }
+    
 
     public boolean IsIndentical(Account totest)  {
         return false;
@@ -139,43 +123,12 @@ public class Account {
     }
 
 
-    public String getTaxIDcode() {
-        return TaxIDcode;
-    }
-
-    public void setTaxIDcode(String taxIDcode) {
-        TaxIDcode = taxIDcode;
-    }
+    
 
     
-    public String getUserID() {
-        return userID;
-    }
+    
 
-    public void setUserID(String userID) {
-        userID = userID;
-    }
-
-    public void elimina_playlist(){
-        playlist.clear();
-    }
-
-    public void crea_playlist_vuota(){
-        String nome="";
-        ArrayList<Song> daje=new ArrayList<Song>();
-        PlayList k = new PlayList(nome,daje);
-        album.add_playlist(k);
-    }
-
-    public void crea_playlist_con_qualche_canzone(ArrayList<Song> canzoni_scelte_prima){
-        String nome="";
-        ArrayList<Song> daje=new ArrayList<Song>();
-        PlayList k=new PlayList(nome,daje);
-        for(int i=0;i<((CharSequence) canzoni_scelte_prima).length();i++){
-            k.addcanzone(canzoni_scelte_prima.get(i));
-        }
-        album.add_playlist(k);
-    }
+    
 
     
     
