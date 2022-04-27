@@ -1,3 +1,129 @@
-.backgroundColor {
-    -fx-background-color: linear-gradient(to right bottom, #61d8de, #e839f6);
+.root {
+	-fx-background: #5d5a63;
+    /*-fx-background:linear-gradient(to right top, #49a09d, #5f2c82); */
+    -fx-background:linear-gradient(to right top, #4456D2, #C651C3);
+    
+	-fx-font-family: "Century Gothic";
+	-fx-accent: #aa95c9;
+	-fx-focus-color: #aa95c9;
 }
+
+#navbar {
+    -fx-background-color: #F0F0F0;
+    -fx-padding: 0px;
+}
+
+#KeywordTextField {
+    -fx-background-color: #F0F0F0;
+}
+
+#icon {
+    -fx-margin:100px;
+}
+
+
+
+.table-view {
+
+    -fx-border-color: #36304A;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-padding: 0px;
+    -fx-text-fill: #000000;
+    -fx-padding: 0px;
+    -fx-width: 100%;
+
+    /*-fx-border-width: 4px;
+    -fx-border-color: rgba(94, 94, 94, 0.445);
+    -fx-border-radius: 4px;
+    -fx-fill: white;*/
+     /* -fx-background-color: transparent;*/
+}
+
+/* ===================== header tabella =====================*/
+/*      Individual Column Header        */
+.table-view .column-header-background 
+{
+    -fx-background-color: #36304A;
+    -fx-background-radius: 12 12 0 0;
+    -fx-padding: 10 0 10 0;
+}
+
+/* ===================== header della colonna ===================== */
+.table-view .column-header-background .label 
+{
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+    -fx-font-size: 16px;
+    font-family: 'arial', Courier, monospace;
+}
+
+
+/* ===================== Cells and Rows =====================*/
+.table-view .column-header 
+{
+    -fx-background-color: trasparent;
+    -fx-margin: 14px;
+}
+
+
+
+.table-view .table-cell{
+    
+    -fx-alignment: center;
+}
+
+
+.table-row-cell
+{
+    -fx-padding: 0.0em; 
+    -fx-cell-size: 40px;
+    -fx-font-size: 14px;
+}
+
+.table-row-cell:even {
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; 
+}
+
+.table-row-cell:odd
+{
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; 
+}
+
+.table-row-cell:hover
+ {
+    -fx-background-color: #e2e2e2;
+}
+
+.table-row-cell:selected
+ {
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+    -fx-background-color: #81c483;
+    -fx-background-radius: 0px;
+}
+
+
+/* ===================== scroll-bars ===================== */
+.table-view .virtual-flow .scroll-bar:vertical .thumb {
+    -fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  trasparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-arrow,
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+  -fx-background-color: null;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+  -fx-shape: null;
+}
+
