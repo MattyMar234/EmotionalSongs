@@ -125,16 +125,13 @@ public class MainPageController extends Controller implements Initializable {
     }
 
     @FXML
-    public void access(MouseEvent event) throws IOException 
-    {
-        Stage Window = (Stage) icon.getScene().getWindow();
-        super.SwitchScene(Window, "LoadAccaunt");
-           
+    public void access(MouseEvent event) throws IOException {
+        super.SwitchScene((Stage) icon.getScene().getWindow(), "LoadAccaunt");
     }
 
     @FXML
-    public void elementSelected(MouseEvent event) throws Exception {
-        
+    public void elementSelected(MouseEvent event) throws Exception 
+    {        
         if(doubleClick()) {
             System.out.println("song selected");
             Song selected = SongsTable.getSelectionModel().getSelectedItem();

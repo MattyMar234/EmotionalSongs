@@ -22,7 +22,7 @@
                   <Font size="13.0" />
                </font>
             </TextField>
-            <Button id="Login" fx:id="LoginButton" layoutX="69.0" layoutY="273.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="313.0" stylesheets="@../css/AccessPage.css" text="Accedi all'Account" />
+            <Button id="Login" fx:id="LoginButton" layoutX="69.0" layoutY="273.0" mnemonicParsing="false" onAction="#searchAccount" prefHeight="42.0" prefWidth="313.0" stylesheets="@../css/AccessPage.css" text="Accedi all'Account" />
             <Button fx:id="NoAccountButton" layoutX="69.0" layoutY="342.0" mnemonicParsing="false" onAction="#NoAccount" prefHeight="42.0" prefWidth="313.0" text="Continua senza account" />
             <Label id="NewAccountLabel" fx:id="NewAccount" layoutX="170.0" layoutY="417.0" onMouseClicked="#CreateNewAccount" prefHeight="19.0" prefWidth="111.0" stylesheets="@../css/AccessPage.css" text="Crea un Account" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" underline="true">
                <font>
