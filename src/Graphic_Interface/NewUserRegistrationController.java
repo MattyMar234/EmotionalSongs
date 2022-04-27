@@ -178,7 +178,7 @@ public class NewUserRegistrationController extends Controller implements Initial
         {
             case 0:
                 application.Users.add(testAccount);
-                application.activeAccount = testAccount;
+                application.ConnectedAccount = testAccount;
                 Stage Window = (Stage) confirmButton.getScene().getWindow();
                 super.SwitchScene(Window, "MainPage");
                 break;

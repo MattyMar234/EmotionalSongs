@@ -48,4 +48,10 @@ public class AccessController extends Controller implements Initializable {
         super.SwitchScene(Window, "UserRegistration");
     }
 
+    @FXML
+    void searchAccount(ActionEvent event) {
+
+    }
+
+
 }

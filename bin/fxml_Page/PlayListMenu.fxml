@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="300.0" layoutY="156.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="150.0">
+        <columns>
+          <TableColumn prefWidth="150.4000244140625" text="nome PLaylist" />
+          <TableColumn minWidth="5.5999755859375" prefWidth="101.5999755859375" text="numero canzoni" />
+            <TableColumn prefWidth="446.4000244140625" text="Emozioni associate" />
+        </columns>
+      </TableView>
+      <Label layoutX="361.0" layoutY="80.0" prefHeight="18.0" prefWidth="77.0" text="le mie PLaylist" />
+   </children>
+</AnchorPane>
