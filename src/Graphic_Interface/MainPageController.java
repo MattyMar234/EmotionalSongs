@@ -24,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -35,13 +36,20 @@ public class MainPageController extends Controller implements Initializable {
     @FXML private TableColumn<Song, String> Album;
     @FXML private TableColumn<Song, String> Autor;
     @FXML private TableColumn<Song, String> Comment;
-    @FXML private TableColumn<Song, String> Genre;
+    @FXML private TableColumn<Song, String> songNumber;
     @FXML private TableColumn<Song, String> Score;
     @FXML private TableColumn<Song, String> Time;
     @FXML private TableColumn<Song, String> Title;
     @FXML private TableColumn<Song, String> Year;
 
     @FXML private ImageView icon;
+    @FXML private AnchorPane menuContainer;
+    int menuState = 0;
+
+    @FXML private Button CambioButton;
+    @FXML private Button ExitButton;
+    @FXML private Button playlistButton;
+    @FXML private Button profileButton;
 
     private ObservableList<Song> list = FXCollections.observableArrayList();
 
@@ -69,7 +77,7 @@ public class MainPageController extends Controller implements Initializable {
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
         Year.setCellValueFactory(new PropertyValueFactory<Song, String>("year"));
-        Genre.setCellValueFactory(new PropertyValueFactory<Song, String>("genre"));
+        songNumber.setCellValueFactory(new PropertyValueFactory<Song, String>("number"));
         Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         Time.setCellValueFactory(new PropertyValueFactory<Song, String>("duration"));
 
@@ -100,9 +108,6 @@ public class MainPageController extends Controller implements Initializable {
                     else if(song.getYear().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     }
-                    else if(song.getGenre().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                        return true;
-                    }
                 } catch (NullPointerException e) {
                     return false;
                 }
@@ -115,7 +120,20 @@ public class MainPageController extends Controller implements Initializable {
         SortedList<Song> sortedData = new SortedList<Song>(filteredData);
         sortedData.comparatorProperty().bind(SongsTable.comparatorProperty());
         SongsTable.setItems(sortedData);
+
+        menuContainer.setVisible(false);
         
+    }
+
+    @FXML
+    void closeMenu(MouseEvent event) {
+        if(menuContainer.isVisible() && menuState >= 2) {
+            menuContainer.setVisible(false);
+            menuState = 0;
+        }
+        else {
+            menuState++;
+        }
     }
 
     @FXML
@@ -126,7 +144,9 @@ public class MainPageController extends Controller implements Initializable {
 
     @FXML
     public void access(MouseEvent event) throws IOException {
-        super.SwitchScene((Stage) icon.getScene().getWindow(), "LoadAccaunt");
+        //super.SwitchScene((Stage) icon.getScene().getWindow(), "LoadAccaunt");
+        menuContainer.setVisible(true);
+        menuState++;
     }
 
     @FXML
@@ -167,5 +187,10 @@ public class MainPageController extends Controller implements Initializable {
 
             return false;
         }
+    }
+
+    @FXML
+    void esci(ActionEvent event) {
+        application.logout(application.mainStage);
     }
 }

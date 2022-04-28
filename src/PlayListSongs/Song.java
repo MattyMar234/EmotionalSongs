@@ -8,6 +8,7 @@ import JsonFile.Json;
 
 public class Song {
 
+    protected String number;
     protected String title;
     protected String autor;
     protected String year;
@@ -28,6 +29,17 @@ public class Song {
         this.album     = (String) Json.GetElement(Account, Arrays.asList("Album"));
         this.duration  = (String) Json.GetElement(Account, Arrays.asList("Duration"));
         this.genre     = (String) Json.GetElement(Account, Arrays.asList("Type"));
+    }
+
+    public Song(String [] data) {
+
+        this.number    = data[0];
+        this.title     = data[16];
+        this.autor     = data[8];
+        this.year      = data[17];
+        this.album     = data[3];
+        this.duration  = data[10];
+        this.genre     = "?";
     }
 
 
@@ -95,13 +107,16 @@ public class Song {
         this.duration = duration;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getNumber() {
+        return number;
     }
 
-    public void setGenre(String type) {
-        this.genre = type;
+    public void setNumber(String number) {
+        this.number = number;
     }
+
+    
+
 
     
     

@@ -1,7 +1,7 @@
 .root {
 	-fx-background: #5d5a63;
-    /*-fx-background:linear-gradient(to right top, #49a09d, #5f2c82); */
-    -fx-background:linear-gradient(to right top, #4456D2, #C651C3);
+    /*-fx-background:linear-gradient(to right, #49a09d, #5f2c82); */
+    -fx-background: linear-gradient(to right top, #4456D2, #C651C3);
     
 	-fx-font-family: "Century Gothic";
 	-fx-accent: #aa95c9;
@@ -9,7 +9,7 @@
 }
 
 #navbar {
-    -fx-background-color: #F0F0F0;
+    -fx-background-color: #ececec;
     -fx-padding: 0px;
 }
 
@@ -19,6 +19,37 @@
 
 #icon {
     -fx-margin:100px;
+}
+
+#menuContainer {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 1px;
+    -fx-border-color: #a1a1a1;
+}
+
+#bt1_container {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #a1a1a1;
+}
+
+#bt4_container {
+    -fx-border-width: 1 0 0 0;
+    -fx-border-color: #a1a1a1;
+}
+
+#profileButton, #playlistButton, #CambioButton, #ExitButton {
+    -fx-background-color: transparent;
+    -fx-text-align: center;
+    -fx-text-fill:#000000;
+}
+
+#bt1_container:hover, #bt2_container:hover, #bt3_container:hover, #bt4_container:hover {
+    -fx-background-color: rgba(112, 167, 192, 0.4);
+}
+
+#menuLabe1 {
+    -fx-text-fill:#000000; 
+    -fx-font-size: 18;
 }
 
 
@@ -62,7 +93,7 @@
 /* ===================== Cells and Rows =====================*/
 .table-view .column-header 
 {
-    -fx-background-color: trasparent;
+    -fx-background-color: transparent;
     -fx-margin: 14px;
 }
 
@@ -108,11 +139,10 @@
 
 /* ===================== scroll-bars ===================== */
 .table-view .virtual-flow .scroll-bar:vertical .thumb {
-    -fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);
+    /*-fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);*/
 }
 .table-view .virtual-flow .scroll-bar:horizontal .thumb {
-    -fx-background-color:  trasparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
-    -fx-background-color: null;
+    -fx-background-color:  transparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-padding: 0;
@@ -120,7 +150,7 @@
 
 .table-view *.scroll-bar:horizontal *.increment-arrow,
 .table-view *.scroll-bar:horizontal *.decrement-arrow {
-  -fx-background-color: null;
+  -fx-background-color: transparent;
   -fx-background-radius: 0;
   -fx-background-insets: 0;
   -fx-padding: 0;

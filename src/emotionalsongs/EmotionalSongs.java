@@ -30,6 +30,7 @@ public class EmotionalSongs extends Application{
     private final String UsersDataFilePath = "\\data\\UtentiRegistrati.json";
     private final String UsersDataFilePath2 = "\\data\\UtentiRegistrati2.json";   //prova
     private final String songsDataFilePath = "\\data\\canzoni.json";
+    private final String songsDataFilePath2 = Directory + "\\data\\Song.csv";
     private final String SongDataFilePath  = "data.txt";    //?
     
     private final String [] XML_Paths = {
@@ -50,6 +51,7 @@ public class EmotionalSongs extends Application{
     public FXMLLoader[] loaders = new FXMLLoader[XML_Paths.length];
     public HashMap<String, String> pageLoaders = new HashMap<String, String>();
     public Account ConnectedAccount;
+    public Stage mainStage;
    
 
     // =================== variabili locali =================== //
@@ -68,13 +70,18 @@ public class EmotionalSongs extends Application{
     public void start(Stage stage) 
     {
         EmotionalSongs.classReference = this;
+        this.mainStage = stage;
+
+        SongManager songManager = new SongManager(this);
+        songManager.LoadSongs(songsDataFilePath2);
 
         try {
             System.out.println("Accounts Credentials Recovery:");
             LoadAccounts();
             System.out.println();
             System.out.println("\nLoading Songs:");
-            LoadSongs();
+            songManager.LoadSongs(songsDataFilePath2);
+            //LoadSongs();
             System.out.println("\n\nStart loading XML file...");
 
             for(String path : XML_Paths) 
@@ -82,16 +89,11 @@ public class EmotionalSongs extends Application{
                 String key = path.split("/")[path.split("/").length - 1].replace(".fxml", "");
                 pageLoaders.put(key, path);
                 System.out.println("loading " + path);
-                
-                //per utilizzare il costruttore della classe
-                /*file.setControllerFactory(c -> {    
-                    return new Controller(this); // <-- parametri costruttore classe
-                });*/
-                
             }
+
             System.out.println("\nLoading Completed\n");
             
-                //labda function 
+                //lambda function 
             stage.setOnCloseRequest(event -> {
                 event.consume();
                 logout(stage);
