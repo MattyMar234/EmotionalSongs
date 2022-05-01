@@ -1,6 +1,7 @@
 package emotionalsongs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import PlayListSongs.Album;
@@ -17,11 +18,11 @@ public class RegisteredAccount extends Account {
     protected int cap;
 
     //dati canzoni
-    protected PlayList playlist;
-    protected Album album;
+    protected ArrayList<PlayList> PlayLists = new ArrayList<PlayList>();
+    protected Album album; 
 
-    public RegisteredAccount(LinkedHashMap<String, Object> Account) {
-        super(Account);
+    public RegisteredAccount(HashMap<String, String> userCostructor) {
+        super(userCostructor);
         
     }
 
@@ -54,7 +55,7 @@ public class RegisteredAccount extends Account {
 
 
     public void elimina_playlist(){
-        playlist.clear();
+        PlayLists.clear();
     }
 
 
@@ -91,5 +92,15 @@ public class RegisteredAccount extends Account {
     public void setTaxIDcode(String taxIDcode) {
         TaxIDcode = taxIDcode;
     }
+
+    public ArrayList<PlayList> getPlayLists() {
+        return PlayLists;
+    }
+
+    public void setPlayLists(ArrayList<PlayList> playLists) {
+        PlayLists = playLists;
+    }
+
+    
     
 }

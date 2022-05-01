@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import Graphic_Interface.EnterController;
-import Graphic_Interface.MainPageController;
+import Graphic_Interface.MainPageController_Reposity;
 import Graphic_Interface.NewUserRegistrationController;
 import Graphic_Interface.Controller;
 import JsonFile.Json;
@@ -36,7 +36,9 @@ public class EmotionalSongs extends Application{
     private final String [] XML_Paths = {
 
         "fxml_Page/UserRegistration.fxml",
-        "fxml_Page/MainPage.fxml",
+        "fxml_Page/MainPage_reposity.fxml",
+        "fxml_Page/MainPage_PLaylist.fxml",
+        "fxml_Page/MainPage_impostazioni.fxml",
         "fxml_Page/LoadAccaunt.fxml",
         "fxml_Page/AccessPage.fxml",
         "fxml_Page/SongPageInformation.fxml"
@@ -50,7 +52,7 @@ public class EmotionalSongs extends Application{
     public Stage stage;
     public FXMLLoader[] loaders = new FXMLLoader[XML_Paths.length];
     public HashMap<String, String> pageLoaders = new HashMap<String, String>();
-    public Account ConnectedAccount;
+    public RegisteredAccount ConnectedAccount;
     public Stage mainStage;
    
 

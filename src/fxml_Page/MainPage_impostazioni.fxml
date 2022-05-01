@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeMenu" prefHeight="842.0" prefWidth="1200.0" styleClass="backgroundColor" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Graphic_Interface.MainPageController_Reposity">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#closeMenu" prefHeight="842.0" prefWidth="1200.0" styleClass="backgroundColor" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Graphic_Interface.MainPageController">
    <children>
       <BorderPane prefHeight="860.0" prefWidth="1219.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -36,7 +36,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="reposityButton" mnemonicParsing="false" onAction="#setReposity" prefHeight="48.0" prefWidth="200.0" text="Reposity">
+                  <Button fx:id="reposityButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="200.0" text="Reposity">
                      <graphic>
                         <ImageView fx:id="reposityButton" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -45,7 +45,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="playlistButton" mnemonicParsing="false" onAction="#SetPlayList" prefHeight="48.0" prefWidth="200.0" text="Playlist">
+                  <Button fx:id="playlistButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="200.0" text="Playlist">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,7 +54,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#SetOptions" prefHeight="48.0" prefWidth="200.0" text="Impostazioni">
+                  <Button fx:id="optionsButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="200.0" text="Impostazioni">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

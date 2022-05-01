@@ -39,7 +39,7 @@ public class AccessController extends Controller implements Initializable {
     @FXML
     void NoAccount(ActionEvent event) throws IOException {
         Stage Window = (Stage) NoAccountButton.getScene().getWindow();
-        super.SwitchScene(Window, "MainPage");
+        super.SwitchScene(Window, "MainPage_reposity");
     }
 
     @FXML

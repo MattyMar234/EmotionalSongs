@@ -11,6 +11,7 @@ import java.util.jar.Attributes.Name;
 
 import emotionalsongs.Account;
 import emotionalsongs.EmotionalSongs;
+import emotionalsongs.RegisteredAccount;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -171,7 +172,7 @@ public class NewUserRegistrationController extends Controller implements Initial
         }
 
 
-        Account testAccount = new Account(UserCostructor);
+        RegisteredAccount testAccount = new RegisteredAccount(UserCostructor);// = new Account(UserCostructor);
 
 
         switch(application.checkAccaunt(testAccount)) 

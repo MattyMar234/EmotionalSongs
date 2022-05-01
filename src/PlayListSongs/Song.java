@@ -3,6 +3,7 @@ package PlayListSongs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.Random;
 
 import JsonFile.Json;
 
@@ -33,12 +34,21 @@ public class Song {
 
     public Song(String [] data) {
 
+        int minutes = (int)Float.parseFloat(data[10])/60;
+        int seconds = (int)(Float.parseFloat(data[10]))%60;
+
+        if(data[17].length() < 4) {
+            Random rand = new Random();
+            data[17] = String.valueOf(rand.nextInt(2006 - 1978) + 1978);
+        }
+   
+
         this.number    = data[0];
         this.title     = data[16];
         this.autor     = data[8];
         this.year      = data[17];
         this.album     = data[3];
-        this.duration  = data[10];
+        this.duration  = String.valueOf(minutes) + ":" + (String.valueOf(seconds).length() == 1 ? "0" + String.valueOf(seconds) : String.valueOf(seconds)) + " min";
         this.genre     = "?";
     }
 
