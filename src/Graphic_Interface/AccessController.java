@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import PlayListSongs.PlayList;
+import emotionalsongs.Account;
+import emotionalsongs.RegisteredAccount;
+import emotionalsongs.UnregisteredAccount;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,14 +36,15 @@ public class AccessController extends Controller implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-        
+         
     }
 
     @FXML
     void NoAccount(ActionEvent event) throws IOException {
+
+        this.application.ConnectedAccount = new UnregisteredAccount();
         Stage Window = (Stage) NoAccountButton.getScene().getWindow();
-        super.SwitchScene(Window, "MainPage_reposity");
+        super.SwitchScene(Window, "MainPage");
     }
 
     @FXML
@@ -49,8 +54,44 @@ public class AccessController extends Controller implements Initializable {
     }
 
     @FXML
-    void searchAccount(ActionEvent event) {
+    void searchAccount(ActionEvent event) throws IOException 
+    {
+       
 
+        if(userName!= null && password!=null && userName.getText().length() > 0 && password.getText().length() > 0 ) {
+            
+            RegisteredAccount TempAccount = new RegisteredAccount();
+            
+            if(userName.getText().contains("@")) {
+                TempAccount = application.AccountsManager.SerachByEmail(userName.getText());
+            }
+            else {
+                //TempAccount.setUs(userName.getText());
+            }
+
+            if(TempAccount != null && TempAccount.getPassword().equals(password.getText())) 
+            {
+                
+
+                /*****test*****/
+                PlayList p = new PlayList("prova");
+                p.addSong(application.songManager.SongList.get(20));
+                p.addSong(application.songManager.SongList.get(287));
+                p.addSong(application.songManager.SongList.get(60));
+                TempAccount.addPlaylist(p);
+
+                System.out.println(p);
+                application.ConnectedAccount = TempAccount;
+        
+                Stage Window = (Stage) NoAccountButton.getScene().getWindow();
+                super.SwitchScene(Window, "MainPage");
+            }
+
+        }
+            
+    
+
+        
     }
 
 

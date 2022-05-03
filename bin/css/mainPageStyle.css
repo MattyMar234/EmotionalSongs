@@ -22,6 +22,10 @@
 }
 #SerachLabel {
     -fx-text-fill:#e2af08; 
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
+    -fx-font-size: 17px;
+    -fx-marging: 0 10 0 0;
 }
 
 #SearachHbox {
@@ -30,7 +34,8 @@
 
 #LabeNavbar1{
     -fx-text-fill:#e2af08; 
-    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
     -fx-padding: 0 0 0 32;
     
 }
@@ -53,8 +58,8 @@
     -fx-text-align: center;
     -fx-text-fill:#ffffff;
     -fx-alignment: baseline_left ;
-    -fx-padding: 0 0 0 24;
-    -fx-font-size: 14px;
+    -fx-padding: 0 0 0 28;
+    -fx-font-size: 15px;
     
 }
 
@@ -66,7 +71,13 @@
     
 }
 
-.button:pressed {
+/*focalizzato o premuto*/
+.button:focused {
+    /*-fx-background-color: #1c1346;*/
+    -fx-background-color: #f18100f6;
+}
+
+.button:selected {
     /*-fx-background-color: #1c1346;*/
     -fx-background-color: #cecece66;
 }
@@ -85,6 +96,7 @@
     -fx-background-radius: 12px;*/
     -fx-padding: 0px;
     -fx-text-fill: #000000;
+    -fx-background-color: linear-gradient(from 25% 10% to 100% 100%, #490e46, #a03616f5);
 
 }
 
@@ -109,41 +121,38 @@
     -fx-alignment: center;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
+    
 }
 
 
 /* ===================== Cells and Rows =====================*/
-
-
-
-
+/*Contenuto della cella*/
 .table-view .table-cell{
-    
+    -fx-text-fill: #ffffff;
     -fx-alignment: center;
 }
 
-
-.table-row-cell
-{
+/**Spetto cella*/
+.table-row-cell {
     -fx-padding: 0.0em; 
     -fx-cell-size: 40px;
     -fx-font-size: 14px;
+    -fx-background-color: transparent;
+    -fx-border-color: #575757;
+    -fx-border-width: 0 0 1 0;
 }
 
 .table-row-cell:even {
-    -fx-background-insets: 0, 0 0 1 0;
-    -fx-padding: 0.0em; 
+ 
 }
 
-.table-row-cell:odd
-{
-    -fx-background-insets: 0, 0 0 1 0;
-    -fx-padding: 0.0em; 
+.table-row-cell:odd {
+
 }
 
-.table-row-cell:hover
- {
-    -fx-background-color: #e2e2e2;
+
+.table-row-cell:hover {
+    -fx-background-color: #cecece66;
 }
 
 .table-row-cell:selected

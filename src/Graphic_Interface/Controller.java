@@ -3,6 +3,7 @@ package Graphic_Interface;
 import java.io.IOException;
 
 import emotionalsongs.EmotionalSongs;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -16,15 +17,30 @@ public abstract class Controller {
     protected float fistclick;
     protected float secondClick;
     protected int state = 0;
+    protected Object selected1;
+    protected Object selected2;
+
+     //variabili finestra (stage)
+    protected double windwoPosX;
+    protected double windwoPosY;
+    protected double windwoPosWidth;
+    protected double windwoPosHeight;
     
 
     public Controller() {
         this.application = EmotionalSongs.classReference;
     }
 
+    
+    public FXMLLoader getScenePage(String name) throws IOException {
+        return this.application.getNewStageWindow(name);
+    }
+
+
     public void SwitchScene(Stage Window, String SceneName) throws IOException {
         this.application.changeScreen(Window, SceneName);
     }
+
 
     protected boolean doubleClick()
     {
@@ -54,5 +70,7 @@ public abstract class Controller {
 
             return false;
         }
+
     }
+
 }

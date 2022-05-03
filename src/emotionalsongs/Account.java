@@ -18,11 +18,8 @@ public class Account {
     protected String userID;
     
     
-
-
     //costruttore1 
-    public Account()
-    {
+    public Account()  {
 
     }
 

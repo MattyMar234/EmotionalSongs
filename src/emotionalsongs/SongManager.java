@@ -12,7 +12,7 @@ import PlayListSongs.Song;
 
 public class SongManager {
     
-    public static ArrayList<Song> SongList = new ArrayList<Song>();
+    public ArrayList<Song> SongList = new ArrayList<Song>();
     public EmotionalSongs main;
 
 
@@ -34,7 +34,7 @@ public class SongManager {
 
             while ((FILE_DATA = bufferedreader.readLine()) != null) {
                 String [] element = FILE_DATA.replace("\"","").replace("b\'","").replace("\'","").split(",");
-                main.ArchivioGolobaleCanzoni.add(new Song(element));
+                this.SongList.add(new Song(element));
             }
         } 
         catch (FileNotFoundException e) {

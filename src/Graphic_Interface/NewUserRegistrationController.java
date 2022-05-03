@@ -175,10 +175,10 @@ public class NewUserRegistrationController extends Controller implements Initial
         RegisteredAccount testAccount = new RegisteredAccount(UserCostructor);// = new Account(UserCostructor);
 
 
-        switch(application.checkAccaunt(testAccount)) 
+        switch(application.AccountsManager.checkAccaunt(testAccount)) 
         {
             case 0:
-                application.Users.add(testAccount);
+                application.AccountsManager.Users.add(testAccount);
                 application.ConnectedAccount = testAccount;
                 Stage Window = (Stage) confirmButton.getScene().getWindow();
                 super.SwitchScene(Window, "MainPage");

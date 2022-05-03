@@ -10,10 +10,10 @@
 
 	"user2" : 	{
 
-		"name" : "A",
-		"surname" : "A",
-		"email" : "@1",
-		"password" : "p"
+		"name" : "test",
+		"surname" : "test",
+		"email" : "provaTest@gmail.com",
+		"password" : "1234"
 	},
 
 	"user3" : 	{

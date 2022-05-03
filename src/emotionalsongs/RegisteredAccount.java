@@ -21,10 +21,20 @@ public class RegisteredAccount extends Account {
     protected ArrayList<PlayList> PlayLists = new ArrayList<PlayList>();
     protected Album album; 
 
-    public RegisteredAccount(HashMap<String, String> userCostructor) {
-        super(userCostructor);
-        
+
+    public RegisteredAccount(LinkedHashMap<String, Object> userCostructor) {
+        super(userCostructor);  
     }
+    
+    public RegisteredAccount(HashMap<String, String> userCostructor) {
+        super(userCostructor);  
+    }
+
+    public RegisteredAccount() {
+
+    }
+
+    
 
     @Override
     public String toString() {
@@ -71,9 +81,13 @@ public class RegisteredAccount extends Account {
         ArrayList<Song> daje=new ArrayList<Song>();
         PlayList k=new PlayList(nome,daje);
         for(int i=0;i<((CharSequence) canzoni_scelte_prima).length();i++){
-            k.addcanzone(canzoni_scelte_prima.get(i));
+            k.addSong(canzoni_scelte_prima.get(i));
         }
         album.add_playlist(k);
+    }
+
+    public void addPlaylist(PlayList p) {
+        this.PlayLists.add(p);
     }
 
     public String getUserID() {
@@ -94,7 +108,7 @@ public class RegisteredAccount extends Account {
     }
 
     public ArrayList<PlayList> getPlayLists() {
-        return PlayLists;
+        return this.PlayLists;
     }
 
     public void setPlayLists(ArrayList<PlayList> playLists) {

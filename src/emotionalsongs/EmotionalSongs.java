@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 import Graphic_Interface.EnterController;
-import Graphic_Interface.MainPageController_Reposity;
+import Graphic_Interface.MainPageController;
 import Graphic_Interface.NewUserRegistrationController;
 import Graphic_Interface.Controller;
 import JsonFile.Json;
@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 public class EmotionalSongs extends Application{
 
     // =================== percorsi =================== //
+
     private final String Directory = System.getProperty("user.dir");
     private final String UsersDataFilePath = "\\data\\UtentiRegistrati.json";
     private final String UsersDataFilePath2 = "\\data\\UtentiRegistrati2.json";   //prova
@@ -35,7 +36,8 @@ public class EmotionalSongs extends Application{
     
     private final String [] XML_Paths = {
 
-        "fxml_Page/UserRegistration.fxml",
+        "fxmlPage/UserRegistration.fxml",
+        "fxml_Page/MainPage.fxml",
         "fxml_Page/MainPage_reposity.fxml",
         "fxml_Page/MainPage_PLaylist.fxml",
         "fxml_Page/MainPage_impostazioni.fxml",
@@ -46,18 +48,17 @@ public class EmotionalSongs extends Application{
 
 
     // =================== variabili globali =================== //
-    public static EmotionalSongs classReference;
+
+    public static EmotionalSongs classReference;                                  //riferimento globale di questa classe
     public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
-    public ArrayList<Account> Users = new ArrayList<>();
-    public Stage stage;
-    public FXMLLoader[] loaders = new FXMLLoader[XML_Paths.length];
-    public HashMap<String, String> pageLoaders = new HashMap<String, String>();
-    public RegisteredAccount ConnectedAccount;
-    public Stage mainStage;
-   
+    public HashMap<String, String> pageLoaders = new HashMap<String, String>();         
+    public Account ConnectedAccount;                                             //Account in utilizzo
+    public Stage mainStage;                                                      //finestra principale
+    public SongManager songManager;
+    public AccountsManager AccountsManager;
 
     // =================== variabili locali =================== //
-    private Json jsonFileReader;
+    
 
        
     public static void main(String[] args) throws Exception {
@@ -74,12 +75,14 @@ public class EmotionalSongs extends Application{
         EmotionalSongs.classReference = this;
         this.mainStage = stage;
 
-        SongManager songManager = new SongManager(this);
+        songManager = new SongManager(this);
+        AccountsManager = new AccountsManager(Directory + UsersDataFilePath);
+        
         songManager.LoadSongs(songsDataFilePath2);
 
         try {
             System.out.println("Accounts Credentials Recovery:");
-            LoadAccounts();
+            AccountsManager.LoadAccounts();
             System.out.println();
             System.out.println("\nLoading Songs:");
             songManager.LoadSongs(songsDataFilePath2);
@@ -123,7 +126,7 @@ public class EmotionalSongs extends Application{
     }
 
     public void logout(Stage stage) {
-        SaveAccounts();
+        AccountsManager.SaveAccounts(Directory + UsersDataFilePath2);
         stage.close();
     }
 
@@ -132,7 +135,7 @@ public class EmotionalSongs extends Application{
 
     }
 
-    @SuppressWarnings("unchecked")
+    /*@SuppressWarnings("unchecked")
     private boolean LoadSongs()
     {
         jsonFileReader = new Json(Directory + songsDataFilePath);
@@ -142,61 +145,9 @@ public class EmotionalSongs extends Application{
             ArchivioGolobaleCanzoni.add(new Song((LinkedHashMap<String, Object>) Json.GetElement(Accounts, Arrays.asList(UserKey))));
         }
         return true;
-    }
+    }*/
 
-    @SuppressWarnings("unchecked")
-    private boolean LoadAccounts()
-    {
-        jsonFileReader = new Json(Directory + UsersDataFilePath);
-        LinkedHashMap<String, Object> Accounts = jsonFileReader.ReadJsonFile();
-
-        for(String UserKey : Json.getKeys(Accounts)) {
-            Users.add(new Account((LinkedHashMap<String, Object>) Json.GetElement(Accounts, Arrays.asList(UserKey))));
-        }
-        return true;
-    }
-
-    private boolean SaveAccounts()
-    {
-        jsonFileReader = new Json(Directory + UsersDataFilePath);
-        LinkedHashMap<String, Object> UsersData = new LinkedHashMap<String, Object>();
-
-        for(int i = 0; i < Users.size(); i++) {
-            String name = "user" + (i + 1);
-            UsersData.put(name, Users.get(i).getDataStructure());
-        }
-        
-        System.out.println("Opening " + Directory + UsersDataFilePath2);
-
-        try {
-            FileWriter Writer = new FileWriter(Directory + UsersDataFilePath2);
-            
-            Writer.write(jsonFileReader.BuildJsonFile(UsersData, 0));
-            System.out.println("Data saved!");
-            Writer.close();
-
-        } catch (Exception e) {
-            System.out.println("Writing File error: " + e);
-        }
-
-        return true;
-    }
-
-    public int checkAccaunt(Account temp) {
-
-        //return true;
-        for(Account existingAcaunt : Users) {
-            if(existingAcaunt.getEmail().equals(temp.getEmail())) {
-                return 1;
-            }  
-        }
-
-        //test cap
-
-        //tutto aposto
-        return 0;
-    }
-
+    
 
     public void changeScreen(Stage stage, String name) throws IOException 
     {
@@ -206,11 +157,7 @@ public class EmotionalSongs extends Application{
         stage.show();
     }
 
-    public void getNewStageWindow(Stage newstage, String name) throws IOException 
-    {
-        FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource(pageLoaders.get(name)));
-        Scene scene = new Scene(XMLloader.load());
-        newstage.setScene(scene);
-        newstage.show();
+    public FXMLLoader getNewStageWindow(String name) throws IOException  {
+        return new FXMLLoader(getClass().getClassLoader().getResource(pageLoaders.get(name)));
     }
 }

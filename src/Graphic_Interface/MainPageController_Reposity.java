@@ -2,6 +2,7 @@ package Graphic_Interface;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import PlayListSongs.PlayList;
@@ -27,13 +28,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-public class MainPageController_Reposity extends Controller implements Initializable {
+public class MainPageController_reposity extends Controller implements Initializable 
+{
 
-    // ========================= tabella =========================//
-    
+    // ========================= tabelle =========================//
     @FXML private TextField KeywordTextField;
     @FXML private TableView<Song> SongsTable;
     @FXML private TableColumn<Song, String> Album;
@@ -45,17 +47,14 @@ public class MainPageController_Reposity extends Controller implements Initializ
     @FXML private TableColumn<Song, String> Title;
     @FXML private TableColumn<Song, String> Year;
 
-    @FXML private TableView<PlayList> PlaylistsTable;
-    @FXML private TableColumn<PlayList, String> PlayListElements;
-    @FXML private TableColumn<PlayList, String> PlayListName;
-    @FXML private TableColumn<PlayList, String> DataCreazione;
 
     private ObservableList<Song> list = FXCollections.observableArrayList();
-
-    // ========================= Label ========================= //
     
 
+    // ========================= Label ========================= //
+    @FXML private Label SerachLabel;
 
+   
     // ========================= Buttons ========================= //
     @FXML private Button CambioButton;
     @FXML private Button playlistButton;
@@ -65,10 +64,10 @@ public class MainPageController_Reposity extends Controller implements Initializ
 
 
     // ========================= variabili =========================//
-    Song selected1;
-    Song selected2;
+    
 
-    public MainPageController_Reposity() {
+
+    public MainPageController_reposity() throws IOException {
         super();
     }
 
@@ -76,9 +75,7 @@ public class MainPageController_Reposity extends Controller implements Initializ
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) 
     {
-        System.out.println("loding songs data...");
-
-        for(Song song : application.ArchivioGolobaleCanzoni) {
+        for(Song song : application.songManager.SongList) {
             list.add(song);
         }
 
@@ -128,43 +125,7 @@ public class MainPageController_Reposity extends Controller implements Initializ
         SortedList<Song> sortedData = new SortedList<Song>(filteredData);
         sortedData.comparatorProperty().bind(SongsTable.comparatorProperty());
         SongsTable.setItems(sortedData);
-
-      
-        
-    }
-
-    @FXML
-    void setReposity(ActionEvent event) throws IOException {
-        
-    }
-
-    @FXML
-    void SetPlayList(ActionEvent event) throws IOException {
-        Stage window = (Stage) playlistButton.getScene().getWindow();
-        super.SwitchScene(window, "MainPage_PLaylist");
-    }
-
-    @FXML
-    void SetOptions(ActionEvent event) throws IOException {
-        Stage window = (Stage) playlistButton.getScene().getWindow();
-        super.SwitchScene(window, "MainPage_impostazioni");
-    }
-
-    @FXML
-    void closeMenu(MouseEvent event) {
-        
-    }
-
-    @FXML
-    public void Selezione(ActionEvent event) {
-        System.out.println("pressed");
-
-    }
-
-    @FXML
-    public void access(MouseEvent event) throws IOException {
-        //super.SwitchScene((Stage) icon.getScene().getWindow(), "LoadAccaunt");
-     
+  
     }
 
     @FXML
@@ -177,15 +138,21 @@ public class MainPageController_Reposity extends Controller implements Initializ
             selected2 = SongsTable.getSelectionModel().getSelectedItem();
         }
 
-        if(doubleClick() && (selected2 == selected1)) {
+        if(doubleClick() && (selected2 == selected1) && selected1 instanceof Song) {
             System.out.println("song selected");
-            SongWindow windowSong = new SongWindow(application, selected1);
+            SongWindow windowSong = new SongWindow(application, (Song) selected1);
+        }
+        else if(doubleClick() && (selected2 == selected1) && selected1 instanceof PlayList) {
+            System.out.println("song selected");
+            //SongWindow windowSong = new SongWindow(application, selected1);
         }
 
     }
 
     @FXML
-    void esci(ActionEvent event) {
-        application.logout(application.mainStage);
+    public void Selezione(ActionEvent event) {
+        System.out.println("pressed");
+
     }
+
 }
