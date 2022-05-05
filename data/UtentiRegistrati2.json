@@ -2,37 +2,29 @@
 
 	"user1" : 	{
 
-		"name" : "B",
-		"surname" : "B",
-		"email" : "@2",
-		"password" : "p"
-	},
-
-	"user2" : 	{
-
 		"name" : "test",
 		"surname" : "test",
 		"email" : "provaTest@gmail.com",
 		"password" : "1234"
 	},
 
+	"user2" : 	{
+
+		"name" : "B",
+		"surname" : "B",
+		"email" : "@2",
+		"password" : "p"
+	},
+
 	"user3" : 	{
 
-		"name" : "matteo",
-		"surname" : "F",
-		"email" : "@6",
+		"name" : "C",
+		"surname" : "C",
+		"email" : "@3",
 		"password" : "p"
 	},
 
 	"user4" : 	{
-
-		"name" : "E",
-		"surname" : "E",
-		"email" : "@5",
-		"password" : "p"
-	},
-
-	"user5" : 	{
 
 		"name" : "D",
 		"surname" : "D",
@@ -40,11 +32,19 @@
 		"password" : "p"
 	},
 
+	"user5" : 	{
+
+		"name" : "E",
+		"surname" : "E",
+		"email" : "@5",
+		"password" : "p"
+	},
+
 	"user6" : 	{
 
-		"name" : "C",
-		"surname" : "C",
-		"email" : "@3",
+		"name" : "matteo",
+		"surname" : "F",
+		"email" : "@6",
 		"password" : "p"
 	}
 }

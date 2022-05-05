@@ -1,6 +1,6 @@
-{
+[
 
-	"User1" : 	{
+	{
 
 		"name" : "test",
 		"surname" : "test",
@@ -8,8 +8,7 @@
 		"password" : "1234"	
 	},
 
-	
-	"User2" : 	{
+	{
 		
 		"name" : "B",
 		"surname" : "B",
@@ -17,7 +16,7 @@
 		"password" : "p"	
 	},
 	
-	"User3" : 	{
+	{
 
 		"name" : "C",
 		"surname" : "C",
@@ -25,7 +24,7 @@
 		"password" : "p"	
 	},
 
-	"User4" : 	{
+	{
 
 		"name" : "D",
 		"surname" : "D",
@@ -33,7 +32,7 @@
 		"password" : "p"	
 	},
 
-	"User5" : 	{
+	{
 
 		"name" : "E",
 		"surname" : "E",
@@ -41,7 +40,7 @@
 		"password" : "p"	
 	},
 
-	"User6" : 	{
+	{
 
 		"name" : "matteo",
 		"surname" : "F",
@@ -49,4 +48,4 @@
 		"password" : "p"	
 	}
 	
-}
+]
