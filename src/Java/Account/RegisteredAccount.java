@@ -139,6 +139,20 @@ public class RegisteredAccount extends Account {
         PlayLists = playLists;
     }
 
+    public void clearPlalyst (PlayList a) {
+        PlayLists.clear();
+    }
+
+    public void removePlayList(PlayList a) {
+        PlayLists.remove(a);
+    }
     
+    public void addPlayList(PlayList a) {
+        PlayLists.add(a);
+    }
+
+    /*public void cambiaNomePlayList(String nuovo_nome){
+        this.nome = nuovo_nome;
+    }*/
     
 }

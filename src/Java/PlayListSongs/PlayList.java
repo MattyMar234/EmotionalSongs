@@ -92,6 +92,9 @@ public class PlayList {
         return Elements;
     }
 
+    public static void clear() {
+    }
+
     
 
 
