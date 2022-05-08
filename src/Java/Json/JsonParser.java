@@ -3,13 +3,17 @@ package Java.Json;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.json.JSONTokener;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -27,28 +31,96 @@ public class JsonParser {
         this.FilePath = Path;
     }
 
+
+    
+
     //legge il file json e restituisce il contenuto in strnga
-    private String OpenFile() throws IOException 
+    private Object OpenFile() throws IOException, ParseException 
     {
-        FileInputStream readingFIle = new FileInputStream(new File(this.FilePath));
-        String FILE_DATA = "";
+        File file = new File(this.FilePath);
         
-        while(readingFIle.available() > 0) {
-            FILE_DATA += (char) readingFIle.read();
+        /*FileInputStream readingFIle = new FileInputStream(file);
+        String FILE_DATA = "";
+        boolean startvalue = false;
+        long index = 0;
+        long bytes = file.length();
+
+        InputStream inputStream = new FileInputStream(file);
+        JSONTokener tokener = new JSONTokener(inputStream);
+
+        System.out.println(tokener);*/
+
+        FileReader reader = new FileReader(this.FilePath);
+        JSONParser parser = new JSONParser();
+        Object p = parser.parse(reader);
+        
+
+
+        /*while(readingFIle.available() > 0) {
+            System.out.println("index: " + index++ + " of " + bytes);
+            char ch = (char)readingFIle.read();
+
+            if(ch != '\n' || ch != '\t' || ch != '\r') {
+                
+                //per non aggiungere gli spazi
+                if(ch == '\'')
+                    startvalue = !startvalue;
+
+                if(startvalue || ch != ' ')
+                    FILE_DATA += ch;
+                
+            }
+        }*/
+
+        //readingFIle.close();
+        return p;
+    }
+
+    
+
+    public void WriteJsonFile(Object data) throws IOException
+    {
+        FileWriter file = new FileWriter(this.FilePath);
+        String DataStructure = "";
+
+        if(data instanceof JSONArray) {
+            DataStructure = ((JSONArray) data).toJSONString(); 
+        }
+        else if(data instanceof JSONObject){
+            DataStructure = ((JSONObject) data).toJSONString(); 
         }
 
-        readingFIle.close();
-        return FILE_DATA;
+        
+        //aggiungo L'indentazione
+        int LivelloIndentazione = 0;
+        String indentedData = new String("");
+
+        for(int i = 0; i < DataStructure.length(); i++) 
+        {
+            switch(DataStructure.charAt(i)) 
+            {
+                case '{' : LivelloIndentazione++;  indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
+                case '[' : LivelloIndentazione++;  indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
+                case ']' : LivelloIndentazione--;  indentedData = indentedData + '\n' + MakeTab(LivelloIndentazione) + DataStructure.charAt(i);  break;
+                case '}' : LivelloIndentazione--;  indentedData = indentedData + '\n' + MakeTab(LivelloIndentazione) + DataStructure.charAt(i);  break;
+                case ',' :                         indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
+                case ':' :                         indentedData = indentedData + ' ' + DataStructure.charAt(i) + ' ';   break;
+                default: indentedData += DataStructure.charAt(i);  break;
+            }
+        }
+
+        file.write(indentedData);
+        file.flush();
+        file.close();
     }
 
     public JSONObject ReadJsonFile_as_JsonObject() throws ParseException, IOException 
     { 
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(OpenFile());
+        Object obj = OpenFile();
 
         if(obj instanceof JSONObject) {
-            JSONObject object = (JSONObject) parser.parse(OpenFile());
-            System.out.println(object);
+            JSONObject object = (JSONObject) obj;
             return object;
         }
 
@@ -58,14 +130,10 @@ public class JsonParser {
     public JSONArray ReadJsonFile_as_JsonArray() throws ParseException, IOException 
     {
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(OpenFile());
+        Object obj = OpenFile();
 
         if(obj instanceof JSONArray) {
-            JSONArray objects = (JSONArray) parser.parse(OpenFile());
-            
-            //System.out.println(objects);
-            //System.out.println(objects.get(0));
-            
+            JSONArray objects = (JSONArray) obj;
             return objects;
         }
         
@@ -75,12 +143,12 @@ public class JsonParser {
     public JSONObject [] ReadJsonFile_as_ArrayOfJsonObject() throws ParseException, IOException 
     {
         JSONParser parser = new JSONParser();
-        Object obj = parser.parse(OpenFile());
+        Object obj = OpenFile();
         JSONObject output [];
 
         if(obj instanceof JSONArray) {
-            JSONArray objects = (JSONArray) parser.parse(OpenFile());
-            
+            JSONArray objects = (JSONArray) obj;
+
             output = new JSONObject [objects.size()];
             
             for(int  i = 0; i < output.length; i++) {
@@ -89,7 +157,6 @@ public class JsonParser {
 
             return output;
         }
-      
         return null;
     }
 
@@ -100,7 +167,7 @@ public class JsonParser {
         LinkedHashMap<String, Object> Data = new LinkedHashMap<String, Object>();
 
         try {  
-            JSONObject object = (JSONObject) parser.parse(OpenFile());
+            JSONObject object = (JSONObject) OpenFile();
             //if(termianlOutput) System.out.println(object);
             Data = LoadData(object);
 
@@ -237,7 +304,7 @@ public class JsonParser {
     }
 
     //crea la tabulazione
-    private static String MakeTab(int n) {
+    private String MakeTab(int n) {
         String v = "";
         for(int i = 0; i < n; i++){
             v += "\t";

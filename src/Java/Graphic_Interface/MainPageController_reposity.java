@@ -5,9 +5,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import Java.PlayListSongs.PlayList;
-import Java.PlayListSongs.Song;
-import Java.PlayListSongs.SongWindow;
+import Java.PlayList_Songs.PlayList;
+import Java.PlayList_Songs.Song;
+import Java.PlayList_Songs.SongWindow;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -75,7 +75,7 @@ public class MainPageController_reposity extends Controller implements Initializ
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) 
     {
-        for(Song song : application.songManager.SongList) {
+        for(Song song : application.songManager.getList()) {
             list.add(song);
         }
 

@@ -1,51 +1,159 @@
 [
-
 	{
-
-		"name" : "test",
+		"password" : "1234",
+		"cap" : null,
+		"comune" : null,
 		"surname" : "test",
-		"email"	: "provaTest@gmail.com",
-		"password" : "1234"	
+		"name" : "test",
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : null,
+		"provincia" : null,
+		"userID" : null,
+		"codiceFiscale" : null,
+		"email" : "provaTest@gmail.com",
+		"civicNumber" : null
 	},
-
 	{
-		
-		"name" : "B",
+		"password" : "p",
+		"cap" : null,
+		"comune" : null,
 		"surname" : "B",
-		"email"	: "@2",
-		"password" : "p"	
+		"name" : "B",
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : null,
+		"provincia" : null,
+		"userID" : null,
+		"codiceFiscale" : null,
+		"email" : "@2",
+		"civicNumber" : null
 	},
-	
 	{
-
-		"name" : "C",
+		"password" : "p",
+		"cap" : null,
+		"comune" : null,
 		"surname" : "C",
-		"email"	: "@3",
-		"password" : "p"	
+		"name" : "C",
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : null,
+		"provincia" : null,
+		"userID" : null,
+		"codiceFiscale" : null,
+		"email" : "@3",
+		"civicNumber" : null
 	},
-
 	{
-
-		"name" : "D",
+		"password" : "p",
+		"cap" : null,
+		"comune" : null,
 		"surname" : "D",
-		"email"	: "@4",
-		"password" : "p"	
+		"name" : "D",
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : null,
+		"provincia" : null,
+		"userID" : null,
+		"codiceFiscale" : null,
+		"email" : "@4",
+		"civicNumber" : null
 	},
-
 	{
-
-		"name" : "E",
+		"password" : "p",
+		"cap" : null,
+		"comune" : null,
 		"surname" : "E",
-		"email"	: "@5",
-		"password" : "p"	
+		"name" : "E",
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : null,
+		"provincia" : null,
+		"userID" : null,
+		"codiceFiscale" : null,
+		"email" : "@5",
+		"civicNumber" : null
 	},
-
 	{
-
-		"name" : "matteo",
+		"password" : "p",
+		"cap" : null,
+		"comune" : null,
 		"surname" : "F",
-		"email"	: "@6",
-		"password" : "p"	
+		"name" : "matteo",
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : null,
+		"provincia" : null,
+		"userID" : null,
+		"codiceFiscale" : null,
+		"email" : "@6",
+		"civicNumber" : null
+	},
+	{
+		"password" : "1234",
+		"cap" : "21040",
+		"comune" : "Castronno",
+		"surname" : "mar",
+		"name" : "matty",
+		"PlayLists" : [
+			{
+				"song" : [
+					"SOZVMJI12AB01808AF",
+					"SOCVGQS12A8C13D7DF",
+					"SOVOLGY12A6D4F822B"
+				],
+				"elements" : "3",
+				"name" : "prova1",
+				"creationDate" : "2022-05-08"
+			},
+			{
+				"song" : [
+					"SOZVMJI12AB01808AF",
+					"SOCVGQS12A8C13D7DF",
+					"SOVOLGY12A6D4F822B"
+				],
+				"elements" : "3",
+				"name" : "prova2",
+				"creationDate" : "2022-05-08"
+			},
+			{
+				"song" : [
+					"SOZVMJI12AB01808AF",
+					"SOCVGQS12A8C13D7DF",
+					"SOVOLGY12A6D4F822B"
+				],
+				"elements" : "3",
+				"name" : "prova",
+				"creationDate" : "2022-05-08"
+			}
+		],
+		"viaPiazza" : "LHL",
+		"provincia" : "Varese",
+		"userID" : "mattymar234",
+		"codiceFiscale" : "0ei",
+		"email" : "provass@gmail.com",
+		"civicNumber" : "10"
+	},
+	{
+		"password" : "1234",
+		"cap" : "49489",
+		"comune" : "Gavirate",
+		"surname" : "mar",
+		"name" : "matty",
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : "9unyp9b",
+		"provincia" : "Varese",
+		"userID" : "mattymar2.234",
+		"codiceFiscale" : "eiugo8ut",
+		"email" : "test@gmail.com",
+		"civicNumber" : "10"
 	}
-	
 ]

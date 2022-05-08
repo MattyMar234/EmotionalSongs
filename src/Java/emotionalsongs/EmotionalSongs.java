@@ -1,27 +1,16 @@
 package Java.emotionalsongs;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-
 import Java.Account.Account;
-import Java.Graphic_Interface.Controller;
-import Java.Graphic_Interface.EnterController;
-import Java.Graphic_Interface.MainPageController;
-import Java.Graphic_Interface.NewUserRegistrationController;
-import Java.Json.JsonParser;
-import Java.PlayListSongs.Song;
+import Java.Managers.AccountsManager;
+import Java.Managers.LocationsManager;
+import Java.Managers.SongManager;
+import Java.PlayList_Songs.Song;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 public class EmotionalSongs extends Application{
@@ -29,12 +18,13 @@ public class EmotionalSongs extends Application{
     // =================== percorsi =================== //
 
     private final String Directory = System.getProperty("user.dir");
-    private final String UsersDataFilePath = "\\data\\UtentiRegistrati.json";
+    private final String UsersDataFilePath  = "\\data\\UtentiRegistrati.json";
     private final String UsersDataFilePath2 = "\\data\\UtentiRegistrati2.json";   //prova
-    private final String songsDataFilePath = "\\data\\canzoni.json";
+    private final String songsDataFilePath  = "\\data\\canzoni.json";
     private final String songsDataFilePath2 = Directory + "\\data\\Song.csv";
-    private final String SongDataFilePath  = "data.txt";    //?
-    private final String FileFXML_path = "FXML/";
+    private final String LocationsData      = Directory + "\\data\\comuni.json";
+    private final String SongDataFilePath   = "data.txt";    //?
+    private final String FileFXML_path      = "FXML/";
     private final String [] XML_Paths = {
 
         FileFXML_path + "UserRegistration.fxml",
@@ -54,9 +44,11 @@ public class EmotionalSongs extends Application{
     public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
     public HashMap<String, String> pageLoaders = new HashMap<String, String>();         
     public Account ConnectedAccount;                                             //Account in utilizzo
-    public Stage mainStage;                                                      //finestra principale
+    public Stage mainStage;  
+                                                        //finestra principale
     public SongManager songManager;
     public AccountsManager AccountsManager;
+    public LocationsManager locationsManager;
 
     // =================== variabili locali =================== //
     
@@ -76,28 +68,35 @@ public class EmotionalSongs extends Application{
         EmotionalSongs.classReference = this;
         this.mainStage = stage;
 
-        songManager = new SongManager(this);
-        AccountsManager = new AccountsManager(Directory + UsersDataFilePath);
+        songManager      = new SongManager(songsDataFilePath2, this);
+        AccountsManager  = new AccountsManager(Directory + UsersDataFilePath, this);
+        locationsManager = new LocationsManager(LocationsData, this);
         
-        songManager.LoadSongs(songsDataFilePath2);
-
         try {
-            System.out.println("Accounts Credentials Recovery:");
+
+            System.out.println("Loading state data");
+            locationsManager.LoadData();
+            System.out.println();
+
+            System.out.println("Loading Songs:");
+            songManager.LoadSongs();
+            System.out.println();
+
+            System.out.println("Loading Accounts:");
             AccountsManager.LoadAccounts();
             System.out.println();
-            System.out.println("\nLoading Songs:");
-            songManager.LoadSongs(songsDataFilePath2);
-            //LoadSongs();
-            System.out.println("\n\nStart loading XML file...");
+            
+            
+            System.out.println("\n\nStart loading XML file Name: ");
 
             for(String path : XML_Paths) 
             {
                 String key = path.split("/")[path.split("/").length - 1].replace(".fxml", "");
                 pageLoaders.put(key, path);
-                System.out.println("loading " + path);
+                System.out.println(Directory + "\\src\\" + path);
             }
 
-            System.out.println("\nLoading Completed\n");
+            System.out.println("Loading Completed\n");
             
                 //lambda function 
             stage.setOnCloseRequest(event -> {
@@ -110,15 +109,11 @@ public class EmotionalSongs extends Application{
             changeScreen(stage, "AccessPage");
             stage.show();
            
-            System.out.println("starting..."); 
+            System.out.println("starting stage"); 
         
 
         } catch(NullPointerException e) {
             System.out.println("file non trovato, errore nel percorso del file fxml");
-
-        /*} catch (IOException e) {
-            System.out.println(e);  
-            e.printStackTrace(); */
 
         } catch (Exception e) {
             System.out.println(e);  
@@ -127,7 +122,12 @@ public class EmotionalSongs extends Application{
     }
 
     public void logout(Stage stage) {
-        AccountsManager.SaveAccounts(Directory + UsersDataFilePath2);
+        try {
+            AccountsManager.SaveAccounts(Directory + UsersDataFilePath2);
+        } catch (IOException e) {
+            System.out.println("errore di salvataggio");
+            e.printStackTrace();
+        }
         stage.close();
     }
 
@@ -136,20 +136,7 @@ public class EmotionalSongs extends Application{
 
     }
 
-    /*@SuppressWarnings("unchecked")
-    private boolean LoadSongs()
-    {
-        jsonFileReader = new Json(Directory + songsDataFilePath);
-        LinkedHashMap<String, Object> Accounts = jsonFileReader.ReadJsonFile();
-
-        for(String UserKey : Json.getKeys(Accounts)) {
-            ArchivioGolobaleCanzoni.add(new Song((LinkedHashMap<String, Object>) Json.GetElement(Accounts, Arrays.asList(UserKey))));
-        }
-        return true;
-    }*/
-
     
-
     public void changeScreen(Stage stage, String name) throws IOException 
     {
         FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource(pageLoaders.get(name)));

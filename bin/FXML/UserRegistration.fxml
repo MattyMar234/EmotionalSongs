@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -7,88 +9,569 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="818.0" prefWidth="600.0" style="-fx-background-color: #f2f2f2;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.NewUserRegistrationController">
+<AnchorPane fx:id="MainBackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="965.0" prefWidth="685.0" stylesheets="@../css/NewAccountPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.NewUserRegistrationController">
    <children>
-      <AnchorPane prefHeight="92.0" prefWidth="600.0" style="-fx-background-color: #E96151;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="200.0" layoutY="366.0" prefHeight="865.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="42.0" fitWidth="75.0" layoutX="51.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../data/image/Security2.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="112.0" layoutY="33.0" prefHeight="18.0" prefWidth="398.0" text="User Registration" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+            <VBox alignment="CENTER" prefHeight="965.0" prefWidth="553.0">
+               <children>
+                  <AnchorPane fx:id="fieldsContainer" prefHeight="800.0" prefWidth="544.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="77.0" prefWidth="551.0">
+                                 <children>
+                                    <HBox prefHeight="67.0" prefWidth="551.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane fx:id="backGround" prefHeight="81.0" prefWidth="551.0">
+                                             <children>
+                                                <ImageView fitHeight="42.0" fitWidth="75.0" layoutX="173.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../data/image/Security2.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="222.0" layoutY="22.0" prefHeight="27.0" prefWidth="149.0" text="User Registration" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane id="fildContainer2" prefHeight="439.0" prefWidth="551.0">
+                                 <children>
+                                    <VBox prefHeight="391.0" prefWidth="551.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                             <children>
+                                                <AnchorPane id="fildContainer" prefHeight="73.0" prefWidth="400.0">
+                                                   <children>
+                                                      <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../data/image/utente.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                               <children>
+                                                                  <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <Label id="fildsLabel" text="Name" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <TextField fx:id="name" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="First Name">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                             <children>
+                                                <AnchorPane id="fildContainer" prefHeight="60.0" prefWidth="400.0">
+                                                   <children>
+                                                      <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../data/image/utente.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                               <children>
+                                                                  <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <Label id="fildsLabel" text="Surname" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <TextField fx:id="surname" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Last Name">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                             <children>
+                                                <AnchorPane id="fildContainer" prefHeight="60.0" prefWidth="400.0">
+                                                   <children>
+                                                      <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../data/image/utente.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                               <children>
+                                                                  <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <Label id="fildsLabel" text="NickName" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <TextField fx:id="userID" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="User ID">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                           <VBox.margin>
+                                                                              <Insets />
+                                                                           </VBox.margin>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                             <children>
+                                                <AnchorPane id="fildContainer" prefHeight="60.0" prefWidth="400.0">
+                                                   <children>
+                                                      <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../data/image/email.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                               <children>
+                                                                  <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <Label id="fildsLabel" text="Email" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <TextField fx:id="email" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Email">
+                                                                           <font>
+                                                                              <Font size="14.0" />
+                                                                           </font>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                             <children>
+                                                <AnchorPane id="fildContainer" prefHeight="60.0" prefWidth="400.0">
+                                                   <children>
+                                                      <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../data/image/lucchetto.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                               <children>
+                                                                  <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <Label id="fildsLabel" text="Password" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <PasswordField fx:id="password" prefHeight="29.0" prefWidth="358.0" promptText="Password" />
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="71.0" prefWidth="551.0">
+                                             <children>
+                                                <AnchorPane id="fildContainer" prefHeight="60.0" prefWidth="400.0">
+                                                   <children>
+                                                      <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                               <children>
+                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../../data/image/lucchetto.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                               <children>
+                                                                  <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <Label id="fildsLabel" text="Confirm Password" />
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                     <children>
+                                                                        <PasswordField fx:id="password2" prefHeight="36.0" prefWidth="358.0" promptText="Password" />
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="220.0" prefWidth="551.0">
+                                 <children>
+                                    <VBox prefHeight="220.0" prefWidth="511.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <HBox prefHeight="74.0" prefWidth="551.0">
+                                             <children>
+                                                <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                                   <children>
+                                                      <AnchorPane id="fildContainer" prefHeight="73.0" prefWidth="256.0">
+                                                         <children>
+                                                            <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../data/image/utente.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                                     <children>
+                                                                        <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Label id="fildsLabel" text="Civic Number" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <TextField fx:id="civicNumber" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Number">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                                   <children>
+                                                      <AnchorPane id="fildContainer" prefHeight="73.0" prefWidth="400.0">
+                                                         <children>
+                                                            <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../data/image/utente.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                                     <children>
+                                                                        <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Label id="fildsLabel" text="CAP" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <TextField fx:id="cap" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Number">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="74.0" prefWidth="551.0">
+                                             <children>
+                                                <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                                   <children>
+                                                      <AnchorPane id="fildContainer" prefHeight="73.0" prefWidth="400.0">
+                                                         <children>
+                                                            <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../data/image/utente.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                                     <children>
+                                                                        <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Label id="fildsLabel" text="Common" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <TextField fx:id="comune" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Common Name">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                                   <children>
+                                                      <AnchorPane id="fildContainer" prefHeight="73.0" prefWidth="400.0">
+                                                         <children>
+                                                            <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../data/image/utente.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                                     <children>
+                                                                        <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Label id="fildsLabel" text="Province" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <TextField fx:id="provincia" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Province Name">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="74.0" prefWidth="551.0">
+                                             <children>
+                                                <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                                   <children>
+                                                      <AnchorPane id="fildContainer" prefHeight="73.0" prefWidth="400.0">
+                                                         <children>
+                                                            <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../data/image/utente.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                                     <children>
+                                                                        <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Label id="fildsLabel" text="FiscalCode" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <TextField fx:id="codiceFiscale" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Code">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox id="ContainerBox" alignment="TOP_CENTER" prefHeight="74.0" prefWidth="432.0">
+                                                   <children>
+                                                      <AnchorPane id="fildContainer" prefHeight="73.0" prefWidth="400.0">
+                                                         <children>
+                                                            <HBox id="FildsHbox" layoutX="81.0" layoutY="-18.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../../data/image/utente.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <VBox id="FildsVbox" prefHeight="58.0" prefWidth="360.0">
+                                                                     <children>
+                                                                        <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <Label id="fildsLabel" text="Via/Piazza" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                                                           <children>
+                                                                              <TextField fx:id="viaPiazza" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Via/Piazza">
+                                                                                 <font>
+                                                                                    <Font size="14.0" />
+                                                                                 </font>
+                                                                              </TextField>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="142.0" prefWidth="551.0">
+                                 <children>
+                                    <VBox alignment="CENTER" layoutY="16.0" prefHeight="142.0" prefWidth="551.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="94.0" prefWidth="280.0">
+                                                   <children>
+                                                      <Button fx:id="BackButton" mnemonicParsing="false" onAction="#TurnBack" prefHeight="39.0" prefWidth="156.0" text="Turn Back" wrapText="true" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="100.0" prefWidth="276.0">
+                                                   <children>
+                                                      <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#validateNewUser" prefHeight="39.0" prefWidth="156.0" text="Sig In" wrapText="true" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <stylesheets>
+                        <URL value="@../css/ApplicationTheme.css" />
+                        <URL value="@../css/NewAccountPage.css" />
+                     </stylesheets>
+                  </AnchorPane>
+               </children>
+            </VBox>
          </children>
-      </AnchorPane>
-      <TextField fx:id="name" layoutX="98.0" layoutY="140.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="430.0" promptText="First Name" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="72.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="surname" layoutX="97.0" layoutY="210.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="432.0" promptText="Last Name" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="71.0">
-         <font>
-            <Font size="14.0" />
-         </font></TextField>
-      <TextField fx:id="email" layoutX="97.0" layoutY="343.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="432.0" promptText="Email" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="71.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="civicNumber" layoutX="97.0" layoutY="566.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="190.0" promptText="Numero civico">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="cap" layoutX="338.0" layoutY="566.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="190.0" promptText="Cap">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="comune" layoutX="97.0" layoutY="628.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="190.0" promptText="Comune">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="provincia" layoutX="338.0" layoutY="628.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="190.0" promptText="Provincia">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="codiceFiscale" layoutX="97.0" layoutY="685.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="190.0" promptText="Codice Fiscale">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="viaPiazza" layoutX="338.0" layoutY="685.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="190.0" promptText="Via/Piazza">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="userID" layoutX="97.0" layoutY="278.0" onKeyTyped="#typed" prefHeight="32.0" prefWidth="432.0" promptText="UserID" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="71.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Button fx:id="confirmButton" layoutX="355.0" layoutY="751.0" mnemonicParsing="false" onAction="#validateNewUser" prefHeight="32.0" prefWidth="156.0" style="-fx-background-color: #00AA00;" text="Registrati" wrapText="true" />
-      <PasswordField fx:id="password1" layoutX="97.0" layoutY="423.0" onKeyTyped="#typed" prefHeight="26.0" prefWidth="432.0" promptText="Password" />
-      <PasswordField fx:id="password2" layoutX="96.0" layoutY="486.0" onKeyTyped="#typed" prefHeight="26.0" prefWidth="432.0" promptText="Confirm Password" />
-      <Label fx:id="label1" layoutX="97.0" layoutY="172.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label2" layoutX="97.0" layoutY="242.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label3" layoutX="97.0" layoutY="310.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label4" layoutX="97.0" layoutY="375.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label5" layoutX="97.0" layoutY="449.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label6" layoutX="97.0" layoutY="512.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label8" layoutX="97.0" layoutY="598.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label7" layoutX="338.0" layoutY="598.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label10" layoutX="97.0" layoutY="658.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label9" layoutX="338.0" layoutY="658.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label12" layoutX="97.0" layoutY="717.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Label fx:id="label11" layoutX="338.0" layoutY="717.0" prefHeight="18.0" prefWidth="156.0" text="Label" textFill="#c90000" />
-      <Button fx:id="BackButton" layoutX="114.0" layoutY="751.0" mnemonicParsing="false" onAction="#TurnBack" prefHeight="32.0" prefWidth="156.0" style="-fx-background-color: #00AA00;" text="Torna indietro" wrapText="true" />
+      </HBox>
    </children>
 </AnchorPane>

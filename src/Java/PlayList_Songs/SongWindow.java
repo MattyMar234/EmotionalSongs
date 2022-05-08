@@ -1,4 +1,4 @@
-package Java.PlayListSongs;
+package Java.PlayList_Songs;
 
 import Java.Graphic_Interface.SongPageController;
 import Java.emotionalsongs.EmotionalSongs;

@@ -1,0 +1,110 @@
+#MainBackPane {
+    -fx-background-color: #33375A;
+}
+
+#fieldsContainer {
+    -fx-background-color: #1a1d38;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: transparent;
+    -fx-background-radius: 30px;
+    
+}
+
+#fildContainer {
+    /*-fx-background-color: rgb(69, 70, 91, 0.6);*/
+    -fx-border-width: 0 2 0 2;
+    -fx-background-color: #44465B;
+    -fx-background-color: #3b3f687f;
+    -fx-background-radius: 10px;
+    -fx-padding: 0px;
+}
+
+#fildContainer2 {
+    -fx-padding: 0px;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color: lightslategray;
+}
+
+#ContainerBox {
+    -fx-padding: 10px;
+}
+
+#fildContainer:hover {
+    
+}
+
+#fildsLabel {
+    -fx-text-fill: rgb(2, 253, 199);
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 0 0 0 8;
+
+    
+
+    -fx-effect:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+}
+
+#FildsHbox {
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: lightslategray;
+    -fx-border-radius: 10px;
+    -fx-padding: 0px;
+    
+}
+
+
+#FildsVbox {
+    -fx-border-width: 0 0 0 1;
+    -fx-border-color: lightslategray;
+}
+
+#FildsVbox2 {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: lightslategray;
+    
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-padding: 0px;
+    -fx-border-color: lightslategray;
+    -fx-border-width: 0 0 0 0;
+    -fx-padding: 0 0 0 8;
+    -fx-text-fill: #ffffff;
+    -fx-text-box-border: transparent;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    
+}
+
+.text-field:hover {
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.text-field:focused,  .text-field:selected{
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.button {
+    -fx-background-color: #42CC7E;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-background-radius: 18px;
+}
+
+.button:hover {
+    -fx-background-color: #42accc;
+}
+

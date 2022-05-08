@@ -1,4 +1,4 @@
-package Java.PlayListSongs;
+package Java.emotionalsongs;
 
 public class Emotion {
 

@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 import Java.Account.Account;
 import Java.Account.RegisteredAccount;
 import Java.Account.UnregisteredAccount;
-import Java.PlayListSongs.PlayList;
+import Java.PlayList_Songs.PlayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -56,10 +56,8 @@ public class AccessController extends Controller implements Initializable {
     @FXML
     void searchAccount(ActionEvent event) throws IOException 
     {
-       
-
-        if(userName!= null && password!=null && userName.getText().length() > 0 && password.getText().length() > 0 ) {
-            
+        if(userName!= null && password!=null && userName.getText().length() > 0 && password.getText().length() > 0 ) 
+        {
             RegisteredAccount TempAccount = new RegisteredAccount();
             
             if(userName.getText().contains("@")) {
@@ -75,12 +73,11 @@ public class AccessController extends Controller implements Initializable {
 
                 /*****test*****/
                 PlayList p = new PlayList("prova");
-                p.addSong(application.songManager.SongList.get(20));
-                p.addSong(application.songManager.SongList.get(287));
-                p.addSong(application.songManager.SongList.get(60));
+                p.addSong(application.songManager.getElement(20));
+                p.addSong(application.songManager.getElement(287));
+                p.addSong(application.songManager.getElement(60));
                 TempAccount.addPlaylist(p);
 
-                System.out.println(p);
                 application.ConnectedAccount = TempAccount;
         
                 Stage Window = (Stage) NoAccountButton.getScene().getWindow();

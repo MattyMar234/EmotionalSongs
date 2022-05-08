@@ -1,4 +1,4 @@
-package Java.PlayListSongs;
+package Java.PlayList_Songs;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,7 +12,11 @@ public class PlayList {
     protected String Elements;
 
 
-    //constructor 1 
+    public PlayList() {
+        
+    }
+
+    //constructor 12
     public PlayList(String nome) {
         this.nome = nome;
         
@@ -20,7 +24,7 @@ public class PlayList {
         this.CreationDate = time.toString();
     }
     
-    //constructor 2
+    //constructor 3
     public PlayList(String nome, ArrayList<Song> PlayList) {
         this(nome);                 //chiamo il costruttore 1
         this.PlayList = PlayList;     //copio l'arrayList
@@ -80,22 +84,11 @@ public class PlayList {
         CreationDate = creationDate;
     }
 
-    public ArrayList<Song> getPlayList() {
+    public ArrayList<Song> getSongs() {
         return PlayList;
-    }
-
-    public void setPlayList(ArrayList<Song> playList) {
-        PlayList = playList;
     }
 
     public String getElements() {
         return Elements;
-    }
-
-    
-
-
-    
-    
-    
+    }  
 }
