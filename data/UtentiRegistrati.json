@@ -44,8 +44,77 @@
 
 		"name" : "matteo",
 		"surname" : "F",
-		"email"	: "@6",
-		"password" : "p"	
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : null,
+		"provincia" : null,
+		"userID" : null,
+		"codiceFiscale" : null,
+		"email" : "@6",
+		"civicNumber" : null
+	},
+	{
+		"password" : "1234",
+		"cap" : "21040",
+		"comune" : "Castronno",
+		"surname" : "mar",
+		"name" : "matty",
+		"PlayLists" : [
+			{
+				"song" : [
+					"SOZVMJI12AB01808AF",
+					"SOCVGQS12A8C13D7DF",
+					"SOVOLGY12A6D4F822B"
+				],
+				
+				"elements" : "3",
+				"name" : "prova1",
+				"creationDate" : "2022-05-08"
+			},
+			{
+				"song" : [
+					"SOZVMJI12AB01808AF",
+					"SOCVGQS12A8C13D7DF",
+					"SOVOLGY12A6D4F822B"
+				],
+				"elements" : "3",
+				"name" : "prova2",
+				"creationDate" : "2022-05-08"
+			},
+			{
+				"song" : [
+					"SOZVMJI12AB01808AF",
+					"SOCVGQS12A8C13D7DF",
+					"SOVOLGY12A6D4F822B"
+				],
+				"elements" : "3",
+				"name" : "prova",
+				"creationDate" : "2022-05-08"
+			}
+		],
+		"viaPiazza" : "LHL",
+		"provincia" : "Varese",
+		"userID" : "mattymar234",
+		"codiceFiscale" : "0ei",
+		"email" : "provass@gmail.com",
+		"civicNumber" : "10"
+	},
+	{
+		"password" : "1234",
+		"cap" : "49489",
+		"comune" : "Gavirate",
+		"surname" : "mar",
+		"name" : "matty",
+		"PlayLists" : [
+			
+		],
+		"viaPiazza" : "9unyp9b",
+		"provincia" : "Varese",
+		"userID" : "mattymar2.234",
+		"codiceFiscale" : "eiugo8ut",
+		"email" : "test@gmail.com",
+		"civicNumber" : "10"
 	}
 	
 ]
