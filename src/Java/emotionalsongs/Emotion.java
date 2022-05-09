@@ -4,13 +4,13 @@ public class Emotion {
 
     public static Emotion Emotion_Amazement  = new Emotion("Amazement", "Feeling of wonder or happiness");
     public static Emotion Emotion_Solemnity  = new Emotion("Solemnity", "Feeling of transcendence, inspiration. Thrills");
-    public static Emotion Emotion_Tenderness = new Emotion("Tenderness", "Sensuality, affect, feeling of love");
+    public static Emotion Emotion_Tenderness  = new Emotion("Tenderness", "Sensuality, affect, feeling of love");
     public static Emotion Emotion_Nostalgia  = new Emotion("Nostalgia", "Dreamy, melancholic, sentimental feelings");
     public static Emotion Emotion_Calmness   = new Emotion("Calmness", "Relaxation, serenity, meditativeness");
     public static Emotion Emotion_Power      = new Emotion("Power", "Feeling strong, heroic, triumphant, energetic");
-    public static Emotion Emotion_Joy        = new Emotion("Calmness", "Feels like dancing, bouncy feeling, animated, amused ");
+    public static Emotion Emotion_Joy        = new Emotion("Joy", "Feels like dancing, bouncy feeling, animated, amused ");
     public static Emotion Emotion_Tension    = new Emotion("Tension", "Feeling Nervous, impatient, irritated ");
-    public static Emotion Emotion_Sadness    = new Emotion("Calmness", "Feeling Depressed, sorrowful");
+    public static Emotion Emotion_Sadness    = new Emotion("Sadness", "Feeling Depressed, sorrowful");
     
 
     protected String Category;
