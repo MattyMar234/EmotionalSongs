@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import org.json.simple.JSONObject;
 import Java.Account.RegisteredAccount;
-import Java.DataClass.Common;
-import Java.DataClass.Province;
+import Java.DataClasses.Common;
+import Java.DataClasses.Province;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -218,7 +218,7 @@ public class NewUserRegistrationController extends Controller implements Initial
                 System.out.println("New Account added");
 
                 Stage Window = (Stage) confirmButton.getScene().getWindow();
-                super.SwitchScene(Window, "MainPage");
+                super.SwitchScene("MainPage");
                 break;
         
             //Email non valida
@@ -245,6 +245,6 @@ public class NewUserRegistrationController extends Controller implements Initial
     public void TurnBack() throws IOException 
     {
         Stage Window = (Stage) BackButton.getScene().getWindow();
-        super.SwitchScene(Window, "AccessPage");
+        super.SwitchScene("AccessPage");
     }
 }

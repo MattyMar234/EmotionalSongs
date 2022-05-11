@@ -6,8 +6,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import Java.Account.RegisteredAccount;
-import Java.DataClass.Common;
-import Java.DataClass.Province;
+import Java.DataClasses.Common;
+import Java.DataClasses.Province;
 import Java.Json.JsonParser;
 import Java.emotionalsongs.EmotionalSongs;
 

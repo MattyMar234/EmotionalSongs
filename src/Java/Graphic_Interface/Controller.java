@@ -1,17 +1,19 @@
 package Java.Graphic_Interface;
 
 import java.io.IOException;
-
+import java.awt.*;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public abstract class Controller {
-    
-    protected EmotionalSongs application;
-
+public abstract class Controller 
+{
     // ========================= variabili =========================//
+    protected EmotionalSongs application;
+    protected Dimension screenSize;  //java.awt.Toolkit
+
+
     //variabili doppio click  
     protected final float maxDt = 0.320f;   //320ms
     protected float fistclick;
@@ -29,6 +31,13 @@ public abstract class Controller {
 
     public Controller() {
         this.application = EmotionalSongs.classReference;
+
+        this.windwoPosX = application.mainStage.getX();
+        this.windwoPosY = application.mainStage.getY();
+        this.windwoPosWidth  = application.mainStage.getWidth();
+        this.windwoPosHeight = application.mainStage.getHeight();
+
+        this.screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     }
 
     
@@ -37,8 +46,12 @@ public abstract class Controller {
     }
 
 
-    public void SwitchScene(Stage Window, String SceneName) throws IOException {
-        this.application.changeScreen(Window, SceneName);
+    public void SwitchScene(String SceneName) throws IOException {
+        //this.application.changeScreen(Window, SceneName);
+        AnchorPane view = getScenePage(SceneName).load();
+        
+        this.application.windowPageReference.anchor.getChildren().removeAll();
+        this.application.windowPageReference.anchor.setCenter(view);
     }
 
 
@@ -65,10 +78,16 @@ public abstract class Controller {
             //System.out.println("" + (this.maxDt - dt));
            
             if(this.maxDt - dt >= 0.0) {
+                //se per caso ho cliccato prima
                 return true;
             }
 
-            return false;
+            if(dt >= 1.800) {
+                return doubleClick();
+            }
+            else {
+                return true;
+            }
         }
 
     }

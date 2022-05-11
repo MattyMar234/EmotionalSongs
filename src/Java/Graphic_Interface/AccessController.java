@@ -44,13 +44,13 @@ public class AccessController extends Controller implements Initializable {
 
         this.application.ConnectedAccount = new UnregisteredAccount();
         Stage Window = (Stage) NoAccountButton.getScene().getWindow();
-        super.SwitchScene(Window, "MainPage");
+        super.SwitchScene("MainPage");
     }
 
     @FXML
     void CreateNewAccount(MouseEvent event) throws IOException {
         Stage Window = (Stage) NoAccountButton.getScene().getWindow();
-        super.SwitchScene(Window, "UserRegistration");
+        super.SwitchScene("UserRegistration");
     }
 
     @FXML
@@ -72,16 +72,16 @@ public class AccessController extends Controller implements Initializable {
                 
 
                 /*****test*****/
-                PlayList p = new PlayList("prova");
+               /* PlayList p = new PlayList("prova");
                 p.addSong(application.songManager.getElement(20));
                 p.addSong(application.songManager.getElement(287));
                 p.addSong(application.songManager.getElement(60));
-                TempAccount.addPlaylist(p);
+                TempAccount.addPlaylist(p);*/
 
                 application.ConnectedAccount = TempAccount;
         
                 Stage Window = (Stage) NoAccountButton.getScene().getWindow();
-                super.SwitchScene(Window, "MainPage");
+                super.SwitchScene("MainPage");
             }
 
         }

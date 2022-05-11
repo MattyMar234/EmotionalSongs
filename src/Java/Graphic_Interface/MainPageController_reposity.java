@@ -138,14 +138,11 @@ public class MainPageController_reposity extends Controller implements Initializ
             selected2 = SongsTable.getSelectionModel().getSelectedItem();
         }
 
-        if(doubleClick() && (selected2 == selected1) && selected1 instanceof Song) {
+        if(doubleClick() && selected1 == selected2) {
             System.out.println("song selected");
             SongWindow windowSong = new SongWindow(application, (Song) selected1);
         }
-        else if(doubleClick() && (selected2 == selected1) && selected1 instanceof PlayList) {
-            System.out.println("song selected");
-            //SongWindow windowSong = new SongWindow(application, selected1);
-        }
+        
 
     }
 

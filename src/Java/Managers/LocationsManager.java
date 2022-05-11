@@ -5,9 +5,9 @@ import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import Java.DataClass.Common;
-import Java.DataClass.Province;
-import Java.DataClass.Region;
+import Java.DataClasses.Common;
+import Java.DataClasses.Province;
+import Java.DataClasses.Region;
 import Java.emotionalsongs.EmotionalSongs;
 
 public class LocationsManager extends Manager <Region> {

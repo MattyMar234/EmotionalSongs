@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import Java.Account.Account;
+import Java.Graphic_Interface.WindowContainerController;
 import Java.Managers.AccountsManager;
 import Java.Managers.LocationsManager;
 import Java.Managers.SongManager;
@@ -27,6 +28,8 @@ public class EmotionalSongs extends Application{
     private final String FileFXML_path      = "FXML/";
     private final String [] XML_Paths = {
 
+
+        FileFXML_path + "Container.fxml",
         FileFXML_path + "UserRegistration.fxml",
         FileFXML_path + "MainPage.fxml",
         FileFXML_path + "MainPage_reposity.fxml",
@@ -34,13 +37,17 @@ public class EmotionalSongs extends Application{
         FileFXML_path + "MainPage_impostazioni.fxml",
         FileFXML_path + "LoadAccaunt.fxml",
         FileFXML_path + "AccessPage.fxml",
-        FileFXML_path + "ongPageInformation.fxml"
+        FileFXML_path + "ongPageInformation.fxml",
+        FileFXML_path + "SongPageInformation.fxml",
+        FileFXML_path + "NewPlaylistCreationPage.fxml"
     };
 
 
     // =================== variabili globali =================== //
 
-    public static EmotionalSongs classReference;                                  //riferimento globale di questa classe
+    public static EmotionalSongs classReference;                    //riferimento globale di questa classe
+    public static WindowContainerController windowPageReference;
+    
     public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
     public HashMap<String, String> pageLoaders = new HashMap<String, String>();         
     public Account ConnectedAccount;                                             //Account in utilizzo
@@ -106,7 +113,7 @@ public class EmotionalSongs extends Application{
 
             //pagina iniziale
             stage.setTitle("EmotionaSong");
-            changeScreen(stage, "AccessPage");
+            changeScreen(stage, "Container");
             stage.show();
            
             System.out.println("starting stage"); 

@@ -87,13 +87,13 @@ public class MainPageController_options extends Controller implements Initializa
     @FXML
     void setReposity(ActionEvent event) throws IOException {
         Stage window = (Stage) playlistButton.getScene().getWindow();
-        super.SwitchScene(window, "MainPage_reposity");
+        super.SwitchScene("MainPage_reposity");
     }
 
     @FXML
     void SetPlayList(ActionEvent event) throws IOException {
         Stage window = (Stage) playlistButton.getScene().getWindow();
-        super.SwitchScene(window, "MainPage_PLaylist");
+        super.SwitchScene("MainPage_PLaylist");
 
     }
 

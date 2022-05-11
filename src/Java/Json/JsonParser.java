@@ -94,22 +94,57 @@ public class JsonParser {
         //aggiungo L'indentazione
         int LivelloIndentazione = 0;
         String indentedData = new String("");
+        final boolean inLine = false;
 
-        for(int i = 0; i < DataStructure.length(); i++) 
-        {
-            switch(DataStructure.charAt(i)) 
+        file.write("");
+
+        if(!inLine) {
+            for(int i = 0; i < DataStructure.length(); i++) 
             {
-                case '{' : LivelloIndentazione++;  indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
-                case '[' : LivelloIndentazione++;  indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
-                case ']' : LivelloIndentazione--;  indentedData = indentedData + '\n' + MakeTab(LivelloIndentazione) + DataStructure.charAt(i);  break;
-                case '}' : LivelloIndentazione--;  indentedData = indentedData + '\n' + MakeTab(LivelloIndentazione) + DataStructure.charAt(i);  break;
-                case ',' :                         indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
-                case ':' :                         indentedData = indentedData + ' ' + DataStructure.charAt(i) + ' ';   break;
-                default: indentedData += DataStructure.charAt(i);  break;
+                indentedData = "";
+                switch(DataStructure.charAt(i)) 
+                {
+                    case '{' : LivelloIndentazione++;  indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
+                    case '[' : LivelloIndentazione++;  indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
+                    case ']' : LivelloIndentazione--;  indentedData = indentedData + '\n' + MakeTab(LivelloIndentazione) + DataStructure.charAt(i);  break;
+                    case '}' : LivelloIndentazione--;  indentedData = indentedData + '\n' + MakeTab(LivelloIndentazione) + DataStructure.charAt(i);  break;
+                    case ',' :                         indentedData = indentedData + DataStructure.charAt(i) + '\n' + MakeTab(LivelloIndentazione);  break;
+                    case ':' :                         indentedData = indentedData + ' ' + DataStructure.charAt(i) + ' ';   break;
+                    default: indentedData += DataStructure.charAt(i);  break;
+                }
+
+                file.append(indentedData);
+            }
+        }
+        else {
+            //da sistemare
+            for(int i = 0; i < DataStructure.length(); i++) 
+            {
+                indentedData = "";
+                switch(DataStructure.charAt(i)) 
+                {
+                    case '{' : LivelloIndentazione++;  indentedData = indentedData + DataStructure.charAt(i);  break;
+                    case '}' : 
+                
+                        if(LivelloIndentazione-- == 1) { 
+                            indentedData = indentedData + DataStructure.charAt(i); 
+
+                            if(i + 2 < DataStructure.length()) {
+                                indentedData += ",";
+                                i++; 
+                            }
+
+                            indentedData  += '\n';
+                    
+                        }  break;
+                
+                    default: indentedData += DataStructure.charAt(i);  break;
+                }
+
+                file.append(indentedData);
             }
         }
 
-        file.write(indentedData);
         file.flush();
         file.close();
     }
