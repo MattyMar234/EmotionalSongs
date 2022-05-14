@@ -160,7 +160,7 @@ public class MainPageController extends Controller implements Initializable {
         if(state != 4 ) {
             if(this.application.ConnectedAccount instanceof RegisteredAccount) { 
                 state = 4;
-                SetProfilePage();
+                SetAccountPage();
             } 
             else if(this.application.ConnectedAccount instanceof UnregisteredAccount) {
 
@@ -244,4 +244,10 @@ public class MainPageController extends Controller implements Initializable {
         SwitchScene("AccessPage");
     }
     
+    protected void SetAccountPage() throws IOException
+    {       
+        AnchorPane view = getScenePage("MainPage_AccountInfo").load();
+        borderPane.getChildren().removeAll();
+        borderPane.setCenter(view);  
+    }
 }
