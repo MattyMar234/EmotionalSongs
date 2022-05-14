@@ -17,8 +17,6 @@ public class Song {
     protected String album;
     protected String duration;
     protected String genre;
-
-
     protected String songID;
     protected int AlbumID;
 

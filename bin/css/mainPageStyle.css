@@ -1,23 +1,31 @@
-.root {
-	-fx-background: #ffffff;
+#back {
+
     /*-fx-background:linear-gradient(to right, #49a09d, #5f2c82); */
     /*-fx-background: linear-gradient(to right top, #4456D2, #C651C3);*/
     
 	/*-fx-font-family: "Century Gothic";*/
 
+    -fx-background-color: #303440;
+    -fx-background-color: linear-gradient(from 25% 10% to 100% 100%, #490e46, #a03616f5);
+
 }
 
 
+.text-field {
+    -fx-background-color: #F0F0F0;
+}
 
 #KeywordTextField {
-    -fx-background-color: #F0F0F0;
+    
 
 }
 
 #searchPane {
     -fx-padding: 0 0 0 0;
     -fx-background-color: #e0e0e0;
-    -fx-background-color: #2a2e38;
+    -fx-background-color: #1F2D47;
+    /*-fx-background-color: #2a2e38;*/
+    -fx-background-color: transparent;
     -fx-alignment: center;
 }
 #SerachLabel {
@@ -33,21 +41,35 @@
 }
 
 #LabeNavbar1{
-    -fx-text-fill:#e2af08; 
+    /*-fx-text-fill:#e2af08; */
+    -fx-text-fill:#3F8CFE;
     -fx-font-weight: bold;
-    -fx-font-size: 20;
-    -fx-padding: 0 0 0 32;
+    -fx-font-size: 20px;
+    -fx-padding: 16 0 0 16;
     
 }
 
 #Hbox1 {
     /*    -fx-background-color: #52438F;*/
-    -fx-background-color: #25282e;
+    -fx-background-color: #222430/*#25282e*/;
 }
 
 #Vbox1 {
     /*-fx-background-color: #6F5cc2;*/
-    -fx-background-color: #343843;
+    /*-fx-background-color: #343843;*/
+    -fx-background-color: #262D37;
+    /*-fx-border-width: 0 1 0 0;
+    -fx-border-color: rgb(92, 92, 92);*/
+}
+
+#BorderPaneTable {
+    -fx-background-color: transparent;
+}
+
+#tableBack {
+    -fx-background-color: #1E252F;
+    -fx-background-radius: 20px;
+    
 }
 
 
@@ -56,26 +78,23 @@
 .button {
     -fx-background-color: transparent;
     -fx-text-align: center;
-    -fx-text-fill:#ffffff;
-    -fx-alignment: baseline_left ;
-    -fx-padding: 0 0 0 28;
+    -fx-text-fill:#798AA6;
+    -fx-alignment: baseline_left;
+    -fx-padding: 4 0 4 10;
     -fx-font-size: 15px;
+    -fx-background-radius: 10px;
     
 }
 
 .button:hover {
-    /*-fx-background-color: rgba(112, 167, 192, 0.4);*/
-    -fx-background-color: #A89DDA;
-    -fx-background-color: #9c9c9c66;
-    
-    
+    -fx-background-color: #9c9c9c66; 
 }
 
 /*focalizzato o premuto*/
-.button:focused {
-    /*-fx-background-color: #1c1346;*/
+/*.button:focused {
+    -fx-background-color: #1c1346;
     -fx-background-color: #f18100f6;
-}
+}*/
 
 .button:selected {
     /*-fx-background-color: #1c1346;*/
@@ -89,15 +108,43 @@
 }
 
 
+
+
+#NewPlaylistButton {
+    -fx-background-color: #8246FE;
+    -fx-background-radius: 3px;
+    -fx-padding: 0 0 0 0;
+    -fx-text-fill:#ffffff;
+    -fx-alignment: center;
+}
+
+#AnnullaPlaylistButton {
+    -fx-background-color: #ff00008e;
+    -fx-text-fill:#E74C3C;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+
+}
+
+#newPlayListButton{
+    -fx-background-color: #1aaf15a4;
+    -fx-text-fill:#2ECC71;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    
+}
+
+
 .table-view {
 
-    -fx-border-color: #36304A;
+    -fx-background-color: transparent;
+    /*-fx-border-color: #36304A;*/
     /*-fx-border-radius: 12px;
     -fx-background-radius: 12px;*/
     -fx-padding: 0px;
     -fx-text-fill: #000000;
-    -fx-background-color: linear-gradient(from 25% 10% to 100% 100%, #490e46, #a03616f5);
-
+    /*-fx-background-color: linear-gradient(from 25% 10% to 100% 100%, #490e46, #a03616f5);*/
+    -fx-background-color: transparent;
 }
 
 /* ===================== header tabella =====================*/
@@ -106,10 +153,11 @@
 .table-view .column-header-background .filler,
 .table-view .column-header-background 
 {
-    -fx-background-color: #36304A;
-    /*-fx-background-radius: 12 12 0 0;*/
-    -fx-padding: 8 0 8 0;
+    -fx-background-color: #1A1D26;/* #36304A;*/
+    -fx-background-radius: 12;
+    -fx-padding: 12 0 12 0;
     -fx-margin: 8px;
+
 }
 
 
@@ -117,10 +165,10 @@
 /* ===================== header della colonna ===================== */
 .table-view .column-header-background .label 
 {
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #bdbdbd;
     -fx-alignment: center;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    /*-fx-font-weight: bold;*/
     
 }
 
@@ -129,16 +177,17 @@
 /*Contenuto della cella*/
 .table-view .table-cell{
     -fx-text-fill: #ffffff;
+    -fx-border-color: transparent;
     -fx-alignment: center;
 }
 
 /**Spetto cella*/
 .table-row-cell {
     -fx-padding: 0.0em; 
-    -fx-cell-size: 40px;
+    -fx-cell-size: 56px;
     -fx-font-size: 14px;
     -fx-background-color: transparent;
-    -fx-border-color: #575757;
+    -fx-border-color: #5757577F;
     -fx-border-width: 0 0 1 0;
 }
 
