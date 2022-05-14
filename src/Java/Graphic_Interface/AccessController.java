@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,8 +26,11 @@ public class AccessController extends Controller implements Initializable {
     @FXML private Button NoAccountButton;
     @FXML private AnchorPane labelButton;
     @FXML private AnchorPane pane1;
-    @FXML private TextField password;
+    @FXML private PasswordField password;
     @FXML private TextField userName;
+
+    @FXML private Label LabelName;
+    @FXML private Label labelPassword;
     
     
     public AccessController() {
@@ -36,7 +40,7 @@ public class AccessController extends Controller implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-         
+        clearError();
     }
 
     @FXML
@@ -56,40 +60,84 @@ public class AccessController extends Controller implements Initializable {
     @FXML
     void searchAccount(ActionEvent event) throws IOException 
     {
-        if(userName!= null && password!=null && userName.getText().length() > 0 && password.getText().length() > 0 ) 
-        {
-            RegisteredAccount TempAccount = new RegisteredAccount();
-            
+        RegisteredAccount TempAccount = new RegisteredAccount();
+        boolean error = false;
+
+        clearError();
+
+        //verifico validità del campo
+        if(userName == null || userName.getText().length() == 0) {
+            this.LabelName.setText("missing data");
+            this.userName.setStyle("-fx-border-color: #a50303;");
+            this.LabelName.setVisible(true);
+            error = true;
+        }
+        else {
+            //verifica email
             if(userName.getText().contains("@")) {
                 TempAccount = application.AccountsManager.SerachByEmail(userName.getText());
+                this.LabelName.setText("invalid email");
             }
+            //verifica userID
             else {
-                //TempAccount.setUs(userName.getText());
+                TempAccount = application.AccountsManager.SerachByID(userName.getText());
+                this.LabelName.setText("invalid user ID");
             }
 
-            if(TempAccount != null && TempAccount.getPassword().equals(password.getText())) 
-            {
-                
-
-                /*****test*****/
-               /* PlayList p = new PlayList("prova");
-                p.addSong(application.songManager.getElement(20));
-                p.addSong(application.songManager.getElement(287));
-                p.addSong(application.songManager.getElement(60));
-                TempAccount.addPlaylist(p);*/
-
-                application.ConnectedAccount = TempAccount;
-        
-                Stage Window = (Stage) NoAccountButton.getScene().getWindow();
-                super.SwitchScene("MainPage");
+            if(TempAccount == null) {
+                this.userName.setStyle("-fx-border-color: #a50303;");
+                this.LabelName.setVisible(true);
+                error = true;
             }
+        }
 
+        //verifico validità del campo
+        if(password == null || password.getText().length() == 0) {
+            this.labelPassword.setText("missing data");
+            this.password.setStyle("-fx-border-color: #a50303;");
+            this.labelPassword.setVisible(true);
+            error = true;
+        }
+
+
+        if(error) {
+            return;
+        }
+
+        if(!TempAccount.getPassword().equals(password.getText())) {
+            this.labelPassword.setText("incorrect password");
+            this.password.setStyle("-fx-border-color: #a50303;");
+            this.password.clear();
+            this.labelPassword.setVisible(true);
+            return;
         }
             
-    
 
+        /*****test*****/
+        /* PlayList p = new PlayList("prova");
+        p.addSong(application.songManager.getElement(20));
+        p.addSong(application.songManager.getElement(287));
+        p.addSong(application.songManager.getElement(60));
+        TempAccount.addPlaylist(p);*/
+
+        application.ConnectedAccount = TempAccount;
+
+        Stage Window = (Stage) NoAccountButton.getScene().getWindow();
+        super.SwitchScene("MainPage");
         
+
+    }  
+
+
+
+    private void clearError() {
+        this.LabelName.setVisible(false);
+        this.labelPassword.setVisible(false);
+        this.userName.setStyle("-fx-border-color: transparent;");
+        this.password.setStyle("-fx-border-color: transparent;");
     }
+
+
 
 
 }

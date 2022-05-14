@@ -143,12 +143,6 @@ public class RegisteredAccount extends Account {
         return data;
     }
 
-    
-
-    
-
-
-    
 
 
     public void elimina_playlist(){

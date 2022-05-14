@@ -31,6 +31,18 @@ public class AccountsManager extends Manager <RegisteredAccount>
         return null;
     }
 
+    public RegisteredAccount SerachByID(String ID) {
+        
+        for (RegisteredAccount account : Data) {
+            String id = account.getUserID();
+            
+            if(id != null && id.equals(ID)) {
+                return account;
+            }
+        }
+        return null;
+    }
+
     public int checkAccaunt(RegisteredAccount temp) 
     {
         //return true;

@@ -47,10 +47,11 @@
     /*-fx-text-fill:#e2af08; */
     -fx-text-fill:#3F8CFE;
     -fx-font-weight: bold;
-    -fx-font-size: 20px;
-    -fx-padding: 16 0 0 16;
+    -fx-font-size: 27px;
+    -fx-padding: 16 0 0 10;
+    -fx-text-align: center;
 
-    -fx-font-weight: bold;
+    
     -fx-font-family: 'Times New Roman',serif;
 
     -fx-text-fill: linear-gradient(to right, 
@@ -63,7 +64,7 @@
         #f6e27a 86%,
         #cb9b51 94%
 	);
-    -fx-position: absolute;
+    
 
     
 }
@@ -146,7 +147,7 @@
 }
 
 #newPlayListButton{
-    -fx-background-color: #1aaf15a4;
+    -fx-background-color: #11db0aa4;
     -fx-text-fill:#2ECC71;
     -fx-font-weight: bold;
     -fx-alignment: center-left;

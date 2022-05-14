@@ -26,7 +26,20 @@
          <left>
             <VBox fx:id="Vbox1" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="LabeNavbar1" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="64.0" prefWidth="199.0" text="Emotional Song" textFill="WHITE" />
+                  <AnchorPane prefHeight="84.0" prefWidth="289.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="289.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../data/image/Logo.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="LabeNavbar1" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="64.0" prefWidth="201.0" text="Emotional Song" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
                   <Button fx:id="profileButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#AccountButtonSelected" prefHeight="48.0" prefWidth="200.0" text="Account">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
