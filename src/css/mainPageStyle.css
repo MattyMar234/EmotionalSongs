@@ -162,7 +162,7 @@
     /*-fx-border-radius: 12px;
     -fx-background-radius: 12px;*/
     -fx-padding: 0px;
-    -fx-text-fill: #000000;
+    -fx-text-fill: #fcfcfc;
     /*-fx-background-color: linear-gradient(from 25% 10% to 100% 100%, #490e46, #a03616f5);*/
     -fx-background-color: transparent;
 }
@@ -253,3 +253,43 @@
   -fx-shape: null;
 }
 
+
+
+
+
+
+
+
+
+/* menu playlistCreation*/
+
+#manuinfo {
+    -fx-background-color: #353e4b;
+    -fx-background-radius: 20 20 0 0;
+}
+
+#labelmenuPlaylist {
+    -fx-text-fill: #f0f0f0;
+    -fx-font-size: 20px;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+
+#playlistNameField {
+    -fx-background-color: #2e3742;
+    -fx-background-radius: 8px;
+    -fx-border-color: transparent;
+
+}
+
+#FieldNameLabel, #labelSongList {
+    -fx-text-fill: #f59d06;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+#check1, #check2 {
+    -fx-text-fill: #f59d06;
+    -fx-font-weight: bold;
+    
+}

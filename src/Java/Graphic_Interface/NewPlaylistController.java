@@ -4,8 +4,10 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import Java.PlayList_Songs.AddSongWindow;
 import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
 import Java.PlayList_Songs.SongWindow;
@@ -40,9 +42,10 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     @FXML private Button AnnullaPlaylistButton;
     @FXML private Button newPlayListButton;
+    @FXML private Button AlbumButton;
+    @FXML private Button AutorButton;
+    @FXML private Button songButton;
 
-    // ========================= variabili =========================//
-    MainPageController mainPageReference;
 
     // ========================= tabelle =========================//
     @FXML private TextField KeywordTextField;
@@ -50,6 +53,12 @@ public class NewPlaylistController extends Controller implements Initializable {
     @FXML private TableColumn<Song, String> Album;
     @FXML private TableColumn<Song, String> Autor;
     @FXML private TableColumn<Song, String> Title;
+    @FXML private TableColumn<Song, String> Actions;
+
+     // ========================= variabili =========================//
+     MainPageController mainPageReference;
+     AddSongWindow addSongWindow;
+     HashMap<String,ArrayList<String>> SelectedData = new HashMap<String,ArrayList<String>>();
   
 
 
@@ -64,50 +73,27 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        for(Song song : application.songManager.getList()) {
-            list.add(song);
-        }
+       
 
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
         Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
+        SongsTable.setItems(list);
 
-        
-        FilteredList<Song> filteredData = new FilteredList<Song>(list, b -> true);
-        
-        KeywordTextField.textProperty().addListener((Observable, oldValue, newValue) -> {
-            filteredData.setPredicate(song -> {
-                if(newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                try {
-                    String lowerCaseFilter = newValue.toLowerCase();
-                    //varie chiavi (campi) su cui ricercare
-                    if(song.getTitle().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                        return true;
-                    } 
-                    else if(song.getAlbum().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                        return true;
-                    }
-                    else if(song.getAutor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                        return true;
-                    }
-                } catch (NullPointerException e) {
-                    return false;
-                }
-                
-                
-                return false;
-            });  
-        });
-        
-        SortedList<Song> sortedData = new SortedList<Song>(filteredData);
-        sortedData.comparatorProperty().bind(SongsTable.comparatorProperty());
-        SongsTable.setItems(sortedData);
-        
+        SelectedData.put("song" , new ArrayList<String>());
+        SelectedData.put("autor", new ArrayList<String>());
+        SelectedData.put("album", new ArrayList<String>());  
     }
 
+    public void addSelectedSong(ArrayList<Song> song) {
+        for(Song s : song) {
+            list.add(s);
+        }
+
+        SongsTable.refresh();
+    }
+
+    // ====================== Button Action ================= //
 
     @FXML
     void ConfermeNewPlayList(ActionEvent event) throws IOException {
@@ -131,5 +117,20 @@ public class NewPlaylistController extends Controller implements Initializable {
     public void Selezione(ActionEvent event) {
         System.out.println("pressed");
 
+    }
+
+    @FXML
+    void AddAlbum(ActionEvent event) throws Exception {
+        addSongWindow = new AddSongWindow(this, this.application, 2, SelectedData);
+    }
+
+    @FXML
+    void AddAutor(ActionEvent event) throws Exception {
+        addSongWindow = new AddSongWindow(this, this.application, 3, SelectedData);
+    }
+
+    @FXML
+    void addSong(ActionEvent event) throws Exception {
+        addSongWindow = new AddSongWindow(this, this.application, 1, SelectedData);
     }
 }

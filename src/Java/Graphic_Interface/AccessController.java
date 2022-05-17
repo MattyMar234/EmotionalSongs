@@ -39,8 +39,21 @@ public class AccessController extends Controller implements Initializable {
     
     
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) 
+    {
         clearError();
+       
+        //non funzionano ??? 
+        if(this.windwoPosWidth < 1200.0) {
+            this.windwoPosWidth = 1200.0;
+            this.application.mainStage.setWidth(this.windwoPosWidth);
+        }
+
+
+        if(this.windwoPosHeight < 1000.0) {
+            this.windwoPosHeight = 1000.0;
+            this.application.mainStage.setHeight(this.windwoPosHeight);
+        }
     }
 
     @FXML

@@ -40,7 +40,7 @@ public class MainPageController_playList extends Controller implements Initializ
     @FXML private TableColumn<PlayList, String> PlayListName;
     @FXML private TableColumn<PlayList, String> DataCreazione;
     @FXML private TableColumn<PlayList, String> DeletePlayList;
-    @FXML private TableColumn<PlayList, String> EditPlayList;
+    @FXML private TableColumn<PlayList, PlayList> EditPlayList;
 
     private ObservableList<PlayList> userPlayLists = FXCollections.observableArrayList();
 
@@ -82,12 +82,12 @@ public class MainPageController_playList extends Controller implements Initializ
             DataCreazione.setCellValueFactory(new PropertyValueFactory<PlayList, String>("CreationDate"));
 
             //add cell of button edit 
-            Callback<TableColumn<PlayList, String>, TableCell<PlayList, String>> cellFoctory = (TableColumn<PlayList, String> param) -> {
+            Callback<TableColumn<PlayList, PlayList>, TableCell<PlayList, PlayList>> cellFoctory = (TableColumn<PlayList, PlayList> param) -> {
                 // make cell containing buttons
-                final TableCell<PlayList, String> cell = new TableCell<PlayList, String>() {
+                final TableCell<PlayList, PlayList> cell = new TableCell<PlayList, PlayList>() {
                     
                     @Override
-                    public void updateItem(String item, boolean empty) {
+                    public void updateItem(PlayList item, boolean empty) {
                         super.updateItem(item, empty);
                         //that cell created only on non-empty rows
                         if (empty) {
@@ -135,7 +135,7 @@ public class MainPageController_playList extends Controller implements Initializ
                                     + "-fx-border-width: 1;"
                                     + "-fx-border-color: #E74C3C;"
                                     + "-fx-border-radius: 10px;"
-                                    + "-fx-padding: 10 10 10 10;"
+                                    + "-fx-padding: 8 8 8 8;"
                                     + "-fx-border-insets: 10px;"
                                     + "-fx-background-insets: 10px;"
                                     
@@ -146,15 +146,25 @@ public class MainPageController_playList extends Controller implements Initializ
                                     + "-fx-border-width: 1;"
                                     + "-fx-border-color: #2ECC71;"
                                     + "-fx-border-radius: 10px;"
-                                    + "-fx-padding: 10 10 10 10;"
+                                    + "-fx-padding: 8 8 8 8;"
                                     + "-fx-border-insets: 10px;"
                                     + "-fx-background-insets: 10px;"
 
                             );
 
 
-                            deleteButton.setOnMouseClicked((MouseEvent event) -> {});
-                            editButton.setOnMouseClicked((MouseEvent event) -> {});
+                            deleteButton.setOnMouseClicked((MouseEvent event) -> {
+
+                                //PlayList playlist = PlaylistsTable.getSelectionModel().getSelectedItem();
+                                //funziona se solo prima selezioni l'elemento
+                                
+                                System.out.println(item); //item è il riferimento della playlist
+ 
+                            });
+                            editButton.setOnMouseClicked((MouseEvent event) -> {
+
+                                
+                            });
 
                             HBox managebtn = new HBox(deleteButton, editButton);
                             managebtn.setStyle("-fx-alignment:center");
@@ -171,7 +181,10 @@ public class MainPageController_playList extends Controller implements Initializ
                 return cell;
             };
 
+            //call getReference ???
+            EditPlayList.setCellValueFactory(new PropertyValueFactory<PlayList, PlayList>("reference"));
             EditPlayList.setCellFactory(cellFoctory);
+
             PlaylistsTable.setItems(userPlayLists);
 
         }

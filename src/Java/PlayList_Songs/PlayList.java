@@ -10,14 +10,16 @@ public class PlayList {
     protected String CreationDate;
     protected ArrayList<Song> PlayList = new ArrayList<Song>();
     protected String Elements;
+ 
 
-
+    //constructor 1
     public PlayList() {
-        
+        //this.reference = this;
     }
 
-    //constructor 12
+    //constructor 2
     public PlayList(String nome) {
+        this();
         this.nome = nome;
         
         LocalDate time = LocalDate.now();
@@ -29,6 +31,10 @@ public class PlayList {
         this(nome);                 //chiamo il costruttore 1
         this.PlayList = PlayList;     //copio l'arrayList
         Elements = String.valueOf(PlayList.size());
+    }
+
+    public PlayList getReference() {
+        return this;
     }
 
 

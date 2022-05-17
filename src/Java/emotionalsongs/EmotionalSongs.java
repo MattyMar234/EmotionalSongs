@@ -40,7 +40,8 @@ public class EmotionalSongs extends Application{
         FileFXML_path + "ongPageInformation.fxml",
         FileFXML_path + "SongPageInformation.fxml",
         FileFXML_path + "NewPlaylistCreationPage.fxml",
-        FileFXML_path + "MainPage_AccountInfo.fxml"
+        FileFXML_path + "MainPage_AccountInfo.fxml",
+        FileFXML_path + "Playlist_AddSongPage.fxml"
     };
 
 
