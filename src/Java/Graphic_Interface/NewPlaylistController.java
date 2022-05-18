@@ -48,12 +48,15 @@ public class NewPlaylistController extends Controller implements Initializable {
 
 
     // ========================= tabelle =========================//
-    @FXML private TextField KeywordTextField;
+
     @FXML private TableView<Song> SongsTable;
     @FXML private TableColumn<Song, String> Album;
     @FXML private TableColumn<Song, String> Autor;
     @FXML private TableColumn<Song, String> Title;
     @FXML private TableColumn<Song, String> Actions;
+
+    // ========================= textField ========================= //
+    @FXML private TextField KeywordTextField;
 
      // ========================= variabili =========================//
      MainPageController mainPageReference;
@@ -97,8 +100,19 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     @FXML
     void ConfermeNewPlayList(ActionEvent event) throws IOException {
-        //...
-        mainPageReference.SetPlayListPage();
+        
+        if(KeywordTextField != null && KeywordTextField.getText().length() > 0) {
+             
+            ArrayList<Song> songlist = new ArrayList<Song>();
+
+            for(Song s : list) {
+                songlist.add(s);
+            }
+
+            PlayList newPlayList = new PlayList(KeywordTextField.getText(), songlist);
+            mainPageReference.SetPlayListPage();
+        }
+        
     }
 
     @FXML
