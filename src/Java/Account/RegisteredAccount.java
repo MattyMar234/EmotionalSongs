@@ -150,6 +150,10 @@ public class RegisteredAccount extends Account {
     }
 
 
+    public void remove_playlist(PlayList a) {
+        PlayLists.remove(a);
+    }
+
     public void crea_playlist_vuota(){
         String nome="";
         ArrayList<Song> daje=new ArrayList<Song>();
