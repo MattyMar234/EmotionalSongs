@@ -316,6 +316,18 @@
 				"elements" : "3",
 				"name" : "prova",
 				"creationDate" : "2022-05-11"
+			},
+			{
+				"song" : [
+					"SOLRYQR12A670215BF",
+					"SOXKMLO12AB017FFDB",
+					"SOWDZZQ12A670215BD",
+					"SOVMULC12A670215AE",
+					"SOPDFZN12A670215C4"
+				],
+				"elements" : "5",
+				"name" : "testInserimento",
+				"creationDate" : "2022-05-18"
 			}
 		],
 		"viaPiazza" : "9unyp9b",

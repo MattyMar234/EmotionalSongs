@@ -277,6 +277,7 @@
 
 #playlistNameField {
     -fx-background-color: #2e3742;
+    -fx-text-fill: #919191;
     -fx-background-radius: 8px;
     -fx-border-color: transparent;
 

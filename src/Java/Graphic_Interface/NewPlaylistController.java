@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import Java.Account.RegisteredAccount;
 import Java.PlayList_Songs.AddSongWindow;
 import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
@@ -56,7 +57,7 @@ public class NewPlaylistController extends Controller implements Initializable {
     @FXML private TableColumn<Song, String> Actions;
 
     // ========================= textField ========================= //
-    @FXML private TextField KeywordTextField;
+    @FXML private TextField playlistNameField;
 
      // ========================= variabili =========================//
      MainPageController mainPageReference;
@@ -101,7 +102,7 @@ public class NewPlaylistController extends Controller implements Initializable {
     @FXML
     void ConfermeNewPlayList(ActionEvent event) throws IOException {
         
-        if(KeywordTextField != null && KeywordTextField.getText().length() > 0) {
+        if(playlistNameField != null && playlistNameField.getText().length() > 0) {
              
             ArrayList<Song> songlist = new ArrayList<Song>();
 
@@ -109,7 +110,10 @@ public class NewPlaylistController extends Controller implements Initializable {
                 songlist.add(s);
             }
 
-            PlayList newPlayList = new PlayList(KeywordTextField.getText(), songlist);
+            
+            RegisteredAccount account = (RegisteredAccount)this.application.ConnectedAccount;
+            account.addPlaylist(new PlayList(playlistNameField.getText(), songlist));
+            
             mainPageReference.SetPlayListPage();
         }
         
