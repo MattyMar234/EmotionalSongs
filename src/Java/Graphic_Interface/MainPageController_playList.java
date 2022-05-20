@@ -154,10 +154,13 @@ public class MainPageController_playList extends Controller implements Initializ
 
 
                             deleteButton.setOnMouseClicked((MouseEvent event) -> {
-
+                                ((RegisteredAccount)application.ConnectedAccount).remove_playlist(item);
                                 //PlayList playlist = PlaylistsTable.getSelectionModel().getSelectedItem();
                                 //funziona se solo prima selezioni l'elemento
                                 
+                                userPlayLists.remove(item);
+                                PlaylistsTable.refresh();
+
                                 System.out.println(item); //item è il riferimento della playlist
  
                             });

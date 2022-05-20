@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="back" prefHeight="400.0" prefWidth="800.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.NewPlaylistController">
+<AnchorPane id="back" prefHeight="772.0" prefWidth="800.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.NewPlaylistController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -33,55 +33,82 @@
             <AnchorPane id="tableBack" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <center>
-                        <AnchorPane prefHeight="687.0" prefWidth="983.0" BorderPane.alignment="CENTER">
+                     <bottom>
+                        <AnchorPane prefHeight="77.0" prefWidth="720.0" BorderPane.alignment="CENTER">
                            <children>
-                              <VBox alignment="TOP_CENTER" layoutX="310.0" layoutY="78.0" prefHeight="100.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <HBox alignment="CENTER" layoutY="-25.0" prefHeight="104.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
                                  <children>
-                                    <AnchorPane id="manuinfo" prefHeight="70.0" prefWidth="720.0">
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <HBox alignment="CENTER" layoutX="260.0" layoutY="-15.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <Label id="labelmenuPlaylist" prefHeight="33.0" prefWidth="271.0" text="PLAYLIST CREATION MENU'" />
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="100.0" prefWidth="720.0">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <Label id="FieldNameLabel" prefHeight="27.0" prefWidth="124.0" text="Playlist Name:" textFill="#f59d06">
-                                                   <font>
-                                                      <Font name="Arial Bold" size="13.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="44.0" right="10.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                                <TextField fx:id="playlistNameField" prefHeight="35.0" prefWidth="450.0" promptText=" name" />
-                                             </children>
-                                             <padding>
-                                                <Insets top="10.0" />
-                                             </padding>
-                                          </HBox>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="28.0" prefWidth="620.0">
-                                       <children>
-                                          <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <Label id="labelSongList" prefHeight="20.0" prefWidth="124.0" text="Selected Songs:" />
-                                             </children>
-                                             <padding>
-                                                <Insets bottom="10.0" />
-                                             </padding>
-                                          </HBox>
+                                          <Button fx:id="AnnullaPlaylistButton" layoutX="28.0" layoutY="31.0" mnemonicParsing="false" onAction="#turnBack" prefHeight="40.0" prefWidth="145.0" text="Cance" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="36.0">
+                                             <graphic>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../data/image/trash.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <TableView fx:id="SongsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="384.0" prefWidth="620.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+                                          <Button fx:id="newPlayListButton" alignment="CENTER" layoutX="40.0" layoutY="26.0" mnemonicParsing="false" onAction="#ConfermeNewPlayList" text="Add Playlist" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="36.0">
+                                             <graphic>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../data/image/approva.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </bottom>
+                     <top>
+                        <VBox alignment="TOP_CENTER" prefHeight="72.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <AnchorPane id="manuinfo" prefHeight="70.0" prefWidth="720.0">
+                                 <children>
+                                    <HBox alignment="CENTER" layoutX="260.0" layoutY="-15.0" prefHeight="44.0" prefWidth="720.0" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label id="labelmenuPlaylist" prefHeight="33.0" prefWidth="271.0" text="PLAYLIST CREATION MENU'" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </top>
+                     <center>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <center>
+                              <AnchorPane prefHeight="687.0" prefWidth="983.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+                                       <bottom>
+                                          <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+                                             <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Button fx:id="songButton" mnemonicParsing="false" onAction="#addSong" text="Add Song" />
+                                                <Button fx:id="AlbumButton" mnemonicParsing="false" onAction="#AddAlbum" text="Add from an album" GridPane.columnIndex="1" />
+                                                <Button fx:id="AutorButton" mnemonicParsing="false" onAction="#AddAutor" text="Add Autor's song" GridPane.columnIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                       </bottom>
+                                       <center>
+                                          <TableView fx:id="SongsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="384.0" prefWidth="620.0" stylesheets="@../css/mainPageStyle.css" BorderPane.alignment="CENTER">
                                              <columns>
                                                 <TableColumn fx:id="Actions" maxWidth="2742.0" prefWidth="100.0" text="Actions" />
                                                 <TableColumn fx:id="Title" prefWidth="113.0" text="Title" />
@@ -92,69 +119,44 @@
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                              </columnResizePolicy>
                                           </TableView>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="44.0" prefWidth="720.0">
-                                       <children>
-                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       </center>
+                                       <top>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="16.0" prefWidth="720.0" BorderPane.alignment="BOTTOM_CENTER">
                                              <children>
-                                                <GridPane alignment="CENTER">
-                                                  <columnConstraints>
-                                                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                  </columnConstraints>
-                                                  <rowConstraints>
-                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                  </rowConstraints>
-                                                   <children>
-                                                      <Button fx:id="songButton" mnemonicParsing="false" onAction="#addSong" text="Add Song" />
-                                                      <Button fx:id="AlbumButton" mnemonicParsing="false" onAction="#AddAlbum" text="Add from an album" GridPane.columnIndex="1" />
-                                                      <Button fx:id="AutorButton" mnemonicParsing="false" onAction="#AddAutor" text="Add Autor's song" GridPane.columnIndex="2" />
-                                                   </children>
-                                                </GridPane>
+                                                <Label id="labelSongList" prefHeight="20.0" prefWidth="124.0" text="Selected Songs:" />
                                              </children>
-                                          </VBox>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="83.0" prefWidth="720.0">
-                                       <children>
-                                          <HBox alignment="CENTER" layoutY="-25.0" prefHeight="104.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
-                                             <children>
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                   <children>
-                                                      <Button fx:id="AnnullaPlaylistButton" layoutX="28.0" layoutY="31.0" mnemonicParsing="false" onAction="#turnBack" prefHeight="40.0" prefWidth="145.0" text="Cance" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="36.0">
-                                                         <graphic>
-                                                            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../../data/image/trash.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </graphic>
-                                                      </Button>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                   <children>
-                                                      <Button fx:id="newPlayListButton" alignment="CENTER" layoutX="40.0" layoutY="26.0" mnemonicParsing="false" onAction="#ConfermeNewPlayList" text="Add Playlist" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="36.0">
-                                                         <graphic>
-                                                            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../../data/image/approva.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </graphic>
-                                                      </Button>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" />
+                                             </padding>
                                           </HBox>
-                                       </children>
-                                    </AnchorPane>
+                                       </top>
+                                    </BorderPane>
                                  </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
+                              </AnchorPane>
+                           </center>
+                           <top>
+                              <AnchorPane prefHeight="86.0" prefWidth="720.0" BorderPane.alignment="TOP_CENTER">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label id="FieldNameLabel" prefHeight="27.0" prefWidth="124.0" text="Playlist Name:" textFill="#f59d06">
+                                             <font>
+                                                <Font name="Arial Bold" size="13.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="44.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="playlistNameField" prefHeight="35.0" prefWidth="450.0" promptText=" name" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </top>
+                        </BorderPane>
                      </center>
                   </BorderPane>
                </children>
