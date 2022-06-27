@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Java.PlayListSongs.PlayList;
-import Java.PlayListSongs.Song;
-import Java.PlayListSongs.SongWindow;
+import Java.PlayList_Songs.PlayList;
+import Java.PlayList_Songs.Song;
+import Java.PlayList_Songs.SongWindow;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -87,13 +87,13 @@ public class MainPageController_options extends Controller implements Initializa
     @FXML
     void setReposity(ActionEvent event) throws IOException {
         Stage window = (Stage) playlistButton.getScene().getWindow();
-        super.SwitchScene(window, "MainPage_reposity");
+        super.SwitchScene("MainPage_reposity");
     }
 
     @FXML
     void SetPlayList(ActionEvent event) throws IOException {
         Stage window = (Stage) playlistButton.getScene().getWindow();
-        super.SwitchScene(window, "MainPage_PLaylist");
+        super.SwitchScene("MainPage_PLaylist");
 
     }
 

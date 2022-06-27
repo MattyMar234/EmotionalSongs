@@ -4,15 +4,18 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-import Java.Json.JsonParser;
-import Java.PlayListSongs.Album;
-import Java.PlayListSongs.PlayList;
-import Java.PlayListSongs.Song;
+import org.json.simple.JSONObject;
 
+import Java.Json.JsonParser;
+import Java.PlayList_Songs.Album;
+import Java.PlayList_Songs.PlayList;
+import Java.PlayList_Songs.Song;
+import Java.emotionalsongs.EmotionalSongs;
 import java.util.ArrayList;
 
 public class Account {
 
+    protected EmotionalSongs main;
     protected String name;
     protected String surname;
     protected String email;
@@ -22,7 +25,7 @@ public class Account {
     
     //costruttore1 
     public Account()  {
-
+        this.main = EmotionalSongs.classReference;
     }
 
     //costruttore2
@@ -73,18 +76,19 @@ public class Account {
         return false;
     }
 
-    
-    public LinkedHashMap<String, Object> getDataStructure()
-    {
-        LinkedHashMap<String, Object> data = new LinkedHashMap<String, Object>();
+    @SuppressWarnings("unchecked")
+    public JSONObject getDataStructure() {
+        JSONObject data = new JSONObject();
 
-        data.put("name",     this.name);
-        data.put("surname",  this.surname);
+        data.put("name", this.name);
+        data.put("surname",    this.surname);
         data.put("email",    this.email);
-        data.put("password", this.password);
+        data.put("password",    this.password);
+        data.put("userID",   this.userID);
 
         return data;
     }
+
 
     public String getName() {
         return name;

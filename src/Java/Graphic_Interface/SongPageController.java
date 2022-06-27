@@ -3,8 +3,8 @@ package Java.Graphic_Interface;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Java.PlayListSongs.Emotion;
-import Java.PlayListSongs.Song;
+import Java.PlayList_Songs.Song;
+import Java.emotionalsongs.Emotion;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

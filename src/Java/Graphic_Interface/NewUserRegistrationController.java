@@ -1,18 +1,14 @@
 package Java.Graphic_Interface;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.jar.Attributes.Name;
-
-import Java.Account.Account;
+import org.json.simple.JSONObject;
 import Java.Account.RegisteredAccount;
-import Java.emotionalsongs.EmotionalSongs;
-import javafx.event.ActionEvent;
+import Java.DataClasses.Common;
+import Java.DataClasses.Province;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -37,7 +33,7 @@ public class NewUserRegistrationController extends Controller implements Initial
     @FXML public TextField surname;
     @FXML public TextField userID;
     @FXML public TextField email;
-    @FXML public PasswordField password1;
+    @FXML public PasswordField password;
     @FXML public PasswordField password2;
     @FXML public TextField civicNumber;
     @FXML public TextField cap;
@@ -66,7 +62,8 @@ public class NewUserRegistrationController extends Controller implements Initial
     ArrayList<String> LabelsNome = new  ArrayList<String>();
     ArrayList<ElementsContainer> contenitori = new ArrayList<ElementsContainer>();
     
-    public class ElementsContainer 
+
+    private class ElementsContainer 
     {
         public TextField text;
         public Label label;
@@ -79,13 +76,14 @@ public class NewUserRegistrationController extends Controller implements Initial
 
         //costruttore 2
         public ElementsContainer() {
-
         }
+
 
         @Override
         public String toString() {
             return new String(text + " with " + label);
         }
+
 
         public void setError(String error) {
             this.text.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
@@ -117,6 +115,7 @@ public class NewUserRegistrationController extends Controller implements Initial
             }
             else {
                 variabiliNome.add(f.getName());
+                //System.out.println("varName: " + f.getName());
             }
         }
 
@@ -127,86 +126,110 @@ public class NewUserRegistrationController extends Controller implements Initial
             try {
                 container.text  = (TextField) this.getClass().getField(variabiliNome.get(i)).get(this);
                 container.label = (Label)     this.getClass().getField(LabelsNome.get(i)).get(this);
-                container.clearError();
+                //container.clearError();
                 contenitori.add(container);
-                if(debug)System.out.println(container);
+                //if(debug)System.out.println(container);
             } 
             catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
                 e.printStackTrace();
             }
-            
         }    
     }
 
 
+
+    @SuppressWarnings("unchecked")
     public void validateNewUser() throws IOException 
     {
-        System.out.println("validete fields");
-        HashMap <String, String> UserCostructor = new HashMap<String, String>();
+        JSONObject UserCostructor = new JSONObject();
+        RegisteredAccount testAccount;
         boolean error = false;
-        
+
+        // ================================= 1° verifica ================================= //
         //Verifico se tutti i campi sono stati compilati
+
         for(int i = 0; i < contenitori.size(); i++) 
         {
             ElementsContainer container = contenitori.get(i);
             String data = container.text.getText();
 
             if(data == null || data.equals("")) {
-                container.setError("campo non compilato");
+                //container.setError("campo non compilato");
                 error = true;
             }
-
-            if(!error) {
-                UserCostructor.put(variabiliNome.get(i), data);
+            else if(!error) {
+                String key = variabiliNome.get(i).toString();
+                UserCostructor.put(key, data);
             }
         }
 
         if(error) {
             return;
         }
-
+        
+        // ================================= 2° verifica ================================= //
         //verifica password
-        if(!password1.getText().equals(password2.getText())) {
-            contenitori.get(5).setError("le password non coincidono");
+        
+        if(!password.getText().equals(password2.getText())) {
+            contenitori.get(5).setError("Le password non coincidono");
+            return;
+        }
+
+        // ================================= 3° verifica ================================= //
+        //verifica provincia
+
+        Province prov = this.application.locationsManager.FindProvince((String) UserCostructor.get("provincia"));
+        if(prov == null) {
+
+            return;
+        }
+
+        // ================================= 4° verifica ================================= //
+        //verifica comune
+
+        Common common = prov.findCommons((String) UserCostructor.get("comune"));
+        if(common == null) {
+            
+            return;
+        }
+
+        // ================================= 5° verifica ================================= //
+        //verifica validità email
+
+        String email = (String) UserCostructor.get("email");
+        String dominio = "@gmail.com";
+
+        if(!email.endsWith(dominio) && (email.length() - dominio.length()) <= 0) {
+
             return;
         }
 
 
-        RegisteredAccount testAccount = new RegisteredAccount(UserCostructor);// = new Account(UserCostructor);
+        // ================================= 6° verifica ================================= //
+        //verifica esistenza account
 
+        testAccount = new RegisteredAccount(UserCostructor);
 
         switch(application.AccountsManager.checkAccaunt(testAccount)) 
         {
             case 0:
-                application.AccountsManager.Users.add(testAccount);
+                application.AccountsManager.appendData(testAccount);
                 application.ConnectedAccount = testAccount;
+                System.out.println("New Account added");
+
                 Stage Window = (Stage) confirmButton.getScene().getWindow();
-                super.SwitchScene(Window, "MainPage");
+                super.SwitchScene("MainPage");
                 break;
         
-            //accaount già esistnte
+            //Email non valida
             case 1:
 
                 break;
 
-            //comune non valido
+            //cUser ID non valido
             case 2:
                 break;
-
-            //provincia non valida 
-            case 3:
-                break;
-
-            //cap non valido
-            case 4:
-                break;
-            
-            //userID non valido
-            case 5:
-                break;
-
         }
-  
     }
 
     
@@ -214,7 +237,7 @@ public class NewUserRegistrationController extends Controller implements Initial
     public void typed(KeyEvent event) 
     {
         for(ElementsContainer container : contenitori) {
-            container.clearError();
+            //container.clearError();
         }
     }
 
@@ -222,6 +245,6 @@ public class NewUserRegistrationController extends Controller implements Initial
     public void TurnBack() throws IOException 
     {
         Stage Window = (Stage) BackButton.getScene().getWindow();
-        super.SwitchScene(Window, "AccessPage");
+        super.SwitchScene("AccessPage");
     }
 }

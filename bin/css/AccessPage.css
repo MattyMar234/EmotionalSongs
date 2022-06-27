@@ -1,5 +1,11 @@
-#backPane {
+#backPane, #back {
     -fx-background-color: #494949;
+}
+
+#LabelName, #labelPassword {
+    -fx-text-fill: #a50303;
+    -fx-font-size: 14px;
+
 }
 
 #title {
@@ -61,4 +67,5 @@
 .text-field {
     -fx-background-color: rgb(238, 238, 238);
     -fx-font-size: 17;
+    -fx-border-color: #a50303;
 }

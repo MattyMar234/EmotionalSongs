@@ -9,29 +9,12 @@
             "name": "Launch EmotionalSongs",
             "request": "launch",
             "mainClass": "emotionalsongs.EmotionalSongs",
-            "projectName": "EmotionalSongs_3d6dcaa1",
-            "vmArgs": "--module-path lib/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch EmotionalSongs",
-            "request": "launch",
-            "mainClass": "emotionalsongs.EmotionalSongs",
-            "projectName": "EmotionalSongs_60de147",
-            "vmArgs": "--module-path lib/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml"
-        },
-        {
-            "type": "java",
-            "name": "Launch EmotionalSongs",
-            "request": "launch",
-            "mainClass": "emotionalsongs.EmotionalSongs",
-            "projectName": "EmotionalSongs - GitHub_c9e62c14",
-            "vmArgs": "--module-path lib/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml"
+            "projectName": "EmotionalSongs_e5865ccc"
         },
         {
             "type": "java",
             "name": "Launch Current File",
-            "vmArgs": "--module-path lib/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path C:\\Users\\miche\\OneDrive\\Desktop\\EmotionalSongs\\lib\\javafx-sdk-18\\lib --add-modules javafx.controls,javafx.fxml",
             "request": "launch",
             "mainClass": "${file}"
         },
@@ -41,7 +24,7 @@
             "request": "launch",
             "mainClass": "emotionalsongs.EmotionalSongs",
             "projectName": "EmotionalSongs_f54a2182",
-            "vmArgs": "--module-path lib/javafx-sdk-18/lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path C:\\Users\\miche\\OneDrive\\Desktop\\EmotionalSongs\\lib\\javafx-sdk-18\\lib --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

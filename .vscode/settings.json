@@ -2,6 +2,16 @@
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/javafx-sdk-18/lib/javafx.base.jar",
+        "lib/javafx-sdk-18/lib/javafx.controls.jar",
+        "lib/javafx-sdk-18/lib/javafx.fxml.jar",
+        "lib/javafx-sdk-18/lib/javafx.graphics.jar",
+        "lib/javafx-sdk-18/lib/javafx.media.jar",
+        "lib/javafx-sdk-18/lib/javafx.swing.jar",
+        "lib/javafx-sdk-18/lib/javafx.web.jar",
+        "lib/javafx-sdk-18/lib/javafx-swt.jar",
+        "lib/java-json.jar",
+        "lib/json-20210307.jar",
+        "lib/json-simple-1.1.jar"
     ]
 }

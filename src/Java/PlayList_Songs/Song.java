@@ -1,4 +1,4 @@
-package Java.PlayListSongs;
+package Java.PlayList_Songs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Random;
 
 import Java.Json.JsonParser;
+import Java.emotionalsongs.Emotion;
 
 public class Song {
 
@@ -16,6 +17,9 @@ public class Song {
     protected String album;
     protected String duration;
     protected String genre;
+    protected String songID;
+    protected int AlbumID;
+
     protected ArrayList<Emotion> emotions = new ArrayList<Emotion>();
 
     public Song(String n1) {
@@ -30,6 +34,7 @@ public class Song {
         this.album     = (String) JsonParser.GetElement(Account, Arrays.asList("Album"));
         this.duration  = (String) JsonParser.GetElement(Account, Arrays.asList("Duration"));
         this.genre     = (String) JsonParser.GetElement(Account, Arrays.asList("Type"));
+    
     }
 
     public Song(String [] data) {
@@ -50,6 +55,13 @@ public class Song {
         this.album     = data[3];
         this.duration  = String.valueOf(minutes) + ":" + (String.valueOf(seconds).length() == 1 ? "0" + String.valueOf(seconds) : String.valueOf(seconds)) + " min";
         this.genre     = "?";
+
+        this.AlbumID = Integer.parseInt(data[2]);
+        this.songID = data[1];
+    }
+
+    public Song getClassReference() {
+        return this;
     }
 
 
@@ -125,10 +137,22 @@ public class Song {
         this.number = number;
     }
 
-    
 
 
-    
-    
-    
+    public String getSongID() {
+        return songID;
+    }
+
+    public void setSongID(String songID) {
+        this.songID = songID;
+    }
+
+    public int getAlbumID() {
+        return AlbumID;
+    }
+
+    public void setAlbumID(int albumID) {
+        AlbumID = albumID;
+    }
+
 }

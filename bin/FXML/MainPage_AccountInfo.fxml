@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="back" prefHeight="800.0" prefWidth="800.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.AccountDataController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane id="BorderPaneTable" prefHeight="670.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <AnchorPane id="BorderPaneTable" prefHeight="670.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <AnchorPane id="BorderPaneTable" prefHeight="50.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+         </bottom>
+         <center>
+            <AnchorPane id="tableBack" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <top>
+                        <AnchorPane prefHeight="46.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label prefHeight="22.0" prefWidth="110.0" text="INFO ACCOUNT" textAlignment="CENTER" textFill="#fffdfd">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <left>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label layoutX="64.0" layoutY="26.0" prefHeight="27.0" prefWidth="41.0" text="nome:" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="61.0" layoutY="57.0" />
+                              <TextField layoutX="61.0" layoutY="134.0" />
+                              <TextField layoutX="61.0" layoutY="217.0" />
+                              <TextField layoutX="61.0" layoutY="312.0" />
+                              <TextField layoutX="380.0" layoutY="57.0" />
+                              <TextField layoutX="380.0" layoutY="217.0" />
+                              <TextField layoutX="380.0" layoutY="134.0" />
+                              <TextField layoutX="380.0" layoutY="312.0" />
+                              <Label layoutX="379.0" layoutY="284.0" text="cap:" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="61.0" layoutY="101.0" prefHeight="19.0" prefWidth="50.0" text="email:" textFill="#fffbfb">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="57.0" layoutY="284.0" text="provincia:" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="61.0" layoutY="196.0" text="codice fiscale" textFill="#fffdfd" />
+                              <Label layoutX="381.0" layoutY="196.0" text="password" textFill="#fffefe" />
+                              <Label layoutX="382.0" layoutY="101.0" text="user id:" textFill="#fffafa">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="382.0" layoutY="375.0" text="via:" textFill="#fcf8f8">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="377.0" layoutY="31.0" text="cognome:" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="64.0" layoutY="375.0" text="città:" textFill="#fff6f6">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="58.0" layoutY="400.0" />
+                              <TextField layoutX="380.0" layoutY="400.0" />
+                           </children>
+                        </AnchorPane>
+                     </left>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <AnchorPane fx:id="searchPane" prefHeight="80.0" prefWidth="1000.0" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
