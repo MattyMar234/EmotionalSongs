@@ -4,22 +4,27 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import Java.Account.RegisteredAccount;
 import Java.Account.UnregisteredAccount;
+import Java.PlayList_Songs.PlayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 
 
-public class MainPageController extends Controller implements Initializable {
-
-    
-
+public class MainPageController extends Controller implements Initializable 
+{
     // ========================= Label ========================= //
    
 
@@ -27,7 +32,6 @@ public class MainPageController extends Controller implements Initializable {
     @FXML private AnchorPane SceneContainer;
     @FXML protected BorderPane borderPane;
     
-
 
     // ========================= Buttons ========================= //
     @FXML public Button profileButton;
@@ -59,8 +63,9 @@ public class MainPageController extends Controller implements Initializable {
 
 
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1) 
+    public void initialize(URL arg0, ResourceBundle arg1)  
     {
+        
         if(this.windwoPosWidth < 1200.0) {
             this.windwoPosWidth = 1200.0;
             this.application.mainStage.setWidth(this.windwoPosWidth);
@@ -207,44 +212,92 @@ public class MainPageController extends Controller implements Initializable {
 
     @FXML
     void esci(ActionEvent event) {
-        application.logout(application.mainStage);
+        
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.initOwner(this.application.mainStage);
+        alert.setTitle("Confirmation");
+        alert.initModality(Modality.WINDOW_MODAL);
+        alert.setContentText("You want to close the program");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            application.logout(application.mainStage);
+        }  
+    }
+
+    @FXML
+    void ChangeAccount(ActionEvent event) throws IOException {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.initOwner(this.application.mainStage);
+        alert.setTitle("Confirmation");
+        alert.initModality(Modality.WINDOW_MODAL);
+        alert.setContentText("Do you want to change account?");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            SwitchScene("AccessPage"); 
+        }  
     }
 
 
-     
     // -------------------------------- Cambio pagine -------------------------------- //
 
-    protected void SetReposityPage() throws IOException
-    {       
+    //REPOSITY
+    public void SetReposityPage() throws IOException  {       
         AnchorPane view = getScenePage("MainPage_reposity").load();
         borderPane.getChildren().removeAll();
         borderPane.setCenter(view);  
     }
 
-    protected void SetPlayListPage() throws IOException 
-    {  
-        AnchorPane view = getScenePage("MainPage_PLaylist").load();
+    //PLAYLIST
+    public void SetPlayListPage() throws IOException  {  
+        FXMLLoader loader = getScenePage("MainPage_PLaylist");
+        AnchorPane view = loader.load();
+
+        ((MainPageController_playList)loader.getController()).SetMainControllerReference(this);
+        
         borderPane.getChildren().removeAll();
         borderPane.setCenter(view);  
     }  
 
-    protected void SetOptionsPage() throws IOException 
+    //IMPOSTAZIONI
+    public void SetOptionsPage() throws IOException 
     {  
         AnchorPane view = getScenePage("MainPage_impostazioni").load();
         borderPane.getChildren().removeAll();
         borderPane.setCenter(view);  
+        
     }  
 
-    protected void SetProfilePage() throws IOException {
+    public void SetProfilePage() throws IOException {
 
     }
 
-    @FXML
-    void ChangeAccount(ActionEvent event) throws IOException {
-        SwitchScene("AccessPage");
+    public void NewPlaylistPage() throws IOException {
+        AnchorPane view = getScenePage("NewPlaylistCreationPage").load();
+        borderPane.getChildren().removeAll();
+        borderPane.setCenter(view);  
     }
+
+
+    public void SetPlaylistEditPage(PlayList playlist) throws IOException 
+    {
+        FXMLLoader loader = getScenePage("EditPlaylistPage");
+        loader.setControllerFactory(c -> {    
+            return new EditPlaylistController(playlist); // <-- parametri costruttore classe
+        });
+
+        AnchorPane view = loader.load();
+        borderPane.getChildren().removeAll();
+        borderPane.setCenter(view);  
+
+        //getScenePage("MainPage_PLaylist").getController();
+    }
+
     
-    protected void SetAccountPage() throws IOException
+    public void SetAccountPage() throws IOException
     {       
         AnchorPane view = getScenePage("MainPage_AccountInfo").load();
         borderPane.getChildren().removeAll();

@@ -1,5 +1,8 @@
 package Java.emotionalsongs;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 public class Emotion {
 
     public static Emotion Emotion_Amazement  = new Emotion("Amazement", "Feeling of wonder or happiness");
@@ -11,6 +14,7 @@ public class Emotion {
     public static Emotion Emotion_Joy        = new Emotion("Joy", "Feels like dancing, bouncy feeling, animated, amused ");
     public static Emotion Emotion_Tension    = new Emotion("Tension", "Feeling Nervous, impatient, irritated ");
     public static Emotion Emotion_Sadness    = new Emotion("Sadness", "Feeling Depressed, sorrowful");
+    public static Image [] emotionImage = new Image[10];
     
 
     protected String Category;

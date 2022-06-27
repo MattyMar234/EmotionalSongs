@@ -24,12 +24,26 @@ public class WindowContainerController extends Controller implements Initializab
     public void initialize(URL location, ResourceBundle resources) 
     {  
         EmotionalSongs.windowPageReference = this;
-
-        try {
-            SwitchScene("AccessPage"); 
-        } catch (IOException e) {
-            e.printStackTrace();
+        
+        if(application.skipLogin) {
+            anchor.setMinWidth(1000);
+            anchor.setMinHeight(800);
+            try {
+                SwitchScene("MainPage"); 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        else {
+            anchor.setMinWidth(800);
+            anchor.setMinHeight(800);
+            try {
+                SwitchScene("AccessPage"); 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
     }
 
 

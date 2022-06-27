@@ -35,14 +35,14 @@ import javafx.util.Callback;
 public class MainPageController_playList extends Controller implements Initializable {
 
     // ========================= TableView ========================= //
-    @FXML private TableView<PlayList> PlaylistsTable;
-    @FXML private TableColumn<PlayList, String> PlayListElements;
-    @FXML private TableColumn<PlayList, String> PlayListName;
-    @FXML private TableColumn<PlayList, String> DataCreazione;
-    @FXML private TableColumn<PlayList, String> DeletePlayList;
-    @FXML private TableColumn<PlayList, PlayList> EditPlayList;
+    @FXML private TableView<CustomPlayList> PlaylistsTable;
+    @FXML private TableColumn<CustomPlayList, String> PlayListElements;
+    @FXML private TableColumn<CustomPlayList, String> PlayListName;
+    @FXML private TableColumn<CustomPlayList, String> DataCreazione;
+    @FXML private TableColumn<CustomPlayList, String> DeletePlayList;
+    @FXML private TableColumn<CustomPlayList, CustomPlayList> EditPlayList;
 
-    private ObservableList<PlayList> userPlayLists = FXCollections.observableArrayList();
+    private ObservableList<CustomPlayList> userPlayLists = FXCollections.observableArrayList();
 
     // ========================= Label ========================= //
     @FXML private Label LabelPlaylist;
@@ -53,13 +53,61 @@ public class MainPageController_playList extends Controller implements Initializ
 
 
     // ========================= variabili =========================//
-    MainPageController mainPageReference;
+    public MainPageController mainController;
+
+
+    public class CustomPlayList 
+    {
+        public PlayList playList;
+        public MainPageController_playList MainclassReference;
+        public CustomPlayList classReference;
+        public String nome;
+        public String CreationDate;
+        public String Elements;
+
+
+        public CustomPlayList(PlayList playList, MainPageController_playList classReference) {
+            this.MainclassReference = classReference;
+            this.playList = playList;
+            this.nome = this.playList.getNome();
+            this.Elements = this.playList.getElements();
+            this.CreationDate = this.playList.getCreationDate();
+            this.classReference = this;
+        }
+
+        public PlayList getPlayList() {
+            return this.playList;
+        }
+
+        public MainPageController_playList getMainclassReference() {
+            return this.MainclassReference;
+        }
+
+        public CustomPlayList getClassReference() {
+            return this;
+        }
+
+        public String getElements() {
+            return Elements;
+        }
+
+        public String getCreationDate() {
+            return CreationDate;
+        }
+
+        public String getNome() {
+            return nome;
+        }
+    }
  
     
-
     public MainPageController_playList() throws IOException {
         super();
-        this.mainPageReference = MainPageController.MainPageControllerReference;
+        
+    }
+
+    public void SetMainControllerReference(MainPageController mainController) {
+        this.mainController = mainController;
     }
 
 
@@ -69,25 +117,21 @@ public class MainPageController_playList extends Controller implements Initializ
         if(application.ConnectedAccount == null) return;
         System.out.println("loding playlists data...");
 
-        if(application.ConnectedAccount instanceof RegisteredAccount) {
-           // System.out.println(((RegisteredAccount)application.ConnectedAccount).getPlayLists().get(0));
-  
-
+        if(application.ConnectedAccount instanceof RegisteredAccount) 
+        {
             for(PlayList playlist : ((RegisteredAccount) application.ConnectedAccount).getPlayLists()) {
-                userPlayLists.add(playlist);
+                userPlayLists.add(new CustomPlayList(playlist, this));
             }
 
-            PlayListName.setCellValueFactory(new PropertyValueFactory<PlayList, String>("nome"));
-            PlayListElements.setCellValueFactory(new PropertyValueFactory<PlayList, String>("Elements"));
-            DataCreazione.setCellValueFactory(new PropertyValueFactory<PlayList, String>("CreationDate"));
+            PlayListName.setCellValueFactory(new PropertyValueFactory<CustomPlayList, String>("nome"));
+            PlayListElements.setCellValueFactory(new PropertyValueFactory<CustomPlayList, String>("Elements"));
+            DataCreazione.setCellValueFactory(new PropertyValueFactory<CustomPlayList, String>("CreationDate"));
 
-            //add cell of button edit 
-            Callback<TableColumn<PlayList, PlayList>, TableCell<PlayList, PlayList>> cellFoctory = (TableColumn<PlayList, PlayList> param) -> {
-                // make cell containing buttons
-                final TableCell<PlayList, PlayList> cell = new TableCell<PlayList, PlayList>() {
+            Callback<TableColumn<CustomPlayList, CustomPlayList>, TableCell<CustomPlayList, CustomPlayList>> cellFoctory = (TableColumn<CustomPlayList, CustomPlayList> param) -> {
+                final TableCell<CustomPlayList, CustomPlayList> cell = new TableCell<CustomPlayList, CustomPlayList>() {
                     
                     @Override
-                    public void updateItem(PlayList item, boolean empty) {
+                    public void updateItem(CustomPlayList item, boolean empty) {
                         super.updateItem(item, empty);
                         //that cell created only on non-empty rows
                         if (empty) {
@@ -124,6 +168,7 @@ public class MainPageController_playList extends Controller implements Initializ
                             Button deleteButton = new Button();
                             Button editButton = new Button();
 
+
                             deleteButton.setGraphic(deleteIcon);
                             editButton.setGraphic(editIcon);
 
@@ -154,21 +199,28 @@ public class MainPageController_playList extends Controller implements Initializ
 
 
                             deleteButton.setOnMouseClicked((MouseEvent event) -> {
-                                ((RegisteredAccount)application.ConnectedAccount).remove_playlist(item);
+                                
                                 //PlayList playlist = PlaylistsTable.getSelectionModel().getSelectedItem();
                                 //funziona se solo prima selezioni l'elemento
                                 
+                                ((RegisteredAccount)application.ConnectedAccount).remove_playlist(item.getPlayList());
                                 userPlayLists.remove(item);
                                 PlaylistsTable.refresh();
 
-                                System.out.println(item); //item è il riferimento della playlist
+                                //System.out.println(item); //item è il riferimento della playlist
  
                             });
-                            editButton.setOnMouseClicked((MouseEvent event) -> {
 
+                            editButton.setOnMouseClicked((MouseEvent event) -> {
+                                try {
+                                    item.MainclassReference.mainController.SetPlaylistEditPage(item.getPlayList());
                                 
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             });
 
+                            
                             HBox managebtn = new HBox(deleteButton, editButton);
                             managebtn.setStyle("-fx-alignment:center");
                             HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
@@ -185,7 +237,7 @@ public class MainPageController_playList extends Controller implements Initializ
             };
 
             //call getReference ???
-            EditPlayList.setCellValueFactory(new PropertyValueFactory<PlayList, PlayList>("reference"));
+            EditPlayList.setCellValueFactory(new PropertyValueFactory<CustomPlayList, CustomPlayList>("classReference"));
             EditPlayList.setCellFactory(cellFoctory);
 
             PlaylistsTable.setItems(userPlayLists);
@@ -230,9 +282,7 @@ public class MainPageController_playList extends Controller implements Initializ
 
     @FXML
     void AddNewPlayList(ActionEvent event) throws IOException {
-        AnchorPane view = getScenePage("NewPlaylistCreationPage").load();
-        mainPageReference.borderPane.getChildren().removeAll();
-        mainPageReference.borderPane.setCenter(view);  
+        mainController.NewPlaylistPage();
     }
 
     

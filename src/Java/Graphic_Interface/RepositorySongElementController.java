@@ -1,0 +1,98 @@
+package Java.Graphic_Interface;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import Java.PlayList_Songs.Song;
+import Java.emotionalsongs.Emotion;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+
+public class RepositorySongElementController extends Controller implements Initializable {
+
+    private Song canzoneAssociata;
+    private MainPageController_reposity repositoryController;
+    
+    private int emojiSize = 20;
+
+    @FXML private Label LabelTitle;
+    @FXML private Label labelAutor;
+    @FXML private Label labelCommenti;
+    @FXML private Label LabelYear;
+    @FXML private HBox EmojiContainer;
+
+    @FXML private AnchorPane songMenubackground;
+
+    public RepositorySongElementController() {
+
+    }
+    
+    public RepositorySongElementController(Song song) {
+
+
+    }
+
+    public void injectData(Song song) {
+        this.canzoneAssociata = song;
+
+        //this.LabelTitle.setText("Title: " + song.getTitle());
+        //this.labelAutor.setText("Autor: " + song.getAutor());
+        this.LabelTitle.setText(song.getTitle());
+        this.labelAutor.setText(song.getAutor());
+        this.LabelYear.setText(song.getYear());
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+        /*double x = songMenubackground.getWidth();
+        LabelTitle.setMaxWidth(x);
+        labelAutor.setMaxWidth(x);*/
+
+        if(this.canzoneAssociata == null) {
+            //labelCommenti.setText(labelCommenti.getText().replace("[n]", "0"));
+            labelCommenti.setText("Nessun commento");
+        }
+        else {
+            int n = 0; //getCommentNumber()
+            
+            if(n == 0) {
+                labelCommenti.setText("Nessun commento");
+            }
+            else {
+                labelCommenti.setText(labelCommenti.getText().replace("[n]", (n > 99) ? "99+" : String.valueOf(n)));
+            }
+        }
+
+        int r = (int)(Math.random()*9);
+
+        if(r == 0) {
+            Label l = new Label();
+            l.setText("Nessuna emozione");
+            l.setId("labelAutor");
+            EmojiContainer.getChildren().add(l);
+        } 
+
+        for(int i = 0; i < r; i++ ) 
+        {
+            ImageView img = new ImageView(Emotion.emotionImage[i]);
+            img.setFitWidth(emojiSize);
+            img.setFitHeight(emojiSize);
+            img.setStyle("-fx-padding: 0 8 0 8;");
+
+            EmojiContainer.getChildren().add(img);
+        }
+    }
+
+    @FXML
+    void viewComment(MouseEvent event) {
+        //repositoryController set comment page
+    }
+    
+}

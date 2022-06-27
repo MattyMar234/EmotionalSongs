@@ -54,6 +54,14 @@ public abstract class Controller
         this.application.windowPageReference.anchor.setCenter(view);
     }
 
+    public void SwitchScene(FXMLLoader file) throws IOException {
+        //this.application.changeScreen(Window, SceneName);
+        AnchorPane view = file.load();
+        
+        this.application.windowPageReference.anchor.getChildren().removeAll();
+        this.application.windowPageReference.anchor.setCenter(view);
+    }
+
 
     protected boolean doubleClick()
     {

@@ -1,24 +1,37 @@
 package Java.emotionalsongs;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import Java.Account.Account;
 import Java.Graphic_Interface.WindowContainerController;
+import Java.Json.JsonParser;
 import Java.Managers.AccountsManager;
 import Java.Managers.LocationsManager;
 import Java.Managers.SongManager;
 import Java.PlayList_Songs.Song;
+
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import javax.imageio.*;
+import org.json.simple.JSONObject;
+import java.awt.image.BufferedImage;
+
 
 public class EmotionalSongs extends Application{
 
     // =================== percorsi =================== //
 
-    private final String Directory = System.getProperty("user.dir");
+    public static final String Directory = System.getProperty("user.dir");
+    public static final String iconsFolder = Directory + "\\data\\icon\\";
+    public static final String imageFolder = Directory + "\\data\\image\\";
+    
     private final String UsersDataFilePath  = "\\data\\UtentiRegistrati.json";
     private final String UsersDataFilePath2 = "\\data\\UtentiRegistrati2.json";   //prova
     private final String songsDataFilePath  = "\\data\\canzoni.json";
@@ -27,7 +40,6 @@ public class EmotionalSongs extends Application{
     private final String SongDataFilePath   = "data.txt";    //?
     private final String FileFXML_path      = "FXML/";
     private final String [] XML_Paths = {
-
 
         FileFXML_path + "Container.fxml",
         FileFXML_path + "UserRegistration.fxml",
@@ -41,7 +53,8 @@ public class EmotionalSongs extends Application{
         FileFXML_path + "SongPageInformation.fxml",
         FileFXML_path + "NewPlaylistCreationPage.fxml",
         FileFXML_path + "MainPage_AccountInfo.fxml",
-        FileFXML_path + "Playlist_AddSongPage.fxml"
+        FileFXML_path + "Playlist_AddSongPage.fxml",
+        FileFXML_path + "EditPlaylistPage.fxml"
     };
 
 
@@ -60,6 +73,8 @@ public class EmotionalSongs extends Application{
     public LocationsManager locationsManager;
 
     // =================== variabili locali =================== //
+
+    public boolean skipLogin = false;
     
 
        
@@ -83,20 +98,58 @@ public class EmotionalSongs extends Application{
         
         try {
 
-            System.out.println("Loading state data");
+            // ***************** caricamento Dati ***************** //
+            
+            System.out.print("Loading data: ");
             locationsManager.LoadData();
             System.out.println();
 
-            System.out.println("Loading Songs:");
+            System.out.print("Loading Songs: ");
             songManager.LoadSongs();
             System.out.println();
 
-            System.out.println("Loading Accounts:");
+            System.out.print("Loading Accounts:");
             AccountsManager.LoadAccounts();
             System.out.println();
+
+
+
+            // ***************** caricamento impostazioni ***************** //
+            File fileSetting = new File(Directory + "\\settings.json");
+            System.out.print("get file" + Directory + "\\settings.json : ");
+
             
+            try 
+            {
+                // se esiste e non è una cartella
+                if(fileSetting.exists() && fileSetting.isFile()) {
+                    System.out.println("File found");
+    
+                    JsonParser jsonReader = new JsonParser(Directory + "\\settings.json");
+                    JSONObject obj = jsonReader.ReadJsonFile_as_JsonObject();
+
+                    System.out.println(obj);
+    
+                    if(obj.get("testUser") != null && ((String) obj.get("testUser")).equals("true")) {
+                        ConnectedAccount = AccountsManager.SerachByEmail("test@gmail.com");
+                        
+                        if(ConnectedAccount != null) {
+                            skipLogin = true;
+                        }
+                    }
+                }
+                else {
+                    System.out.println("File not found");
+                }
+                
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             
-            System.out.println("\n\nStart loading XML file Name: ");
+
+            // ***************** Creazione percosi file XML ***************** //
+            
+            System.out.println("\nStart loading XML file Name: ");
 
             for(String path : XML_Paths) 
             {
@@ -105,19 +158,35 @@ public class EmotionalSongs extends Application{
                 System.out.println(Directory + "\\src\\" + path);
             }
 
-            System.out.println("Loading Completed\n");
+            // ***************** caricamento Icone ***************** //
+            BufferedImage img = ImageIO.read(new File(iconsFolder + "emoji.png"));
+            int size   = 66;
+            int start  = 1;
+            int offset = 17;
             
-                //lambda function 
+            for(int  i = 0; i < 9; i++ ) {
+                BufferedImage output = img.getSubimage(i*(size + offset) + start + i, 0, size, size + 1);
+                Emotion.emotionImage[i] = SwingFXUtils.toFXImage(output, null);
+            
+                //int r = i*(size + offset) + start*(i + 1);
+                //System.out.println("sunImage " + i + "start:" + r + " end: " + (r + size) );
+            }
+            
+            
+            
+            //************ Impostazioni pagina************//
+            
+            //pagina iniziale
+            stage.setTitle("EmotionaSong");
+            changeScreen(stage, "Container");
+            stage.show();
+
+            //lambda function 
             stage.setOnCloseRequest(event -> {
                 event.consume();
                 logout(stage);
             });
 
-            //pagina iniziale
-            stage.setTitle("EmotionaSong");
-            changeScreen(stage, "Container");
-            stage.show();
-           
             System.out.println("starting stage"); 
         
 
@@ -128,11 +197,15 @@ public class EmotionalSongs extends Application{
             System.out.println(e);  
             e.printStackTrace(); 
         }
+        finally {
+            System.out.println("Loading Completed\n");
+        }
     }
 
     public void logout(Stage stage) {
         try {
             AccountsManager.SaveAccounts(Directory + UsersDataFilePath2);
+
         } catch (IOException e) {
             System.out.println("errore di salvataggio");
             e.printStackTrace();

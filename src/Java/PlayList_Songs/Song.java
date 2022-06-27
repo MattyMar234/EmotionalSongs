@@ -60,6 +60,10 @@ public class Song {
         this.songID = data[1];
     }
 
+    public Song getClassReference() {
+        return this;
+    }
+
 
     @Override
     public String toString() {

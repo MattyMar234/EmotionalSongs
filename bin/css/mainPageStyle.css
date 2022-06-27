@@ -26,17 +26,19 @@
     -fx-background-color: #1F2D47;
     /*-fx-background-color: #2a2e38;*/
     -fx-background-color: transparent;
+    -fx-background-color: #1E252F;
     -fx-alignment: center;
 }
+
 #SerachLabel {
-    -fx-text-fill:#e2af08; 
+    -fx-text-fill:#1CFF73; 
     -fx-font-weight: bold;
     -fx-letter-spacing: 2px;
     -fx-font-size: 17px;
     -fx-marging: 0 10 0 0;
 
     -fx-font-weight: bold;
-    -fx-font-family: 'Times New Roman',serif;
+    /*-fx-font-family: 'Times New Roman',serif;*/
 }
 
 #SearachHbox {
@@ -88,7 +90,7 @@
 
 #tableBack {
     -fx-background-color: #1E252F;
-    -fx-background-radius: 20px;
+    /*-fx-background-radius: 20px;*/
     
 }
 
@@ -155,17 +157,38 @@
 }
 
 
+#LabelTitle {
+    -fx-text-fill:#ffffff;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+#labelAutor, #labelCommenti, #LabelYear, #EmotionLabel {
+    -fx-text-fill:#ffffffc9;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+#songMenubackground {
+    -fx-background-color: #313131;
+    -fx-background-radius: 16px;
+}
+
+#menuSpace {
+    -fx-background-color: transparent;
+    -fx-padding: 15 10 15 10;
+}
+
+
+
+
 .table-view {
 
     -fx-background-color: transparent;
-    /*-fx-border-color: #36304A;*/
-    /*-fx-border-radius: 12px;
-    -fx-background-radius: 12px;*/
     -fx-padding: 0px;
     -fx-text-fill: #fcfcfc;
-    /*-fx-background-color: linear-gradient(from 25% 10% to 100% 100%, #490e46, #a03616f5);*/
-    -fx-background-color: transparent;
 }
+
 
 /* ===================== header tabella =====================*/
 /*      Individual Column Header        */
@@ -173,14 +196,11 @@
 .table-view .column-header-background .filler,
 .table-view .column-header-background 
 {
-    -fx-background-color: #1A1D26;/* #36304A;*/
-    -fx-background-radius: 12;
-    -fx-padding: 12 0 12 0;
-    -fx-margin: 8px;
+    -fx-background-color: transparent;/* #36304A;*/
+    -fx-padding: 0 0 0 0;
+    
 
 }
-
-
 
 /* ===================== header della colonna ===================== */
 .table-view .column-header-background .label 
@@ -203,12 +223,12 @@
 
 /**Spetto cella*/
 .table-row-cell {
-    -fx-padding: 0.0em; 
+    -fx-padding: 0 0 0 0; 
     -fx-cell-size: 56px;
     -fx-font-size: 14px;
     -fx-background-color: transparent;
-    -fx-border-color: #5757577F;
-    -fx-border-width: 0 0 1 0;
+    -fx-margin: 0 0 20 0;
+   
 }
 
 .table-row-cell:even {
@@ -225,11 +245,8 @@
 }
 
 .table-row-cell:selected
- {
-    -fx-background-insets: 0;
-    -fx-background-radius: 1;
-    -fx-background-color: #81c483;
-    -fx-background-radius: 0px;
+{
+
 }
 
 

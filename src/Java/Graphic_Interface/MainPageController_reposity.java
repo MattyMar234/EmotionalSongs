@@ -16,11 +16,13 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -29,8 +31,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Callback;
 
 public class MainPageController_reposity extends Controller implements Initializable 
 {
@@ -38,18 +42,7 @@ public class MainPageController_reposity extends Controller implements Initializ
     // ========================= tabelle =========================//
     @FXML private TextField KeywordTextField;
     @FXML private TableView<Song> SongsTable;
-    @FXML private TableColumn<Song, String> Album;
-    @FXML private TableColumn<Song, String> Autor;
-    @FXML private TableColumn<Song, String> Comment;
-    @FXML private TableColumn<Song, String> songNumber;
-    @FXML private TableColumn<Song, String> Score;
-    @FXML private TableColumn<Song, String> Time;
-    @FXML private TableColumn<Song, String> Title;
-    @FXML private TableColumn<Song, String> Year;
-
-
-    private ObservableList<Song> list = FXCollections.observableArrayList();
-    
+    @FXML private TableColumn<Song, Song> Elements;
 
     // ========================= Label ========================= //
     @FXML private Label SerachLabel;
@@ -64,12 +57,16 @@ public class MainPageController_reposity extends Controller implements Initializ
 
 
     // ========================= variabili =========================//
-    
+    private ObservableList<Song> list = FXCollections.observableArrayList();
 
+
+    // ============================================================ //
 
     public MainPageController_reposity() throws IOException {
         super();
     }
+
+
 
 
     @Override
@@ -79,12 +76,55 @@ public class MainPageController_reposity extends Controller implements Initializ
             list.add(song);
         }
 
-        Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
-        Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
-        Year.setCellValueFactory(new PropertyValueFactory<Song, String>("year"));
-        songNumber.setCellValueFactory(new PropertyValueFactory<Song, String>("number"));
-        Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
-        Time.setCellValueFactory(new PropertyValueFactory<Song, String>("duration"));
+
+        Callback<TableColumn<Song, Song>, TableCell<Song, Song>> cellFoctory = (TableColumn<Song, Song> param) -> {
+            final TableCell<Song, Song> cell = new TableCell<Song, Song>() {
+                
+                @Override
+                public void updateItem(Song item, boolean empty) {
+                    super.updateItem(item, empty);
+                    //that cell created only on non-empty rows
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+                    } 
+                    else 
+                    {
+                        try 
+                        {
+                            //carico la pagina
+                            FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource("FXML/test.fxml"));
+                            
+                            /*XMLloader.setControllerFactory(c -> {    
+                                return new RepositorySongElementController(item); // <-- parametri costruttore classe
+                            });*/
+                            
+                            AnchorPane view = XMLloader.load();
+
+                            //carico i parametri
+                            RepositorySongElementController controller = XMLloader.getController();
+                            controller.injectData(item);
+
+                            setGraphic(view);
+                        
+                        } catch (IOException e) {
+                            System.out.println(e);
+                   
+                        }
+                      
+                        
+                        setText(null);
+
+                    }
+                }
+
+            };
+
+            return cell;
+        };
+
+        Elements.setCellValueFactory(new PropertyValueFactory<Song, Song>("classReference"));
+        Elements.setCellFactory(cellFoctory);
 
         
         FilteredList<Song> filteredData = new FilteredList<Song>(list, b -> true);
@@ -116,8 +156,6 @@ public class MainPageController_reposity extends Controller implements Initializ
                 } catch (NullPointerException e) {
                     return false;
                 }
-                
-                
                 return false;
             });  
         });

@@ -18,6 +18,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonParser {
 
@@ -147,6 +148,12 @@ public class JsonParser {
 
         file.flush();
         file.close();
+    }
+
+    public boolean updateObject(JSONObject input) {
+
+        ObjectMapper mapper = new ObjectMapper();
+        return true;
     }
 
     public JSONObject ReadJsonFile_as_JsonObject() throws ParseException, IOException 
