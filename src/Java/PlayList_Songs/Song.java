@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Random;
 
+import Java.DataClasses.Comment;
 import Java.Json.JsonParser;
 import Java.emotionalsongs.Emotion;
 
@@ -21,6 +22,7 @@ public class Song {
     protected int AlbumID;
 
     protected ArrayList<Emotion> emotions = new ArrayList<Emotion>();
+    protected ArrayList<Comment> comments = new ArrayList<Comment>();
 
     public Song(String n1) {
         this.title = n1;
@@ -78,6 +80,27 @@ public class Song {
         
         return information;
     }
+
+    public ArrayList<Comment> getComments() {
+        return new ArrayList<Comment>(comments);
+    }
+
+    public void addComment(Comment e ) {
+        this.comments.add(e);
+    }
+
+    public boolean removeComment(int index) {
+        return removeComment(comments.get(index));
+    }
+
+    public boolean removeComment(Comment e) {
+        if(e != null) {
+            comments.remove(comments.indexOf(e));
+            return true;
+        }
+        return false;
+    }
+
 
     
 

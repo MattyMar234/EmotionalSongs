@@ -39,10 +39,29 @@ import javafx.util.Callback;
 public class MainPageController_reposity extends Controller implements Initializable 
 {
 
+    public class Container {
+
+        public Song song;
+        public MainPageController_reposity mainController;
+        public Container classReference;
+
+        public Container(Song song, MainPageController_reposity mainController) {
+            this.song = song;
+            this.mainController = mainController;
+            classReference = this;
+        } 
+
+        public Container getClassReference() {
+            return this;
+        }
+        
+        
+    }
+
     // ========================= tabelle =========================//
     @FXML private TextField KeywordTextField;
-    @FXML private TableView<Song> SongsTable;
-    @FXML private TableColumn<Song, Song> Elements;
+    @FXML private TableView<Container> SongsTable;
+    @FXML private TableColumn<Container, Container> Elements;
 
     // ========================= Label ========================= //
     @FXML private Label SerachLabel;
@@ -57,7 +76,8 @@ public class MainPageController_reposity extends Controller implements Initializ
 
 
     // ========================= variabili =========================//
-    private ObservableList<Song> list = FXCollections.observableArrayList();
+    private ObservableList<Container> list = FXCollections.observableArrayList();
+    public MainPageController mainController;
 
 
     // ============================================================ //
@@ -66,6 +86,8 @@ public class MainPageController_reposity extends Controller implements Initializ
         super();
     }
 
+    
+
 
 
 
@@ -73,15 +95,15 @@ public class MainPageController_reposity extends Controller implements Initializ
     public void initialize(URL arg0, ResourceBundle arg1) 
     {
         for(Song song : application.songManager.getList()) {
-            list.add(song);
+            list.add(new Container(song, this));
         }
 
 
-        Callback<TableColumn<Song, Song>, TableCell<Song, Song>> cellFoctory = (TableColumn<Song, Song> param) -> {
-            final TableCell<Song, Song> cell = new TableCell<Song, Song>() {
+        Callback<TableColumn<Container, Container>, TableCell<Container, Container>> cellFoctory = (TableColumn<Container, Container> param) -> {
+            final TableCell<Container, Container> cell = new TableCell<Container, Container>() {
                 
                 @Override
-                public void updateItem(Song item, boolean empty) {
+                public void updateItem(Container item, boolean empty) {
                     super.updateItem(item, empty);
                     //that cell created only on non-empty rows
                     if (empty) {
@@ -103,7 +125,8 @@ public class MainPageController_reposity extends Controller implements Initializ
 
                             //carico i parametri
                             RepositorySongElementController controller = XMLloader.getController();
-                            controller.injectData(item);
+                            controller.injectData(item.mainController, item.song);
+                            //System.out.println(item);
 
                             setGraphic(view);
                         
@@ -123,14 +146,14 @@ public class MainPageController_reposity extends Controller implements Initializ
             return cell;
         };
 
-        Elements.setCellValueFactory(new PropertyValueFactory<Song, Song>("classReference"));
+        Elements.setCellValueFactory(new PropertyValueFactory<Container, Container>("classReference"));
         Elements.setCellFactory(cellFoctory);
 
         
-        FilteredList<Song> filteredData = new FilteredList<Song>(list, b -> true);
+        FilteredList<Container> filteredData = new FilteredList<Container>(list, b -> true);
         
         KeywordTextField.textProperty().addListener((Observable, oldValue, newValue) -> {
-            filteredData.setPredicate(song -> {
+            filteredData.setPredicate(item -> {
                 if(newValue == null || newValue.isEmpty()) {
                     return true;
                 }
@@ -138,19 +161,19 @@ public class MainPageController_reposity extends Controller implements Initializ
                 try {
                     String lowerCaseFilter = newValue.toLowerCase();
                     //varie chiavi (campi) su cui ricercare
-                    if(song.getTitle().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    if(item.song.getTitle().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     } 
-                    else if(song.getAlbum().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    else if(item.song.getAlbum().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     }
-                    else if(song.getAutor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    else if(item.song.getAutor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     }
-                    else if(song.getDuration().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    else if(item.song.getDuration().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     }
-                    else if(song.getYear().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    else if(item.song.getYear().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     }
                 } catch (NullPointerException e) {
@@ -160,7 +183,7 @@ public class MainPageController_reposity extends Controller implements Initializ
             });  
         });
         
-        SortedList<Song> sortedData = new SortedList<Song>(filteredData);
+        SortedList<Container> sortedData = new SortedList<Container>(filteredData);
         sortedData.comparatorProperty().bind(SongsTable.comparatorProperty());
         SongsTable.setItems(sortedData);
   

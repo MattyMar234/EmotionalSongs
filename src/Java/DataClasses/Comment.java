@@ -2,38 +2,59 @@ package Java.DataClasses;
 
 import java.util.Scanner;
 
+import Java.Account.Account;
+
 public class Comment 
 {
    
     // ========================= costanti di classe ========================= //
-    protected static final int CommentLenght = 256;
+    private static final int CommentLenght = 256;
 
 
     // ========================= variabili ========================= //
 
     protected String Comment;
+    protected Account usersCommnet;
     protected int[] valutazione = new int[9];
     protected Scanner in = new Scanner(System.in);
+    public Comment classReference;
 
 
     // ========================= costruttori ========================= //
     //1° costruttore
     public Comment() {
         this.Comment = new String();
+        setRef();
     }
 
     //2° costruttore
     public Comment(String comment) {
         this.Comment = comment;
+        setRef();
     }
 
     //3° costruttore
     public Comment(String Comment,String[] emozioni,int[]valutazione){
         this.Comment = Comment;
         this.valutazione=valutazione;
+        setRef();
     }
 
     // ========================= funzioni ========================= //
+    @Override
+    public String toString() {
+        String s = new String();
+        s = "Comment: \n" + Comment;
+        return s;
+    }
+
+    void setRef() {
+        classReference = this;
+    }
+
+    public Comment getClassReference() {
+        return this;
+    }
 
     public void ins_value(int value){
         value=in.nextInt();

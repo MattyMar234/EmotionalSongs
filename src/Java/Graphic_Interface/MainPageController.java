@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import Java.Account.RegisteredAccount;
 import Java.Account.UnregisteredAccount;
 import Java.PlayList_Songs.PlayList;
+import Java.PlayList_Songs.Song;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -246,9 +247,34 @@ public class MainPageController extends Controller implements Initializable
 
     //REPOSITY
     public void SetReposityPage() throws IOException  {       
-        AnchorPane view = getScenePage("MainPage_reposity").load();
+        FXMLLoader loader = getScenePage("MainPage_reposity");
+        AnchorPane view = loader.load();
+
+        ((MainPageController_reposity)loader.getController()).mainController = this;
+
         borderPane.getChildren().removeAll();
         borderPane.setCenter(view);  
+    }
+
+    //COMMENTS
+    public void SetCommentsPage(Song song) throws IOException  {       
+        FXMLLoader loader = getScenePage("CommentsPage");
+
+        loader.setControllerFactory( c -> {
+            return new CommentsPageController(this, song);
+        });
+
+        AnchorPane view = loader.load();
+        
+        //((CommentsPageController)loader.getController()).injectData(this, song);
+
+        borderPane.getChildren().removeAll();
+        borderPane.setCenter(view);  
+    }
+
+    //COMMENTS --> REPOSITY
+    public void Comment_To_repository() throws IOException {
+        SetReposityPage();
     }
 
     //PLAYLIST
