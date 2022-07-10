@@ -1,6 +1,5 @@
 package Java.DataClasses;
 
-import java.util.Scanner;
 
 import Java.Account.Account;
 
@@ -10,13 +9,11 @@ public class Comment
     // ========================= costanti di classe ========================= //
     private static final int CommentLenght = 256;
 
-
     // ========================= variabili ========================= //
 
-    protected String Comment;
-    protected Account usersCommnet;
     protected int[] valutazione = new int[9];
-    protected Scanner in = new Scanner(System.in);
+    protected String Comment;
+    protected Account userCommnet;
     public Comment classReference;
 
 
@@ -28,8 +25,9 @@ public class Comment
     }
 
     //2° costruttore
-    public Comment(String comment) {
+    public Comment(String comment, Account user) {
         this.Comment = comment;
+        this.userCommnet = user;
         setRef();
     }
 
@@ -44,7 +42,7 @@ public class Comment
     @Override
     public String toString() {
         String s = new String();
-        s = "Comment: \n" + Comment;
+        s = "Autor: " + userCommnet.getID() + "\nComment: \n" + Comment;
         return s;
     }
 
@@ -56,64 +54,25 @@ public class Comment
         return this;
     }
 
-    public void ins_value(int value){
-        value=in.nextInt();
-        in.nextLine();
-    }
-
-    public void controllo_valutation(int value){
-            boolean b=true;
-        while(b==true){
-            ins_value(value);
-            if(value<=5 && value>0){
-                b=false;
-            }
-            else{
-                controllo_valutation(value);
-            }
-        }
-    }
-
-    public Boolean check_comm(String comm, boolean b){      
-        if(comm.length()<256){
-                    b=false;
-                }
-                else{
-                    b=true;
-                }
-                return b;
-    }
-
-    public void add_comm(String comm){
-            comm=comm+in.nextLine();
-    }
-
-    public void comm_finale(String comm){
-        boolean b=true;
-        while(b==true){
-            add_comm(comm);
-            check_comm(comm,b);
-            if(b==true){
-                comm_finale(comm);
-            }
-                
-            }
-        }
-
-    //?? necessaria ??
-    public void clearComment() {
-       this.Comment = "";
-    }
-
     //ritorna il commento
     public String getComment() {
         return this.Comment;
     }
 
+    public void setAutor(Account user) {
+        this.userCommnet = user;
+    }
+
+    public Account getAutor() {
+        return this.userCommnet;
+    }
+
     //salva il commento se è <= di 256
     public boolean setComment(String comment) 
     {
-        if(comment.length() <= this.CommentLenght) {
+        System.out.println("setComment: " + comment);
+
+        if(comment != null && comment.length() <= this.CommentLenght) {
             this.Comment = comment;
             return true;
         }

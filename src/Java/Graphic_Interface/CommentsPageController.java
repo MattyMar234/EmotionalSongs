@@ -64,6 +64,7 @@ public class CommentsPageController extends Controller implements Initializable 
 
         String d = Integer.toString(textArea.getText().length());
         counter.setText("char: " + d + " di 256");
+        counter.setVisible(false);
 
         textArea.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
             
@@ -88,6 +89,13 @@ public class CommentsPageController extends Controller implements Initializable 
                     else if(ch >= 32 && ch != 127 && commentLenght <= 255 ) {
                         commentLenght++;
                         validData = true;
+                    }
+
+                    if(commentLenght != 0) {
+                        counter.setVisible(true);
+                    }
+                    else {
+                        counter.setVisible(false);
                     }
                 }
 
@@ -165,7 +173,7 @@ public class CommentsPageController extends Controller implements Initializable 
     @FXML
     void pubblicateComment(MouseEvent event) 
     {
-        this.song.addComment(new Comment(textArea.getText()));
+        this.song.addComment(new Comment(textArea.getText(), application.ConnectedAccount));
         commnetsList.add(this.song.getComments().get(this.song.getComments().size() - 1));
         
         textArea.setText("");

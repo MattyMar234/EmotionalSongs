@@ -68,13 +68,6 @@ public class RegisteredAccount extends Account {
         }
     }
 
-    public RegisteredAccount(LinkedHashMap<String, Object> userCostructor) {
-        super(userCostructor);  
-    }
-    
-    public RegisteredAccount(HashMap<String, String> userCostructor) {
-        super(userCostructor);  
-    }
 
     public RegisteredAccount() {
 

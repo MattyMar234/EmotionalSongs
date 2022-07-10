@@ -28,6 +28,8 @@ public class RepositorySongElementController extends Controller implements Initi
     @FXML private HBox EmojiContainer;
 
     @FXML private AnchorPane songMenubackground;
+
+    private int commentNumber;
     
 
     public RepositorySongElementController() {
@@ -39,29 +41,32 @@ public class RepositorySongElementController extends Controller implements Initi
 
     }
 
-    public void injectData(MainPageController_reposity mainController, Song song) {
+    public void injectData(MainPageController_reposity mainController, Song song) 
+    {
+        
         this.canzoneAssociata = song;
         this.repositoryController = mainController;
 
         //this.LabelTitle.setText("Title: " + song.getTitle());
         //this.labelAutor.setText("Autor: " + song.getAutor());
         this.LabelTitle.setText(song.getTitle());
-        this.labelAutor.setText(song.getAutor());
+        this.labelAutor.setText(song.getAlbum());
         this.LabelYear.setText(song.getYear());
+
+        commentNumber = song.getComments().size();
 
         
         if(this.canzoneAssociata == null) {
             //labelCommenti.setText(labelCommenti.getText().replace("[n]", "0"));
             labelCommenti.setText("Nessun commento");
         }
-        else {
-            int n = 20; //getCommentNumber()
-            
-            if(n == 0) {
+        else 
+        {
+            if(commentNumber == 0) {
                 labelCommenti.setText("Nessun commento");
             }
             else {
-                labelCommenti.setText(labelCommenti.getText().replace("[n]", (n > 99) ? "99+" : String.valueOf(n)));
+                labelCommenti.setText(labelCommenti.getText().replace("[n]", (commentNumber > 99) ? "99+" : String.valueOf(commentNumber)));
             }
         }
 

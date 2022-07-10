@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
 <AnchorPane id="back" prefHeight="800.0" prefWidth="803.0" stylesheets="@../css/Comments.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.CommentsPageController">
    <children>
@@ -52,7 +54,14 @@
                               </ImageView>
                               <TextArea fx:id="textArea" layoutX="82.0" layoutY="22.0" prefHeight="60.0" prefWidth="514.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="4.0" />
                               <Label fx:id="pubblica" alignment="CENTER" layoutX="699.0" layoutY="31.0" onMouseClicked="#pubblicateComment" prefHeight="18.0" prefWidth="90.0" text="Pubblica" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="30.0" />
-                              <Label fx:id="counter" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="55.0" prefHeight="18.0" prefWidth="136.0" />
+                              <HBox alignment="CENTER" layoutX="292.0" layoutY="52.0" prefHeight="28.0" prefWidth="803.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
+                                 <children>
+                                    <Label fx:id="counter" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="136.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="16.0" />
+                                 </padding>
+                              </HBox>
                            </children>
                         </AnchorPane>
                      </bottom>

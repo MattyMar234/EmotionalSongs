@@ -28,51 +28,21 @@ public class Account {
         this.main = EmotionalSongs.classReference;
     }
 
-    //costruttore2
-    public Account(String[] data)
-    {
-        name     = data[0];
-        surname  = data[1];
-        email    = data[2];
-        password = data[3];
-    }
-
-    //costruttore3
-    public Account(LinkedHashMap<String, Object> Account)
-    {
-        this.name       = (String) JsonParser.GetElement(Account, Arrays.asList("name"));
-        this.surname    = (String) JsonParser.GetElement(Account, Arrays.asList("surname"));
-        this.email      = (String) JsonParser.GetElement(Account, Arrays.asList("email"));
-        this.password   = (String) JsonParser.GetElement(Account, Arrays.asList("password"));
-        
-    }
-
-    //costruttore4
-    public Account(HashMap<String, String> AccountData)
-    {
-        this.name       = AccountData.get("name");
-        this.surname    = AccountData.get("surname");
-        this.email      = AccountData.get("email");
-        this.password   = AccountData.get("password1");
-        this.userID     = AccountData.get("userID");
-    }
-
-
     @Override
     public String toString() {
         String informations = "";
 
-        informations += "Name: "     + this.name      + "\n\r";
-        informations += "surname: "  + this.surname   + "\n\r";
-        informations += "email: "    + this.email     + "\n\r";
-        informations += "password: " + this.password  + "\n\r";
+        informations += "Name     : " + this.name      + "\n\r";
+        informations += "surname  : " + this.surname   + "\n\r";
+        informations += "email    : " + this.email     + "\n\r";
+        informations += "password : " + this.password  + "\n\r";
+        informations += "ID       : " + this.userID    + "\n\r";
         
         return informations;
     }
 
     
-
-    public boolean IsIndentical(Account totest)  {
+    public boolean IsIndentical(Account toTest)  {
         return false;
     }
 
@@ -114,6 +84,10 @@ public class Account {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getID() {
+        return this.userID;
     }
 
 

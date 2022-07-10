@@ -15,21 +15,20 @@ public class CommentElementController extends Controller implements Initializabl
     @FXML private Label LabelName;
     @FXML private Label LabelSurname;
     @FXML private TextArea TextArea;
-    
     private Comment comment;
 
     public CommentElementController() {}
 
+
     public CommentElementController(Comment comment) {
         this.comment = comment;
-        System.out.println("-----------------\n\n\n\n----------------");
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
-        LabelName.setText("??");
+        LabelName.setText(comment.getAutor().getID());
         TextArea.setText(comment.getComment());
 
         
