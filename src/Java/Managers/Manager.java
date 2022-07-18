@@ -16,6 +16,8 @@ public class Manager <T> {
     protected JsonParser jsonFileReader;
     protected EmotionalSongs main;
 
+    
+
     public JSONObject[] readJsonData() throws ParseException, IOException 
     {
         jsonFileReader = new JsonParser(FilePath);

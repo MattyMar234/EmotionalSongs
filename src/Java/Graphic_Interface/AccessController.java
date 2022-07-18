@@ -88,12 +88,12 @@ public class AccessController extends Controller implements Initializable {
         else {
             //verifica email
             if(userName.getText().contains("@")) {
-                TempAccount = application.AccountsManager.SerachByEmail(userName.getText());
+                TempAccount = application.AccountsManager.SearchByEmail(userName.getText());
                 this.LabelName.setText("invalid email");
             }
             //verifica userID
             else {
-                TempAccount = application.AccountsManager.SerachByID(userName.getText());
+                TempAccount = application.AccountsManager.SearchByID(userName.getText());
                 this.LabelName.setText("invalid user ID");
             }
 

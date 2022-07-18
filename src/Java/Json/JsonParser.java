@@ -18,7 +18,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonParser {
 
@@ -152,7 +152,7 @@ public class JsonParser {
 
     public boolean updateObject(JSONObject input) {
 
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
         return true;
     }
 

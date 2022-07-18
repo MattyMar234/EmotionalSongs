@@ -10,8 +10,6 @@ import java.util.ResourceBundle;
 import Java.Account.RegisteredAccount;
 import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView; 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

@@ -1,5 +1,6 @@
 package Java.Graphic_Interface;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Java.PlayList_Songs.Song;
@@ -28,6 +29,9 @@ public class RepositorySongElementController extends Controller implements Initi
 
     @FXML private AnchorPane songMenubackground;
 
+    private int commentNumber;
+    
+
     public RepositorySongElementController() {
 
     }
@@ -37,36 +41,32 @@ public class RepositorySongElementController extends Controller implements Initi
 
     }
 
-    public void injectData(Song song) {
+    public void injectData(MainPageController_reposity mainController, Song song) 
+    {
+        
         this.canzoneAssociata = song;
+        this.repositoryController = mainController;
 
         //this.LabelTitle.setText("Title: " + song.getTitle());
         //this.labelAutor.setText("Autor: " + song.getAutor());
         this.LabelTitle.setText(song.getTitle());
-        this.labelAutor.setText(song.getAutor());
+        this.labelAutor.setText(song.getAlbum());
         this.LabelYear.setText(song.getYear());
 
-    }
+        commentNumber = song.getComments().size();
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
         
-        /*double x = songMenubackground.getWidth();
-        LabelTitle.setMaxWidth(x);
-        labelAutor.setMaxWidth(x);*/
-
         if(this.canzoneAssociata == null) {
             //labelCommenti.setText(labelCommenti.getText().replace("[n]", "0"));
             labelCommenti.setText("Nessun commento");
         }
-        else {
-            int n = 0; //getCommentNumber()
-            
-            if(n == 0) {
+        else 
+        {
+            if(commentNumber == 0) {
                 labelCommenti.setText("Nessun commento");
             }
             else {
-                labelCommenti.setText(labelCommenti.getText().replace("[n]", (n > 99) ? "99+" : String.valueOf(n)));
+                labelCommenti.setText(labelCommenti.getText().replace("[n]", (commentNumber > 99) ? "99+" : String.valueOf(commentNumber)));
             }
         }
 
@@ -88,11 +88,20 @@ public class RepositorySongElementController extends Controller implements Initi
 
             EmojiContainer.getChildren().add(img);
         }
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+        /*double x = songMenubackground.getWidth();
+        LabelTitle.setMaxWidth(x);
+        labelAutor.setMaxWidth(x);*/ 
     }
 
     @FXML
-    void viewComment(MouseEvent event) {
-        //repositoryController set comment page
+    void viewComment(MouseEvent event) throws IOException {
+        this.repositoryController.mainController.SetCommentsPage(this.canzoneAssociata);
     }
     
 }

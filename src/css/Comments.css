@@ -1,0 +1,50 @@
+#back {
+    -fx-background-color: rgb(65, 65, 65);
+}
+#Label, #counter {
+    -fx-text-fill: #fcfcfc;
+    -fx-font-size: 14px;
+}
+
+#border {
+    -fx-background-color: rgb(224, 224, 224);
+}
+
+
+#pubblica {
+    -fx-font-size: 16px;
+    -fx-text-fill: #129beb;
+    -fx-effect:null;
+}
+
+#pubblica:hover {
+    -fx-underline: true;
+    -fx-text-fill: #12cbeb;
+}
+
+#textArea{
+    -fx-font-size: 14px;
+    -fx-border-radius: 20px;
+
+}
+
+
+
+
+/* =============== Tabella =============== */
+.table-view {
+
+    -fx-background-color: rgb(65, 65, 65);
+    -fx-padding: 0px;
+    -fx-text-fill: #fcfcfc;
+}
+
+.table-view .column-header ,
+.table-view .column-header-background .filler,
+.table-view .column-header-background 
+{
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+    
+
+}

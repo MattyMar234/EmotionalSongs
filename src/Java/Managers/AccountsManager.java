@@ -21,7 +21,7 @@ public class AccountsManager extends Manager <RegisteredAccount>
 
     // ============================ Opzioni di ricerca ============================//
 
-    public RegisteredAccount SerachByEmail(String email) {
+    public RegisteredAccount SearchByEmail(String email) {
         
         for (RegisteredAccount account : Data) {
             if(account.getEmail().equals(email)) {
@@ -31,8 +31,8 @@ public class AccountsManager extends Manager <RegisteredAccount>
         return null;
     }
 
-    public RegisteredAccount SerachByID(String ID) {
-        
+    public RegisteredAccount SearchByID(String ID) 
+    {
         for (RegisteredAccount account : Data) {
             String id = account.getUserID();
             

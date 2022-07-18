@@ -28,16 +28,14 @@ public class EmotionalSongs extends Application{
 
     // =================== percorsi =================== //
 
-    public static final String Directory = System.getProperty("user.dir");
-    public static final String iconsFolder = Directory + "\\data\\icon\\";
-    public static final String imageFolder = Directory + "\\data\\image\\";
-    
-    private final String UsersDataFilePath  = "\\data\\UtentiRegistrati.json";
-    private final String UsersDataFilePath2 = "\\data\\UtentiRegistrati2.json";   //prova
-    private final String songsDataFilePath  = "\\data\\canzoni.json";
-    private final String songsDataFilePath2 = Directory + "\\data\\Song.csv";
-    private final String LocationsData      = Directory + "\\data\\comuni.json";
-    private final String SongDataFilePath   = "data.txt";    //?
+    public static final String Directory    = System.getProperty("user.dir");
+    public static final String iconsFolder  = Directory + "\\data\\icon\\";
+    public static final String imageFolder  = Directory + "\\data\\image\\";
+    public static final String SongFile     = Directory + "\\data\\song.json";
+    public static final String UsersFile    = Directory + "\\data\\UtentiRegistrati.json";
+    public static final String LocationsData      = Directory + "\\data\\comuni.json";
+    public static final String songsDataFilePath2 = Directory + "\\data\\Song.csv";
+
     private final String FileFXML_path      = "FXML/";
     private final String [] XML_Paths = {
 
@@ -54,7 +52,8 @@ public class EmotionalSongs extends Application{
         FileFXML_path + "NewPlaylistCreationPage.fxml",
         FileFXML_path + "MainPage_AccountInfo.fxml",
         FileFXML_path + "Playlist_AddSongPage.fxml",
-        FileFXML_path + "EditPlaylistPage.fxml"
+        FileFXML_path + "CommentElement.fxml",
+        FileFXML_path + "CommentsPage.fxml"
     };
 
 
@@ -80,8 +79,6 @@ public class EmotionalSongs extends Application{
        
     public static void main(String[] args) throws Exception {
         System.out.println("Application Runnning...\n");
-        
-        //new EmotionalSongs();
         launch(args);
     }
 
@@ -92,9 +89,11 @@ public class EmotionalSongs extends Application{
         EmotionalSongs.classReference = this;
         this.mainStage = stage;
 
-        songManager      = new SongManager(songsDataFilePath2, this);
-        AccountsManager  = new AccountsManager(Directory + UsersDataFilePath, this);
+        AccountsManager  = new AccountsManager(UsersFile, this);
+        songManager      = new SongManager(SongFile, this);
         locationsManager = new LocationsManager(LocationsData, this);
+
+        int loadingState = 0;
         
         try {
 
@@ -104,14 +103,14 @@ public class EmotionalSongs extends Application{
             locationsManager.LoadData();
             System.out.println();
 
-            System.out.print("Loading Songs: ");
-            songManager.LoadSongs();
-            System.out.println();
-
+            
             System.out.print("Loading Accounts:");
             AccountsManager.LoadAccounts();
             System.out.println();
-
+            
+            System.out.print("Loading Songs: ");
+            songManager.LoadSongs();
+            System.out.println();
 
 
             // ***************** caricamento impostazioni ***************** //
@@ -131,7 +130,7 @@ public class EmotionalSongs extends Application{
                     System.out.println(obj);
     
                     if(obj.get("testUser") != null && ((String) obj.get("testUser")).equals("true")) {
-                        ConnectedAccount = AccountsManager.SerachByEmail("test@gmail.com");
+                        ConnectedAccount = AccountsManager.SearchByEmail("test@gmail.com");
                         
                         if(ConnectedAccount != null) {
                             skipLogin = true;
@@ -158,7 +157,10 @@ public class EmotionalSongs extends Application{
                 System.out.println(Directory + "\\src\\" + path);
             }
 
+
+
             // ***************** caricamento Icone ***************** //
+
             BufferedImage img = ImageIO.read(new File(iconsFolder + "emoji.png"));
             int size   = 66;
             int start  = 1;
@@ -192,6 +194,7 @@ public class EmotionalSongs extends Application{
 
         } catch(NullPointerException e) {
             System.out.println("file non trovato, errore nel percorso del file fxml");
+            System.out.println(e);
 
         } catch (Exception e) {
             System.out.println(e);  
@@ -204,7 +207,9 @@ public class EmotionalSongs extends Application{
 
     public void logout(Stage stage) {
         try {
-            AccountsManager.SaveAccounts(Directory + UsersDataFilePath2);
+            AccountsManager.SaveAccounts(UsersFile);
+            songManager.saveData(EmotionalSongs.SongFile);
+            
 
         } catch (IOException e) {
             System.out.println("errore di salvataggio");

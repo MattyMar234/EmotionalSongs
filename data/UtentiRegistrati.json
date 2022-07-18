@@ -102,36 +102,7 @@
 		"surname" : "mar",
 		"name" : "matty",
 		"PlayLists" : [
-			{
-				"song" : [
-					"SOZVMJI12AB01808AF",
-					"SOCVGQS12A8C13D7DF",
-					"SOVOLGY12A6D4F822B"
-				],
-				"elements" : "3",
-				"name" : "prova1",
-				"creationDate" : "2022-05-08"
-			},
-			{
-				"song" : [
-					"SOZVMJI12AB01808AF",
-					"SOCVGQS12A8C13D7DF",
-					"SOVOLGY12A6D4F822B"
-				],
-				"elements" : "3",
-				"name" : "prova2",
-				"creationDate" : "2022-05-08"
-			},
-			{
-				"song" : [
-					"SOZVMJI12AB01808AF",
-					"SOCVGQS12A8C13D7DF",
-					"SOVOLGY12A6D4F822B"
-				],
-				"elements" : "3",
-				"name" : "prova",
-				"creationDate" : "2022-05-08"
-			}
+			
 		],
 		"viaPiazza" : "LHL",
 		"provincia" : "Varese",
@@ -147,33 +118,7 @@
 		"surname" : "mar",
 		"name" : "matty",
 		"PlayLists" : [
-			{
-				"song" : [
-					"SOUDSGM12AC9618304",
-					"SOXVLOJ12AB0189215",
-					"SOZQDIU12A58A7BCF6",
-					"SOCIWDW12A8C13D406",
-					"SOEOEZA12AB018530E",
-					"SOLKIUR12A8C1393C5",
-					"SOFGOUH12A8C13A250",
-					"SOXPWPH12A6701E86E"
-				],
-				"elements" : "8",
-				"name" : "lessssgo",
-				"creationDate" : "2022-05-20"
-			},
-			{
-				"song" : [
-					"SOLRYQR12A670215BF",
-					"SOXKMLO12AB017FFDB",
-					"SOWDZZQ12A670215BD",
-					"SOVMULC12A670215AE",
-					"SOPDFZN12A670215C4"
-				],
-				"elements" : "5",
-				"name" : "let's goooo",
-				"creationDate" : "2022-05-28"
-			}
+			
 		],
 		"viaPiazza" : "9unyp9b",
 		"provincia" : "Varese",
