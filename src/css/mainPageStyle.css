@@ -22,11 +22,11 @@
 
 #searchPane {
     -fx-padding: 0 0 0 0;
-    -fx-background-color: #e0e0e0;
-    -fx-background-color: #1F2D47;
+    -fx-background-color: transparent;
+    -fx-background-color: transparent;
     /*-fx-background-color: #2a2e38;*/
     -fx-background-color: transparent;
-    -fx-background-color: #1E252F;
+    -fx-background-color: transparent;
     -fx-alignment: center;
 }
 
