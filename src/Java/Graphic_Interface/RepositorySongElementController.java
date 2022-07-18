@@ -18,7 +18,6 @@ public class RepositorySongElementController extends Controller implements Initi
 
     private Song canzoneAssociata;
     private MainPageController_reposity repositoryController;
-    
     private int emojiSize = 20;
 
     @FXML private Label LabelTitle;
@@ -26,6 +25,8 @@ public class RepositorySongElementController extends Controller implements Initi
     @FXML private Label labelCommenti;
     @FXML private Label LabelYear;
     @FXML private HBox EmojiContainer;
+    @FXML private Label EmotionLabel;
+
 
     @FXML private AnchorPane songMenubackground;
 
@@ -104,4 +105,9 @@ public class RepositorySongElementController extends Controller implements Initi
         this.repositoryController.mainController.SetCommentsPage(this.canzoneAssociata);
     }
     
+
+    @FXML
+    void viewEmotions(MouseEvent event) throws IOException {
+        this.repositoryController.mainController.SetEmotionPage(this.canzoneAssociata);
+    }
 }

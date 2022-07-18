@@ -1,7 +1,6 @@
 package Java.Graphic_Interface;
 
 import javafx.fxml.Initializable;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,15 +27,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 
-public class CommentsPageController extends Controller implements Initializable {
-
+public class CommentsPageController extends Controller implements Initializable 
+{
 
     @FXML private TableView<Comment> CommentsTable;
     @FXML private TableColumn<Comment, Comment> Commnts;
     @FXML private ImageView BackArrow;
     @FXML private AnchorPane searchPane;
     @FXML private Label pubblica;
-    @FXML private Label counter;
+    @FXML volatile private Label counter;
     @FXML private TextArea textArea;
 
 
@@ -46,6 +45,38 @@ public class CommentsPageController extends Controller implements Initializable 
 
     private final int maxcharacters = 256;
     private int commentLenght = 0;
+    private CharsCounter listener;
+
+    public class CharsCounter extends Thread {
+
+        volatile private CommentsPageController controller;
+        volatile private boolean run = true;
+        
+
+        public CharsCounter(CommentsPageController controller) {
+            this.controller = controller;
+
+        }
+
+        public void end() {
+            this.run = false;
+        }
+
+        public void run()
+        {
+            while(run) 
+            {
+                //System.out.println(controller.textArea.getText());
+                controller.update();
+                try {
+                    sleep(20);
+                } catch (InterruptedException e) {
+                    //e.printStackTrace();
+                }
+            }
+        }
+
+    }
 
 
     public CommentsPageController() {}
@@ -56,6 +87,13 @@ public class CommentsPageController extends Controller implements Initializable 
         this.song = song;
     }
 
+    public void update() {
+        
+        String d = Integer.toString(textArea.getText().length());
+        counter.setText("char: " + d + " di 256");
+        System.out.println(textArea.getText().length());
+    }
+
     
     @Override
     public void initialize(URL location, ResourceBundle resources) 
@@ -64,14 +102,14 @@ public class CommentsPageController extends Controller implements Initializable 
 
         String d = Integer.toString(textArea.getText().length());
         counter.setText("char: " + d + " di 256");
-        counter.setVisible(false);
+        //counter.setVisible(false);
+
 
         textArea.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
             
-            @Override
+           @Override
             public void handle(KeyEvent event) 
             {
-                
                 
                 String character = event.getCharacter();
                 boolean validData = false;
@@ -159,6 +197,9 @@ public class CommentsPageController extends Controller implements Initializable 
         Commnts.setCellFactory(cellFoctory);
 
         CommentsTable.setItems(commnetsList); 
+
+        listener = new CharsCounter(this);
+        //listener.start();
     }
 
     public void injectData(MainPageController controller, Song song) {

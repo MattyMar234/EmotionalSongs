@@ -30,6 +30,7 @@ public class CommentElementController extends Controller implements Initializabl
         
         LabelName.setText(comment.getAutor().getID());
         TextArea.setText(comment.getComment());
+        TextArea.setEditable(false);
 
         
     }

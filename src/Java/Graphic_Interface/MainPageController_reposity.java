@@ -192,19 +192,7 @@ public class MainPageController_reposity extends Controller implements Initializ
     @FXML
     public void elementSelected(MouseEvent event) throws Exception 
     {        
-        if(state == 0) {
-            selected1 = SongsTable.getSelectionModel().getSelectedItem();
-        }
-        else if (state == 1) {
-            selected2 = SongsTable.getSelectionModel().getSelectedItem();
-        }
-
-        if(doubleClick() && selected1 == selected2) {
-            System.out.println("song selected");
-            SongWindow windowSong = new SongWindow(application, (Song) selected1);
-        }
         
-
     }
 
     @FXML

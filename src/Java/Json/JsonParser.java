@@ -77,9 +77,57 @@ public class JsonParser {
         return p;
     }
 
+    public void WriteJsonFile(Object data) throws IOException
+    {
+        FileWriter file = new FileWriter(this.FilePath);
+        String DataStructure = "";
+        JSONObject [] dataList;
+
+        //inizializzo l'array
+        if(data == null) {
+            return;
+        } 
+
+        if(data instanceof JSONArray) 
+        {
+            JSONArray jsonarray = ((JSONArray) data);
+            dataList = new JSONObject[jsonarray.size()];
+
+            for(int  i = 0; i < dataList.length; i++) {
+                dataList[i] = (JSONObject) jsonarray.get(i);
+            }
+
+            file.write("[\n");
+            for(int k = 0; k < dataList.length; k++) 
+            {
+                String s = new String();
+                s = "\t" + ((JSONObject)jsonarray.get(k)).toJSONString() + (k == dataList.length - 1 ? "\n" : ",\n"); 
+                
+                for(int  i = 0; i < s.length(); i++) {
+                    file.append(s.charAt(i));
+                }
+
+                
+            }
+            file.write("]");
+            file.close();
+
+        }
+        else if(data instanceof JSONObject) {
+            dataList = new JSONObject[1];
+            dataList[0] = ((JSONObject) data);
+
+            file.write("[\n\t" + dataList[0].toJSONString() + "\n]");
+            file.close();
+           
+
+        }
+    
+    }
+
     
 
-    public void WriteJsonFile(Object data) throws IOException
+    public void WriteJsonFile_old(Object data) throws IOException
     {
         FileWriter file = new FileWriter(this.FilePath);
         String DataStructure = "";

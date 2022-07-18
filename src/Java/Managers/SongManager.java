@@ -23,6 +23,7 @@ public class SongManager extends Manager <Song> {
     protected HashMap<String, Song> Songs_by_ID = new HashMap<String, Song>();
     protected HashMap<String, ArrayList<Song>> Abum = new HashMap<String, ArrayList<Song>>();
     protected HashMap<String, ArrayList<Song>> Autor = new HashMap<String, ArrayList<Song>>();
+    
     private int loadingFile_type = 0;
    
     public SongManager(String path, EmotionalSongs main) {

@@ -277,6 +277,26 @@ public class MainPageController extends Controller implements Initializable
         SetReposityPage();
     }
 
+    //EMOTION
+    public void SetEmotionPage(Song song) throws IOException  {       
+        FXMLLoader loader = getScenePage("EmotionPage");
+
+        loader.setControllerFactory( c -> {
+            return new EmotionPageController(song, this);
+        });
+
+        AnchorPane view = loader.load();
+        
+
+        borderPane.getChildren().removeAll();
+        borderPane.setCenter(view);  
+    }
+
+    //COMMENTS --> REPOSITY
+    public void Emotion_To_repository() throws IOException {
+        SetReposityPage();
+    }
+
     //PLAYLIST
     public void SetPlayListPage() throws IOException  {  
         FXMLLoader loader = getScenePage("MainPage_PLaylist");
