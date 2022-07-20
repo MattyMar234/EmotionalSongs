@@ -62,7 +62,8 @@ public class EmotionalSongs extends Application{
 
     public static EmotionalSongs classReference;                    //riferimento globale di questa classe
     public static WindowContainerController windowPageReference;
-    
+    public static int language = 1; //italiano 1, inglese 2
+
     public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
     public HashMap<String, String> pageLoaders = new HashMap<String, String>();         
     public Account ConnectedAccount;                                             //Account in utilizzo

@@ -118,6 +118,8 @@ public class MainPageController extends Controller implements Initializable
                     b.setStyle(ButtonColor);//b.setStyle("-fx-background-color: #f18100f6");
                 }
                 else { 
+                    
+                    //9c9c9c66
                     b.setStyle("-fx-background-color: #9c9c9c66;" + "-fx-text-fill:#ffffff;");
                 } 
                 
@@ -216,9 +218,9 @@ public class MainPageController extends Controller implements Initializable
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initOwner(this.application.mainStage);
-        alert.setTitle("Confirmation");
+        alert.setTitle("Conferma");
         alert.initModality(Modality.WINDOW_MODAL);
-        alert.setContentText("You want to close the program");
+        alert.setContentText("Vuoi uscire dal programma ?");
         
         Optional<ButtonType> result = alert.showAndWait();
 
@@ -231,9 +233,9 @@ public class MainPageController extends Controller implements Initializable
     void ChangeAccount(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initOwner(this.application.mainStage);
-        alert.setTitle("Confirmation");
+        alert.setTitle("Conferma");
         alert.initModality(Modality.WINDOW_MODAL);
-        alert.setContentText("Do you want to change account?");
+        alert.setContentText("vuoi cambiare Account ?");
         
         Optional<ButtonType> result = alert.showAndWait();
 

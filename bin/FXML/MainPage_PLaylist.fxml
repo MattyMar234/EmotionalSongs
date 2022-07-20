@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane id="back" prefHeight="800.0" prefWidth="800.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.MainPageController_playList">
+<AnchorPane id="back" prefHeight="800.0" prefWidth="800.0" stylesheets="@../css/PlaylistsPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.MainPageController_playList">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -27,7 +27,7 @@
                      <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <TableView fx:id="PlaylistsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="718.0" prefWidth="997.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <TableView fx:id="PlaylistsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="718.0" prefWidth="997.0" stylesheets="@../css/PlaylistsPage.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <columns>
                                     <TableColumn fx:id="PlayListName" prefWidth="92.0" text="Playlist Name " />
                                     <TableColumn fx:id="PlayListElements" prefWidth="244.00003051757812" text="Songs Number" />

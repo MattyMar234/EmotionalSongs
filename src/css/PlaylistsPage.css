@@ -1,0 +1,158 @@
+
+
+
+
+#BorderPaneTable {
+    -fx-background-color: transparent;
+}
+
+#tableBack {
+    -fx-background-color: #1E252F;
+    /*-fx-background-radius: 20px;*/
+    
+}
+
+
+
+
+.button {
+    -fx-background-color: transparent;
+    -fx-text-align: center;
+    -fx-text-fill:#798AA6;
+    -fx-alignment: baseline_left;
+    -fx-padding: 4 0 4 10;
+    -fx-font-size: 15px;
+    -fx-background-radius: 10px;
+    
+}
+
+.button:hover {
+    -fx-background-color: #9c9c9c66; 
+}
+
+
+
+
+
+
+#NewPlaylistButton {
+    -fx-background-color: #8246FE;
+    -fx-background-radius: 3px;
+    -fx-padding: 0 0 0 0;
+    -fx-text-fill:#ffffff;
+    -fx-alignment: center;
+}
+
+#AnnullaPlaylistButton {
+    -fx-background-color: #ff00008e;
+    -fx-text-fill:#E74C3C;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+
+}
+
+#newPlayListButton{
+    -fx-background-color: #11db0aa4;
+    -fx-text-fill:#2ECC71;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    
+}
+
+
+#PlaylistsTable 
+{
+    -fx-padding: 0px;
+    -fx-text-fill: #fcfcfc;
+    -fx-background-color:  transparent;
+}
+
+
+/* ===================== header tabella =====================*/
+/*      Individual Column Header        */
+#PlaylistsTable .column-header ,
+#PlaylistsTable .column-header-background .filler,
+#PlaylistsTable .column-header-background 
+{
+   /* #36304A;*/
+    -fx-padding: 0 0 0 0;
+    -fx-border-width: 1;
+   
+
+    
+    
+
+}
+
+/* ===================== header della colonna ===================== */
+#PlaylistsTable .column-header-background .label 
+{
+    -fx-text-fill: #bdbdbd;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+    /*-fx-font-weight: bold;*/
+    
+}
+
+
+/* ===================== Cells and Rows =====================*/
+/*Contenuto della cella*/
+#PlaylistsTable .table-cell
+{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #313131;
+    -fx-alignment: center;
+}
+
+/**Spetto cella*/
+.table-row-cell 
+{
+    -fx-padding: 0 0 0 0; 
+    -fx-cell-size: 56px;
+    -fx-font-size: 14px;
+    /*-fx-background-color: transparent;*/
+    -fx-margin: 0 0 20 0;
+   
+}
+
+.table-row-cell:even {
+ 
+}
+
+.table-row-cell:odd {
+
+}
+
+
+.table-row-cell:hover {
+    /*-fx-background-color: #cecece66;*/
+}
+
+.table-row-cell:selected
+{
+
+}
+
+
+/* ===================== scroll-bars ===================== */
+.table-view .virtual-flow .scroll-bar:vertical .thumb {
+    /*-fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);*/
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  transparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.table-view *.scroll-bar:horizontal *.increment-arrow,
+.table-view *.scroll-bar:horizontal *.decrement-arrow {
+  -fx-background-color: transparent;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-padding:10px;
+  -fx-shape: null;
+}
+
+
+

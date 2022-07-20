@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -10,16 +11,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="back" fx:id="mainPane" prefHeight="900.0" prefWidth="1240.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.MainPageController">
+<AnchorPane id="back" fx:id="mainPane" prefHeight="900.0" prefWidth="1240.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.MainPageController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <BorderPane fx:id="borderPane" prefHeight="860.0" prefWidth="1219.0" BorderPane.alignment="CENTER">
-               <bottom>
-                  <AnchorPane fx:id="searchPane" prefHeight="27.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
-               </bottom>
                <top>
-                  <HBox fx:id="Hbox1" prefHeight="64.0" prefWidth="1040.0" BorderPane.alignment="CENTER" />
+                  <HBox fx:id="Hbox1" prefHeight="32.0" prefWidth="1040.0" BorderPane.alignment="CENTER" />
                </top>
             </BorderPane>
          </center>
@@ -112,4 +110,8 @@
          </left>
       </BorderPane>
    </children>
+   <stylesheets>
+      <URL value="@../css/mainPageStyle.css" />
+      <URL value="@../css/ApplicationTheme.css" />
+   </stylesheets>
 </AnchorPane>

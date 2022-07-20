@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,19 +10,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="back" prefHeight="800.0" prefWidth="803.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.MainPageController_reposity">
+<AnchorPane id="back" onScroll="#scroll" prefHeight="800.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.MainPageController_reposity">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <AnchorPane fx:id="searchPane" prefHeight="80.0" prefWidth="1358.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="searchPane" prefHeight="112.0" prefWidth="803.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="searchPane" prefHeight="68.0" prefWidth="1000.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
                      <children>
-                        <Label fx:id="SerachLabel" prefHeight="20.0" prefWidth="126.0" text="Cerca Canzone" />
-                        <TextField fx:id="KeywordTextField" maxWidth="900.0" prefHeight="30.0" prefWidth="500.0" promptText="Keyword canzone..." />
+                        <AnchorPane prefHeight="100.0" prefWidth="783.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label id="labelRicerca" prefHeight="18.0" prefWidth="120.0" text="Cerca Brano" />
+                                    <TextField fx:id="KeywordTextField" maxWidth="900.0" prefHeight="30.0" prefWidth="428.0" promptText="cerca canzone..." />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="6.0" />
+                           </VBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label id="filterLabel" prefHeight="18.0" prefWidth="120.0" text="Ordina Elementi" />
+                                    <ComboBox prefHeight="26.0" prefWidth="190.0" promptText="filtro" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
                      </children>
-                  </HBox>
+                  </VBox>
                </children>
             </AnchorPane>
          </top>
@@ -28,9 +53,9 @@
                <children>
                   <BorderPane prefHeight="648.0" prefWidth="958.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <center>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <AnchorPane id="contornoTabella" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <TableView fx:id="SongsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="718.0" prefWidth="997.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <TableView fx:id="SongsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="718.0" prefWidth="997.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
                                  <columns>
                                     <TableColumn fx:id="Elements" prefWidth="92.0" />
                                  </columns>
@@ -47,4 +72,8 @@
          </center>
       </BorderPane>
    </children>
+   <stylesheets>
+      <URL value="@../css/mainPageStyle.css" />
+      <URL value="@../css/ApplicationTheme.css" />
+   </stylesheets>
 </AnchorPane>

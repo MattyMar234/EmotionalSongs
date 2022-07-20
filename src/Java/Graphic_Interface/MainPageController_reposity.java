@@ -15,20 +15,25 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -74,6 +79,8 @@ public class MainPageController_reposity extends Controller implements Initializ
     @FXML private Button optionsButton;
     @FXML private Button ExitButton;
 
+    private int counter = 0;
+
 
     // ========================= variabili =========================//
     private ObservableList<Container> list = FXCollections.observableArrayList();
@@ -84,6 +91,12 @@ public class MainPageController_reposity extends Controller implements Initializ
 
     public MainPageController_reposity() throws IOException {
         super();
+    }
+
+    @FXML
+    void scroll(ScrollEvent event) {
+        System.out.println("here");
+        System.out.println(event.getDeltaX());
     }
 
     
@@ -97,6 +110,31 @@ public class MainPageController_reposity extends Controller implements Initializ
         for(Song song : application.songManager.getList()) {
             list.add(new Container(song, this));
         }
+
+        //ScrollBar verticalBar = (ScrollBar) SongsTable.lookup(".scroll-bar:vertical");
+        //verticalBar.setValue(0.49);
+
+        //disabilito lo scroll con la rotella
+        /*SongsTable.addEventFilter(ScrollEvent.ANY, event -> {
+            int d = (int)event.getDeltaY();
+
+            SongsTable.scrollTo(((int)event.getY() + d/10)/100);
+            event.consume();
+        });
+
+        
+        SongsTable.addEventFilter(ScrollEvent.ANY, new EventHandler<ScrollEvent>() {
+            
+            @Override
+            public void handle(ScrollEvent scrollEvent) {
+                System.out.println("Scrolled.");
+                System.out.println(scrollEvent.getDeltaY());
+               ;
+               //SongsTable.scrollTo();
+            }
+     });*/
+
+     
 
 
         Callback<TableColumn<Container, Container>, TableCell<Container, Container>> cellFoctory = (TableColumn<Container, Container> param) -> {
@@ -170,9 +208,9 @@ public class MainPageController_reposity extends Controller implements Initializ
                     else if(item.song.getAutor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     }
-                    else if(item.song.getDuration().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    /*else if(item.song.getDuration().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
-                    }
+                    }*/
                     else if(item.song.getYear().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -9,47 +10,69 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="menuSpace" prefHeight="100.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.RepositorySongElementController">
+<AnchorPane id="menuSpace" prefHeight="100.0" prefWidth="600.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.RepositorySongElementController">
    <children>
       <AnchorPane fx:id="songMenubackground" layoutX="10.0" layoutY="10.0" prefHeight="101.0" prefWidth="697.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane layoutX="-23.0" layoutY="-40.0" prefHeight="101.0" prefWidth="210.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane layoutX="-23.0" layoutY="-40.0" prefHeight="101.0" prefWidth="210.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
                   <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="10.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0">
                      <image>
                         <Image url="@../../data/icon/testMusic.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="LabelTitle" layoutX="90.0" layoutY="14.0" prefHeight="30.0" prefWidth="504.0" text="Title" />
+                  <Label fx:id="LabelTitle" layoutX="90.0" layoutY="14.0" prefHeight="30.0" prefWidth="504.0" stylesheets="@../css/mainPageStyle.css" text="Title" />
                   <Label fx:id="labelAutor" layoutX="90.0" layoutY="42.0" prefHeight="18.0" prefWidth="222.0" text="Autor" />
                   <Label fx:id="LabelYear" layoutX="90.0" layoutY="60.0" prefHeight="21.0" prefWidth="97.0" text="date" />
-                  <GridPane layoutX="235.0" layoutY="72.0" prefHeight="21.0" prefWidth="594.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <GridPane alignment="CENTER_LEFT" layoutX="235.0" layoutY="72.0" prefHeight="21.0" prefWidth="594.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="230.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label fx:id="labelCommenti" onMouseClicked="#viewComment" prefHeight="18.0" prefWidth="210.0" text="Visualizza tutti i [n] commenti..." GridPane.columnIndex="1">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label fx:id="labelCommenti" contentDisplay="CENTER" onMouseClicked="#viewComment" prefHeight="18.0" prefWidth="278.0" text="Visualizza tutti i [n] commenti..." textAlignment="CENTER">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
                            <children>
-                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../data/icon/chat_Icon.png" />
+                                    <Image url="@../../data/icon/icon2.png" />
                                  </image>
+                                 <HBox.margin>
+                                    <Insets bottom="6.0" />
+                                 </HBox.margin>
                               </ImageView>
-                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../data/icon/like_Icon.png" />
+                                    <Image url="@../../data/icon/icon1.png" />
                                  </image>
+                                 <HBox.margin>
+                                    <Insets bottom="6.0" left="8.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../data/icon/icon4.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets bottom="6.0" left="8.0" right="10.0" />
+                                 </HBox.margin>
                               </ImageView>
                            </children>
                         </HBox>
@@ -59,7 +82,10 @@
             </AnchorPane>
             <HBox fx:id="EmojiContainer" alignment="CENTER_RIGHT" layoutX="511.0" layoutY="14.0" prefHeight="30.0" prefWidth="299.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="4.0">
                <children>
-                  <Label id="EmotionLabel" fx:id="EmotionLabel" onMouseClicked="#viewEmotions" text="Emotions: " />
+                  <Label id="EmotionLabel" fx:id="EmotionLabel" onMouseClicked="#viewEmotions" text="Emotions: ">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
                </children>
             </HBox>
          </children>

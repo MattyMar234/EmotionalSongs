@@ -105,6 +105,7 @@ public class RegisteredAccount extends Account {
     {
         JSONObject data = super.getDataStructure();
         JSONArray PlayListsData_array = new JSONArray();
+        Song s = new Song();
 
         data.put("codiceFiscale", this.fiscalCode);
         data.put("cap",           this.cap);
@@ -114,26 +115,35 @@ public class RegisteredAccount extends Account {
         data.put("userID",        this.userID);
         data.put("civicNumber",   this.civicNumber);
 
-        for(PlayList p : PlayLists) {
-            
-            JSONObject playlistData = new JSONObject(); //oggetto playlist
-            JSONArray songData_array = new JSONArray(); //suoni presenti
+        try {
+            for(PlayList p : PlayLists) {
+                
+                JSONObject playlistData = new JSONObject(); //oggetto playlist
+                JSONArray songData_array = new JSONArray(); //suoni presenti
 
-            for(Song song : p.getSongs()) {
-                songData_array.add(song.getSongID());
+                for(Song song : p.getSongs()) {
+                    songData_array.add(song.getSongID());
+                    s = song;
+                }
+
+                playlistData.put("name", p.getNome());
+                playlistData.put("creationDate", p.getCreationDate());
+                playlistData.put("elements", p.getElements());
+                playlistData.put("song",songData_array);
+
+                PlayListsData_array.add(playlistData);  //aggiungo all'array la playlist
             }
 
-            playlistData.put("name", p.getNome());
-            playlistData.put("creationDate", p.getCreationDate());
-            playlistData.put("elements", p.getElements());
-            playlistData.put("song",songData_array);
+            data.put("PlayLists", PlayListsData_array);
 
-            PlayListsData_array.add(playlistData);  //aggiungo all'array la playlist
+            
+        } catch (Exception e) {
+            System.out.println("null song error");
+            System.out.println(e);
         }
 
-        data.put("PlayLists", PlayListsData_array);
-
         return data;
+        
     }
 
 

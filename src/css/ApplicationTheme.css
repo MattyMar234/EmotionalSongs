@@ -1,5 +1,13 @@
 
 
-#backGround {
+#back {
+
+    /*-fx-background:linear-gradient(to right, #49a09d, #5f2c82); */
+    /*-fx-background: linear-gradient(to right top, #4456D2, #C651C3);*/
     
+	/*-fx-font-family: "Century Gothic";*/
+
+    -fx-background-color: #303440;
+    /*-fx-background-color: linear-gradient(from 25% 10% to 100% 100%, #490e46, #a03616f5);*/
+
 }
