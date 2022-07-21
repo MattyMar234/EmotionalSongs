@@ -88,7 +88,7 @@ public class Song {
                 comment.setAutor((Account) EmotionalSongs.classReference.AccountsManager.SearchByID(ID));
                 
 
-                System.out.println(comment);
+                //System.out.println(comment);
 
                 this.comments.add(comment);
             }

@@ -120,7 +120,7 @@ public class MainPageController_playList extends Controller implements Initializ
             for(PlayList playlist : ((RegisteredAccount) application.ConnectedAccount).getPlayLists()) {
                 userPlayLists.add(new CustomPlayList(playlist, this));
 
-                System.out.println(playlist);
+                //System.out.println(playlist);
             }
 
             PlayListName.setCellValueFactory(new PropertyValueFactory<CustomPlayList, String>("nome"));
@@ -212,11 +212,16 @@ public class MainPageController_playList extends Controller implements Initializ
                             });
 
                             editButton.setOnMouseClicked((MouseEvent event) -> {
-                                try {
-                                    item.MainclassReference.mainController.SetPlaylistEditPage(item.getPlayList());
                                 
-                                    //System.out.println(item.getPlayList());
+                                PlayList p = item.getPlayList();
+                                //System.out.println(l);
+                                
+                                try {
+                                    item.MainclassReference.mainController.SetPlaylistEditPage(p, item.MainclassReference);
+                                
+                                    System.out.println(item.getPlayList());
                                 } catch (IOException e) {
+                                    System.out.println(e);
                                     e.printStackTrace();
                                 }
                             });

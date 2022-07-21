@@ -65,9 +65,9 @@ public class RegisteredAccount extends Account {
                 NewPlaylist.setCreationDate((String)d.get("creationDate"));
 
                 for (Object songID : SongsList) {
-                    System.out.println(songID);
+                    //System.out.println(songID);
                     NewPlaylist.addSong(this.main.songManager.getSong_by_ID((String)songID));
-                    System.out.println("ID: " + songID);
+                    //System.out.println("ID: " + songID);
                 }
 
                 PlayLists.add(NewPlaylist);

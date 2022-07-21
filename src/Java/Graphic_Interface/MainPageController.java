@@ -52,8 +52,10 @@ public class MainPageController extends Controller implements Initializable
     
     ArrayList<Button> buttons = new ArrayList<Button>();
     private int SelectedButton = 1;
-    private final String ButtonColor = "-fx-background-color: #0bb813;" + "-fx-text-fill:#ffffff;";
+    //private final String ButtonColor = "-fx-background-color: #0bb813;" + "-fx-text-fill:#ffffff;";
+    private final String ButtonColor = "-fx-background-color: #f18100f6;" + "-fx-text-fill:#ffffff;";
     protected int state = 1;
+    
     
 
 
@@ -86,6 +88,7 @@ public class MainPageController extends Controller implements Initializable
         
         for(Field f : this.getClass().getFields())
         {
+            System.out.println("Field " + f.getName());
             try {
                 Object obj = this.getClass().getField(f.getName()).get(this);
 
@@ -118,8 +121,6 @@ public class MainPageController extends Controller implements Initializable
                     b.setStyle(ButtonColor);//b.setStyle("-fx-background-color: #f18100f6");
                 }
                 else { 
-                    
-                    //9c9c9c66
                     b.setStyle("-fx-background-color: #9c9c9c66;" + "-fx-text-fill:#ffffff;");
                 } 
                 
@@ -136,10 +137,10 @@ public class MainPageController extends Controller implements Initializable
             });
         }  
         
-        if(this.application.ConnectedAccount instanceof UnregisteredAccount) {
+        /*if(this.application.ConnectedAccount instanceof UnregisteredAccount) {
             this.playlistButton.setDisable(true);
             this.profileButton.setText("Sign In");
-        }
+        }*/
        
         try {
             SetReposityPage();  
@@ -330,13 +331,13 @@ public class MainPageController extends Controller implements Initializable
     }
 
 
-    public void SetPlaylistEditPage(PlayList playlist) throws IOException 
+    public void SetPlaylistEditPage(PlayList playlist, MainPageController_playList link) throws IOException 
     {
-        FXMLLoader loader = getScenePage("EditPlaylistPage");
+        FXMLLoader loader = getScenePage("EditPlaylist");
         
         
         loader.setControllerFactory(c -> {    
-            return new EditPlaylistController(playlist); // <-- parametri costruttore classe
+            return new EditPlaylistController(playlist, link); // <-- parametri costruttore classe
         });
 
         AnchorPane view = loader.load();

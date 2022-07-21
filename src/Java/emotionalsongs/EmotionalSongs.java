@@ -55,7 +55,7 @@ public class EmotionalSongs extends Application{
         FileFXML_path + "CommentElement.fxml",
         FileFXML_path + "CommentsPage.fxml",
         FileFXML_path + "EmotionPage.fxml",
-        FileFXML_path + "EditPlaylistPage.fxml"
+        FileFXML_path + "EditPlaylist.fxml"
     };
 
 

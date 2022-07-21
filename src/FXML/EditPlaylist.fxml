@@ -5,11 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="back" prefHeight="846.0" prefWidth="1208.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.NewPlaylistController">
@@ -31,16 +32,6 @@
                      <children>
                         <AnchorPane prefHeight="38.0" prefWidth="200.0" />
                         <AnchorPane prefHeight="38.0" prefWidth="200.0" />
-                        <AnchorPane prefHeight="38.0" prefWidth="200.0">
-                           <children>
-                              <Button fx:id="NewPlaylistButton" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="25.0" mnemonicParsing="false" onAction="#AddNewPlayList" prefHeight="21.0" prefWidth="145.0" text="Add Song" textAlignment="CENTER" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="16.0" />
-                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="29.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="16.0">
-                                 <image>
-                                    <Image url="@../../data/image/AddPlayList.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
                      </children>
                   </HBox>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="38.0" prefWidth="200.0" />
@@ -53,36 +44,21 @@
                      <bottom>
                         <AnchorPane prefHeight="77.0" prefWidth="720.0" BorderPane.alignment="CENTER">
                            <children>
-                              <HBox alignment="CENTER" layoutY="-25.0" prefHeight="104.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+                              <GridPane alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
                                  <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="AnnullaPlaylistButton" layoutX="28.0" layoutY="31.0" mnemonicParsing="false" onAction="#turnBack" prefHeight="40.0" prefWidth="145.0" text="Cance" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="36.0">
-                                             <graphic>
-                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../data/image/trash.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </graphic>
-                                          </Button>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="newPlayListButton" alignment="CENTER" layoutX="40.0" layoutY="26.0" mnemonicParsing="false" onAction="#ConfermeNewPlayList" text="Add Playlist" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="36.0">
-                                             <graphic>
-                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../data/image/approva.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </graphic>
-                                          </Button>
-                                       </children>
-                                    </AnchorPane>
+                                    <Button fx:id="songButton" mnemonicParsing="false" onAction="#addSong" text="Add Song" />
+                                    <Button fx:id="AlbumButton" mnemonicParsing="false" onAction="#AddAlbum" text="Add from an album" GridPane.columnIndex="1" />
+                                    <Button fx:id="AutorButton" mnemonicParsing="false" onAction="#AddAutor" text="Add Autor's song" GridPane.columnIndex="2" />
                                  </children>
-                              </HBox>
+                              </GridPane>
                            </children>
                         </AnchorPane>
                      </bottom>
