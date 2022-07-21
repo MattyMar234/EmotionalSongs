@@ -333,6 +333,8 @@ public class MainPageController extends Controller implements Initializable
     public void SetPlaylistEditPage(PlayList playlist) throws IOException 
     {
         FXMLLoader loader = getScenePage("EditPlaylistPage");
+        
+        
         loader.setControllerFactory(c -> {    
             return new EditPlaylistController(playlist); // <-- parametri costruttore classe
         });

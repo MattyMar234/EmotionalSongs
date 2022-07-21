@@ -37,6 +37,7 @@ public class EditPlaylistController extends Controller implements Initializable 
     public EditPlaylistController(PlayList list) {
         super();
         this.playlist = list;
+        //System.out.println(list);
     }
 
     @Override
@@ -49,7 +50,8 @@ public class EditPlaylistController extends Controller implements Initializable 
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
         Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
-
+        
+        
         SongsTable.setItems(list);
     
     }

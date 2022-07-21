@@ -70,6 +70,39 @@ public class AccountsManager extends Manager <RegisteredAccount>
         return 0;
     }
 
+    public void LoadAccountsPlaylists() {
+        System.out.println("reading file " + this.FilePath);
+
+        try {  
+
+            //pttengo l'array dei dati
+            JSONObject[] dataArray = readJsonData();
+
+            //per ogni utente inserisco i suoi dati
+            for(int i = 0; i < dataArray.length; i++) {
+                this.Data.get(i).loadPlaylits(dataArray[i]);
+            }
+            
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Json File not found");
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            System.out.println("Reading Error");
+            e.printStackTrace();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        } finally {
+            System.out.println("reading completed");    
+        }
+    }
+
 
     public boolean LoadAccounts()
     {

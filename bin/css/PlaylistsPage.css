@@ -30,36 +30,6 @@
     -fx-background-color: #9c9c9c66; 
 }
 
-
-
-
-
-
-#NewPlaylistButton {
-    -fx-background-color: #8246FE;
-    -fx-background-radius: 3px;
-    -fx-padding: 0 0 0 0;
-    -fx-text-fill:#ffffff;
-    -fx-alignment: center;
-}
-
-#AnnullaPlaylistButton {
-    -fx-background-color: #ff00008e;
-    -fx-text-fill:#E74C3C;
-    -fx-font-weight: bold;
-    -fx-alignment: center-left;
-
-}
-
-#newPlayListButton{
-    -fx-background-color: #11db0aa4;
-    -fx-text-fill:#2ECC71;
-    -fx-font-weight: bold;
-    -fx-alignment: center-left;
-    
-}
-
-
 #PlaylistsTable 
 {
     -fx-padding: 0px;

@@ -117,7 +117,13 @@ public class SongManager extends Manager <Song> {
         this.Data.add(song);
 
         /* ==== id ==== */
-        Songs_by_ID.put(song.getSongID(), song);
+        this.Songs_by_ID.put(song.getSongID(), song);
+        //System.out.println("keys: " + Songs_by_ID.size());
+        
+
+
+        //System.out.println(Songs_by_ID.get(song.getSongID()));
+        
         
         /* ==== labum ==== */
         String key = song.getAlbum();
@@ -148,6 +154,7 @@ public class SongManager extends Manager <Song> {
     }
 
     public Song getSong_by_ID(String ID) {
+        System.out.println("keys: " + Songs_by_ID.size());
         return this.Songs_by_ID.get(ID);
     }
 

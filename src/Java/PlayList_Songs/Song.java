@@ -27,6 +27,8 @@ public class Song {
     protected String songID;
     protected int AlbumID;
 
+    private static int counter = 1;
+
     protected ArrayList<Emotion> emotions = new ArrayList<Emotion>();
     protected ArrayList<Comment> comments = new ArrayList<Comment>();
 
@@ -66,6 +68,7 @@ public class Song {
         this.genre    = (String) jsonData.get("genre");
         this.duration = (String) jsonData.get("duration");
         this.autor    = (String) jsonData.get("autor");
+        this.songID   = (String) jsonData.get("SongID");
         
         JSONArray comments =  (JSONArray) jsonData.get("comments");
         if(comments.size() > 0) System.out.println("Comments: " + comments);
@@ -119,6 +122,9 @@ public class Song {
         data.put("album",    this.album);
         data.put("duration", this.duration);
         data.put("genre",    this.genre);
+        data.put("SongID",   this.songID);
+
+        //Integer.toString(Song.counter++)
 
         return data;
     }

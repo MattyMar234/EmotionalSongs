@@ -92,8 +92,8 @@ public class EmotionalSongs extends Application{
         EmotionalSongs.classReference = this;
         this.mainStage = stage;
 
-        AccountsManager  = new AccountsManager(UsersFile, this);
         songManager      = new SongManager(SongFile, this);
+        AccountsManager  = new AccountsManager(UsersFile, this);
         locationsManager = new LocationsManager(LocationsData, this);
 
         int loadingState = 0;
@@ -102,10 +102,6 @@ public class EmotionalSongs extends Application{
 
             // ***************** caricamento Dati ***************** //
             
-            System.out.print("Loading data: ");
-            locationsManager.LoadData();
-            System.out.println();
-
             
             System.out.print("Loading Accounts:");
             AccountsManager.LoadAccounts();
@@ -113,7 +109,15 @@ public class EmotionalSongs extends Application{
             
             System.out.print("Loading Songs: ");
             songManager.LoadSongs();
+            AccountsManager.LoadAccountsPlaylists();
             System.out.println();
+            
+
+            System.out.print("Loading data: ");
+            locationsManager.LoadData();
+            System.out.println();
+            
+            
 
 
             // ***************** caricamento impostazioni ***************** //
@@ -196,8 +200,9 @@ public class EmotionalSongs extends Application{
         
 
         } catch(NullPointerException e) {
-            System.out.println("file non trovato, errore nel percorso del file fxml");
+            System.out.println("file non trovato, errore nel percorso del file fxml o altro");
             System.out.println(e);
+            e.printStackTrace(); 
 
         } catch (Exception e) {
             System.out.println(e);  

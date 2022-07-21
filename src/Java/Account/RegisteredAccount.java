@@ -25,6 +25,9 @@ public class RegisteredAccount extends Account {
     protected ArrayList<PlayList> PlayLists = new ArrayList<PlayList>();
     protected Album album; 
 
+    public RegisteredAccount() {
+
+    }
 
     public RegisteredAccount(JSONObject data) 
     {
@@ -41,6 +44,9 @@ public class RegisteredAccount extends Account {
         this.cap         = (String) data.get("cap");
         //this.cap        = ( int  ) data.get("cap");
 
+    }
+    
+    public void loadPlaylits(JSONObject data) {
         JSONArray PlayLists_array =  (JSONArray) data.get("PlayLists");
 
         if(PlayLists_array == null) {
@@ -59,7 +65,9 @@ public class RegisteredAccount extends Account {
                 NewPlaylist.setCreationDate((String)d.get("creationDate"));
 
                 for (Object songID : SongsList) {
+                    System.out.println(songID);
                     NewPlaylist.addSong(this.main.songManager.getSong_by_ID((String)songID));
+                    System.out.println("ID: " + songID);
                 }
 
                 PlayLists.add(NewPlaylist);
@@ -68,10 +76,6 @@ public class RegisteredAccount extends Account {
         }
     }
 
-
-    public RegisteredAccount() {
-
-    }
 
     @Override
     public String toString() {
@@ -85,6 +89,7 @@ public class RegisteredAccount extends Account {
 
         return data;
     }
+
 
     @Override
     public boolean equals(Object obj) {

@@ -108,6 +108,7 @@ public class NewPlaylistController extends Controller implements Initializable {
 
             for(Song s : list) {
                 songlist.add(s);
+                System.out.println(s);
             }
 
             

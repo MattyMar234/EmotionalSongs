@@ -113,12 +113,14 @@ public class MainPageController_playList extends Controller implements Initializ
     public void initialize(URL arg0, ResourceBundle arg1) 
     {
         if(application.ConnectedAccount == null) return;
-        System.out.println("loding playlists data...");
+        //System.out.println("loding playlists data...");
 
         if(application.ConnectedAccount instanceof RegisteredAccount) 
         {
             for(PlayList playlist : ((RegisteredAccount) application.ConnectedAccount).getPlayLists()) {
                 userPlayLists.add(new CustomPlayList(playlist, this));
+
+                System.out.println(playlist);
             }
 
             PlayListName.setCellValueFactory(new PropertyValueFactory<CustomPlayList, String>("nome"));
@@ -213,6 +215,7 @@ public class MainPageController_playList extends Controller implements Initializ
                                 try {
                                     item.MainclassReference.mainController.SetPlaylistEditPage(item.getPlayList());
                                 
+                                    //System.out.println(item.getPlayList());
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
