@@ -90,7 +90,7 @@
     -fx-text-align: center;
     -fx-text-fill:#798AA6;
     -fx-alignment: baseline_left;
-    -fx-padding: 4 0 4 10;
+    -fx-padding: 4 0 4 5;
     -fx-font-size: 15px;
     -fx-background-radius: 10px;
     
@@ -227,7 +227,7 @@
 }
 
 /**Spetto cella*/
-.table-row-cell {
+#SongsTable .table-row-cell {
     -fx-padding: 0 0 0 0; 
     -fx-cell-size: 56px;
     -fx-font-size: 14px;
@@ -236,38 +236,38 @@
    
 }
 
-.table-row-cell:even {
+#SongsTable .table-row-cell:even {
  
 }
 
-.table-row-cell:odd {
+#SongsTable .table-row-cell:odd {
 
 }
 
 
-.table-row-cell:hover {
+#SongsTable .table-row-cell:hover {
     /*-fx-background-color: #cecece66;*/
 }
 
-.table-row-cell:selected
+#SongsTable .table-row-cell:selected
 {
 
 }
 
 
 /* ===================== scroll-bars ===================== */
-.table-view .virtual-flow .scroll-bar:vertical .thumb {
+#SongsTable .virtual-flow .scroll-bar:vertical .thumb {
     /*-fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);*/
 }
-.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+#SongsTable .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color:  transparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
 
-.table-view *.scroll-bar:horizontal *.increment-arrow,
-.table-view *.scroll-bar:horizontal *.decrement-arrow {
+#SongsTable *.scroll-bar:horizontal *.increment-arrow,
+#SongsTable *.scroll-bar:horizontal *.decrement-arrow {
   -fx-background-color: transparent;
   -fx-background-radius: 0;
   -fx-background-insets: 0;
@@ -308,7 +308,7 @@
 #FieldNameLabel, #labelSongList {
     -fx-text-fill: #f59d06;
     -fx-font-weight: bold;
-    -fx-font-size: 16px;
+    -fx-font-size: 18px;
 }
 
 #check1, #check2 {

@@ -15,7 +15,7 @@
 }
 
 #save_Button, #NewPlaylistButton {
-    fx-background-color: #11db0aa4;
+    -fx-background-color: #11db0aa4;
     -fx-text-fill:#2ECC71;
     -fx-font-weight: bold;
     -fx-alignment: center-left;
@@ -26,6 +26,47 @@
     -fx-text-fill:#E74C3C;
     -fx-font-weight: bold;
     -fx-alignment: center-left;
-    
-
 }
+
+#delete 
+{
+   -fx-cursor: hand ;
+   -fx-background-color:#8a1111bb;
+   -fx-border-width: 1;
+   -fx-border-color: #E74C3C;
+}
+
+#edit 
+{
+    -fx-cursor: hand ;
+    -fx-background-color:#11db0aa4;
+    -fx-border-width: 1;
+    -fx-border-color: #2ECC71;
+}
+
+#comment 
+{
+    -fx-background-color:#063352e0;
+    -fx-border-width: 1;
+    -fx-border-color: #0094FF;
+    
+}
+
+#emotions {
+    -fx-background-color:#390575e0;
+    -fx-border-width: 1;
+    -fx-border-color: #F714FF;
+}
+
+#comment, #edit, #delete, #emotions 
+{
+    -fx-cursor: hand ;
+    -fx-border-radius: 10px;
+    -fx-padding: 8 8 8 8;
+    -fx-border-insets: 8px;
+    -fx-background-insets: 5px;
+
+    -fx-margin: 0;
+} 
+
+

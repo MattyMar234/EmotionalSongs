@@ -88,7 +88,7 @@ public class MainPageController extends Controller implements Initializable
         
         for(Field f : this.getClass().getFields())
         {
-            System.out.println("Field " + f.getName());
+            //System.out.println("Field " + f.getName());
             try {
                 Object obj = this.getClass().getField(f.getName()).get(this);
 
@@ -137,10 +137,10 @@ public class MainPageController extends Controller implements Initializable
             });
         }  
         
-        /*if(this.application.ConnectedAccount instanceof UnregisteredAccount) {
+        if(this.application.ConnectedAccount instanceof UnregisteredAccount) {
             this.playlistButton.setDisable(true);
             this.profileButton.setText("Sign In");
-        }*/
+        }
        
         try {
             SetReposityPage();  
@@ -166,9 +166,11 @@ public class MainPageController extends Controller implements Initializable
     @FXML
     void AccountButtonSelected(ActionEvent event) throws IOException 
     { 
-        if(state != 4 ) {
+        if(state != 0 ) {
             if(this.application.ConnectedAccount instanceof RegisteredAccount) { 
-                state = 4;
+                state = 0;
+                ClearActiveButtons();
+                this.buttons.get(0).setStyle(ButtonColor);
                 SetAccountPage();
             } 
             else if(this.application.ConnectedAccount instanceof UnregisteredAccount) {
@@ -215,7 +217,35 @@ public class MainPageController extends Controller implements Initializable
     }
 
     @FXML
+    void ChangeAccount(ActionEvent event) throws IOException {
+        
+        if(state != 4 ) {
+            state = 4;
+            ClearActiveButtons();
+            this.buttons.get(4).setStyle(ButtonColor);
+        } 
+
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.initOwner(this.application.mainStage);
+        alert.setTitle("Conferma");
+        alert.initModality(Modality.WINDOW_MODAL);
+        alert.setContentText("vuoi cambiare Account ?");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if(result.isPresent() && result.get() == ButtonType.OK) {
+            SwitchScene("AccessPage"); 
+        }  
+    }
+
+    @FXML
     void esci(ActionEvent event) {
+
+        if(state != 5 ) {
+            state = 5;
+            ClearActiveButtons();
+            this.buttons.get(5).setStyle(ButtonColor);
+        } 
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initOwner(this.application.mainStage);
@@ -230,20 +260,6 @@ public class MainPageController extends Controller implements Initializable
         }  
     }
 
-    @FXML
-    void ChangeAccount(ActionEvent event) throws IOException {
-        Alert alert = new Alert(AlertType.CONFIRMATION);
-        alert.initOwner(this.application.mainStage);
-        alert.setTitle("Conferma");
-        alert.initModality(Modality.WINDOW_MODAL);
-        alert.setContentText("vuoi cambiare Account ?");
-        
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if(result.isPresent() && result.get() == ButtonType.OK) {
-            SwitchScene("AccessPage"); 
-        }  
-    }
 
 
     // -------------------------------- Cambio pagine -------------------------------- //

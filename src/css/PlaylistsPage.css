@@ -33,6 +33,7 @@
 #PlaylistsTable 
 {
     -fx-padding: 0px;
+    
     -fx-text-fill: #fcfcfc;
     -fx-background-color:  transparent;
 }
@@ -44,24 +45,26 @@
 #PlaylistsTable .column-header-background .filler,
 #PlaylistsTable .column-header-background 
 {
-   /* #36304A;*/
     -fx-padding: 0 0 0 0;
-    -fx-border-width: 1;
-   
-
-    
-    
-
 }
 
 /* ===================== header della colonna ===================== */
 #PlaylistsTable .column-header-background .label 
 {
-    -fx-text-fill: #bdbdbd;
+    -fx-text-fill: #8f8f8f;
     -fx-alignment: center;
     -fx-font-size: 14px;
+    -fx-padding: 10 2 10 2;
+    -fx-border-width: 0 0.5 0 0;
+    
+    
     /*-fx-font-weight: bold;*/
     
+}
+
+#PlaylistsTable .column {
+    -fx-border-width: 0 0.5 0 0;
+    -fx-border-color: #666666;
 }
 
 
@@ -71,52 +74,65 @@
 {
     -fx-text-fill: #ffffff;
     -fx-background-color: #313131;
+    -fx-background-color: transparent;
     -fx-alignment: center;
+
+    -fx-border-width: 0 0.5 0 0;
+    -fx-border-color: #666666;
+    
+    
+
 }
 
 /**Spetto cella*/
-.table-row-cell 
+#PlaylistsTable .table-row-cell 
 {
     -fx-padding: 0 0 0 0; 
-    -fx-cell-size: 56px;
-    -fx-font-size: 14px;
-    /*-fx-background-color: transparent;*/
-    -fx-margin: 0 0 20 0;
+    -fx-cell-size: 50px;
+    -fx-font-size: 15px;
+    
+    -fx-margin: 0 0 0 0;
+    -fx-border-width: 0.5 0 0 0;
+    -fx-border-color: #666666;
    
 }
 
-.table-row-cell:even {
- 
+#PlaylistsTable .table-row-cell:even {
+    /*-fx-background-color: #27303d;*/
+    -fx-background-color: transparent;
+    
 }
 
-.table-row-cell:odd {
-
+#PlaylistsTable .table-row-cell:odd {
+    /*-fx-background-color: #333f50;*/
+    -fx-background-color: transparent;
+    
 }
 
 
-.table-row-cell:hover {
-    /*-fx-background-color: #cecece66;*/
+#PlaylistsTable .table-row-cell:hover {
+    -fx-background-color: #cecece38;
 }
 
-.table-row-cell:selected
+#PlaylistsTable .table-row-cell:selected
 {
 
 }
 
 
 /* ===================== scroll-bars ===================== */
-.table-view .virtual-flow .scroll-bar:vertical .thumb {
+#PlaylistsTable .virtual-flow .scroll-bar:vertical .thumb {
     /*-fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);*/
 }
-.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+#PlaylistsTable .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color:  transparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
 
-.table-view *.scroll-bar:horizontal *.increment-arrow,
-.table-view *.scroll-bar:horizontal *.decrement-arrow {
+#PlaylistsTable *.scroll-bar:horizontal *.increment-arrow,
+#PlaylistsTable *.scroll-bar:horizontal *.decrement-arrow {
   -fx-background-color: transparent;
   -fx-background-radius: 0;
   -fx-background-insets: 0;

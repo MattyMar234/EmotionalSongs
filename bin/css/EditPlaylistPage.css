@@ -1,36 +1,10 @@
 
 
+#PLaylistSongs {
 
-
-#BorderPaneTable {
-    -fx-background-color: transparent;
 }
 
-#tableBack {
-    -fx-background-color: #1E252F;
-    /*-fx-background-radius: 20px;*/
-    
-}
-
-
-
-
-.button {
-    -fx-background-color: transparent;
-    -fx-text-align: center;
-    -fx-text-fill:#798AA6;
-    -fx-alignment: baseline_left;
-    -fx-padding: 4 0 4 10;
-    -fx-font-size: 15px;
-    -fx-background-radius: 10px;
-    
-}
-
-.button:hover {
-    -fx-background-color: #9c9c9c66; 
-}
-
-#PlaylistsTable 
+#PLaylistSongs 
 {
     -fx-padding: 0px;
     
@@ -41,15 +15,15 @@
 
 /* ===================== header tabella =====================*/
 /*      Individual Column Header        */
-#PlaylistsTable .column-header ,
-#PlaylistsTable .column-header-background .filler,
-#PlaylistsTable .column-header-background 
+#PLaylistSongs .column-header ,
+#PLaylistSongs .column-header-background .filler,
+#PLaylistSongs .column-header-background 
 {
     -fx-padding: 0 0 0 0;
 }
 
 /* ===================== header della colonna ===================== */
-#PlaylistsTable .column-header-background .label 
+#PLaylistSongs .column-header-background .label 
 {
     -fx-text-fill: #8f8f8f;
     -fx-alignment: center;
@@ -62,7 +36,7 @@
     
 }
 
-#PlaylistsTable .column {
+#PLaylistSongs .column {
     -fx-border-width: 0 0.5 0 0;
     -fx-border-color: #666666;
 }
@@ -70,7 +44,7 @@
 
 /* ===================== Cells and Rows =====================*/
 /*Contenuto della cella*/
-#PlaylistsTable .table-cell
+#PLaylistSongs .table-cell
 {
     -fx-text-fill: #ffffff;
     -fx-background-color: #313131;
@@ -85,7 +59,7 @@
 }
 
 /**Spetto cella*/
-#PlaylistsTable .table-row-cell 
+#PLaylistSongs .table-row-cell 
 {
     -fx-padding: 0 0 0 0; 
     -fx-cell-size: 50px;
@@ -97,48 +71,45 @@
    
 }
 
-#PlaylistsTable .table-row-cell:even {
+#PLaylistSongs .table-row-cell:even {
     /*-fx-background-color: #27303d;*/
     -fx-background-color: transparent;
     
 }
 
-#PlaylistsTable .table-row-cell:odd {
+#PLaylistSongs .table-row-cell:odd {
     /*-fx-background-color: #333f50;*/
     -fx-background-color: transparent;
     
 }
 
 
-#PlaylistsTable .table-row-cell:hover {
+#PLaylistSongs .table-row-cell:hover {
     -fx-background-color: #cecece38;
 }
 
-#PlaylistsTable .table-row-cell:selected
+#PLaylistSongs .table-row-cell:selected
 {
 
 }
 
 
 /* ===================== scroll-bars ===================== */
-#PlaylistsTable .virtual-flow .scroll-bar:vertical .thumb {
+#PLaylistSongs .virtual-flow .scroll-bar:vertical .thumb {
     /*-fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);*/
 }
-#PlaylistsTable .virtual-flow .scroll-bar:horizontal .thumb {
+#PLaylistSongs .virtual-flow .scroll-bar:horizontal .thumb {
     -fx-background-color:  transparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-padding: 0;
 }
 
-#PlaylistsTable *.scroll-bar:horizontal *.increment-arrow,
-#PlaylistsTable *.scroll-bar:horizontal *.decrement-arrow {
+#PLaylistSongs *.scroll-bar:horizontal *.increment-arrow,
+#PLaylistSongs *.scroll-bar:horizontal *.decrement-arrow {
   -fx-background-color: transparent;
   -fx-background-radius: 0;
   -fx-background-insets: 0;
   -fx-padding:10px;
   -fx-shape: null;
 }
-
-
-

@@ -4,6 +4,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Java.PlayList_Songs.*;
@@ -23,10 +24,11 @@ import javafx.util.Callback;
 public class EditPlaylistController extends Controller implements Initializable {
 
     
-    @FXML private TableView<CustomSong> SongsTable;
+    @FXML private TableView<CustomSong> PLaylistSongs;
     @FXML private TableColumn<CustomSong, String> Album;
     @FXML private TableColumn<CustomSong, String> Autor;
     @FXML private TableColumn<CustomSong, String> Title;
+    @FXML private TableColumn<CustomSong, String> SongDate;
     @FXML private TableColumn<CustomSong, CustomSong> Actions;   
     
     @FXML private Button AnnullaPlaylistButton;
@@ -44,6 +46,8 @@ public class EditPlaylistController extends Controller implements Initializable 
         public MainPageController_playList MainclassReference;
         public CustomSong classReference;
         public String nome;
+        public String data;
+        public String autor;
 
 
         public CustomSong(Song song, MainPageController_playList classReference) {
@@ -51,6 +55,8 @@ public class EditPlaylistController extends Controller implements Initializable 
             this.song = song;
             this.nome = this.song.getTitle();
             this.classReference = this;
+            this.data = song.getYear();
+            this.autor = song.getAlbum(); //da cambiare !!!!!
         }
 
         public Song getSong() {
@@ -67,6 +73,14 @@ public class EditPlaylistController extends Controller implements Initializable 
 
         public String getNome() {
             return nome;
+        }
+
+        public String getData() {
+            return data;
+        }
+
+        public String getAutor() {
+            return autor;
         }
     }
  
@@ -86,7 +100,8 @@ public class EditPlaylistController extends Controller implements Initializable 
         }
 
         Title.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("nome"));
-    //    Autor.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("autor"));
+        SongDate.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("data"));
+        Autor.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("autor"));
     //    Album.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("album"));
 
         Callback<TableColumn<CustomSong, CustomSong>, TableCell<CustomSong, CustomSong>> cellFoctory = (TableColumn<CustomSong, CustomSong> param) -> {
@@ -106,75 +121,87 @@ public class EditPlaylistController extends Controller implements Initializable 
                         //FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
                         //FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
 
-                        Image image1;
-                        Image image2;
+                        //Image [] imgs = new Image[4];
+                        ImageView [] icons = new ImageView[3];
+                        Button[] buttons = new Button[icons.length];
+                        String[] IDs = {
+                            "delete", "comment","emotions"
+                        };
+
+                        String[] path = {
+                            "data\\image\\trash.png",
+                            //"data\\image\\edit.png",
+                            "data\\icon\\commentIcon.png",
+                            "data\\icon\\EmotionIcon.png"
+
+                        };
+                        
+                        //Image image1;
+                        //Image image2;
 
                         try {
-                            image1 = new Image(new FileInputStream("data\\image\\trash.png"));
-                            image2 = new Image(new FileInputStream("data\\image\\edit.png"));  
+                            for( int i = 0; i < icons.length; i++) {
+                                icons[i] = new ImageView(new Image(new FileInputStream (path[i])));
+
+                                icons[i].setFitHeight(24);
+                                icons[i].setFitWidth(24);
+
+                                buttons[i] = new Button();
+                                buttons[i].setGraphic(icons[i]);
+
+                                buttons[i].setId(IDs[i]);
+ 
+                            }
+
+                            HBox managebtn = new HBox(buttons);
+
+                            for( int i = 0; i < icons.length; i++) {
+                                HBox.setMargin(buttons[i], new Insets(2, 2, 0, 3));
+                            }
                             
-                        } catch (FileNotFoundException e) {
+                                
+                            managebtn.setStyle("-fx-alignment:center");
+                            
+                            setGraphic(managebtn);
+                            setText(null);
+
+                            
+
+
+                            buttons[1].setOnMouseClicked((MouseEvent event) -> {
+                                try {
+                                    item.MainclassReference.mainController.SetCommentsPage(item.getSong());
+                                } catch (IOException e) {
+                                    
+                                    e.printStackTrace();
+                                }
+
+                            });
+
+                            /*
+                            buttons[2].setOnMouseClicked((MouseEvent event) -> {
+                            
+
+                            });
+
+
+                            buttons[3].setOnMouseClicked((MouseEvent event) -> {
+                            
+
+                            });*/
+
+
+                        } catch (Exception e) {
+                            System.out.println(e);
                             e.printStackTrace();
                             return;
                         }
                         
                         
-                        ImageView deleteIcon = new ImageView(image1); 
-                        ImageView editIcon = new ImageView(image2); 
-
-                        deleteIcon.setFitHeight(24); 
-                        deleteIcon.setFitWidth(24);
-                        editIcon.setFitHeight(24); 
-                        editIcon.setFitWidth(24);
-
-                        Button deleteButton = new Button();
-                        Button editButton = new Button();
-
-
-                        deleteButton.setGraphic(deleteIcon);
-                        editButton.setGraphic(editIcon);
-
-                        deleteButton.setStyle(
-                                " -fx-cursor: hand ;"
-                                + "-fx-background-color:#ff00008e;"
-                                + "-fx-border-width: 1;"
-                                + "-fx-border-color: #E74C3C;"
-                                + "-fx-border-radius: 10px;"
-                                + "-fx-padding: 8 8 8 8;"
-                                + "-fx-border-insets: 10px;"
-                                + "-fx-background-insets: 10px;"
-                                
-                        );
-                        editButton.setStyle(
-                                " -fx-cursor: hand ;"
-                                + "-fx-background-color:#11db0aa4;"
-                                + "-fx-border-width: 1;"
-                                + "-fx-border-color: #2ECC71;"
-                                + "-fx-border-radius: 10px;"
-                                + "-fx-padding: 8 8 8 8;"
-                                + "-fx-border-insets: 10px;"
-                                + "-fx-background-insets: 10px;"
-
-                        );
-
-
-                        deleteButton.setOnMouseClicked((MouseEvent event) -> {
-                        
-
-                        });
+                        //ImageView deleteIcon = new ImageView(image1); 
+                        //ImageView editIcon = new ImageView(image2); 
 
                         
-                        editButton.setOnMouseClicked((MouseEvent event) -> {
-                            
-
-                        });
-                        
-                        HBox managebtn = new HBox(deleteButton, editButton);
-                        managebtn.setStyle("-fx-alignment:center");
-                        HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
-                        HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));
-                        setGraphic(managebtn);
-                        setText(null);
                     }
                 }
 
@@ -184,11 +211,11 @@ public class EditPlaylistController extends Controller implements Initializable 
 
         Actions.setCellValueFactory(new PropertyValueFactory<CustomSong, CustomSong>("classReference"));
         Actions.setCellFactory(cellFoctory);
-        SongsTable.setItems(list);
-    
+        PLaylistSongs.setItems(list);
+
     }
 
-
+    
     @FXML
     void addSong(ActionEvent event) {
 
