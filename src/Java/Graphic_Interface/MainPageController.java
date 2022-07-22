@@ -55,6 +55,7 @@ public class MainPageController extends Controller implements Initializable
     //private final String ButtonColor = "-fx-background-color: #0bb813;" + "-fx-text-fill:#ffffff;";
     private final String ButtonColor = "-fx-background-color: #f18100f6;" + "-fx-text-fill:#ffffff;";
     protected int state = 1;
+    public FXMLLoader currentLoader;
     
     
 
@@ -269,6 +270,8 @@ public class MainPageController extends Controller implements Initializable
         FXMLLoader loader = getScenePage("MainPage_reposity");
         AnchorPane view = loader.load();
 
+        currentLoader = loader;
+
         ((MainPageController_reposity)loader.getController()).mainController = this;
 
         borderPane.getChildren().removeAll();
@@ -277,13 +280,21 @@ public class MainPageController extends Controller implements Initializable
 
     //COMMENTS
     public void SetCommentsPage(Song song) throws IOException  {       
+        SetCommentsPage(song, null);
+    }
+
+    //editplaylist -> COMMENTS
+    public void SetCommentsPage(Song song, PlayList playlist) throws IOException  {       
         FXMLLoader loader = getScenePage("CommentsPage");
+        currentLoader = loader;
 
         loader.setControllerFactory( c -> {
-            return new CommentsPageController(this, song);
+            return new CommentsPageController(this, song, playlist);
         });
 
         AnchorPane view = loader.load();
+
+        loader.getController();
         
         //((CommentsPageController)loader.getController()).injectData(this, song);
 
@@ -299,6 +310,7 @@ public class MainPageController extends Controller implements Initializable
     //EMOTION
     public void SetEmotionPage(Song song) throws IOException  {       
         FXMLLoader loader = getScenePage("EmotionPage");
+        currentLoader = loader;
 
         loader.setControllerFactory( c -> {
             return new EmotionPageController(song, this);
@@ -319,6 +331,7 @@ public class MainPageController extends Controller implements Initializable
     //PLAYLIST
     public void SetPlayListPage() throws IOException  {  
         FXMLLoader loader = getScenePage("MainPage_PLaylist");
+        currentLoader = loader;
         AnchorPane view = loader.load();
 
         ((MainPageController_playList)loader.getController()).SetMainControllerReference(this);
@@ -350,6 +363,7 @@ public class MainPageController extends Controller implements Initializable
     public void SetPlaylistEditPage(PlayList playlist, MainPageController_playList link) throws IOException 
     {
         FXMLLoader loader = getScenePage("EditPlaylist");
+        currentLoader = loader;
         
         
         loader.setControllerFactory(c -> {    

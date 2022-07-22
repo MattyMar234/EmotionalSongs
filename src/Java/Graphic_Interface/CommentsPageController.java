@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Java.DataClasses.Comment;
+import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
@@ -38,13 +39,17 @@ public class CommentsPageController extends Controller implements Initializable
     @FXML volatile private Label counter;
     @FXML private TextArea textArea;
 
+    @FXML private AnchorPane writerElement;
+
 
     private ObservableList<Comment> commnetsList = FXCollections.observableArrayList();
     private MainPageController mainControllerPage;
     private Song song;
-
+    private PlayList playlist;
+    
     private final int maxcharacters = 256;
     private int commentLenght = 0;
+    private int texAreaBaseHeight;
     private CharsCounter listener;
 
     public class CharsCounter extends Thread {
@@ -83,8 +88,13 @@ public class CommentsPageController extends Controller implements Initializable
 
 
     public CommentsPageController(MainPageController controller, Song song) {
+        this(controller, song, null);
+    }
+
+    public CommentsPageController(MainPageController controller, Song song, PlayList playlist) {
         this.mainControllerPage = controller;
         this.song = song;
+        this.playlist = playlist;
     }
 
     public void update() {
@@ -98,11 +108,20 @@ public class CommentsPageController extends Controller implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+        if(playlist == null) {
+            writerElement.setVisible(false);
+        }
+        
         textArea.setWrapText(true);
+        textArea.setStyle("-fx-font-family: 'monospaced';");
+        texAreaBaseHeight = (int)textArea.getHeight();
+        textArea.setMinHeight(texAreaBaseHeight + 3 * 16);
+        textArea.setMaxHeight(400);
 
         String d = Integer.toString(textArea.getText().length());
         counter.setText("char: " + d + " di 256");
         //counter.setVisible(false);
+
 
 
         textArea.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
@@ -110,39 +129,24 @@ public class CommentsPageController extends Controller implements Initializable
            @Override
             public void handle(KeyEvent event) 
             {
-                
-                String character = event.getCharacter();
-                boolean validData = false;
-
-                for(int i = 0; i < character.length() && !validData; i++) {
-                    char ch = character.charAt(i);
-                    //System.out.println((int)ch);
-
-                    //verifica massimo
+                for(int  i = 0; i < event.getCharacter().length(); i++) {
+                    char ch = event.getCharacter().charAt(i);
                     
-                    if(ch == 8 && commentLenght >= 1) {
-                        commentLenght--;
-                        validData = true;
-                    }
-                    else if(ch >= 32 && ch != 127 && commentLenght <= 255 ) {
-                        commentLenght++;
-                        validData = true;
-                    }
-
-                    if(commentLenght != 0) {
-                        counter.setVisible(true);
-                    }
-                    else {
-                        counter.setVisible(false);
+                    if(commentLenght >= 256 && (ch >= 32 || commentLenght != 127)) {
+                        event.consume();
                     }
                 }
+                
+                
+                /*String character = event.getCharacter();
+                boolean validData = false;
+
+                commentLenght = textArea.getText().length();
 
                 counter.setText("chars: " + Integer.toString(commentLenght) + " di 256");
         
-                if(!validData) {
-                    event.consume(); //evita di inserira il dato nella textarea
-                }
                 //System.out.println(character + " | commlength: " + commentLenght + "  ");                
+            */
             }
         });
 
@@ -208,7 +212,15 @@ public class CommentsPageController extends Controller implements Initializable
   
     @FXML
     void turnBack(MouseEvent event) throws IOException {
-        this.mainControllerPage.Comment_To_repository();
+        if(playlist == null) {
+            this.mainControllerPage.Comment_To_repository();
+        }
+        else {
+            this.mainControllerPage.SetPlayListPage();
+
+            MainPageController_playList controller = (MainPageController_playList)this.mainControllerPage.currentLoader.getController();
+            this.mainControllerPage.SetPlaylistEditPage(playlist, controller);
+        }
     }
 
     @FXML
@@ -220,6 +232,47 @@ public class CommentsPageController extends Controller implements Initializable
         textArea.setText("");
         commentLenght = 0;
         counter.setText("chars: 0 di 256");
+    }
+
+    @FXML
+    void checkTextArea(KeyEvent event) {
+
+        commentLenght = textArea.getText().length();
+
+        if(commentLenght > 256) {
+            String txt = textArea.getText();
+
+            String out = "";
+
+            for(int i = 0; i < 256; i++) {
+                out += txt.charAt(i);
+            }
+            
+
+
+            textArea.setText(out);
+            textArea.positionCaret(256);
+            //textArea.Line
+            commentLenght = textArea.getText().length();
+        }
+
+        //update size
+
+        int Newline = 0;
+        for(int i = 0; i < textArea.getText().length(); i++) {
+            if(textArea.getText().charAt(i) == '\n') Newline++;
+        }
+
+        int  line = commentLenght/67  + Newline + 3;
+        int value = texAreaBaseHeight + line * 16;
+
+        if(value > 400) value = 400;
+        
+        textArea.setMinHeight(value);
+
+
+        counter.setText("chars: " + Integer.toString(commentLenght) + " di 256");
+        System.out.println("lines: " + line);
     }
 
     

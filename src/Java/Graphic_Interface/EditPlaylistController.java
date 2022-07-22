@@ -48,11 +48,13 @@ public class EditPlaylistController extends Controller implements Initializable 
         public String nome;
         public String data;
         public String autor;
+        public PlayList playlist;
 
 
-        public CustomSong(Song song, MainPageController_playList classReference) {
+        public CustomSong(Song song, PlayList playlist, MainPageController_playList classReference) {
             this.MainclassReference = classReference;
             this.song = song;
+            this.playlist = playlist;
             this.nome = this.song.getTitle();
             this.classReference = this;
             this.data = song.getYear();
@@ -96,7 +98,7 @@ public class EditPlaylistController extends Controller implements Initializable 
     public void initialize(URL location, ResourceBundle resources) {
 
         for(Song song : playlist.getSongs()) {
-            list.add(new CustomSong(song, classeReferences));
+            list.add(new CustomSong(song, this.playlist, classeReferences));
         }
 
         Title.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("nome"));
@@ -170,7 +172,7 @@ public class EditPlaylistController extends Controller implements Initializable 
 
                             buttons[1].setOnMouseClicked((MouseEvent event) -> {
                                 try {
-                                    item.MainclassReference.mainController.SetCommentsPage(item.getSong());
+                                    item.MainclassReference.mainController.SetCommentsPage(item.getSong(),item.playlist);
                                 } catch (IOException e) {
                                     
                                     e.printStackTrace();
