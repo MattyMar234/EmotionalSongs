@@ -47,189 +47,177 @@
                      <center>
                         <AnchorPane prefHeight="550.0" prefWidth="134.0" BorderPane.alignment="CENTER">
                            <children>
-                              <BorderPane prefHeight="606.0" prefWidth="600.0" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <center>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <top>
-                                                <BorderPane prefHeight="287.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-                                                   <top>
-                                                      <AnchorPane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-                                                         <children>
-                                                            <HBox layoutX="26.0" prefHeight="40.0" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="444.0" AnchorPane.topAnchor="0.0">
-                                                               <children>
-                                                                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="126.0" text="Account Information" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font name="System Italic" size="14.0" />
-                                                                     </font></Label>
-                                                               </children>
-                                                            </HBox>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </top>
-                                                   <left>
-                                                      <AnchorPane prefHeight="224.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
-                                                   </left>
-                                                   <right>
-                                                      <AnchorPane prefHeight="224.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
-                                                   </right>
-                                                   <bottom>
-                                                      <AnchorPane prefHeight="20.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-                                                   </bottom>
-                                                   <center>
-                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                                         <children>
-                                                            <VBox layoutY="13.0" prefHeight="226.0" prefWidth="264.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                               <children>
-                                                                  <Label prefHeight="27.0" prefWidth="41.0" text="nome:" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                                  <Label text="cognome:" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                                  <Label prefHeight="19.0" prefWidth="50.0" text="email:" textFill="#fffbfb">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                                  <Label text="user id:" textFill="#fffafa">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                                  <Label text="password:" textFill="#fffefe">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </center>
-                                                </BorderPane>
-                                             </top>
-                                             <bottom>
-                                                <BorderPane prefHeight="263.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-                                                   <top>
-                                                      <AnchorPane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-                                                         <children>
-                                                            <HBox layoutX="25.0" layoutY="1.0" prefHeight="40.0" prefWidth="110.0">
-                                                               <children>
-                                                                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="137.0" text="Basic Information" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font name="System Italic" size="14.0" />
-                                                                     </font></Label>
-                                                               </children>
-                                                            </HBox>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </top>
-                                                   <left>
-                                                      <AnchorPane prefHeight="223.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
-                                                   </left>
-                                                   <right>
-                                                      <AnchorPane prefHeight="222.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
-                                                   </right>
-                                                   <bottom>
-                                                      <AnchorPane prefHeight="20.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-                                                   </bottom>
-                                                   <center>
-                                                      <AnchorPane prefHeight="233.0" prefWidth="539.0" BorderPane.alignment="CENTER">
-                                                         <children>
-                                                            <VBox prefHeight="224.0" prefWidth="264.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                               <children>
-                                                                  <Label text="codice fiscale:" textFill="#fffdfd">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField prefHeight="26.0" prefWidth="398.0">
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                                  <Label text="provincia:" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                                  <Label text="città:" textFill="#fff6f6">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                                  <Label text="cap:" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                                  <Label text="via:" textFill="#fcf8f8">
-                                                                     <font>
-                                                                        <Font size="13.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <TextField>
-                                                                     <font>
-                                                                        <Font size="11.0" />
-                                                                     </font>
-                                                                  </TextField>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </center>
-                                                </BorderPane>
-                                             </bottom>
-                                          </BorderPane>
-                                       </children>
-                                    </AnchorPane>
-                                 </center>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <left>
+                                    <BorderPane prefHeight="590.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+                                       <top>
+                                          <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                                       </top>
+                                       <left>
+                                          <AnchorPane prefHeight="224.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+                                       </left>
+                                       <right>
+                                          <AnchorPane prefHeight="224.0" prefWidth="1.0" BorderPane.alignment="CENTER" />
+                                       </right>
+                                       <bottom>
+                                          <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                                       </bottom>
+                                       <center>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="73.0" prefHeight="38.0" prefWidth="184.0" AnchorPane.bottomAnchor="419.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="73.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="134.0" text="Account Information" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Italic" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <VBox layoutX="102.0" layoutY="111.0" prefHeight="235.0" prefWidth="284.0" AnchorPane.bottomAnchor="184.0" AnchorPane.topAnchor="111.0">
+                                                   <children>
+                                                      <Label prefHeight="27.0" prefWidth="41.0" text="nome:" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="nomeField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label text="cognome:" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="cognomeField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label prefHeight="19.0" prefWidth="50.0" text="email:" textFill="#fffbfb">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="emailField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label text="user id:" textFill="#fffafa">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="useridField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label text="password:" textFill="#fffefe">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="passwordField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </center>
+                                    </BorderPane>
+                                 </left>
+                                 <right>
+                                    <BorderPane prefHeight="590.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+                                       <top>
+                                          <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                                       </top>
+                                       <left>
+                                          <AnchorPane prefHeight="223.0" prefWidth="1.0" BorderPane.alignment="CENTER" />
+                                       </left>
+                                       <right>
+                                          <AnchorPane prefHeight="222.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
+                                       </right>
+                                       <bottom>
+                                          <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                                       </bottom>
+                                       <center>
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" layoutX="39.0" layoutY="65.0" prefHeight="38.0" prefWidth="179.0" AnchorPane.bottomAnchor="427.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="65.0">
+                                                   <children>
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="118.0" text="Basic Information" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Italic" size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <VBox layoutX="46.0" layoutY="113.0" prefHeight="240.0" prefWidth="264.0" AnchorPane.bottomAnchor="182.0" AnchorPane.topAnchor="113.0">
+                                                   <children>
+                                                      <Label text="codice fiscale:" textFill="#fffdfd">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="codicefiscaleField" prefHeight="26.0" prefWidth="398.0">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label text="provincia:" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="provinciaField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label text="città:" textFill="#fff6f6">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="cittàField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label text="cap:" textFill="WHITE">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="capField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <Label text="via:" textFill="#fcf8f8">
+                                                         <font>
+                                                            <Font size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="viaField">
+                                                         <font>
+                                                            <Font size="11.0" />
+                                                         </font>
+                                                      </TextField>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </center>
+                                    </BorderPane>
+                                 </right>
                               </BorderPane>
                            </children>
                         </AnchorPane>
