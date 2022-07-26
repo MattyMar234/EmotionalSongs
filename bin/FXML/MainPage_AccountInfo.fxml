@@ -76,7 +76,7 @@
                                                 </HBox>
                                                 <VBox layoutX="102.0" layoutY="111.0" prefHeight="235.0" prefWidth="284.0" AnchorPane.bottomAnchor="184.0" AnchorPane.topAnchor="111.0">
                                                    <children>
-                                                      <Label prefHeight="27.0" prefWidth="41.0" text="nome:" textFill="WHITE">
+                                                      <Label text="nome:" textFill="WHITE">
                                                          <font>
                                                             <Font size="13.0" />
                                                          </font>
@@ -96,7 +96,7 @@
                                                             <Font size="11.0" />
                                                          </font>
                                                       </TextField>
-                                                      <Label prefHeight="19.0" prefWidth="50.0" text="email:" textFill="#fffbfb">
+                                                      <Label text="email:" textFill="#fffbfb">
                                                          <font>
                                                             <Font size="13.0" />
                                                          </font>
@@ -166,7 +166,7 @@
                                                             <Font size="13.0" />
                                                          </font>
                                                       </Label>
-                                                      <TextField fx:id="codicefiscaleField" prefHeight="26.0" prefWidth="398.0">
+                                                      <TextField fx:id="codicefiscaleField">
                                                          <font>
                                                             <Font size="11.0" />
                                                          </font>
