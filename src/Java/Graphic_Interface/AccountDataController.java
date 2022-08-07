@@ -3,6 +3,7 @@ package Java.Graphic_Interface;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Java.Account.RegisteredAccount;
 import javafx.fxml.Initializable;
 
 public class AccountDataController extends Controller implements Initializable  {
@@ -15,6 +16,8 @@ public class AccountDataController extends Controller implements Initializable  
 
     public AccountDataController(){
         super();
+
     }
     
+
 }
