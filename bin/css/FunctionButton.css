@@ -1,5 +1,7 @@
 
-
+.button {
+    -fx-cursor: hand ;
+}
 
 #addElement_Button {
     -fx-background-color: #8246FE;
@@ -7,6 +9,8 @@
     -fx-padding: 0 0 0 0;
     -fx-text-fill:#ffffff;
     -fx-alignment: center;
+    -fx-padding: 4 0 4 5;
+    
 }
 
 

@@ -81,12 +81,9 @@ public class NewPlaylistController extends Controller implements Initializable {
 
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
-        Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
+        //Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         SongsTable.setItems(list);
 
-        SelectedData.put("song" , new ArrayList<String>());
-        SelectedData.put("autor", new ArrayList<String>());
-        SelectedData.put("album", new ArrayList<String>());  
     }
 
     public void addSelectedSong(ArrayList<Song> song) {
@@ -138,18 +135,31 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     }
 
+    private PlayList getData() {
+        PlayList p = new PlayList();
+        
+        for(Song s : list) {
+            p.addSong(s);
+        }
+
+        p.setNome("newPlaylist");
+
+        System.out.println(p);
+        return p;
+    }
+
     @FXML
     void AddAlbum(ActionEvent event) throws Exception {
-        addSongWindow = new AddSongWindow(this, this.application, 2, SelectedData);
+        //addSongWindow = new AddSongWindow(this, this.application, 2, getData());
     }
 
     @FXML
     void AddAutor(ActionEvent event) throws Exception {
-        addSongWindow = new AddSongWindow(this, this.application, 3, SelectedData);
+        addSongWindow = new AddSongWindow(this, this.application, 3, getData());
     }
 
     @FXML
     void addSong(ActionEvent event) throws Exception {
-        addSongWindow = new AddSongWindow(this, this.application, 1, SelectedData);
+        addSongWindow = new AddSongWindow(this, this.application, 1, getData());
     }
 }

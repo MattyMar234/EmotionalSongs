@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import Java.Managers.SongManager;
 import Java.PlayList_Songs.AddSongWindow;
+import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +21,6 @@ import javafx.scene.input.MouseEvent;
 public class AddSongConstroller extends Controller implements Initializable 
 {
     protected AddSongWindow window;
-    protected HashMap<String, ArrayList<String>> dataFilter;
     protected int mode;
 
     @FXML private TableView<Data> Table;
@@ -60,7 +60,6 @@ public class AddSongConstroller extends Controller implements Initializable
 
     public AddSongConstroller(AddSongWindow window) {
         super();
-        this.dataFilter = window.dataFilter;
         this.mode = window.mode;
         this.window = window;
 
@@ -69,7 +68,6 @@ public class AddSongConstroller extends Controller implements Initializable
     public void initialize(URL location, ResourceBundle resources) 
     {
         SongManager manager = this.window.main.songManager;
-        HashMap<String, ArrayList<Song>> raccolta;
         int index;
 
         name.setCellValueFactory(new PropertyValueFactory<Data, String>("title"));
@@ -78,26 +76,24 @@ public class AddSongConstroller extends Controller implements Initializable
 
         switch (mode) {
             case 1:
-                ArrayList<String> songFilter = new ArrayList<String>();
-                songFilter.addAll(dataFilter.get("song"));
                 
+                //ottengo l'elenco e rimuovo quello che ho gia'
                 for(Song song : manager.getList()) 
                 {
-                    
-                    if(songFilter.size() > 0 && (index = FindKey(song.getTitle(), songFilter)) >= 0) 
-                    {
-                        songFilter.remove(index);
-                        continue;                       
-                    }
-                   
-                    ArrayList<Song> s = new ArrayList<Song>();
-                    s.add(song);     
-                    list.add(new Data(song.getTitle(), 0 , s));
-                    
+                
+                    //confronto la playlist con l'archivio.
+                    //ottengo l'indice della canzone nella playlist
+                    //se ho -1 vuoldire che la canzone non e' presente nella playlist
+                   if(window.data.getSongs().indexOf(song) == -1) {
+                        ArrayList<Song> s = new ArrayList<Song>();
+                        s.add(song);     
+                        list.add(new Data(song.getTitle(), 0 , s));
+                   } 
                 }
                 break;
 
             case 2:
+            /* 
                 raccolta = manager.getAlbms();
                 ArrayList<String> AlbumFilter = new ArrayList<String>();
                 AlbumFilter.addAll(dataFilter.get("album"));
@@ -112,20 +108,38 @@ public class AddSongConstroller extends Controller implements Initializable
                     list.add(new Data(key, raccolta.get(key).size(), raccolta.get(key)));
                 }
                 break;
+                */
 
             case 3:
-                raccolta = manager.getAutors();
-                ArrayList<String> AutorsFilter = new ArrayList<String>();
-                AutorsFilter.addAll(dataFilter.get("autor"));
+                HashMap<String, ArrayList<Song>> raccolta = manager.getAutors();
+               
 
-                for(String key : raccolta.keySet()) {
-                    
-                    if(AutorsFilter.size() > 0 && (index = FindKey(key, AutorsFilter)) >= 0) {
-                        AutorsFilter.remove(index);
-                        continue; //saltando l'iterazione, non aggiungo l'elemento
+                System.out.println("playlist: " + window.data);
+                ArrayList<Song> playlistElements = window.data.copy().getSongs();
+                
+
+                for(String key : raccolta.keySet()) 
+                {
+                    if(playlistElements.size() > 0) {
+
+                        //creo una copia della raccolta
+                        ArrayList<Song> elencoBrani = new ArrayList<Song>(raccolta.get(key));
+                        ArrayList<Song> elencoBrani_clone = new ArrayList<Song>(raccolta.get(key));
+
+                        for(Song song : elencoBrani_clone) {
+
+                            //se ottengo un numero >= 0 vuoldire che è presente l'elemento
+                            if(playlistElements.indexOf(song) >= 0) {
+                                elencoBrani.remove(song);
+                                playlistElements.remove(song);
+                            }
+                        }
+                        
+                        if(elencoBrani.size() > 0) list.add(new Data(key, elencoBrani.size(), elencoBrani));
                     }
-
-                    list.add(new Data(key, raccolta.get(key).size(), raccolta.get(key)));
+                    else {
+                        list.add(new Data(key, raccolta.get(key).size(), raccolta.get(key)));
+                    } 
                 }
                 break;
 
@@ -152,21 +166,11 @@ public class AddSongConstroller extends Controller implements Initializable
             selected2 = Table.getSelectionModel().getSelectedItem();
         }
 
-        if(doubleClick() && selected1 == selected2) {
+        if(doubleClick() && selected1 == selected2) 
+        {
+            for(Song s : ((Data) selected1).songs)
+                this.window.data.addSong(s);
 
-            switch(mode) {
-                case 1: this.dataFilter.get("song").add(((Data) selected1).title); break;
-                case 2: this.dataFilter.get("album").add(((Data) selected1).title);break;
-                case 3: this.dataFilter.get("autor").add(((Data) selected1).title);break;
-            }
-
-            System.out.println("elements: " + this.dataFilter.get("song").size());
-            System.out.println("elements: " + this.dataFilter.get("autor").size());
-            System.out.println("elements: " + this.dataFilter.get("album").size());
-
-
-
-            this.window.returnSelectedData(((Data) selected1).songs);
             this.window.close();
         }
         

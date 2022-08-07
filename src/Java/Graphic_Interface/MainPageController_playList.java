@@ -219,7 +219,7 @@ public class MainPageController_playList extends Controller implements Initializ
                                 try {
                                     item.MainclassReference.mainController.SetPlaylistEditPage(p, item.MainclassReference);
                                 
-                                    System.out.println(item.getPlayList());
+                                    //System.out.println(item.getPlayList());
                                 } catch (IOException e) {
                                     System.out.println(e);
                                     e.printStackTrace();
@@ -270,11 +270,11 @@ public class MainPageController_playList extends Controller implements Initializ
         }
 
         if(doubleClick() && (selected2 == selected1) && selected1 instanceof Song) {
-            System.out.println("song selected");
+            //System.out.println("song selected");
             //SongWindow windowSong = new SongWindow(application, (Song) selected1);
         }
         else if(doubleClick() && (selected2 == selected1) && selected1 instanceof PlayList) {
-            System.out.println("song selected");
+            //System.out.println("song selected");
             //SongWindow windowSong = new SongWindow(application, selected1);
         }
 
@@ -282,8 +282,8 @@ public class MainPageController_playList extends Controller implements Initializ
 
     @FXML
     public void Selezione(ActionEvent event) {
-        System.out.println("pressed");
-
+        
+        
     }
 
     @FXML

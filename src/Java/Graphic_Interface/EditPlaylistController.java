@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Java.PlayList_Songs.*;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
@@ -31,19 +32,24 @@ public class EditPlaylistController extends Controller implements Initializable 
     @FXML private TableColumn<CustomSong, String> SongDate;
     @FXML private TableColumn<CustomSong, CustomSong> Actions;   
     
-    @FXML private Button AnnullaPlaylistButton;
-    @FXML private Button NewPlaylistButton;
+    @FXML private Button addSong;
+    @FXML private Button AddSongAutor;
+    @FXML private Button Back;
+    @FXML private Button salva;
 
     private MainPageController_playList classeReferences;
 
-    private ObservableList<CustomSong> list = FXCollections.observableArrayList();
-    protected PlayList playlist;
+    public ObservableList<CustomSong> list = FXCollections.observableArrayList();
+    private PlayList playlist;
+    private PlayList playlistCopy;
+    private AddSongWindow addSongWindow;
     
 
     public class CustomSong 
     {
         public Song song;
         public MainPageController_playList MainclassReference;
+        public EditPlaylistController controller;
         public CustomSong classReference;
         public String nome;
         public String data;
@@ -51,14 +57,15 @@ public class EditPlaylistController extends Controller implements Initializable 
         public PlayList playlist;
 
 
-        public CustomSong(Song song, PlayList playlist, MainPageController_playList classReference) {
+        public CustomSong(Song song, PlayList playlist, MainPageController_playList classReference, EditPlaylistController controller) {
             this.MainclassReference = classReference;
             this.song = song;
             this.playlist = playlist;
             this.nome = this.song.getTitle();
             this.classReference = this;
             this.data = song.getYear();
-            this.autor = song.getAlbum(); //da cambiare !!!!!
+            this.autor = song.getAutor(); 
+            this.controller = controller;
         }
 
         public Song getSong() {
@@ -94,11 +101,22 @@ public class EditPlaylistController extends Controller implements Initializable 
         //System.out.println(list);
     }
 
+    public void updateTable() {
+
+        list.clear();
+
+        for(Song song : playlistCopy.getSongs()) {
+            list.add(new CustomSong(song, this.playlistCopy, classeReferences, this));
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        for(Song song : playlist.getSongs()) {
-            list.add(new CustomSong(song, this.playlist, classeReferences));
+        playlistCopy = playlist.copy();
+
+        for(Song song : playlistCopy.getSongs()) {
+            list.add(new CustomSong(song, this.playlistCopy, classeReferences,this));
         }
 
         Title.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("nome"));
@@ -167,6 +185,13 @@ public class EditPlaylistController extends Controller implements Initializable 
                             setGraphic(managebtn);
                             setText(null);
 
+
+                            buttons[0].setOnMouseClicked((MouseEvent event) -> {
+                                item.controller.list.remove(item);
+                                item.controller.playlistCopy.removeSong(item.getSong());
+                            
+                            });
+
                             
 
 
@@ -197,16 +222,9 @@ public class EditPlaylistController extends Controller implements Initializable 
                             System.out.println(e);
                             e.printStackTrace();
                             return;
-                        }
-                        
-                        
-                        //ImageView deleteIcon = new ImageView(image1); 
-                        //ImageView editIcon = new ImageView(image2); 
-
-                        
+                        } 
                     }
                 }
-
             };
             return cell;
         };
@@ -218,45 +236,36 @@ public class EditPlaylistController extends Controller implements Initializable 
     }
 
     
-    @FXML
-    void addSong(ActionEvent event) {
-
-    }
-
-    @FXML
-    void AddAlbum(ActionEvent event) {
-
-    }
-
-    @FXML
-    void AddAutor (ActionEvent event) {
-
-    }
-
-
-    @FXML
-    void AddNewPlayList(ActionEvent event) {
-
-    }
-
-    @FXML
-    void ConfermeNewPlayList(ActionEvent event) {
-
-    }
-
-    @FXML
-    void Selezione(ActionEvent event) {
-
-    }
-
+    
     @FXML
     void elementSelected(MouseEvent event) {
-
+        
+    }
+    
+    @FXML
+    void addSong(ActionEvent event) throws Exception {
+        addSongWindow = new AddSongWindow(this, EmotionalSongs.classReference, 1, playlistCopy);
     }
 
     @FXML
-    void turnBack(ActionEvent event) {
+    void AddAutor (ActionEvent event) throws Exception {
+        addSongWindow = new AddSongWindow(this, EmotionalSongs.classReference, 3, playlistCopy);
+    }
 
+
+    @FXML
+    void turnBack(ActionEvent event) throws IOException {
+        classeReferences.mainController.SetPlayListPage();
+    }
+
+    @FXML
+    void save(ActionEvent event) 
+    {
+        playlist.clearPlayList();
+
+        for(Song song : playlistCopy.getSongs()) {
+            playlist.addSong(song);
+        }
     }
 
     

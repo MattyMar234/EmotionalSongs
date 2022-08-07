@@ -124,13 +124,6 @@
 
 
 
-#NewPlaylistButton {
-    -fx-background-color: #8246FE;
-    -fx-background-radius: 3px;
-    -fx-padding: 0 0 0 0;
-    -fx-text-fill:#ffffff;
-    -fx-alignment: center;
-}
 
 #AnnullaPlaylistButton {
     -fx-background-color: #ff00008e;
@@ -287,7 +280,7 @@
 
 #manuinfo {
     -fx-background-color: #353e4b;
-    -fx-background-radius: 20 20 0 0;
+    /*-fx-background-radius: 20 20 0 0;*/
 }
 
 #labelmenuPlaylist {

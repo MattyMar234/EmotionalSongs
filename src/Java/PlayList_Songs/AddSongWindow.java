@@ -6,6 +6,8 @@ import java.util.HashMap;
 import javax.naming.ldap.HasControls;
 
 import Java.Graphic_Interface.AddSongConstroller;
+import Java.Graphic_Interface.EditPlaylistController;
+import Java.Graphic_Interface.MainPageController_playList;
 import Java.Graphic_Interface.NewPlaylistController;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.fxml.FXMLLoader;
@@ -14,30 +16,37 @@ import javafx.stage.Stage;
 
 public class AddSongWindow {
 
-    protected NewPlaylistController controller;
     public EmotionalSongs main;
+    private Object controller;
     protected Stage stage;
     public int mode;
-    public HashMap<String, ArrayList<String>> dataFilter;
+    public PlayList data;
 
-    public AddSongWindow(NewPlaylistController controller, EmotionalSongs main, int mode, HashMap<String, ArrayList<String>> dataFilter) throws Exception {
-        this.controller = controller;
+    public AddSongWindow(Object Controller, EmotionalSongs main, int mode, PlayList data) throws Exception {
+
         this.main = main;
         this.mode = mode;
-        this.dataFilter = dataFilter;
+        this.data = data;
+        this.controller = Controller;
 
         this.stage = new Stage();
         start();
     }
 
     public void close() throws Exception {
+
+        if(controller instanceof NewPlaylistController) {
+            ((NewPlaylistController)controller).addSelectedSong(data.getSongs());
+        }
+        else if(controller instanceof EditPlaylistController) {
+            ((EditPlaylistController)controller).updateTable();
+        }
+
         stage.close();
     }
 
     public void start() throws Exception 
     {
-        System.out.println("starting window");
-        
         FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource(main.pageLoaders.get("Playlist_AddSongPage")));
         //per utilizzare il costruttore della classe
         XMLloader.setControllerFactory(c -> {    
@@ -49,10 +58,6 @@ public class AddSongWindow {
         stage.show();
       
         
-    }
-
-    public void returnSelectedData(ArrayList<Song> song) {
-        this.controller.addSelectedSong(song);
     }
     
 }

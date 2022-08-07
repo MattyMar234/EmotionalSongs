@@ -51,7 +51,7 @@ public class RepositorySongElementController extends Controller implements Initi
         //this.LabelTitle.setText("Title: " + song.getTitle());
         //this.labelAutor.setText("Autor: " + song.getAutor());
         this.LabelTitle.setText(song.getTitle());
-        this.labelAutor.setText(song.getAlbum());
+        this.labelAutor.setText(song.getAutor());
         this.LabelYear.setText(song.getYear());
 
         commentNumber = song.getComments().size();

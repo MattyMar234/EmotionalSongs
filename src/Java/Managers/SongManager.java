@@ -123,16 +123,24 @@ public class SongManager extends Manager <Song> {
 
 
         //System.out.println(Songs_by_ID.get(song.getSongID()));
+
+        String key = song.getAutor();
+
+        /* ==== autor ==== */
+        if(Autor.get(key) == null) {
+            Autor.put(key, new ArrayList<Song>()); //creo la raccolta
+        }
+        Autor.get(key).add(song);
         
         
         /* ==== labum ==== */
-        String key = song.getAlbum();
+        /*String key = song.getAlbum();
         
         //se non trovo la raccolta
         if(Abum.get(key) == null) {
             Abum.put(key, new ArrayList<Song>()); //creo la raccolta
         }
-        Abum.get(key).add(song);
+        Abum.get(key).add(song);*/
     }
 
     @SuppressWarnings("unchecked")

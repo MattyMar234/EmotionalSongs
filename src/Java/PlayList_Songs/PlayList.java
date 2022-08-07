@@ -14,6 +14,8 @@ public class PlayList {
 
     //constructor 1
     public PlayList() {
+        LocalDate time = LocalDate.now();
+        this.CreationDate = time.toString();
         //this.reference = this;
     }
 
@@ -21,9 +23,6 @@ public class PlayList {
     public PlayList(String nome) {
         this();
         this.nome = nome;
-        
-        LocalDate time = LocalDate.now();
-        this.CreationDate = time.toString();
     }
     
     //constructor 3
@@ -35,6 +34,20 @@ public class PlayList {
 
     public PlayList getReference() {
         return this;
+    }
+
+    public PlayList copy() {
+        PlayList s = new PlayList();
+
+        if(nome != null) {
+            s.nome = new String(nome);
+        }
+        
+        s.CreationDate = new String(CreationDate);
+        s.PlayList = new ArrayList<Song>(PlayList);
+        s.Elements = String.valueOf(s.PlayList.size());
+
+        return s;
     }
 
 
