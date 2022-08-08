@@ -114,7 +114,7 @@ public class AddSongConstroller extends Controller implements Initializable
                 HashMap<String, ArrayList<Song>> raccolta = manager.getAutors();
                
 
-                System.out.println("playlist: " + window.data);
+                //System.out.println("playlist: " + window.data);
                 ArrayList<Song> playlistElements = window.data.copy().getSongs();
                 
 

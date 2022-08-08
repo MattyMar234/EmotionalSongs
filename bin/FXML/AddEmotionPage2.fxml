@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="623.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.EmotionCreationPageController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+         <center>
+            <TableView fx:id="EmotionTable" prefHeight="297.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="emotion" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Emozione" />
+                  <TableColumn fx:id="name" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" text="Nome" />
+                  <TableColumn fx:id="explanation" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" text="Spiegazione" />
+                  <TableColumn fx:id="values" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" text="Valore" />
+               </columns>
+            </TableView>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

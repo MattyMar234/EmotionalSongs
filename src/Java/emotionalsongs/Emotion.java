@@ -14,6 +14,20 @@ public class Emotion {
     public static Emotion Emotion_Joy        = new Emotion("Joy", "Feels like dancing, bouncy feeling, animated, amused ");
     public static Emotion Emotion_Tension    = new Emotion("Tension", "Feeling Nervous, impatient, irritated ");
     public static Emotion Emotion_Sadness    = new Emotion("Sadness", "Feeling Depressed, sorrowful");
+    
+    public static Emotion[] Emotions = {
+        
+        Emotion.Emotion_Amazement,
+        Emotion.Emotion_Solemnity,
+        Emotion.Emotion_Tenderness,
+        Emotion.Emotion_Nostalgia,
+        Emotion.Emotion_Calmness,
+        Emotion.Emotion_Power,
+        Emotion.Emotion_Joy,
+        Emotion.Emotion_Tension,
+        Emotion.Emotion_Sadness,
+    };
+
     public static Image [] emotionImage = new Image[10];
     
 

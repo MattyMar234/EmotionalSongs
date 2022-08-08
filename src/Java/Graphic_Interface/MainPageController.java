@@ -265,6 +265,14 @@ public class MainPageController extends Controller implements Initializable
 
     // -------------------------------- Cambio pagine -------------------------------- //
 
+    private void SetPage(FXMLLoader loader) throws IOException 
+    {
+        AnchorPane view = loader.load();
+        borderPane.getChildren().removeAll();
+        borderPane.setCenter(view);  
+    }
+
+
     //REPOSITY
     public void SetReposityPage() throws IOException  {       
         FXMLLoader loader = getScenePage("MainPage_reposity");
@@ -281,6 +289,19 @@ public class MainPageController extends Controller implements Initializable
     //COMMENTS
     public void SetCommentsPage(Song song) throws IOException  {       
         SetCommentsPage(song, null);
+    }
+
+    //AddEmotion 
+    public void SetAddEmotionPage() throws IOException {
+        
+        FXMLLoader loader = getScenePage("AddEmotionPage2");
+        currentLoader = loader;
+
+        /*loader.setControllerFactory( c -> {
+            return new 
+        });*/
+
+        SetPage(loader);
     }
 
     //editplaylist -> COMMENTS

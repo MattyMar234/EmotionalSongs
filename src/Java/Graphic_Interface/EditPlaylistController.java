@@ -205,11 +205,18 @@ public class EditPlaylistController extends Controller implements Initializable 
 
                             });
 
-                            /*
-                            buttons[2].setOnMouseClicked((MouseEvent event) -> {
                             
-
+                            buttons[2].setOnMouseClicked((MouseEvent event) -> {
+                                try {
+                                    item.MainclassReference.mainController.SetAddEmotionPage();
+                                } catch (IOException e) {
+                                    
+                                    e.printStackTrace();
+                                }
+                                
                             });
+
+                            /*
 
 
                             buttons[3].setOnMouseClicked((MouseEvent event) -> {

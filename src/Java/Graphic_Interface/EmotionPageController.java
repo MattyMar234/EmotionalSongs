@@ -18,7 +18,7 @@ public class EmotionPageController extends Controller implements Initializable{
     @FXML private Button back;
 
     public EmotionPageController() {
-
+        super();
     }
 
     public EmotionPageController(Song song, MainPageController mainController) {
