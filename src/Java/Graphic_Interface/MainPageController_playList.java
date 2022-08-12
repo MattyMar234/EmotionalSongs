@@ -217,7 +217,7 @@ public class MainPageController_playList extends Controller implements Initializ
                                 //System.out.println(l);
                                 
                                 try {
-                                    item.MainclassReference.mainController.SetPlaylistEditPage(p, item.MainclassReference);
+                                    item.MainclassReference.mainController.SetPlaylistEditPage(p, item.MainclassReference.mainController);
                                 
                                     //System.out.println(item.getPlayList());
                                 } catch (IOException e) {

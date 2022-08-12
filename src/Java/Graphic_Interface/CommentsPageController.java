@@ -153,7 +153,7 @@ public class CommentsPageController extends Controller implements Initializable
     
         for(Comment c : this.song.getComments()) {
             commnetsList.add(c);
-            System.out.println(c);
+            //System.out.println(c);
         }
 
         
@@ -164,8 +164,6 @@ public class CommentsPageController extends Controller implements Initializable
                 public void updateItem(Comment item, boolean empty) {
                     super.updateItem(item, empty);
 
-                    
-                    
                     if (empty) {
                         setGraphic(null);
                         setText(null);
@@ -181,8 +179,7 @@ public class CommentsPageController extends Controller implements Initializable
                                 return new CommentElementController(item); // <-- parametri costruttore classe
                             });
 
-                            
-                            
+                             
                             AnchorPane view = XMLloader.load();
                             setGraphic(view);
                         
@@ -219,7 +216,7 @@ public class CommentsPageController extends Controller implements Initializable
             this.mainControllerPage.SetPlayListPage();
 
             MainPageController_playList controller = (MainPageController_playList)this.mainControllerPage.currentLoader.getController();
-            this.mainControllerPage.SetPlaylistEditPage(playlist, controller);
+            this.mainControllerPage.SetPlaylistEditPage(playlist, controller.mainController);
         }
     }
 

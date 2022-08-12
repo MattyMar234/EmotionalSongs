@@ -170,17 +170,11 @@ public class MainPageController_reposity extends Controller implements Initializ
                         
                         } catch (IOException e) {
                             System.out.println(e);
-                   
-                        }
-                      
-                        
+                        }  
                         setText(null);
-
                     }
                 }
-
             };
-
             return cell;
         };
 

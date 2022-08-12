@@ -25,8 +25,26 @@
     -fx-alignment: center-left;
 }
 
+#save_Button2, #turnBack_Button2 {
+    -fx-background-color: linear-gradient(to right, #ee8700, #f14804);
+    -fx-background-radius: 3px;
+    -fx-padding: 0 0 0 0;
+    -fx-text-fill:#ffffff;
+    -fx-alignment: center;
+    -fx-padding: 4 0 4 5;
+    /*-fx-background-color: linear-gradient(to right, #ee8700, #3bf104);*/
+    -fx-font-size: 15;
+}
+
+#save_Button2:hover, #turnBack_Button2:hover {
+    -fx-background-color: linear-gradient(to right, #eeea00, #f18a04);
+    -fx-font-size: 15;
+    -fx-cursor: hand;
+}
+
 #cance_Button, #AnnullaPlaylistButton {
-    -fx-background-color: #ff00008e;
+    /*-fx-background-color: #ff00008e;*/
+    -fx-background-color: #ff00001e;
     -fx-text-fill:#E74C3C;
     -fx-font-weight: bold;
     -fx-alignment: center-left;
@@ -35,7 +53,8 @@
 #delete 
 {
    -fx-cursor: hand ;
-   -fx-background-color:#8a1111bb;
+   /*-fx-background-color: #ff00008e;*/
+   -fx-background-color: #ff00001e;
    -fx-border-width: 1;
    -fx-border-color: #E74C3C;
 }
@@ -51,15 +70,23 @@
 #comment 
 {
     -fx-background-color:#063352e0;
+    -fx-background-color:#ffaf026e;
     -fx-border-width: 1;
-    -fx-border-color: #0094FF;
+
+    
+    /*-fx-border-color: #0094FF;*/
+    -fx-border-color: #FFF60C;
     
 }
 
 #emotions {
     -fx-background-color:#390575e0;
+    -fx-background-color:#06d66e85;
     -fx-border-width: 1;
     -fx-border-color: #F714FF;
+    -fx-border-color: #28FF3E;
+
+    
 }
 
 #comment, #edit, #delete, #emotions 

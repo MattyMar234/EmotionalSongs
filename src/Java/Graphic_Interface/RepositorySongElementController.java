@@ -47,9 +47,6 @@ public class RepositorySongElementController extends Controller implements Initi
         
         this.canzoneAssociata = song;
         this.repositoryController = mainController;
-
-        //this.LabelTitle.setText("Title: " + song.getTitle());
-        //this.labelAutor.setText("Autor: " + song.getAutor());
         this.LabelTitle.setText(song.getTitle());
         this.labelAutor.setText(song.getAutor());
         this.LabelYear.setText(song.getYear());
@@ -57,39 +54,47 @@ public class RepositorySongElementController extends Controller implements Initi
         commentNumber = song.getComments().size();
 
         
-        if(this.canzoneAssociata == null) {
-            //labelCommenti.setText(labelCommenti.getText().replace("[n]", "0"));
+        if(this.canzoneAssociata == null)
             labelCommenti.setText("Nessun commento");
-        }
-        else 
-        {
-            if(commentNumber == 0) {
+        else {
+            if(commentNumber == 0) 
                 labelCommenti.setText("Nessun commento");
-            }
-            else {
+            else 
                 labelCommenti.setText(labelCommenti.getText().replace("[n]", (commentNumber > 99) ? "99+" : String.valueOf(commentNumber)));
+        }
+
+        boolean [] missingImg = new boolean[9];
+        int emojiCounters = 0;
+
+
+        for(int i = 0; i < 9; i++) {
+            missingImg[i] = true;
+        }
+
+        for(Emotion e : song.getEmotions()) 
+        {
+            int n = Emotion.getEmotionID(e);
+            
+            if(missingImg[n]) 
+            {
+                missingImg[n] = false;
+
+                ImageView img = new ImageView(Emotion.emotionImage[n]);
+                img.setFitWidth(emojiSize);
+                img.setFitHeight(emojiSize);
+                img.setStyle("-fx-padding: 0 8 0 8;");
+                EmojiContainer.getChildren().add(img);
+
+                if(++emojiCounters >= 9) break;
             }
         }
 
-        int r = (int)(Math.random()*9);
-
-        if(r == 0) {
+        if(emojiCounters == 0) {
             Label l = new Label();
             l.setText("Nessuna emozione");
             l.setId("labelAutor");
             EmojiContainer.getChildren().add(l);
         } 
-
-        for(int i = 0; i < r; i++ ) 
-        {
-            ImageView img = new ImageView(Emotion.emotionImage[i]);
-            img.setFitWidth(emojiSize);
-            img.setFitHeight(emojiSize);
-            img.setStyle("-fx-padding: 0 8 0 8;");
-
-            EmojiContainer.getChildren().add(img);
-        }
-
     }
 
     @Override

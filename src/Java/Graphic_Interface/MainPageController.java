@@ -292,14 +292,14 @@ public class MainPageController extends Controller implements Initializable
     }
 
     //AddEmotion 
-    public void SetAddEmotionPage() throws IOException {
+    public void SetAddEmotionPage(PlayList playlist, Song song) throws IOException {
         
         FXMLLoader loader = getScenePage("AddEmotionPage2");
         currentLoader = loader;
 
-        /*loader.setControllerFactory( c -> {
-            return new 
-        });*/
+        loader.setControllerFactory( c -> {
+            return new EmotionCreationPageController(this, playlist, song);
+        });
 
         SetPage(loader);
     }
@@ -380,8 +380,8 @@ public class MainPageController extends Controller implements Initializable
         borderPane.setCenter(view);  
     }
 
-
-    public void SetPlaylistEditPage(PlayList playlist, MainPageController_playList link) throws IOException 
+    //editPLaylist
+    public void SetPlaylistEditPage(PlayList playlist, MainPageController link) throws IOException 
     {
         FXMLLoader loader = getScenePage("EditPlaylist");
         currentLoader = loader;

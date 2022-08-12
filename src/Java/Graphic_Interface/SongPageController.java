@@ -3,6 +3,7 @@ package Java.Graphic_Interface;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Java.Account.RegisteredAccount;
 import Java.PlayList_Songs.Song;
 import Java.emotionalsongs.Emotion;
 import Java.emotionalsongs.EmotionalSongs;
@@ -33,7 +34,7 @@ public class SongPageController extends Controller implements Initializable
     //costruttore
     public SongPageController(EmotionalSongs main, Song SelectedSong) 
     {
-        SelectedSong.getEmotions().add(new Emotion("happy", "feel happy",5));
+        SelectedSong.getEmotions().add(new Emotion(Emotion.Emotion_Amazement, 5, ((RegisteredAccount) main.ConnectedAccount)));
         System.out.println(SelectedSong.getEmotions().get(0));
 
         this.main = main;

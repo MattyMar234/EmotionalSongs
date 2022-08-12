@@ -31,6 +31,8 @@ public class EmotionalSongs extends Application{
     public static final String Directory    = System.getProperty("user.dir");
     public static final String iconsFolder  = Directory + "\\data\\icon\\";
     public static final String imageFolder  = Directory + "\\data\\image\\";
+    public static final String emojiFolder  = Directory + "\\data\\EmojiIcon\\";
+
     public static final String SongFile     = Directory + "\\data\\song.json";
     public static final String UsersFile    = Directory + "\\data\\UtentiRegistrati.json";
     public static final String LocationsData      = Directory + "\\data\\comuni.json";
@@ -165,11 +167,13 @@ public class EmotionalSongs extends Application{
                 System.out.println(Directory + "\\src\\" + path);
             }
 
+            System.out.println();
+
 
 
             // ***************** caricamento Icone ***************** //
 
-            BufferedImage img = ImageIO.read(new File(iconsFolder + "emoji.png"));
+            /*BufferedImage img = ImageIO.read(new File(iconsFolder + "emoji.png"));
             int size   = 66;
             int start  = 1;
             int offset = 17;
@@ -180,6 +184,28 @@ public class EmotionalSongs extends Application{
             
                 //int r = i*(size + offset) + start*(i + 1);
                 //System.out.println("sunImage " + i + "start:" + r + " end: " + (r + size) );
+            }*/
+
+            //ottengo tutti i file nella directory
+            File folder = new File(emojiFolder);
+            File[] listOfFiles = folder.listFiles();
+            
+            
+            for(int  i = 0; i < 9; i++ ) {
+                for(int  k = 0; k < 9; k++ ) 
+                {
+                    //System.out.println(listOfFiles[k].getName());
+                    //System.out.println(listOfFiles[k].getName().indexOf(Integer.toString( i + 1)));
+
+                    if(listOfFiles[k].getName().indexOf(Integer.toString( i + 1)) >= 0) 
+                    {
+                        Emotion.emotionImage[i] = SwingFXUtils.toFXImage(ImageIO.read(listOfFiles[k]), null);
+                        Emotion.EmotionHashMap.put(Emotion.Emotions[i].getCategory(), Emotion.emotionImage[i]);
+                        
+                        System.out.println(listOfFiles[k].getAbsolutePath());
+                        break;
+                    }
+                }
             }
             
             

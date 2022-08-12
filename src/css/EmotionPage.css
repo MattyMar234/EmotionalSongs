@@ -1,0 +1,64 @@
+
+
+
+
+#EmotionTable, #AddedEmotionTable 
+{
+    -fx-padding: 0px;
+    -fx-text-fill: #fcfcfc;
+   
+}
+
+#EmotionTable .column-header, #AddedEmotionTable .column-header ,
+#EmotionTable .column-header-background .filler, #AddedEmotionTable .column-header-background .filler,
+#EmotionTable .column-header-background , #AddedEmotionTable .column-header-background 
+{
+    -fx-padding: 0 0 0 0;
+}
+
+#EmotionTable .column-header-background .label , #AddedEmotionTable .column-header-background .label 
+{
+    -fx-text-fill: #8f8f8f;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+    -fx-padding: 10 2 10 2;
+}
+
+#EmotionTable .column, #AddedEmotionTable .column {
+    /*-fx-border-width: 0 0.5 0 0;*/
+   
+}
+
+#EmotionTable .table-cell, #AddedEmotionTable .table-cell
+{
+    -fx-alignment: center;
+    /*-fx-border-width: 0 0.5 0 0;*/
+}
+
+#EmotionTable .table-row-cell , #AddedEmotionTable .table-row-cell 
+{
+    -fx-padding: 0 0 0 0; 
+    -fx-cell-size: 50px;
+    -fx-font-size: 15px;
+    -fx-margin: 0 0 0 0;
+}
+
+
+/*tipo di riga*/
+#EmotionTable, #AddedEmotionTable .table-row-cell:even {
+    /*-fx-background-color: #27303d;*/
+  
+    
+}
+
+#EmotionTable, #AddedEmotionTable .table-row-cell:odd {
+    /*-fx-background-color: #333f50;*/
+
+    
+}
+
+#EmotionTable .table-row-cell:selected, #AddedEmotionTable .table-row-cell:selected
+{
+    -fx-background: -fx-control-inner-background-alt ;
+    -fx-border: 0px;
+}

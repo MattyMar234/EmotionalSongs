@@ -10,6 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import Java.Account.Account;
+import Java.Account.RegisteredAccount;
 import Java.DataClasses.Comment;
 import Java.Json.JsonParser;
 import Java.emotionalsongs.Emotion;
@@ -71,26 +72,42 @@ public class Song {
         this.songID   = (String) jsonData.get("SongID");
         
         JSONArray comments =  (JSONArray) jsonData.get("comments");
-        if(comments.size() > 0) System.out.println("Comments: " + comments);
-        if(comments == null) return;
+        JSONArray emotions =  (JSONArray) jsonData.get("emotions");
 
+        
+        //if(comments.size() > 0) System.out.println("Comments: " + comments);
+        if(comments != null) {
+            for(Object comm : comments) {
+                if(comm instanceof JSONObject) 
+                {
+                    JSONObject d = (JSONObject) comm;
+                    
+                    Comment comment = new Comment();
+                    comment.setComment((String) d.get("comment"));
+    
+                    String ID = (String) d.get("userID");
+                 
+                    comment.setAutor((Account) EmotionalSongs.classReference.AccountsManager.SearchByID(ID));
+                    this.comments.add(comment);
+                }
+            }
+        }
 
-        for(Object comm : comments) {
-            if(comm instanceof JSONObject) 
-            {
-                JSONObject d = (JSONObject) comm;
-                
-                Comment comment = new Comment();
-                comment.setComment((String) d.get("comment"));
+        if(emotions != null) {
+            for(Object emot : emotions) {
+                if(emot instanceof JSONObject) 
+                {
+                    JSONObject d = (JSONObject) emot;
 
-                String ID = (String) d.get("userID");
-               // System.out.println("Account ID: " + ID);
-                comment.setAutor((Account) EmotionalSongs.classReference.AccountsManager.SearchByID(ID));
-                
+                    int index     = Integer.parseInt((String)d.get("ID"));
+                    int score     = Integer.parseInt((String)d.get("score"));
+                    String userID = (String) d.get("userID");
 
-                //System.out.println(comment);
-
-                this.comments.add(comment);
+                    RegisteredAccount account = EmotionalSongs.classReference.AccountsManager.SearchByID(userID);
+                    Emotion emotion = new Emotion(Emotion.Emotions[index], score, account);
+ 
+                    this.emotions.add(emotion);
+                }
             }
         }
     }
@@ -99,23 +116,53 @@ public class Song {
         return this;
     }
 
+    public ArrayList<Emotion> getUserEmotions(String ID) {
+        ArrayList<Emotion> m = new ArrayList<Emotion>();
+
+        for(Emotion e : emotions) {
+            if(e.getAccountID().equals(ID)) {
+                m.add(e);
+               
+                if(m.size() == 9) 
+                    break;
+            }
+        }
+
+        return m;
+    }
+
     @SuppressWarnings("unchecked")
     public JSONObject toJSON() 
     {
         JSONObject data = new JSONObject();
         JSONArray comments_array = new JSONArray();
+        JSONArray Emotions_array = new JSONArray();
+
 
         for(Comment c : comments) {
-            
             JSONObject d = new JSONObject(); //oggetto playlist
             
             d.put("userID", c.getAutor().getID());    //c,get ID
             d.put("comment", c.getComment());
             
-            comments_array.add(d);  //aggiungo all'array la playlist
+            //aggiungo all'array la playlist
+            comments_array.add(d);  
+        }
+
+
+        for(Emotion e : emotions) {   
+            JSONObject d = new JSONObject(); //oggetto playlist
+            
+            d.put("ID"     , Integer.toString (Emotion.getEmotionID(e)));    //c,get ID
+            d.put("userID" , e.getAccountID());
+            d.put("score"  , Integer.toString(e.getScore()));
+            
+            //aggiungo all'array delle emozioni
+            Emotions_array.add(d);  
         }
 
         data.put("comments", comments_array);
+        data.put("emotions", Emotions_array);
         data.put("title",    this.title);
         data.put("autor",    this.autor);
         data.put("year",     this.year);

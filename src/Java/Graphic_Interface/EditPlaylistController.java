@@ -22,9 +22,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
-public class EditPlaylistController extends Controller implements Initializable {
+public class EditPlaylistController extends Controller implements Initializable 
+{
 
-    
     @FXML private TableView<CustomSong> PLaylistSongs;
     @FXML private TableColumn<CustomSong, String> Album;
     @FXML private TableColumn<CustomSong, String> Autor;
@@ -37,18 +37,18 @@ public class EditPlaylistController extends Controller implements Initializable 
     @FXML private Button Back;
     @FXML private Button salva;
 
-    private MainPageController_playList classeReferences;
-
+    
     public ObservableList<CustomSong> list = FXCollections.observableArrayList();
-    private PlayList playlist;
-    private PlayList playlistCopy;
+    private MainPageController classeReferences;
     private AddSongWindow addSongWindow;
+    private PlayList playlistCopy;
+    private PlayList playlist;
     
 
     public class CustomSong 
     {
         public Song song;
-        public MainPageController_playList MainclassReference;
+        public MainPageController MainclassReference;
         public EditPlaylistController controller;
         public CustomSong classReference;
         public String nome;
@@ -57,7 +57,7 @@ public class EditPlaylistController extends Controller implements Initializable 
         public PlayList playlist;
 
 
-        public CustomSong(Song song, PlayList playlist, MainPageController_playList classReference, EditPlaylistController controller) {
+        public CustomSong(Song song, PlayList playlist, MainPageController classReference, EditPlaylistController controller) {
             this.MainclassReference = classReference;
             this.song = song;
             this.playlist = playlist;
@@ -65,44 +65,37 @@ public class EditPlaylistController extends Controller implements Initializable 
             this.classReference = this;
             this.data = song.getYear();
             this.autor = song.getAutor(); 
-            this.controller = controller;
+            this.controller = controller;  
         }
 
         public Song getSong() {
             return this.song;
         }
-
-        public MainPageController_playList getMainclassReference() {
+        public MainPageController getMainclassReference() {
             return this.MainclassReference;
         }
-
         public CustomSong getClassReference() {
             return this;
         }
-
         public String getNome() {
             return nome;
         }
-
         public String getData() {
             return data;
         }
-
         public String getAutor() {
             return autor;
         }
     }
  
 
-    public EditPlaylistController(PlayList list, MainPageController_playList classeReferences) {
+    public EditPlaylistController(PlayList list, MainPageController classeReferences) {
         super();
         this.playlist = list;
         this.classeReferences = classeReferences;
-        //System.out.println(list);
     }
 
     public void updateTable() {
-
         list.clear();
 
         for(Song song : playlistCopy.getSongs()) {
@@ -111,8 +104,8 @@ public class EditPlaylistController extends Controller implements Initializable 
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void initialize(URL location, ResourceBundle resources) 
+    {
         playlistCopy = playlist.copy();
 
         for(Song song : playlistCopy.getSongs()) {
@@ -122,7 +115,7 @@ public class EditPlaylistController extends Controller implements Initializable 
         Title.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("nome"));
         SongDate.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("data"));
         Autor.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("autor"));
-    //    Album.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("album"));
+        //Album.setCellValueFactory(new PropertyValueFactory<CustomSong, String>("album"));
 
         Callback<TableColumn<CustomSong, CustomSong>, TableCell<CustomSong, CustomSong>> cellFoctory = (TableColumn<CustomSong, CustomSong> param) -> {
             final TableCell<CustomSong, CustomSong> cell = new TableCell<CustomSong, CustomSong>() {
@@ -130,7 +123,7 @@ public class EditPlaylistController extends Controller implements Initializable 
                 @Override
                 public void updateItem(CustomSong item, boolean empty) {
                     super.updateItem(item, empty);
-                    //that cell created only on non-empty rows
+                    
                     if (empty) {
                         setGraphic(null);
                         setText(null);
@@ -151,8 +144,8 @@ public class EditPlaylistController extends Controller implements Initializable 
                         String[] path = {
                             "data\\image\\trash.png",
                             //"data\\image\\edit.png",
-                            "data\\icon\\commentIcon.png",
-                            "data\\icon\\EmotionIcon.png"
+                            "data\\icon\\commentIcon3.png",
+                            "data\\icon\\EmotionIcon2.png"
 
                         };
                         
@@ -197,7 +190,7 @@ public class EditPlaylistController extends Controller implements Initializable 
 
                             buttons[1].setOnMouseClicked((MouseEvent event) -> {
                                 try {
-                                    item.MainclassReference.mainController.SetCommentsPage(item.getSong(),item.playlist);
+                                    item.MainclassReference.SetCommentsPage(item.getSong(),item.playlist);
                                 } catch (IOException e) {
                                     
                                     e.printStackTrace();
@@ -208,7 +201,7 @@ public class EditPlaylistController extends Controller implements Initializable 
                             
                             buttons[2].setOnMouseClicked((MouseEvent event) -> {
                                 try {
-                                    item.MainclassReference.mainController.SetAddEmotionPage();
+                                    item.MainclassReference.SetAddEmotionPage(item.playlist, item.song);
                                 } catch (IOException e) {
                                     
                                     e.printStackTrace();
@@ -262,7 +255,7 @@ public class EditPlaylistController extends Controller implements Initializable 
 
     @FXML
     void turnBack(ActionEvent event) throws IOException {
-        classeReferences.mainController.SetPlayListPage();
+        classeReferences.SetPlayListPage();
     }
 
     @FXML
