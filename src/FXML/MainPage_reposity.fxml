@@ -38,7 +38,7 @@
                               <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                     <Label id="filterLabel" prefHeight="18.0" prefWidth="120.0" text="Ordina Elementi" />
-                                    <ComboBox prefHeight="26.0" prefWidth="190.0" promptText="filtro" />
+                                    <ComboBox fx:id="filter" onAction="#update" prefHeight="26.0" prefWidth="190.0" promptText="filtro" />
                                  </children>
                               </HBox>
                            </children>
