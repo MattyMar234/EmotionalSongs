@@ -26,7 +26,7 @@
                               <Image url="@../../data/image/Logo.png" />
                            </image>
                         </ImageView>
-                        <Label id="title" prefHeight="50.0" prefWidth="307.0" stylesheets="@../css/AccessPage.css" text="Emotional Song" textFill="#e4e4e4">
+                        <Label id="title" prefHeight="50.0" prefWidth="329.0" stylesheets="@../css/AccessPage.css" text="Emotional Songs" textFill="#e4e4e4">
                            <font>
                               <Font size="18.0" />
                            </font>
