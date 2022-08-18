@@ -66,7 +66,7 @@ public class EmotionalSongs extends Application{
 
     public static EmotionalSongs classReference;                    //riferimento globale di questa classe
     public static WindowContainerController windowPageReference;
-    public static int language = 1; //italiano 1, inglese 2
+    public static int language = 0; //italiano 0, inglese 1
 
 
     public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
@@ -87,6 +87,14 @@ public class EmotionalSongs extends Application{
     public static void main(String[] args) throws Exception {
         System.out.println("Application Runnning...\n");
         launch(args);
+
+        //Language 
+        if(language == 0){
+            System.out.println("Italian");
+        }
+        else{
+            System.out.println("English");
+        }
     }
 
 

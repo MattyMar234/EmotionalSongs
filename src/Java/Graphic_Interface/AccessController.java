@@ -8,6 +8,7 @@ import Java.Account.Account;
 import Java.Account.RegisteredAccount;
 import Java.Account.UnregisteredAccount;
 import Java.PlayList_Songs.PlayList;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,7 +34,12 @@ public class AccessController extends Controller implements Initializable {
     @FXML private Label LabelName;
     @FXML private Label labelPassword;
 
-    
+
+    private final static String [][] matrice = {
+        {"Accedi all'Account", "Login"},     //LoginButton
+        {"Continua senza Account", "Continue without account"}, //  //NoAccountButton
+        {"Crea un Account", "Create Account"}           //NewAccount
+    };
     
     
     public AccessController() {
@@ -44,6 +50,13 @@ public class AccessController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+
+        LoginButton.setText(AccessController.matrice[0][EmotionalSongs.language]);
+        NoAccountButton.setText(AccessController.matrice[1][EmotionalSongs.language]);
+        NewAccount.setText(AccessController.matrice[2][EmotionalSongs.language]);
+        
+
+
         clearError();
        
         //non funzionano ??? 

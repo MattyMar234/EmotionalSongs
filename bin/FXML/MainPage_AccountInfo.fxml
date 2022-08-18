@@ -29,7 +29,7 @@
                <children>
                   <BorderPane prefHeight="799.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
-                        <AnchorPane prefHeight="100.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+                        <AnchorPane prefHeight="75.0" prefWidth="720.0" BorderPane.alignment="CENTER">
                            <children>
                               <HBox alignment="CENTER" prefHeight="63.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
@@ -49,7 +49,7 @@
                                  <children>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <VBox fx:id="elements" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="820.0" prefWidth="700.0">
+                                          <VBox fx:id="elements" alignment="TOP_CENTER" prefHeight="820.0" prefWidth="700.0">
                                              <children>
                                                 <AnchorPane prefHeight="18.0" prefWidth="670.0">
                                                    <children>
@@ -60,7 +60,7 @@
                                                       </Label>
                                                    </children>
                                                 </AnchorPane>
-                                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="700.0">
+                                                <AnchorPane prefHeight="300.0" prefWidth="700.0">
                                                    <children>
                                                       <GridPane fx:id="grid1" alignment="CENTER" prefHeight="256.0" prefWidth="680.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                         <columnConstraints>
@@ -90,7 +90,7 @@
                                                       <Insets top="20.0" />
                                                    </VBox.margin>
                                                 </AnchorPane>
-                                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="700.0">
+                                                <AnchorPane prefHeight="300.0" prefWidth="700.0">
                                                    <children>
                                                       <GridPane fx:id="grid2" alignment="CENTER" layoutY="-30.0" prefHeight="259.0" prefWidth="670.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                          <columnConstraints>
