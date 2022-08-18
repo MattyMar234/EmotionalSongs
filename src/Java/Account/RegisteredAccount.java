@@ -23,6 +23,7 @@ public class RegisteredAccount extends Account {
 
     //dati canzoni
     protected ArrayList<PlayList> PlayLists = new ArrayList<PlayList>();
+    public HashMap<String, String> accountKeys = new HashMap<String, String>();
     protected Album album; 
 
     public RegisteredAccount() {
@@ -44,6 +45,25 @@ public class RegisteredAccount extends Account {
         this.cap         = (String) data.get("cap");
         //this.cap        = ( int  ) data.get("cap");
 
+        updateHashMap();
+
+    }
+
+    public void updateHashMap() {
+
+        accountKeys.clear();
+        
+        accountKeys.put("name"          , this.name);
+        accountKeys.put("surname"       , this.surname);
+        accountKeys.put("email"         , this.email );
+        accountKeys.put("password"      , this.password );
+        accountKeys.put("userid"        , this.userID);
+        accountKeys.put("common"        , this.comune);
+        accountKeys.put("province"      , this.provincia);
+        accountKeys.put("fiscalcode"    , this.fiscalCode);
+        accountKeys.put("cap"           , this.cap);
+        accountKeys.put("vie"           , this.viaPiazza);
+        accountKeys.put("civicNumber"   , this.civicNumber);
     }
     
     public void loadPlaylits(JSONObject data) {

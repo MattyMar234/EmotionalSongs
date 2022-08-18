@@ -17,20 +17,16 @@
          <center>
             <BorderPane fx:id="borderPane" prefHeight="860.0" prefWidth="1219.0" BorderPane.alignment="CENTER">
                <top>
-                  <HBox fx:id="Hbox1" prefHeight="32.0" prefWidth="1040.0" BorderPane.alignment="CENTER" />
+                  <HBox fx:id="Hbox1" prefHeight="44.0" prefWidth="1016.0" BorderPane.alignment="CENTER" />
                </top>
             </BorderPane>
          </center>
          <left>
-            <VBox fx:id="Vbox1" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="Vbox1" prefHeight="900.0" prefWidth="224.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane prefHeight="84.0" prefWidth="289.0">
+                  <AnchorPane prefHeight="70.0" prefWidth="224.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="289.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Label fx:id="LabeNavbar1" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="64.0" prefWidth="201.0" text="Emotional Song" textFill="WHITE" />
-                           </children>
-                        </HBox>
+                        <Label fx:id="LabeNavbar1" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="224.0" text="Emotional Songs" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="12.0" />
                      </children>
                   </AnchorPane>
                   <Button fx:id="profileButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#AccountButtonSelected" prefHeight="48.0" prefWidth="200.0" text="Account">
@@ -45,7 +41,7 @@
                         <Insets left="16.0" right="16.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="reposityButton" mnemonicParsing="false" onAction="#setReposity" prefHeight="48.0" prefWidth="200.0" text="Reposity">
+                  <Button fx:id="reposityButton" mnemonicParsing="false" onAction="#setReposity" prefHeight="48.0" prefWidth="200.0" text="Repository">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -57,7 +53,7 @@
                         <Insets left="16.0" right="16.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="playlistButton" mnemonicParsing="false" onAction="#SetPlayList" prefHeight="48.0" prefWidth="200.0" text="Playlist e Song">
+                  <Button fx:id="playlistButton" mnemonicParsing="false" onAction="#SetPlayList" prefHeight="48.0" prefWidth="200.0" text="Playlists">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>

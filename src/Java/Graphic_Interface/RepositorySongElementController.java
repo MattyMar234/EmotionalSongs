@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import Java.PlayList_Songs.Song;
 import Java.emotionalsongs.Emotion;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -75,6 +76,7 @@ public class RepositorySongElementController extends Controller implements Initi
         {
             int n = Emotion.getEmotionID(e);
             
+            
             if(missingImg[n]) 
             {
                 missingImg[n] = false;
@@ -84,6 +86,30 @@ public class RepositorySongElementController extends Controller implements Initi
                 img.setFitHeight(emojiSize);
                 img.setStyle("-fx-padding: 0 8 0 8;");
                 EmojiContainer.getChildren().add(img);
+
+                /*
+                img.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+                    @Override
+                    public void handle(MouseEvent t) {
+                        int count = 0;
+                        double dt = 0;
+                        
+                        Label l = new Label("3.5");
+                        l.setTranslateX(img.getX());
+                        l.setTranslateY(img.getY() + 20);
+
+                        EmojiContainer.getChildren().add(l);
+                        //(img.getX())
+
+                        //AnchorPane p = new AnchorPane();
+                        
+
+                        
+                    }
+                });*/
+
+                
 
                 if(++emojiCounters >= 9) break;
             }

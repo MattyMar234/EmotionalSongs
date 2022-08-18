@@ -3,9 +3,9 @@ package Java.DataClasses;
 public class Common {
 
     protected String name;
-    protected int [] cap ;
+    public String [] cap ;
 
-    public Common(String name, int [] cap) {
+    public Common(String name, String [] cap) {
         this.name = name;
         this.cap = cap;
     }
@@ -15,9 +15,9 @@ public class Common {
         return new String("commune: " + name);
     }
 
-    public boolean testCap(int capToTest) {
-        for(Integer c : cap) {
-            if(c == capToTest) {
+    public boolean testCap(String capToTest) {
+        for(String c : cap) {
+            if(c.equals(capToTest)) {
                 return true;
             }
         }
@@ -29,19 +29,20 @@ public class Common {
         return name;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getCap(int index) {
+    public String getCap(int index) {
         if(index < cap.length) {
             return cap[index];
         }
 
-        return -1;
+        return "00000";
     }
 
-    public void setCap(int newCap, int index) {
+    public void setCap(String newCap, int index) {
         if(index < cap.length) {
             this.cap[index] = newCap;
         }

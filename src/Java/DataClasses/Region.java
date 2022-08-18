@@ -1,5 +1,6 @@
 package Java.DataClasses;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Region 
@@ -32,6 +33,16 @@ public class Region
 
     public String getName() {
         return name;
+    }
+
+    public ArrayList<Province> getProvincesList() {
+        ArrayList<Province> c = new ArrayList<>();
+
+        for(String name : Provinces.keySet()) {
+            c.add((Province)Provinces.get(name));
+        }
+
+        return c;
     }
 
 

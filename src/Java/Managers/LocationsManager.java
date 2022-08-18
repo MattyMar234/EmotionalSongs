@@ -41,10 +41,10 @@ public class LocationsManager extends Manager <Region> {
             {
                 String name = (String)jsonData.get("nome");
                 JSONArray caps = ((JSONArray)jsonData.get("cap"));
-                int [] cap = new int[caps.size()];
+                String [] cap = new String[caps.size()];
 
                 for(int i = 0; i < caps.size(); i++) {
-                    cap[i] = Integer.parseInt((String)caps.get(i));
+                    cap[i] = (String) caps.get(i);
                 }
                 
                 Common common = new Common(name, cap);

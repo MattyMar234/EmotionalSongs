@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="back" prefHeight="800.0" prefWidth="800.0" stylesheets="@../css/mainPageStyle.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.AccountDataController">
+<AnchorPane id="back" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.AccountDataController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -25,11 +29,11 @@
                <children>
                   <BorderPane prefHeight="799.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
-                        <AnchorPane prefHeight="60.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+                        <AnchorPane prefHeight="100.0" prefWidth="720.0" BorderPane.alignment="CENTER">
                            <children>
                               <HBox alignment="CENTER" prefHeight="63.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label id="labelmenuPlaylist" prefHeight="57.0" prefWidth="271.0" text="ACCOUNT">
+                                    <Label id="labelmenuPlaylist" prefHeight="57.0" prefWidth="271.0" text="Informazioni Account">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font></Label>
@@ -38,192 +42,83 @@
                            </children>
                         </AnchorPane>
                      </top>
-                     <left>
-                        <AnchorPane prefHeight="550.0" prefWidth="60.0" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <AnchorPane prefHeight="550.0" prefWidth="60.0" BorderPane.alignment="CENTER" />
-                     </right>
                      <center>
                         <AnchorPane prefHeight="550.0" prefWidth="134.0" BorderPane.alignment="CENTER">
                            <children>
-                              <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <left>
-                                    <BorderPane prefHeight="590.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-                                       <top>
-                                          <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-                                       </top>
-                                       <left>
-                                          <AnchorPane prefHeight="224.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
-                                       </left>
-                                       <right>
-                                          <AnchorPane prefHeight="224.0" prefWidth="1.0" BorderPane.alignment="CENTER" />
-                                       </right>
-                                       <bottom>
-                                          <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-                                       </bottom>
-                                       <center>
-                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                              <HBox alignment="CENTER" fillHeight="false" prefHeight="600.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox fx:id="elements" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="820.0" prefWidth="700.0">
                                              <children>
-                                                <HBox alignment="CENTER_LEFT" layoutX="97.0" layoutY="73.0" prefHeight="38.0" prefWidth="184.0" AnchorPane.bottomAnchor="419.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="187.0" AnchorPane.topAnchor="73.0">
+                                                <AnchorPane prefHeight="18.0" prefWidth="670.0">
                                                    <children>
-                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="134.0" text="Account Information" textFill="WHITE">
+                                                      <Label contentDisplay="CENTER" prefHeight="20.0" prefWidth="200.0" text="Account Information" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                                                          <font>
-                                                            <Font name="System Italic" size="14.0" />
+                                                            <Font size="20.0" />
                                                          </font>
                                                       </Label>
                                                    </children>
-                                                </HBox>
-                                                <VBox layoutX="102.0" layoutY="111.0" prefHeight="235.0" prefWidth="284.0" AnchorPane.bottomAnchor="184.0" AnchorPane.topAnchor="111.0">
+                                                </AnchorPane>
+                                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="700.0">
                                                    <children>
-                                                      <Label text="nome:" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="nomeField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                      <Label text="cognome:" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="cognomeField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                      <Label text="email:" textFill="#fffbfb">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="emailField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                      <Label text="user id:" textFill="#fffafa">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="useridField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                      <Label text="password:" textFill="#fffefe">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="passwordField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
+                                                      <GridPane fx:id="grid1" alignment="CENTER" prefHeight="256.0" prefWidth="680.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                      </GridPane>
                                                    </children>
-                                                </VBox>
+                                                </AnchorPane>
+                                                <AnchorPane prefHeight="17.0" prefWidth="670.0">
+                                                   <children>
+                                                      <Label contentDisplay="CENTER" layoutY="-4.0" prefHeight="50.0" prefWidth="200.0" text="Basic Information" textAlignment="CENTER" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </VBox.margin>
+                                                </AnchorPane>
+                                                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="700.0">
+                                                   <children>
+                                                      <GridPane fx:id="grid2" alignment="CENTER" layoutY="-30.0" prefHeight="259.0" prefWidth="670.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                      </GridPane>
+                                                   </children>
+                                                </AnchorPane>
                                              </children>
-                                          </AnchorPane>
-                                       </center>
-                                    </BorderPane>
-                                 </left>
-                                 <right>
-                                    <BorderPane prefHeight="590.0" prefWidth="500.0" BorderPane.alignment="CENTER">
-                                       <top>
-                                          <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-                                       </top>
-                                       <left>
-                                          <AnchorPane prefHeight="223.0" prefWidth="1.0" BorderPane.alignment="CENTER" />
-                                       </left>
-                                       <right>
-                                          <AnchorPane prefHeight="222.0" prefWidth="30.0" BorderPane.alignment="CENTER" />
-                                       </right>
-                                       <bottom>
-                                          <AnchorPane prefHeight="30.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-                                       </bottom>
-                                       <center>
-                                          <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                             <children>
-                                                <HBox alignment="CENTER_LEFT" layoutX="39.0" layoutY="65.0" prefHeight="38.0" prefWidth="179.0" AnchorPane.bottomAnchor="427.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="65.0">
-                                                   <children>
-                                                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="118.0" text="Basic Information" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="System Italic" size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <VBox layoutX="46.0" layoutY="113.0" prefHeight="240.0" prefWidth="264.0" AnchorPane.bottomAnchor="182.0" AnchorPane.topAnchor="113.0">
-                                                   <children>
-                                                      <Label text="codice fiscale:" textFill="#fffdfd">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="codicefiscaleField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                      <Label text="provincia:" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="provinciaField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                      <Label text="città:" textFill="#fff6f6">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="cittàField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                      <Label text="cap:" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="capField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                      <Label text="via:" textFill="#fcf8f8">
-                                                         <font>
-                                                            <Font size="13.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <TextField fx:id="viaField">
-                                                         <font>
-                                                            <Font size="11.0" />
-                                                         </font>
-                                                      </TextField>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </AnchorPane>
-                                       </center>
-                                    </BorderPane>
-                                 </right>
-                              </BorderPane>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
                            </children>
                         </AnchorPane>
                      </center>
                      <bottom>
-                        <AnchorPane prefHeight="20.0" prefWidth="720.0" BorderPane.alignment="CENTER" />
+                        <AnchorPane prefHeight="60.0" prefWidth="720.0" BorderPane.alignment="CENTER" />
                      </bottom>
                   </BorderPane>
                </children>
@@ -234,4 +129,9 @@
          </top>
       </BorderPane>
    </children>
+   <stylesheets>
+      <URL value="@../css/mainPageStyle.css" />
+      <URL value="@../css/FunctionButton.css" />
+      <URL value="@../css/Texts.css" />
+   </stylesheets>
 </AnchorPane>

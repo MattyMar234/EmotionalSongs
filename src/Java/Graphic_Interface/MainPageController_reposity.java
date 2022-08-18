@@ -215,9 +215,9 @@ public class MainPageController_reposity extends Controller implements Initializ
                     if(item.song.getTitle().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     } 
-                    else if(item.song.getAlbum().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    /*else if(item.song.getAlbum().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
-                    }
+                    }*/
                     else if(item.song.getAutor().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                         return true;
                     }

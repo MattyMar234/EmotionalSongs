@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainBackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="965.0" prefWidth="685.0" stylesheets="@../css/NewAccountPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.NewUserRegistrationController">
+<AnchorPane fx:id="MainBackPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="965.0" prefWidth="685.0" stylesheets="@../css/NewAccountPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.NewUserRegistrationController">
    <children>
       <HBox alignment="CENTER" layoutX="200.0" layoutY="366.0" prefHeight="865.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -348,16 +349,19 @@
                                                                            <children>
                                                                               <Label id="fildsLabel" text="CAP" />
                                                                            </children>
+                                                                           <VBox.margin>
+                                                                              <Insets />
+                                                                           </VBox.margin>
+                                                                           <padding>
+                                                                              <Insets bottom="4.0" />
+                                                                           </padding>
                                                                         </VBox>
-                                                                        <VBox prefHeight="200.0" prefWidth="100.0">
-                                                                           <children>
-                                                                              <TextField fx:id="cap" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Number">
-                                                                                 <font>
-                                                                                    <Font size="14.0" />
-                                                                                 </font>
-                                                                              </TextField>
-                                                                           </children>
-                                                                        </VBox>
+                                                                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                                                                        <ComboBox fx:id="cap" onAction="#selectCap" prefHeight="23.0" prefWidth="210.0">
+                                                                           <VBox.margin>
+                                                                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                                           </VBox.margin>
+                                                                        </ComboBox>
                                                                      </children>
                                                                   </VBox>
                                                                </children>
@@ -389,16 +393,25 @@
                                                                      <children>
                                                                         <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <Label id="fildsLabel" text="Common" />
+                                                                              <Label id="fildsLabel" text="Common">
+                                                                                 <VBox.margin>
+                                                                                    <Insets bottom="2.0" />
+                                                                                 </VBox.margin></Label>
                                                                            </children>
+                                                                           <VBox.margin>
+                                                                              <Insets />
+                                                                           </VBox.margin>
+                                                                           <padding>
+                                                                              <Insets bottom="4.0" />
+                                                                           </padding>
                                                                         </VBox>
                                                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <TextField fx:id="comune" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Common Name">
-                                                                                 <font>
-                                                                                    <Font size="14.0" />
-                                                                                 </font>
-                                                                              </TextField>
+                                                                              <ComboBox fx:id="common" onAction="#selectCommon" prefHeight="34.0" prefWidth="209.0">
+                                                                                 <VBox.margin>
+                                                                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                                                 </VBox.margin>
+                                                                              </ComboBox>
                                                                            </children>
                                                                         </VBox>
                                                                      </children>
@@ -430,14 +443,17 @@
                                                                            <children>
                                                                               <Label id="fildsLabel" text="Province" />
                                                                            </children>
+                                                                           <padding>
+                                                                              <Insets bottom="4.0" />
+                                                                           </padding>
                                                                         </VBox>
                                                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <TextField fx:id="provincia" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Province Name">
-                                                                                 <font>
-                                                                                    <Font size="14.0" />
-                                                                                 </font>
-                                                                              </TextField>
+                                                                              <ComboBox fx:id="province" onAction="#selectProvince" prefHeight="23.0" prefWidth="211.0">
+                                                                                 <VBox.margin>
+                                                                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                                                 </VBox.margin>
+                                                                              </ComboBox>
                                                                            </children>
                                                                         </VBox>
                                                                      </children>

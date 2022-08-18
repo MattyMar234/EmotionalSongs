@@ -52,19 +52,29 @@
 
 #delete 
 {
-   -fx-cursor: hand ;
    /*-fx-background-color: #ff00008e;*/
    -fx-background-color: #ff00001e;
    -fx-border-width: 1;
    -fx-border-color: #E74C3C;
 }
 
-#edit 
+#edit2 
 {
-    -fx-cursor: hand ;
+    -fx-text-fill:#179fd4;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    
+}
+
+#edit {
     -fx-background-color:#11db0aa4;
     -fx-border-width: 1;
     -fx-border-color: #2ECC71;
+}
+
+#edit2:hover {
+    -fx-text-fill:#17bed4;
+    -fx-background-color: transparent;
 }
 
 #comment 

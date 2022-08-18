@@ -1,5 +1,6 @@
 package Java.DataClasses;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Province {
@@ -23,9 +24,22 @@ public class Province {
     public String getName() {
         return this.name;
     }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void add(Common common) {
         commons.put(common.getName(), common);
+    }
+
+    public ArrayList<Common> getCommonsList() {
+        ArrayList<Common> c = new ArrayList<>();
+
+        for(String name : commons.keySet()) {
+            c.add((Common)commons.get(name));
+        }
+
+        return c;
     }
     
 }
