@@ -42,10 +42,10 @@ public class AccountDataController extends Controller implements Initializable  
         {"UserID"   , "UserID"},
 
         {"CodiceFiscale" , "fiscalcode"},
-        {"provincia"     ,  "province"},
-        {"comune"        ,  "common"},
-        {"via"           ,  "vie"},
-        {"cap"           ,  "cap"}
+        {"provincia"     , "province"},
+        {"comune"        , "common"},
+        {"via"           , "vie"},
+        {"cap"           , "cap"}
 
     };
 

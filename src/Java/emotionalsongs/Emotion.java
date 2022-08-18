@@ -8,15 +8,39 @@ import javafx.scene.image.ImageView;
 
 public class Emotion 
 {
-    public static Emotion Emotion_Amazement  = new Emotion("Amazement", "Feeling of wonder or happiness");
-    public static Emotion Emotion_Solemnity  = new Emotion("Solemnity", "Feeling of transcendence, inspiration. Thrills");
-    public static Emotion Emotion_Tenderness = new Emotion("Tenderness", "Sensuality, affect, feeling of love");
-    public static Emotion Emotion_Nostalgia  = new Emotion("Nostalgia", "Dreamy, melancholic, sentimental feelings");
-    public static Emotion Emotion_Calmness   = new Emotion("Calmness", "Relaxation, serenity, meditativeness");
-    public static Emotion Emotion_Power      = new Emotion("Power", "Feeling strong, heroic, triumphant, energetic");
-    public static Emotion Emotion_Joy        = new Emotion("Joy", "Feels like dancing, bouncy feeling, animated, amused ");
-    public static Emotion Emotion_Tension    = new Emotion("Tension", "Feeling Nervous, impatient, irritated ");
-    public static Emotion Emotion_Sadness    = new Emotion("Sadness", "Feeling Depressed, sorrowful");
+
+    private static final String[][] matrice = 
+    {
+    {"Stupore", "Amazement"}, 
+    {"Solennità", "Solemnity"}, 
+    {"Tenerezza", "Tenderness"}, 
+    {"Nostalgia", "Nostalgia"},
+    {"Calma", "Calmness"},
+    {"Forza", "Power"},
+    {"Gioia", "Joy"},
+    {"Tensione", "Tension"},
+    {"Tristezza", "Sadness"},
+
+    {"Sensazione di meraviglia o felicità.","Feeling of wonder or happiness."},
+    {"Sensazione di trascendenza, ispirazione. Brividi.", "Feeling of transcendence, inspiration. Thrills."},
+    {"Sensualità, affetto, sentimento d'amore.", "Sensuality, affect, feeling of love."},
+    {"Sensazioni sognanti, malinconiche, sentimentali.", "Dreamy, melancholic, sentimental feelings."},
+    {"Rilassamento, serenità, meditazione.", "Relaxation, serenity, meditativeness."},
+    {"Sentirsi forte, eroico, trionfante, energico.", "Feeling strong, heroic, triumphant, energetic."},
+    {"Sensazione di ballare, sensazione di rimbalzo, animato, divertito.", "Feels like dancing, bouncy feeling, animated, amused."},
+    {"Sensazione di nervoso, impaziente, irritato.", "Feeling nervous, impatient, irritated."},
+    {"Sensazione di depressione, addolorato.", "Feeling depressed, sorrowful."},
+    };
+
+    public static Emotion Emotion_Amazement  = new Emotion(matrice[0][EmotionalSongs.language], matrice[9][EmotionalSongs.language]);
+    public static Emotion Emotion_Solemnity  = new Emotion(matrice[1][EmotionalSongs.language], matrice[10][EmotionalSongs.language]);
+    public static Emotion Emotion_Tenderness = new Emotion(matrice[2][EmotionalSongs.language], matrice[11][EmotionalSongs.language]);
+    public static Emotion Emotion_Nostalgia  = new Emotion(matrice[3][EmotionalSongs.language], matrice[12][EmotionalSongs.language]);
+    public static Emotion Emotion_Calmness   = new Emotion(matrice[4][EmotionalSongs.language], matrice[13][EmotionalSongs.language]);
+    public static Emotion Emotion_Power      = new Emotion(matrice[5][EmotionalSongs.language], matrice[14][EmotionalSongs.language]);
+    public static Emotion Emotion_Joy        = new Emotion(matrice[6][EmotionalSongs.language], matrice[15][EmotionalSongs.language]);
+    public static Emotion Emotion_Tension    = new Emotion(matrice[7][EmotionalSongs.language], matrice[16][EmotionalSongs.language]);
+    public static Emotion Emotion_Sadness    = new Emotion(matrice[8][EmotionalSongs.language], matrice[17][EmotionalSongs.language]);
     public static Image [] emotionImage      = new Image[10];
     
     public static HashMap<String,Image> EmotionHashMap = new HashMap<String,Image>();
