@@ -77,8 +77,8 @@ public class MainPageController extends Controller implements Initializable
     {
 
         optionsButton.setText(MainPageController.matrice[0][EmotionalSongs.language]);
-        optionsButton.setText(MainPageController.matrice[1][EmotionalSongs.language]);
-        optionsButton.setText(MainPageController.matrice[2][EmotionalSongs.language]);
+        CambioButton.setText(MainPageController.matrice[1][EmotionalSongs.language]);
+        ExitButton.setText(MainPageController.matrice[2][EmotionalSongs.language]);
 
 
         if(this.windwoPosWidth < 1200.0) {

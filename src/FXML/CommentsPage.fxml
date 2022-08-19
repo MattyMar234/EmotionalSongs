@@ -17,7 +17,7 @@
          <top>
             <AnchorPane fx:id="searchPane" prefHeight="50.0" prefWidth="803.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label id="Label" layoutX="90.0" layoutY="10.0" prefHeight="29.0" prefWidth="146.0" text="Comments" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="10.0" />
+                  <Label id="Label" layoutX="90.0" layoutY="10.0" prefHeight="29.0" prefWidth="146.0" text="back" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="10.0" />
                   <ImageView fx:id="BackArrow" fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#turnBack" pickOnBounds="true" preserveRatio="true" rotate="-90.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="7.0">
                      <image>
                         <Image url="@../../data/image/FrecciaIndietro.png" />
@@ -53,7 +53,7 @@
                                  </image>
                               </ImageView>
                               <TextArea fx:id="textArea" layoutX="82.0" layoutY="-152.0" minHeight="-Infinity" onKeyReleased="#checkTextArea" onKeyTyped="#checkTextArea" prefHeight="75.0" prefWidth="583.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="4.0" />
-                              <Label fx:id="pubblica" alignment="CENTER" layoutX="699.0" layoutY="31.0" onMouseClicked="#pubblicateComment" prefHeight="18.0" prefWidth="90.0" text="Pubblica" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="30.0" />
+                              <Label fx:id="pubblica" alignment="CENTER" layoutX="699.0" layoutY="31.0" onMouseClicked="#pubblicateComment" prefHeight="18.0" prefWidth="90.0" text="Publish" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="30.0" />
                               <HBox alignment="CENTER" layoutX="292.0" layoutY="52.0" prefHeight="28.0" prefWidth="803.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <children>
                                     <Label fx:id="counter" alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="136.0" />
