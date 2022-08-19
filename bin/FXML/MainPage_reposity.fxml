@@ -24,7 +24,7 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label id="labelRicerca" prefHeight="26.0" prefWidth="140.0" text="Search Song" />
+                                    <Label id="labelRicerca" fx:id="searchSong" prefHeight="26.0" prefWidth="140.0" text="Search Song" />
                                     <TextField fx:id="KeywordTextField" maxWidth="900.0" prefHeight="30.0" prefWidth="407.0" promptText="search song" />
                                  </children>
                               </HBox>
@@ -37,7 +37,7 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label id="filterLabel" prefHeight="26.0" prefWidth="140.0" text="Sort Items" />
+                                    <Label id="filterLabel" fx:id="sortItems" prefHeight="26.0" prefWidth="140.0" text="Sort Items" />
                                     <ComboBox fx:id="filter" onAction="#update" prefHeight="26.0" prefWidth="180.0" promptText="filter" />
                                  </children>
                               </HBox>

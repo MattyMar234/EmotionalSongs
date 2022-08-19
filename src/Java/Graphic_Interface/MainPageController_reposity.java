@@ -56,6 +56,8 @@ public class MainPageController_reposity extends Controller implements Initializ
     @FXML private Button optionsButton;
     @FXML private Button ExitButton;
     @FXML private Label SerachLabel;
+    @FXML private Label searchSong;
+    @FXML private Label sortItems;
     @FXML private ComboBox<FilterState> filter;
 
     private ObservableList<Container> list = FXCollections.observableArrayList();
@@ -80,6 +82,11 @@ public class MainPageController_reposity extends Controller implements Initializ
             return s;
         }
     }
+
+    final static private String [][] matrice = {
+        {"Cerca Canzone", "Search Song"},
+        {"Ordina elementi", "Sort Items"}
+    };
 
 
     public class Container {
@@ -118,6 +125,11 @@ public class MainPageController_reposity extends Controller implements Initializ
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) 
     {
+
+        searchSong.setText(MainPageController_reposity.matrice[0][EmotionalSongs.language]);
+        sortItems.setText(MainPageController_reposity.matrice[1][EmotionalSongs.language]);
+
+
         for(Song song : application.songManager.getList()) {
             list.add(new Container(song, this));
         }
