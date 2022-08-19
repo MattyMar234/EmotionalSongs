@@ -32,6 +32,7 @@ public class EmotionalSongs extends Application{
     public static final String iconsFolder  = Directory + "\\data\\icon\\";
     public static final String imageFolder  = Directory + "\\data\\image\\";
     public static final String emojiFolder  = Directory + "\\data\\EmojiIcon\\";
+    public static final String flagFolder   = Directory + "\\data\\Flag\\";
 
     public static final String SongFile     = Directory + "\\data\\song.json";
     public static final String UsersFile    = Directory + "\\data\\UtentiRegistrati.json";
@@ -66,7 +67,7 @@ public class EmotionalSongs extends Application{
 
     public static EmotionalSongs classReference;                    //riferimento globale di questa classe
     public static WindowContainerController windowPageReference;
-    public static int language = 1; //italiano 0, inglese 1
+    public static int language = 0; //italiano 0, inglese 1
 
 
     public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
@@ -92,7 +93,7 @@ public class EmotionalSongs extends Application{
         if(language == 0){
             System.out.println("Italian");
         }
-        else if(language == 1){
+        else{
             System.out.println("English");
         }
     }
@@ -148,11 +149,26 @@ public class EmotionalSongs extends Application{
 
                     System.out.println(obj);
     
+                    //test user
                     if(obj.get("testUser") != null && ((String) obj.get("testUser")).equals("true")) {
                         ConnectedAccount = AccountsManager.SearchByEmail("test@gmail.com");
                         
                         if(ConnectedAccount != null) {
                             skipLogin = true;
+                        }
+                    }
+
+                    //language
+                    if(obj.get("language") != null) {
+
+                        switch(((String) obj.get("language"))) 
+                        {
+                            case "fr":  language = 2; break;
+                            case "en":  language = 1; break;
+                            case "it":  language = 0; break;
+                            
+                            default: 
+                             language = 0;
                         }
                     }
                 }
@@ -194,6 +210,7 @@ public class EmotionalSongs extends Application{
                 //int r = i*(size + offset) + start*(i + 1);
                 //System.out.println("sunImage " + i + "start:" + r + " end: " + (r + size) );
             }*/
+
 
             //ottengo tutti i file nella directory
             File folder = new File(emojiFolder);

@@ -2,21 +2,33 @@
 
 
 
-#EmotionTable, #AddedEmotionTable 
+#EmotionTable, #AddedEmotionTable, #emotionTable 
 {
     -fx-padding: 0px;
     -fx-text-fill: #fcfcfc;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
    
 }
 
-#EmotionTable .column-header, #AddedEmotionTable .column-header ,
-#EmotionTable .column-header-background .filler, #AddedEmotionTable .column-header-background .filler,
-#EmotionTable .column-header-background , #AddedEmotionTable .column-header-background 
+#EmotionTable .column-header, 
+#AddedEmotionTable .column-header,
+#emotionTable .column-header
+
+#EmotionTable .column-header-background .filler, 
+#AddedEmotionTable .column-header-background .filler,
+#emotionTable .column-header-background .filler,
+
+#EmotionTable .column-header-background, 
+#AddedEmotionTable .column-header-background,
+#emotionTable .column-header-background 
 {
     -fx-padding: 0 0 0 0;
 }
 
-#EmotionTable .column-header-background .label , #AddedEmotionTable .column-header-background .label 
+#EmotionTable .column-header-background .label , 
+#AddedEmotionTable .column-header-background .label, 
+#emotionTable .column-header-background .label
 {
     -fx-text-fill: #8f8f8f;
     -fx-alignment: center;
@@ -29,13 +41,17 @@
    
 }
 
-#EmotionTable .table-cell, #AddedEmotionTable .table-cell
+#EmotionTable .table-cell, 
+#AddedEmotionTable .table-cell, 
+#emotionTable .table-cell 
 {
     -fx-alignment: center;
     /*-fx-border-width: 0 0.5 0 0;*/
 }
 
-#EmotionTable .table-row-cell , #AddedEmotionTable .table-row-cell 
+#EmotionTable .table-row-cell , 
+#AddedEmotionTable .table-row-cell, 
+#emotionTable .table-row-cell 
 {
     -fx-padding: 0 0 0 0; 
     -fx-cell-size: 50px;

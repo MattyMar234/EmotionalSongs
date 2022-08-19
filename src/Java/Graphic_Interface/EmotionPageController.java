@@ -25,14 +25,21 @@ public class EmotionPageController extends Controller implements Initializable{
     @FXML private TableColumn<Container, String> category;
     @FXML private TableColumn<Container, String> explanation;
     @FXML private TableColumn<Container, String> score;
+
+    @FXML private TableView<Container> emotionTableScores;
+    @FXML private TableColumn<Container, Integer> users;
+    @FXML private TableColumn<Container, String> category1;
+    @FXML private TableColumn<Container, Float> average;
     
     private Song canzoneAssociata;
     private MainPageController mainController;
     public ObservableList<Container> list = FXCollections.observableArrayList();
+    public ObservableList<Container> media = FXCollections.observableArrayList();
 
+    private int datiMedia [][] = new int[2][9];
 
-    public class Container {
-        
+    public class Container 
+    {
         private Emotion e;
         private Song s;
 
@@ -41,10 +48,18 @@ public class EmotionPageController extends Controller implements Initializable{
         public String description;
         public String score;
 
-        public Container(Emotion e, Song song) {
-            this.e = e;
-            this.s = song;
 
+        public float media;
+        public int users;
+
+        public Container(Song song) {
+            this.s = song;
+        }
+
+        public Container(Emotion e, Song song) {
+            this(song);
+
+            this.e = e;
             this.name = e.getAccountID();
             this.category = e.getCategory();
             this.description = e.getExplanation();
@@ -63,10 +78,15 @@ public class EmotionPageController extends Controller implements Initializable{
         public String getCategory() {
             return category;
         }
-        
-    }
 
-    
+        public float getMedia() {
+            return media;
+        }
+
+        public float getUsers() {
+            return users;
+        }
+    }
 
     public EmotionPageController() {
         super();
@@ -82,15 +102,39 @@ public class EmotionPageController extends Controller implements Initializable{
 
         for(Emotion e : canzoneAssociata.getEmotions()) {
             list.add(new Container(e, canzoneAssociata));
+
+            int i = Emotion.getEmotionID(e);
+
+            datiMedia[0][i]++;                  //contatori utenti
+            datiMedia[1][i] += e.getScore();    //contatori dei punteggi
+        }
+
+        for(int i = 0; i < 9; i++) {
+            if(datiMedia[0][i] > 0) {
+                Container c = new Container(Emotion.Emotions[i], canzoneAssociata);
+
+                c.users = datiMedia[0][i];
+                c.media = datiMedia[1][i] / datiMedia[0][i];
+
+                media.add(c);
+            }
         }
 
         user.setCellValueFactory(new PropertyValueFactory<Container, String>("name"));
         category.setCellValueFactory(new PropertyValueFactory<Container, String>("category"));
         explanation.setCellValueFactory(new PropertyValueFactory<Container, String>("description"));     
-        score.setCellValueFactory(new PropertyValueFactory<Container, String>("score"));     
+        score.setCellValueFactory(new PropertyValueFactory<Container, String>("score"));
+        
+        users.setCellValueFactory(new PropertyValueFactory<Container, Integer>("users"));
+        category1.setCellValueFactory(new PropertyValueFactory<Container, String>("category"));
+        average.setCellValueFactory(new PropertyValueFactory<Container, Float>("media"));
     
+
         emotionTable.setItems(list);
         emotionTable.setSelectionModel(null);
+
+        emotionTableScores.setItems(media);
+        emotionTableScores.setSelectionModel(null);
     }
     
 

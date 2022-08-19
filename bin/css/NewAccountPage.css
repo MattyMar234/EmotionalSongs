@@ -133,8 +133,6 @@
 .combo-box-popup .list-view .list-cell 
 {
     -fx-padding: 4 0 4 5;
-
-    /* No alternate highlighting */
     -fx-background-color: #56618177;
     
 }

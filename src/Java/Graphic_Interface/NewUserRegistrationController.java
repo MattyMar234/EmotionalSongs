@@ -19,8 +19,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -30,13 +28,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class NewUserRegistrationController extends Controller implements Initializable {
-    
-    private boolean debug = true;
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
+public class NewUserRegistrationController extends Controller implements Initializable 
+{
     @FXML private Button confirmButton;
     @FXML private Button BackButton;
     @FXML public TextField name;
@@ -46,11 +39,10 @@ public class NewUserRegistrationController extends Controller implements Initial
     @FXML public PasswordField password;
     @FXML public PasswordField password2;
     @FXML public TextField civicNumber;
-    //@FXML public TextField cap;
-    @FXML public TextField comune;
-    @FXML public TextField provincia;
     @FXML public TextField codiceFiscale;
     @FXML public TextField viaPiazza;
+    
+    
 
     @FXML public Label label1;
     @FXML public Label label2;
@@ -59,15 +51,19 @@ public class NewUserRegistrationController extends Controller implements Initial
     @FXML public Label label5;
     @FXML public Label label6;
     @FXML public Label label7;
-    @FXML public Label label8;
-    @FXML public Label label9;
-    @FXML public Label label10;
     @FXML public Label label11;
     @FXML public Label label12;
+
+    @FXML private Label label8;
+    @FXML private Label label9;
+    @FXML private Label label10;
 
     @FXML private ComboBox<String> cap;
     @FXML private ComboBox<String> common;
     @FXML private ComboBox<String> province;
+
+
+    
 
     private AutoCompleteComboBoxListener<String> c1;
     private AutoCompleteComboBoxListener<String> c2;
@@ -76,9 +72,10 @@ public class NewUserRegistrationController extends Controller implements Initial
 
 
     Field [] variabili = this.getClass().getFields();      //tutte le variabili public
+    
+    ArrayList<ElementsContainer> contenitori = new ArrayList<ElementsContainer>();
     ArrayList<String> variabiliNome = new  ArrayList<String>();
     ArrayList<String> LabelsNome = new  ArrayList<String>();
-    ArrayList<ElementsContainer> contenitori = new ArrayList<ElementsContainer>();
     
 
     
@@ -106,9 +103,13 @@ public class NewUserRegistrationController extends Controller implements Initial
 
 
         public void setError(String error) {
-            this.text.setStyle("-fx-border-color: red ; -fx-border-width: 1px ;");
-            this.label.setVisible(true);
-            this.label.setText(error);
+            this.text.setStyle(
+                  "-fx-border-color: red;" 
+                  + " -fx-border-width: 1px ;"
+                  + " -fx-border-radius: 0 0 8 0 ;"
+            );
+            //this.label.setVisible(true);
+            //this.label.setText(error);
         }
 
         public void clearError() {
@@ -213,13 +214,7 @@ public class NewUserRegistrationController extends Controller implements Initial
     {
         Queue<String> [] bucket = (Queue<String> []) new LinkedList[chars];
         String w = "";
-        int index = 1;
-
-
-        //System.out.println(l);
-
-        //ArrayList<String> result = new ArrayList<String>();
-        
+    
         
         for(int i = 0; i < chars; i++) {
             bucket[i] = new LinkedList<>();
@@ -239,13 +234,6 @@ public class NewUserRegistrationController extends Controller implements Initial
 
                 //System.out.println("move " + w + " to bucket[" + e + "]");
             }
-
-            /*if(index-- == 1) {
-                for(Queue q : bucket) {
-                    System.out.println(q);
-                }
-            }*/
-
             //sposto tutte le string in bucket[0] poi in l
             for(int j = 1; j < chars; j++ ) {
                 while(bucket[j].size() > 0) 
@@ -255,7 +243,6 @@ public class NewUserRegistrationController extends Controller implements Initial
                     bucket[0].add(str);                     //sposto la stringa
                 }
             }
-            System.out.println(bucket[0].size());
             l = new LinkedList<String>(bucket[0]);
             bucket[0].clear();
         }
@@ -272,20 +259,6 @@ public class NewUserRegistrationController extends Controller implements Initial
         c2 = new AutoCompleteComboBoxListener<>(common);
         c3 = new AutoCompleteComboBoxListener<>(province);
 
-        
-        // reg --> province --> comm
-
-        /*int element = 0;
-
-        for(Region r : regions) { 
-            for(Province p : r.getProvincesList()) {
-                for(Common c : p.getCommonsList()) {
-                    element += c.cap.length;
-                }
-            }
-        }*/
-
-        //int [] caps = new int [element--];
 
         final int minSize = 5;
 
@@ -336,7 +309,7 @@ public class NewUserRegistrationController extends Controller implements Initial
         }
         
         //creo gli array
-        for(Field f : variabili) {
+        /*for(Field f : variabili) {
             if(f.getName().startsWith("label")) {
                 LabelsNome.add(f.getName());
             }
@@ -360,7 +333,20 @@ public class NewUserRegistrationController extends Controller implements Initial
             catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
                 e.printStackTrace();
             }
-        }    
+        }*/
+
+                
+        contenitori.add(new ElementsContainer(name          , label1));
+        contenitori.add(new ElementsContainer(surname       , label2));
+        contenitori.add(new ElementsContainer(userID        , label3));
+        contenitori.add(new ElementsContainer(email         , label4));
+        contenitori.add(new ElementsContainer(password      , label5));
+        contenitori.add(new ElementsContainer(password2     , label6));
+        contenitori.add(new ElementsContainer(civicNumber   , label7));
+        contenitori.add(new ElementsContainer(codiceFiscale , label11));
+        contenitori.add(new ElementsContainer(viaPiazza     , label12));
+  
+
     }
 
 
@@ -372,6 +358,7 @@ public class NewUserRegistrationController extends Controller implements Initial
         RegisteredAccount testAccount;
         boolean error = false;
 
+        System.err.println("here");
         // ================================= 1° verifica ================================= //
         //Verifico se tutti i campi sono stati compilati
 
@@ -381,12 +368,8 @@ public class NewUserRegistrationController extends Controller implements Initial
             String data = container.text.getText();
 
             if(data == null || data.equals("")) {
-                //container.setError("campo non compilato");
+                container.setError("campo non compilato");
                 error = true;
-            }
-            else if(!error) {
-                String key = variabiliNome.get(i).toString();
-                UserCostructor.put(key, data);
             }
         }
 
@@ -435,6 +418,15 @@ public class NewUserRegistrationController extends Controller implements Initial
         // ================================= 6° verifica ================================= //
         //verifica esistenza account
 
+        UserCostructor.put("name", contenitori.get(0).text.getText());
+        UserCostructor.put("surname", contenitori.get(1).text.getText());
+        UserCostructor.put("userID", contenitori.get(2).text.getText());
+        UserCostructor.put("email", contenitori.get(3).text.getText());
+        UserCostructor.put("password", contenitori.get(4).text.getText());
+        UserCostructor.put("civicNumber", contenitori.get(5).text.getText());
+        UserCostructor.put("codiceFiscale", contenitori.get(6).text.getText());
+        UserCostructor.put("codiceFiscale", contenitori.get(7).text.getText());
+
         testAccount = new RegisteredAccount(UserCostructor);
 
         switch(application.AccountsManager.checkAccaunt(testAccount)) 
@@ -478,7 +470,7 @@ public class NewUserRegistrationController extends Controller implements Initial
     @FXML
     void selectCap(ActionEvent event) {
         
-        if(common.getSelectionModel().getSelectedItem() == null && province.getSelectionModel().getSelectedItem() == null) {
+        if(common.getSelectionModel().getSelectedItem() == null && province.getSelectionModel().getSelectedItem() == null || true) {
             String com = cap.getSelectionModel().getSelectedItem().split(" : ")[1];
 
             //metto il comune
@@ -517,7 +509,7 @@ public class NewUserRegistrationController extends Controller implements Initial
         boolean finded = false;
 
         //set CAP
-        if(cap.getSelectionModel().getSelectedItem() == null) {
+        if(cap.getSelectionModel().getSelectedItem() == null || true) {
             for(Region r : regions) { 
                 if(finded) break;
 
@@ -541,7 +533,7 @@ public class NewUserRegistrationController extends Controller implements Initial
         }
 
         //set Province
-        if(province.getSelectionModel().getSelectedItem() == null) 
+        if(province.getSelectionModel().getSelectedItem() == null || true) 
         {
             for(Region r : regions) { 
                 for(Province p : r.getProvincesList()) {

@@ -1,5 +1,4 @@
 {
-	"testUser": "true",
-	"theme" : "dark",
-	"maxUser": "-1"
+	"testUser": "false",
+	"language" : "it"
 }

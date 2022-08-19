@@ -134,7 +134,12 @@ public class Emotion
     }
 
     public String getAccountID() {
-        return this.account.getID();
+        if(this.account == null) {
+            return EmotionalSongs.classReference.ConnectedAccount.getID();
+        }
+        else  {
+            return this.account.getID();
+        }
     }
 
 }
