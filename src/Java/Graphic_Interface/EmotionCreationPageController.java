@@ -29,9 +29,10 @@ import javafx.scene.input.MouseEvent;
 public class EmotionCreationPageController extends Controller implements Initializable {
 
     private final static String [][] matrice = {
-        {"seleziona", ""},     //LoginButton
-        {"", ""},  //NoAccountButton
-        {"", ""}           //NewAccount
+        {"seleziona", "select"},     
+        {"Emozione", "Emotion"},  
+        {"Nome", "Name"},
+        {"Spiegazione", "Explanation"}        
     };
    
     @FXML private TableView   <EmotionContainer> EmotionTable;

@@ -1,5 +1,5 @@
 {
-	"testUser": "false",
+	"testUser": "true",
 	"theme" : "dark",
 	"maxUser": "-1"
 }

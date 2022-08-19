@@ -10,6 +10,7 @@ import Java.Account.RegisteredAccount;
 import Java.Account.UnregisteredAccount;
 import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,6 +59,11 @@ public class MainPageController extends Controller implements Initializable
     public FXMLLoader currentLoader;
     
     
+    final static private String [][] matrice = {
+        {"Impostazioni", "Settings"},
+        {"Cambia Account", "Change Account"},
+        {"Esci", "Exit"}
+    };
 
 
     public MainPageController() throws IOException {
@@ -69,7 +75,12 @@ public class MainPageController extends Controller implements Initializable
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)  
     {
-        
+
+        optionsButton.setText(MainPageController.matrice[0][EmotionalSongs.language]);
+        optionsButton.setText(MainPageController.matrice[1][EmotionalSongs.language]);
+        optionsButton.setText(MainPageController.matrice[2][EmotionalSongs.language]);
+
+
         if(this.windwoPosWidth < 1200.0) {
             this.windwoPosWidth = 1200.0;
             this.application.mainStage.setWidth(this.windwoPosWidth);

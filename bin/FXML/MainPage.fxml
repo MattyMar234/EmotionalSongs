@@ -65,7 +65,7 @@
                         <Insets left="16.0" right="16.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#SetOptions" prefHeight="48.0" prefWidth="200.0" text="Impostazioni">
+                  <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#SetOptions" prefHeight="48.0" prefWidth="200.0" text="Settings">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -77,7 +77,7 @@
                         <Insets left="16.0" right="16.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="CambioButton" mnemonicParsing="false" onAction="#ChangeAccount" prefHeight="48.0" prefWidth="205.0" text="Cambia account">
+                  <Button fx:id="CambioButton" mnemonicParsing="false" onAction="#ChangeAccount" prefHeight="48.0" prefWidth="205.0" text="Change Account">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -89,7 +89,7 @@
                         <Insets left="16.0" right="16.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="ExitButton" mnemonicParsing="false" onAction="#esci" prefHeight="48.0" prefWidth="200.0" text="Esci">
+                  <Button fx:id="ExitButton" mnemonicParsing="false" onAction="#esci" prefHeight="48.0" prefWidth="200.0" text="Exit">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
