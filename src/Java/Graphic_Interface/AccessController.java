@@ -174,7 +174,7 @@ public class AccessController extends Controller implements Initializable {
           }
         });
 
-        flags.getSelectionModel().selectFirst();
+        flags.getSelectionModel().select(EmotionalSongs.language);
             
         clearError();
        

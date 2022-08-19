@@ -52,7 +52,6 @@ public class MainPageController extends Controller implements Initializable
     // ========================= variabili - locali =========================//
     
     ArrayList<Button> buttons = new ArrayList<Button>();
-    private int SelectedButton = 1;
     //private final String ButtonColor = "-fx-background-color: #0bb813;" + "-fx-text-fill:#ffffff;";
     private final String ButtonColor = "-fx-background-color: #f18100f6;" + "-fx-text-fill:#ffffff;";
     protected int state = 1;
@@ -86,11 +85,6 @@ public class MainPageController extends Controller implements Initializable
             this.application.mainStage.setWidth(this.windwoPosWidth);
         }
 
-        /*
-        if(this.windwoPosWidth < (screenSize.getWidth()*100)/80) {
-            this.windwoPosWidth = (screenSize.getWidth()*100)/80;
-            this.application.mainStage.setWidth(this.windwoPosWidth);
-        }*/
 
         if(this.windwoPosHeight < 800.0) {
             this.windwoPosHeight = 800.0;
