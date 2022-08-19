@@ -16,7 +16,7 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <AnchorPane fx:id="searchPane" prefHeight="112.0" prefWidth="803.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="searchPane" prefHeight="130.0" prefWidth="803.0" BorderPane.alignment="CENTER">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
                      <children>
@@ -24,8 +24,8 @@
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label id="labelRicerca" prefHeight="18.0" prefWidth="120.0" text="Cerca Brano" />
-                                    <TextField fx:id="KeywordTextField" maxWidth="900.0" prefHeight="30.0" prefWidth="428.0" promptText="cerca canzone..." />
+                                    <Label id="labelRicerca" prefHeight="26.0" prefWidth="140.0" text="Search Song" />
+                                    <TextField fx:id="KeywordTextField" maxWidth="900.0" prefHeight="30.0" prefWidth="407.0" promptText="search song" />
                                  </children>
                               </HBox>
                            </children>
@@ -33,12 +33,12 @@
                               <Insets bottom="10.0" top="6.0" />
                            </VBox.margin>
                         </AnchorPane>
-                        <AnchorPane prefHeight="100.0" prefWidth="200.0">
+                        <AnchorPane prefHeight="100.0" prefWidth="783.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label id="filterLabel" prefHeight="18.0" prefWidth="120.0" text="Ordina Elementi" />
-                                    <ComboBox fx:id="filter" onAction="#update" prefHeight="26.0" prefWidth="190.0" promptText="filtro" />
+                                    <Label id="filterLabel" prefHeight="26.0" prefWidth="140.0" text="Sort Items" />
+                                    <ComboBox fx:id="filter" onAction="#update" prefHeight="26.0" prefWidth="180.0" promptText="filter" />
                                  </children>
                               </HBox>
                            </children>

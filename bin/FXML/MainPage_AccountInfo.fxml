@@ -33,7 +33,7 @@
                            <children>
                               <HBox alignment="CENTER" prefHeight="63.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Label id="labelmenuPlaylist" prefHeight="57.0" prefWidth="271.0" text="Informazioni Account">
+                                    <Label id="labelmenuPlaylist" prefHeight="57.0" prefWidth="271.0" text="Account Information">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font></Label>

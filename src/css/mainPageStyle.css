@@ -19,10 +19,10 @@
 }
 
 #labelRicerca, #filterLabel {
-    -fx-text-fill:#02ec5c; 
+    -fx-text-fill:#ee8700;
     /*-fx-font-weight: bold;*/
     -fx-letter-spacing: 2px;
-    -fx-font-size: 15px;
+    -fx-font-size: 17px;
     -fx-marging: 0 10 0 0;
 
     -fx-font-weight: bold;
