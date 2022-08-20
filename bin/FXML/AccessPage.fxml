@@ -18,7 +18,7 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <AnchorPane prefHeight="111.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <children>
                   <ComboBox fx:id="flags" onAction="#changeLanguage" prefHeight="26.0" prefWidth="84.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0" />
                </children>
@@ -27,9 +27,9 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" prefHeight="601.0" prefWidth="600.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
+                        <HBox alignment="CENTER" prefHeight="126.0" prefWidth="600.0">
                            <children>
                               <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

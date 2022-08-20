@@ -19,7 +19,7 @@
                <children>
                   <TableView fx:id="EmotionTable" maxHeight="-Infinity" onMouseClicked="#clicked" prefHeight="550.0" prefWidth="200.0">
                      <columns>
-                        <TableColumn fx:id="emotionSelection" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="seleziona" />
+                        <TableColumn fx:id="emotionSelection" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="select" />
                         <TableColumn fx:id="emotion" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Emozione" />
                         <TableColumn fx:id="name" minWidth="160.0" prefWidth="160.0" text="Nome" />
                         <TableColumn fx:id="explanation" minWidth="200.0" prefWidth="200.0" text="Spiegazione" />
@@ -34,7 +34,7 @@
                   </TableView>
                   <TableView fx:id="AddedEmotionTable" maxHeight="-Infinity" onMouseClicked="#clicked" prefHeight="550.0" prefWidth="200.0">
                      <columns>
-                        <TableColumn fx:id="emotionSelection1" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="seleziona" />
+                        <TableColumn fx:id="emotionSelection1" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="select" />
                         <TableColumn fx:id="emotion1" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Emozione" />
                         <TableColumn fx:id="name1" minWidth="160.0" prefWidth="160.0" text="Nome" />
                         <TableColumn fx:id="explanation1" minWidth="200.0" prefWidth="200.0" text="Spiegazione" />

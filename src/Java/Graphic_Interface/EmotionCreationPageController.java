@@ -10,6 +10,7 @@ import Java.Account.RegisteredAccount;
 import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
 import Java.emotionalsongs.Emotion;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,7 +33,8 @@ public class EmotionCreationPageController extends Controller implements Initial
         {"seleziona", "select"},     
         {"Emozione", "Emotion"},  
         {"Nome", "Name"},
-        {"Spiegazione", "Explanation"}        
+        {"Spiegazione", "Explanation"},
+        {"Valore", "Value"}       
     };
    
     @FXML private TableView   <EmotionContainer> EmotionTable;
@@ -103,12 +105,12 @@ public class EmotionCreationPageController extends Controller implements Initial
             if(state == 1) {
                 enable = new Button();
                 enable.setId("save_Button");
-                enable.setText("Includi Emozione");
+                enable.setText(EmotionalSongs.language == 0 ? "Includi Emozione" : "Include Emotion");
             }
             else {
                 enable = new Button();
                 enable.setId("cance_Button");
-                enable.setText("Escludi Emozione");
+                enable.setText(EmotionalSongs.language == 0 ? "Escludi Emozione" : "Exclude Emotion");
             }
 
             enable.setOnAction(new EventHandler<ActionEvent>() {
@@ -148,6 +150,19 @@ public class EmotionCreationPageController extends Controller implements Initial
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+
+        emotionSelection.setText(EmotionCreationPageController.matrice[0][EmotionalSongs.language]);
+        emotionSelection1.setText(EmotionCreationPageController.matrice[0][EmotionalSongs.language]);
+        emotion.setText(EmotionCreationPageController.matrice[1][EmotionalSongs.language]);
+        emotion1.setText(EmotionCreationPageController.matrice[1][EmotionalSongs.language]);
+        name.setText(EmotionCreationPageController.matrice[2][EmotionalSongs.language]);
+        name1.setText(EmotionCreationPageController.matrice[2][EmotionalSongs.language]);
+        explanation.setText(EmotionCreationPageController.matrice[3][EmotionalSongs.language]);
+        explanation1.setText(EmotionCreationPageController.matrice[3][EmotionalSongs.language]);
+        values.setText(EmotionCreationPageController.matrice[4][EmotionalSongs.language]);
+        values1.setText(EmotionCreationPageController.matrice[4][EmotionalSongs.language]);
+
+
         ArrayList<Emotion> userEmotion = song.getUserEmotions(super.application.ConnectedAccount.getID());
         boolean [] missingEmotion = new boolean[9];
 
