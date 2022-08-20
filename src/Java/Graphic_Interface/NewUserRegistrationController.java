@@ -42,28 +42,17 @@ public class NewUserRegistrationController extends Controller implements Initial
     @FXML public TextField codiceFiscale;
     @FXML public TextField viaPiazza;
     
-    
 
-    @FXML public Label label1;
-    @FXML public Label label2;
-    @FXML public Label label3;
-    @FXML public Label label4;
-    @FXML public Label label5;
-    @FXML public Label label6;
-    @FXML public Label label7;
-    @FXML public Label label11;
-    @FXML public Label label12;
+    @FXML private Label labelID;
+    @FXML private Label labelSing;
+    @FXML private Label LabelEmail;
+    @FXML private Label LabelPassword2;
 
-    @FXML private Label label8;
-    @FXML private Label label9;
-    @FXML private Label label10;
 
     @FXML private ComboBox<String> cap;
     @FXML private ComboBox<String> common;
     @FXML private ComboBox<String> province;
 
-
-    
 
     private AutoCompleteComboBoxListener<String> c1;
     private AutoCompleteComboBoxListener<String> c2;
@@ -84,11 +73,17 @@ public class NewUserRegistrationController extends Controller implements Initial
     {
         public TextField text;
         public Label label;
+        public ComboBox<String> comb;
 
         //costruttore 1
         public ElementsContainer(TextField text, Label label) {
             this.text = text;
             this.label = label;
+        }
+
+        //costruttore 2
+        public ElementsContainer(ComboBox<String> comboBox) {
+            this.comb = comboBox;
         }
 
         //costruttore 2
@@ -103,18 +98,45 @@ public class NewUserRegistrationController extends Controller implements Initial
 
 
         public void setError(String error) {
-            this.text.setStyle(
-                  "-fx-border-color: red;" 
-                  + " -fx-border-width: 1px ;"
+            if(text != null) {
+                this.text.setStyle(
+                  "-fx-border-color:red;" 
+                  +"-fx-text-fill:red;"
+                  + " -fx-border-width: 0.5px ;"
                   + " -fx-border-radius: 0 0 8 0 ;"
-            );
+                );
+            }
+            else {
+                this.comb.setStyle(
+                  "-fx-border-color: red;" 
+                  +"-fx-text-fill:red;"
+                  + " -fx-border-width: 0.5px ;"
+                  + " -fx-border-radius: 0 0 8 0 ;"
+                );
+            }
             //this.label.setVisible(true);
             //this.label.setText(error);
         }
 
         public void clearError() {
             //this.text.setStyle("");
-            this.label.setVisible(false);
+            //if(label != null)this.label.setVisible(false);
+            if(text != null) {
+                this.text.setStyle(
+                  "-fx-border-color: red;" 
+                  +"-fx-text-fill:#FFFFFF;"
+                  + " -fx-border-width: 0px ;"
+                  + " -fx-border-radius: 0 0 8 0 ;"
+                );
+            }
+            else {
+                this.comb.setStyle(
+                  "-fx-border-color: red;" 
+                  +"-fx-text-fill:#FFFFFF;"
+                  + " -fx-border-width: 0px ;"
+                  + " -fx-border-radius: 0 0 8 0 ;"
+                );
+            }
         }
     }
 
@@ -209,6 +231,20 @@ public class NewUserRegistrationController extends Controller implements Initial
         super();
     }
 
+    private void SetLabelError(Label l) {
+        l.setStyle(
+               "-fx-text-fill:#FF0000;"
+            + " -fx-font-size: 14px ;"
+        );  
+    }
+
+    private void ClearLabelError(Label l) {
+        l.setStyle(
+               "-fx-text-fill:transparent;"
+            + " -fx-font-size: 14px ;"
+        );  
+    }
+
     @SuppressWarnings("unchecked")
     private Queue<String> BucketSort(Queue<String> l, int lenght, int chars, int offset) 
     {
@@ -258,6 +294,11 @@ public class NewUserRegistrationController extends Controller implements Initial
         c1 = new AutoCompleteComboBoxListener<>(cap);
         c2 = new AutoCompleteComboBoxListener<>(common);
         c3 = new AutoCompleteComboBoxListener<>(province);
+
+        ClearLabelError(labelID);
+        ClearLabelError(labelSing);
+        ClearLabelError(LabelEmail);
+        ClearLabelError(LabelPassword2);
 
 
         final int minSize = 5;
@@ -336,61 +377,75 @@ public class NewUserRegistrationController extends Controller implements Initial
         }*/
 
                 
-        contenitori.add(new ElementsContainer(name          , label1));
-        contenitori.add(new ElementsContainer(surname       , label2));
-        contenitori.add(new ElementsContainer(userID        , label3));
-        contenitori.add(new ElementsContainer(email         , label4));
-        contenitori.add(new ElementsContainer(password      , label5));
-        contenitori.add(new ElementsContainer(password2     , label6));
-        contenitori.add(new ElementsContainer(civicNumber   , label7));
-        contenitori.add(new ElementsContainer(codiceFiscale , label11));
-        contenitori.add(new ElementsContainer(viaPiazza     , label12));
+        contenitori.add(new ElementsContainer(name          , null));
+        contenitori.add(new ElementsContainer(surname       , null));
+        contenitori.add(new ElementsContainer(userID        , null));
+        contenitori.add(new ElementsContainer(email         , null)); //3
+        contenitori.add(new ElementsContainer(password      , null));
+        contenitori.add(new ElementsContainer(password2     , null));
+        contenitori.add(new ElementsContainer(civicNumber   , null));
+        contenitori.add(new ElementsContainer(codiceFiscale , null));
+        contenitori.add(new ElementsContainer(viaPiazza     , null));
+        
+        contenitori.add(new ElementsContainer(cap     ));
+        contenitori.add(new ElementsContainer(common     ));
+        contenitori.add(new ElementsContainer(province));
   
 
     }
 
 
-
     @SuppressWarnings("unchecked")
     public void validateNewUser() throws IOException 
     {
+        
         JSONObject UserCostructor = new JSONObject();
         RegisteredAccount testAccount;
         boolean error = false;
 
-        System.err.println("here");
+        ClearLabelError(labelID);
+        ClearLabelError(labelSing);
+        ClearLabelError(LabelEmail);
+        ClearLabelError(LabelPassword2);
+
+
         // ================================= 1° verifica ================================= //
         //Verifico se tutti i campi sono stati compilati
 
-        for(int i = 0; i < contenitori.size(); i++) 
+        for(int i = 0; i < contenitori.size() - 3; i++) 
         {
             ElementsContainer container = contenitori.get(i);
             String data = container.text.getText();
 
             if(data == null || data.equals("")) {
-                container.setError("campo non compilato");
+                error = true;
+            }
+        }
+
+        for(int i = contenitori.size() - 3; i < contenitori.size(); i++) 
+        {
+            ElementsContainer container = contenitori.get(i);
+            String data = container.comb.getSelectionModel().getSelectedItem();
+
+            if(data == null) {
                 error = true;
             }
         }
 
         if(error) {
+            SetLabelError(labelSing);
+            labelSing.setText(EmotionalSongs.language == 0 ? "Campi non compilati" : "Fields not filled in");
             return;
         }
         
         // ================================= 2° verifica ================================= //
-        //verifica password
         
-        if(!password.getText().equals(password2.getText())) {
-            contenitori.get(5).setError("Le password non coincidono");
-            return;
-        }
 
         // ================================= 3° verifica ================================= //
         //verifica provincia
 
-        Province prov = this.application.locationsManager.FindProvince((String) UserCostructor.get("provincia"));
+        /*Province prov = this.application.locationsManager.FindProvince((String) UserCostructor.get("provincia"));
         if(prov == null) {
-
             return;
         }
 
@@ -401,16 +456,24 @@ public class NewUserRegistrationController extends Controller implements Initial
         if(common == null) {
             
             return;
-        }
+        }*/
 
         // ================================= 5° verifica ================================= //
         //verifica validità email
 
-        String email = (String) UserCostructor.get("email");
+        String email = contenitori.get(3).text.getText();
         String dominio = "@gmail.com";
 
-        if(!email.endsWith(dominio) && (email.length() - dominio.length()) <= 0) {
+        if(!email.endsWith(dominio) || (email.length() - dominio.length()) <= 0) {
+            SetLabelError(LabelEmail);
+            LabelEmail.setText(EmotionalSongs.language == 0 ? "E-email non valida" : "Invalid e-mail");
+            return;
+        }
 
+        //verifica password
+        if(!password.getText().equals(password2.getText())) {
+            SetLabelError(LabelPassword2);
+            LabelPassword2.setText(EmotionalSongs.language == 0 ? "Le password non coincidono" : "Passwords do not match");
             return;
         }
 
@@ -418,14 +481,14 @@ public class NewUserRegistrationController extends Controller implements Initial
         // ================================= 6° verifica ================================= //
         //verifica esistenza account
 
-        UserCostructor.put("name", contenitori.get(0).text.getText());
-        UserCostructor.put("surname", contenitori.get(1).text.getText());
-        UserCostructor.put("userID", contenitori.get(2).text.getText());
-        UserCostructor.put("email", contenitori.get(3).text.getText());
-        UserCostructor.put("password", contenitori.get(4).text.getText());
-        UserCostructor.put("civicNumber", contenitori.get(5).text.getText());
+        UserCostructor.put("name",          contenitori.get(0).text.getText());
+        UserCostructor.put("surname",       contenitori.get(1).text.getText());
+        UserCostructor.put("userID",        contenitori.get(2).text.getText());
+        UserCostructor.put("email",         contenitori.get(3).text.getText());
+        UserCostructor.put("password",      contenitori.get(4).text.getText());
+        UserCostructor.put("civicNumber",   contenitori.get(5).text.getText());
         UserCostructor.put("codiceFiscale", contenitori.get(6).text.getText());
-        UserCostructor.put("codiceFiscale", contenitori.get(7).text.getText());
+        UserCostructor.put("viaPiazza",     contenitori.get(7).text.getText());
 
         testAccount = new RegisteredAccount(UserCostructor);
 
@@ -434,7 +497,6 @@ public class NewUserRegistrationController extends Controller implements Initial
             case 0:
                 application.AccountsManager.appendData(testAccount);
                 application.ConnectedAccount = testAccount;
-                System.out.println("New Account added");
 
                 Stage Window = (Stage) confirmButton.getScene().getWindow();
                 super.SwitchScene("MainPage");
@@ -442,11 +504,14 @@ public class NewUserRegistrationController extends Controller implements Initial
         
             //Email non valida
             case 1:
-
+                LabelEmail.setText(EmotionalSongs.language == 0 ? "Email già utilizzata" : "Email already used");
+                SetLabelError(LabelEmail);
                 break;
 
             //cUser ID non valido
             case 2:
+                SetLabelError(labelID);
+                labelID.setText(EmotionalSongs.language == 0 ? "ID già utilizzata" : "ID already used");
                 break;
         }
     }
