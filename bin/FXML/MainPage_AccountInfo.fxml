@@ -20,16 +20,16 @@
                <children>
                   <BorderPane prefHeight="799.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
-                        <AnchorPane prefHeight="75.0" prefWidth="720.0" BorderPane.alignment="CENTER" />
+                        <AnchorPane prefHeight="10.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
                      </top>
                      <center>
-                        <AnchorPane prefHeight="550.0" prefWidth="134.0" BorderPane.alignment="CENTER">
+                        <AnchorPane prefHeight="735.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                            <children>
-                              <HBox alignment="CENTER" fillHeight="false" prefHeight="600.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                              <HBox alignment="CENTER" fillHeight="false" layoutY="20.0" prefHeight="710.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <VBox fx:id="elements" alignment="TOP_CENTER" prefHeight="820.0" prefWidth="700.0">
+                                    <VBox fx:id="elements" alignment="TOP_CENTER" prefHeight="730.0" prefWidth="836.0">
                                        <children>
-                                          <HBox alignment="BOTTOM_CENTER" prefHeight="63.0" prefWidth="720.0">
+                                          <HBox alignment="BOTTOM_CENTER" prefHeight="80.0" prefWidth="800.0">
                                              <children>
                                                 <Label id="labelmenuPlaylist" prefHeight="57.0" prefWidth="271.0" text="Account">
                                                    <font>
@@ -41,7 +41,7 @@
                                                 <Insets bottom="30.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <AnchorPane prefHeight="18.0" prefWidth="670.0">
+                                          <AnchorPane prefHeight="61.0" prefWidth="800.0">
                                              <children>
                                                 <Label contentDisplay="CENTER" prefHeight="20.0" prefWidth="200.0" text="Account Information" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                                                    <font>
@@ -68,7 +68,7 @@
                                                 </GridPane>
                                              </children>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="17.0" prefWidth="670.0">
+                                          <AnchorPane prefHeight="18.0" prefWidth="670.0">
                                              <children>
                                                 <Label contentDisplay="CENTER" layoutY="-4.0" prefHeight="50.0" prefWidth="200.0" text="Basic Information" textAlignment="CENTER" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                                                    <font>
@@ -106,7 +106,7 @@
                         </AnchorPane>
                      </center>
                      <bottom>
-                        <AnchorPane prefHeight="60.0" prefWidth="720.0" BorderPane.alignment="CENTER" />
+                        <AnchorPane prefHeight="60.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
                      </bottom>
                   </BorderPane>
                </children>

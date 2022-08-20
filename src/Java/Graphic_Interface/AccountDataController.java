@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Java.Account.RegisteredAccount;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -110,6 +111,8 @@ public class AccountDataController extends Controller implements Initializable  
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        
+
         RegisteredAccount account = (RegisteredAccount)super.application.ConnectedAccount;
        
         grid1.setAlignment(Pos.CENTER);
@@ -126,9 +129,9 @@ public class AccountDataController extends Controller implements Initializable  
 
         for(int i = 0; i < testi.length; i++) 
         {
-            Label label = new Label(testi[i][0] + " :\t\t\t");
+            Label label = new Label(testi[i][EmotionalSongs.language] + " :\t\t\t");
             TextField tf = new TextField(account.accountKeys.get(testi[i][1].toLowerCase()));
-            Button bt = new Button("Modifica");
+            Button bt = new Button(EmotionalSongs.language == 0 ? "Modifica" : "Edit");
 
             label.setStyle("-fx-text-fill: rgb(2, 253, 199);");
 

@@ -41,6 +41,7 @@ public class Emotion
     public static Emotion Emotion_Joy        = new Emotion(matrice[6][EmotionalSongs.language], matrice[15][EmotionalSongs.language]);
     public static Emotion Emotion_Tension    = new Emotion(matrice[7][EmotionalSongs.language], matrice[16][EmotionalSongs.language]);
     public static Emotion Emotion_Sadness    = new Emotion(matrice[8][EmotionalSongs.language], matrice[17][EmotionalSongs.language]);
+
     public static Image [] emotionImage      = new Image[10];
     
     public static HashMap<String,Image> EmotionHashMap = new HashMap<String,Image>();
