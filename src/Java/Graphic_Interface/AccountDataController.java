@@ -27,6 +27,8 @@ public class AccountDataController extends Controller implements Initializable  
     @FXML private GridPane  grid1;
     @FXML private GridPane  grid2;
     @FXML private VBox elements;
+    @FXML private Label AccounInformation;
+    @FXML private Label BasicInformation;
 
     private static final boolean [] setButton = {
         true,true,false,false,false, true,true,true,true,true,
@@ -111,7 +113,8 @@ public class AccountDataController extends Controller implements Initializable  
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        
+        AccounInformation.setText(EmotionalSongs.language == 0 ? "Informazioni Account" : "Account Information");
+        BasicInformation.setText(EmotionalSongs.language == 0 ? "Informazioni di base" : "Basic Information");
 
         RegisteredAccount account = (RegisteredAccount)super.application.ConnectedAccount;
        

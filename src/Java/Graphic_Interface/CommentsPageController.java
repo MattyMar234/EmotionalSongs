@@ -41,6 +41,8 @@ public class CommentsPageController extends Controller implements Initializable
 
     @FXML private AnchorPane writerElement;
 
+    @FXML private Label Back;
+
 
     private ObservableList<Comment> commnetsList = FXCollections.observableArrayList();
     private MainPageController mainControllerPage;
@@ -100,7 +102,7 @@ public class CommentsPageController extends Controller implements Initializable
     public void update() {
         
         String d = Integer.toString(textArea.getText().length());
-        counter.setText("char: " + d + " di 256");
+        counter.setText(EmotionalSongs.language == 0 ? "carattere: " + d + " di 256" : "char: " + d + " di 256");
         System.out.println(textArea.getText().length());
     }
 
@@ -108,6 +110,9 @@ public class CommentsPageController extends Controller implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+
+        Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
+
         if(playlist == null) {
             writerElement.setVisible(false);
         }
@@ -119,7 +124,7 @@ public class CommentsPageController extends Controller implements Initializable
         textArea.setMaxHeight(400);
 
         String d = Integer.toString(textArea.getText().length());
-        counter.setText("char: " + d + " di 256");
+        counter.setText(EmotionalSongs.language == 0 ? "carattere: " + d + " di 256" : "char: " + d + " di 256");
         //counter.setVisible(false);
 
 

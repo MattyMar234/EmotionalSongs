@@ -16,9 +16,9 @@
 
 <AnchorPane fx:id="MainBackPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="965.0" prefWidth="685.0" stylesheets="@../css/NewAccountPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.NewUserRegistrationController">
    <children>
-      <HBox alignment="CENTER" layoutX="200.0" layoutY="366.0" prefHeight="865.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="CENTER" layoutX="200.0" layoutY="10.0" prefHeight="955.0" prefWidth="685.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="965.0" prefWidth="553.0">
+            <VBox alignment="CENTER" prefHeight="941.0" prefWidth="554.0">
                <children>
                   <AnchorPane fx:id="fieldsContainer" prefHeight="852.0" prefWidth="553.0">
                      <children>
@@ -582,9 +582,9 @@
                                     <Insets />
                                  </VBox.margin>
                               </AnchorPane>
-                              <AnchorPane prefHeight="104.0" prefWidth="551.0">
+                              <AnchorPane prefHeight="38.0" prefWidth="553.0">
                                  <children>
-                                    <VBox alignment="CENTER" layoutY="16.0" prefHeight="142.0" prefWidth="551.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
+                                    <VBox alignment="CENTER" layoutY="16.0" prefHeight="142.0" prefWidth="551.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                                        <children>
                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                              <children>

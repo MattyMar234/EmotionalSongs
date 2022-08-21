@@ -41,16 +41,19 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     // ========================= Buttons ========================= //
 
-    @FXML private Button AnnullaPlaylistButton;
-    @FXML private Button newPlayListButton;
     @FXML private Button AlbumButton;
     @FXML private Button AutorButton;
     @FXML private Button songButton;
 
+    @FXML private Button addSong;
+    @FXML private Button AddSongAutor;
+    @FXML private Button Back;
+    @FXML private Button salva;
+
 
     // ========================= tabelle =========================//
 
-    @FXML private TableView<Song> SongsTable;
+    @FXML private TableView<Song> PLaylistSongs;
     @FXML private TableColumn<Song, String> Album;
     @FXML private TableColumn<Song, String> Autor;
     @FXML private TableColumn<Song, String> Title;
@@ -77,12 +80,13 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       
 
+        Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
+       
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
         //Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
-        SongsTable.setItems(list);
+        PLaylistSongs.setItems(list);
 
     }
 
@@ -91,7 +95,7 @@ public class NewPlaylistController extends Controller implements Initializable {
             list.add(s);
         }
 
-        SongsTable.refresh();
+        PLaylistSongs.refresh();
     }
 
     // ====================== Button Action ================= //
@@ -117,10 +121,7 @@ public class NewPlaylistController extends Controller implements Initializable {
         
     }
 
-    @FXML
-    void turnBack(ActionEvent event) throws IOException {
-        mainPageReference.SetPlayListPage();
-    }
+    
     
     @FXML
     public void elementSelected(MouseEvent event) throws Exception 
@@ -162,4 +163,17 @@ public class NewPlaylistController extends Controller implements Initializable {
     void addSong(ActionEvent event) throws Exception {
         addSongWindow = new AddSongWindow(this, this.application, 1, getData());
     }
+
+
+    @FXML
+    void save(ActionEvent event) {
+
+    }
+
+    @FXML
+    void turnBack(ActionEvent event) {
+
+    }
+
+
 }

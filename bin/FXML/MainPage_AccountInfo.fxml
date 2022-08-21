@@ -43,7 +43,7 @@
                                           </HBox>
                                           <AnchorPane prefHeight="61.0" prefWidth="800.0">
                                              <children>
-                                                <Label contentDisplay="CENTER" prefHeight="20.0" prefWidth="200.0" text="Account Information" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                <Label fx:id="AccounInformation" contentDisplay="CENTER" prefHeight="20.0" prefWidth="200.0" text="Account Information" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                                                    <font>
                                                       <Font size="20.0" />
                                                    </font>
@@ -70,7 +70,7 @@
                                           </AnchorPane>
                                           <AnchorPane prefHeight="18.0" prefWidth="670.0">
                                              <children>
-                                                <Label contentDisplay="CENTER" layoutY="-4.0" prefHeight="50.0" prefWidth="200.0" text="Basic Information" textAlignment="CENTER" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+                                                <Label fx:id="BasicInformation" contentDisplay="CENTER" layoutY="-4.0" prefHeight="50.0" prefWidth="200.0" text="Basic Information" textAlignment="CENTER" textFill="WHITE" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
                                                    <font>
                                                       <Font size="20.0" />
                                                    </font>
