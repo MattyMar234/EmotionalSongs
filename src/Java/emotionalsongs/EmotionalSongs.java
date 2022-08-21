@@ -226,7 +226,8 @@ public class EmotionalSongs extends Application{
                     if(listOfFiles[k].getName().indexOf(Integer.toString( i + 1)) >= 0) 
                     {
                         Emotion.emotionImage[i] = SwingFXUtils.toFXImage(ImageIO.read(listOfFiles[k]), null);
-                        Emotion.EmotionHashMap.put(Emotion.Emotions[i].getCategory(), Emotion.emotionImage[i]);
+                        Emotion.EmotionHashMap.put(Emotion.matrice[i][0], Emotion.emotionImage[i]);
+                        Emotion.EmotionHashMap.put(Emotion.matrice[i][1], Emotion.emotionImage[i]);
                         
                         System.out.println(listOfFiles[k].getAbsolutePath());
                         break;

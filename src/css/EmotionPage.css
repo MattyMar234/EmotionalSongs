@@ -13,7 +13,7 @@
 
 #EmotionTable .column-header, 
 #AddedEmotionTable .column-header,
-#emotionTable .column-header
+#emotionTable .column-header,
 
 #EmotionTable .column-header-background .filler, 
 #AddedEmotionTable .column-header-background .filler,
@@ -21,7 +21,7 @@
 
 #EmotionTable .column-header-background, 
 #AddedEmotionTable .column-header-background,
-#emotionTable .column-header-background 
+#emotionTable .column-header-background
 {
     -fx-padding: 0 0 0 0;
 }
@@ -31,6 +31,7 @@
 #emotionTable .column-header-background .label
 {
     -fx-text-fill: #8f8f8f;
+
     -fx-alignment: center;
     -fx-font-size: 14px;
     -fx-padding: 10 2 10 2;
@@ -38,7 +39,7 @@
 
 #EmotionTable .column, #AddedEmotionTable .column {
     /*-fx-border-width: 0 0.5 0 0;*/
-   
+    -fx-alignment: center;
 }
 
 #EmotionTable .table-cell, 
@@ -63,7 +64,7 @@
 /*tipo di riga*/
 #EmotionTable, #AddedEmotionTable .table-row-cell:even {
     /*-fx-background-color: #27303d;*/
-  
+    -fx-alignment: center;
     
 }
 

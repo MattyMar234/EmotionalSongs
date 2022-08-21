@@ -9,29 +9,30 @@ import javafx.scene.image.ImageView;
 public class Emotion 
 {
 
-    private static final String[][] matrice = 
+    protected static final String[][] matrice = 
     {
-    {"Stupore", "Amazement"}, 
-    {"Solennità", "Solemnity"}, 
-    {"Tenerezza", "Tenderness"}, 
-    {"Nostalgia", "Nostalgia"},
-    {"Calma", "Calmness"},
-    {"Forza", "Power"},
-    {"Gioia", "Joy"},
-    {"Tensione", "Tension"},
-    {"Tristezza", "Sadness"},
+        {"Stupore", "Amazement"}, 
+        {"Solennità", "Solemnity"}, 
+        {"Tenerezza", "Tenderness"}, 
+        {"Nostalgia", "Nostalgia"},
+        {"Calma", "Calmness"},
+        {"Forza", "Power"},
+        {"Gioia", "Joy"},
+        {"Tensione", "Tension"},
+        {"Tristezza", "Sadness"},
 
-    {"Sensazione di meraviglia o felicità.","Feeling of wonder or happiness."},
-    {"Sensazione di trascendenza, ispirazione. Brividi.", "Feeling of transcendence, inspiration. Thrills."},
-    {"Sensualità, affetto, sentimento d'amore.", "Sensuality, affect, feeling of love."},
-    {"Sensazioni sognanti, malinconiche, sentimentali.", "Dreamy, melancholic, sentimental feelings."},
-    {"Rilassamento, serenità, meditazione.", "Relaxation, serenity, meditativeness."},
-    {"Sentirsi forte, eroico, trionfante, energico.", "Feeling strong, heroic, triumphant, energetic."},
-    {"Sensazione di ballare, sensazione di rimbalzo, animato, divertito.", "Feels like dancing, bouncy feeling, animated, amused."},
-    {"Sensazione di nervoso, impaziente, irritato.", "Feeling nervous, impatient, irritated."},
-    {"Sensazione di depressione, addolorato.", "Feeling depressed, sorrowful."},
+        {"Sensazione di meraviglia o felicità.","Feeling of wonder or happiness."},
+        {"Sensazione di trascendenza, ispirazione. Brividi.", "Feeling of transcendence, inspiration. Thrills."},
+        {"Sensualità, affetto, sentimento d'amore.", "Sensuality, affect, feeling of love."},
+        {"Sensazioni sognanti, malinconiche, sentimentali.", "Dreamy, melancholic, sentimental feelings."},
+        {"Rilassamento, serenità, meditazione.", "Relaxation, serenity, meditativeness."},
+        {"Sentirsi forte, eroico, trionfante, energico.", "Feeling strong, heroic, triumphant, energetic."},
+        {"Sensazione di ballare, sensazione di rimbalzo, animato, divertito.", "Feels like dancing, bouncy feeling, animated, amused."},
+        {"Sensazione di nervoso, impaziente, irritato.", "Feeling nervous, impatient, irritated."},
+        {"Sensazione di depressione, addolorato.", "Feeling depressed, sorrowful."},
     };
 
+    private static int init = 0;
     public static Emotion Emotion_Amazement  = new Emotion(matrice[0][EmotionalSongs.language], matrice[9][EmotionalSongs.language]);
     public static Emotion Emotion_Solemnity  = new Emotion(matrice[1][EmotionalSongs.language], matrice[10][EmotionalSongs.language]);
     public static Emotion Emotion_Tenderness = new Emotion(matrice[2][EmotionalSongs.language], matrice[11][EmotionalSongs.language]);
@@ -41,7 +42,6 @@ public class Emotion
     public static Emotion Emotion_Joy        = new Emotion(matrice[6][EmotionalSongs.language], matrice[15][EmotionalSongs.language]);
     public static Emotion Emotion_Tension    = new Emotion(matrice[7][EmotionalSongs.language], matrice[16][EmotionalSongs.language]);
     public static Emotion Emotion_Sadness    = new Emotion(matrice[8][EmotionalSongs.language], matrice[17][EmotionalSongs.language]);
-
     public static Image [] emotionImage      = new Image[10];
     
     public static HashMap<String,Image> EmotionHashMap = new HashMap<String,Image>();
@@ -66,14 +66,19 @@ public class Emotion
     private Image image;
     private int Score;
     private RegisteredAccount account;
+    private int number;
 
     // ====================== Costruttori ====================== //
 
     //costruttore 1
     public Emotion(Emotion emozione, int Score, RegisteredAccount account) 
     {
-        this.Explanation = emozione.getExplanation();
-        this.Category = emozione.getCategory();
+        //number = Emotion.getEmotionID(emozione);
+        
+        /*this.Explanation = emozione.getExplanation();
+        this.Category = emozione.getCategory();*/
+        number = emozione.number;
+
         this.Score = Score;
         this.image = EmotionHashMap.get(emozione.getCategory());
         this.account = account;
@@ -84,6 +89,9 @@ public class Emotion
     {
         this.Explanation = Explanation;
         this.Category = category;
+
+        number = Emotion.init++;
+ 
     }
 
     
@@ -91,15 +99,10 @@ public class Emotion
 
     public static int getEmotionID(Emotion e) 
     {
-        int counter = 0 ;
+        for(int i = 0; i < 9; i++) 
+            if(e.getCategory().equals(Emotion.matrice[i][0]) || e.getCategory().equals(Emotion.matrice[i][1]))
+                return i;
         
-        for(Emotion i : Emotion.Emotions) {
-            if(i.getCategory().equals(e.getCategory())) {
-                return counter;
-            }
-            counter++;
-        }
-
         return -1;
     }
 
@@ -111,7 +114,8 @@ public class Emotion
 
 
     public String getCategory() {
-        return Category;
+        System.out.println(number);
+        return  Emotion.matrice[number][EmotionalSongs.language];
     }
 
     public void setCategory(String category) {
@@ -119,8 +123,9 @@ public class Emotion
     }
 
     public String getExplanation() {
-        return Explanation;
+        return Emotion.matrice[number + 9][EmotionalSongs.language];
     }
+        
 
     public void setExplanation(String explanation) {
         Explanation = explanation;

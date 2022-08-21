@@ -464,7 +464,7 @@ public class NewUserRegistrationController extends Controller implements Initial
         String email = contenitori.get(3).text.getText();
         String dominio = "@gmail.com";
 
-        if(!email.endsWith(dominio) || (email.length() - dominio.length()) <= 0) {
+        if(email.endsWith(dominio) == false || (email.length() - dominio.length()) <= 0) {
             SetLabelError(LabelEmail);
             LabelEmail.setText(EmotionalSongs.language == 0 ? "E-email non valida" : "Invalid e-mail");
             return;
