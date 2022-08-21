@@ -49,6 +49,7 @@ public class NewPlaylistController extends Controller implements Initializable {
     @FXML private Button AddSongAutor;
     @FXML private Button Back;
     @FXML private Button salva;
+    @FXML private Button BackButton;
 
 
     // ========================= tabelle =========================//
@@ -81,7 +82,11 @@ public class NewPlaylistController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
+        BackButton.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
+        salva.setText(EmotionalSongs.language == 0 ? "Salva Modifiche" : "Save Changes");
+        addSong.setText(EmotionalSongs.language == 0 ? "Aggiungi Canzoni" : "Add Songs");
+        AddSongAutor.setText(EmotionalSongs.language == 0 ? "Aggiungi canzoni dall'Autore" : "Add Author songs");
+
        
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));

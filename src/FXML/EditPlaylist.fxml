@@ -36,7 +36,7 @@
                         </HBox>
                         <AnchorPane prefHeight="35.0" prefWidth="1208.0">
                            <children>
-                              <Button id="addElement_Button" fx:id="Back" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="0.0">
+                              <Button id="addElement_Button" fx:id="BackButton" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                                        <image>
