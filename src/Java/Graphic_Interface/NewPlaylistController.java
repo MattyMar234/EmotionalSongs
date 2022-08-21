@@ -90,7 +90,10 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     }
 
-    public void addSelectedSong(ArrayList<Song> song) {
+    public void addSelectedSong(ArrayList<Song> song) 
+    {
+        list.clear();
+
         for(Song s : song) {
             list.add(s);
         }

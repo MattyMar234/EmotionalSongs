@@ -114,7 +114,6 @@ public class Emotion
 
 
     public String getCategory() {
-        System.out.println(number);
         return  Emotion.matrice[number][EmotionalSongs.language];
     }
 
