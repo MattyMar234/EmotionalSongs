@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import Java.PlayList_Songs.Song;
 import Java.emotionalsongs.Emotion;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -56,12 +57,14 @@ public class RepositorySongElementController extends Controller implements Initi
 
         
         if(this.canzoneAssociata == null)
-            labelCommenti.setText("Nessun commento");
+            labelCommenti.setText(EmotionalSongs.language == 0 ? "Nessun commento" : "No comment");
         else {
             if(commentNumber == 0) 
-                labelCommenti.setText("Nessun commento");
-            else 
-                labelCommenti.setText(labelCommenti.getText().replace("[n]", (commentNumber > 99) ? "99+" : String.valueOf(commentNumber)));
+                labelCommenti.setText(EmotionalSongs.language == 0 ? "Nessun commento" : "No comment");
+            else {
+                String numero = (commentNumber > 99) ? "99+" : String.valueOf(commentNumber);
+                labelCommenti.setText(EmotionalSongs.language == 0 ? "Visualizza tutti i " + numero + " commenti..." : "View all " + numero + " comment..."); 
+                }
         }
 
         boolean [] missingImg = new boolean[9];
@@ -129,6 +132,8 @@ public class RepositorySongElementController extends Controller implements Initi
         /*double x = songMenubackground.getWidth();
         LabelTitle.setMaxWidth(x);
         labelAutor.setMaxWidth(x);*/ 
+
+        EmotionLabel.setText(EmotionalSongs.language == 0 ? "Emozioni: " : "Emotions: ");
     }
 
     @FXML

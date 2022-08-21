@@ -51,6 +51,7 @@ public class EmotionCreationPageController extends Controller implements Initial
     @FXML private TableColumn <EmotionContainer, String> name1;
     @FXML private TableColumn <EmotionContainer, String> explanation1;
     @FXML private TableColumn <EmotionContainer, String> values1;
+    @FXML private Button Back;
 
     private MainPageController classeReferences;
     private PlayList playlist;
@@ -150,6 +151,8 @@ public class EmotionCreationPageController extends Controller implements Initial
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+
+        Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
 
         emotionSelection.setText(EmotionCreationPageController.matrice[0][EmotionalSongs.language]);
         emotionSelection1.setText(EmotionCreationPageController.matrice[0][EmotionalSongs.language]);

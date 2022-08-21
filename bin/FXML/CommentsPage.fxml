@@ -17,7 +17,7 @@
          <top>
             <AnchorPane fx:id="searchPane" prefHeight="50.0" prefWidth="803.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label id="Label" layoutX="90.0" layoutY="10.0" prefHeight="29.0" prefWidth="146.0" text="back" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="10.0" />
+                  <Label id="Label" fx:id="Back" layoutX="90.0" layoutY="10.0" prefHeight="29.0" prefWidth="146.0" text="back" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="10.0" />
                   <ImageView fx:id="BackArrow" fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#turnBack" pickOnBounds="true" preserveRatio="true" rotate="-90.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="7.0">
                      <image>
                         <Image url="@../../data/image/FrecciaIndietro.png" />

@@ -10,10 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -34,45 +31,56 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <bottom>
-                        <AnchorPane prefHeight="77.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+                        <AnchorPane prefHeight="70.0" prefWidth="720.0" BorderPane.alignment="CENTER">
                            <children>
-                              <HBox alignment="CENTER" layoutY="-25.0" prefHeight="104.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+                              <HBox alignment="CENTER" layoutY="-25.0" prefHeight="104.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="6.0" />
+                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="1208.0">
                                  <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="AnnullaPlaylistButton" layoutX="28.0" layoutY="31.0" mnemonicParsing="false" onAction="#turnBack" prefHeight="40.0" prefWidth="145.0" text="Cance" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="36.0">
-                                             <graphic>
-                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../data/image/trash.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </graphic>
-                                          </Button>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="newPlayListButton" alignment="CENTER" layoutX="40.0" layoutY="26.0" mnemonicParsing="false" onAction="#ConfermeNewPlayList" text="Add Playlist" textAlignment="CENTER" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="36.0">
-                                             <graphic>
-                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../data/image/approva.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </graphic>
-                                          </Button>
-                                       </children>
-                                    </AnchorPane>
+                                    <Button id="addElement_Button" fx:id="Back" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="0.0">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                                             <image>
+                                                <Image url="@../../data/image/FrecciaIndietro.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button id="addElement_Button" fx:id="addSong" layoutX="313.0" layoutY="6.0" mnemonicParsing="false" onAction="#addSong" prefHeight="32.0" prefWidth="160.0" text="Add songs" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="0.0">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../data/icon/addSongIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button id="addElement_Button" fx:id="AddSongAutor" layoutX="541.0" layoutY="13.0" mnemonicParsing="false" onAction="#AddAutor" prefHeight="32.0" prefWidth="200.0" text="Add Author songs" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../data/icon/addAlbumSong.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button id="addElement_Button" fx:id="salva" layoutX="584.0" mnemonicParsing="false" onAction="#save" prefHeight="32.0" prefWidth="170.0" text="Save Changes" AnchorPane.rightAnchor="470.0" AnchorPane.topAnchor="0.0">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../data/icon/saveIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
                                  </children>
-                              </HBox>
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
                      </bottom>
                      <top>
                         <VBox alignment="TOP_CENTER" prefHeight="72.0" prefWidth="720.0" BorderPane.alignment="CENTER">
                            <children>
-                              <AnchorPane id="manuinfo" prefHeight="70.0" prefWidth="720.0">
+                              <AnchorPane id="manuinfo" prefHeight="79.0" prefWidth="720.0">
                                  <children>
                                     <HBox alignment="CENTER" layoutX="260.0" layoutY="-15.0" prefHeight="44.0" prefWidth="720.0" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
@@ -90,36 +98,6 @@
                               <AnchorPane prefHeight="687.0" prefWidth="983.0" BorderPane.alignment="CENTER">
                                  <children>
                                     <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
-                                       <bottom>
-                                          <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
-                                             <columnConstraints>
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                             <children>
-                                                <Button fx:id="songButton" mnemonicParsing="false" onAction="#addSong" text="Add Song" />
-                                                <Button fx:id="AlbumButton" mnemonicParsing="false" onAction="#AddAlbum" text="Add from an album" GridPane.columnIndex="1" />
-                                                <Button fx:id="AutorButton" mnemonicParsing="false" onAction="#AddAutor" text="Add Autor's song" GridPane.columnIndex="2" />
-                                             </children>
-                                          </GridPane>
-                                       </bottom>
-                                       <center>
-                                          <TableView fx:id="SongsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="384.0" prefWidth="620.0" stylesheets="@../css/mainPageStyle.css" BorderPane.alignment="CENTER">
-                                             <columns>
-                                                <TableColumn fx:id="Actions" maxWidth="2742.0" prefWidth="100.0" text="Actions" />
-                                                <TableColumn fx:id="Title" prefWidth="113.0" text="Title" />
-                                                <TableColumn fx:id="Autor" prefWidth="111.0" text="Autor" />
-                                                <TableColumn fx:id="Album" prefWidth="173.0" text="Album" />
-                                             </columns>
-                                             <columnResizePolicy>
-                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                             </columnResizePolicy>
-                                          </TableView>
-                                       </center>
                                        <top>
                                           <HBox alignment="CENTER_LEFT" prefHeight="16.0" prefWidth="720.0" BorderPane.alignment="BOTTOM_CENTER">
                                              <children>
@@ -130,6 +108,39 @@
                                              </padding>
                                           </HBox>
                                        </top>
+                                       <center>
+                                          <AnchorPane id="tableBack" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <center>
+                                                      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                                         <center>
+                                                            <AnchorPane prefHeight="687.0" prefWidth="983.0" BorderPane.alignment="CENTER">
+                                                               <children>
+                                                                  <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <center>
+                                                                        <TableView fx:id="PLaylistSongs" onMouseClicked="#elementSelected" prefHeight="384.0" prefWidth="620.0" BorderPane.alignment="CENTER">
+                                                                           <columns>
+                                                                              <TableColumn fx:id="Title" prefWidth="113.0" text="Title" />
+                                                                              <TableColumn fx:id="Autor" prefWidth="111.0" text="Autor" />
+                                                                              <TableColumn fx:id="SongDate" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Data" />
+                                                                              <TableColumn fx:id="Actions" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Actions" />
+                                                                           </columns>
+                                                                           <columnResizePolicy>
+                                                                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                                           </columnResizePolicy>
+                                                                        </TableView>
+                                                                     </center>
+                                                                  </BorderPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </center>
+                                                      </BorderPane>
+                                                   </center>
+                                                </BorderPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </center>
                                     </BorderPane>
                                  </children>
                               </AnchorPane>

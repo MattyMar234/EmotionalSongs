@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import Java.Account.RegisteredAccount;
 import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -112,6 +113,12 @@ public class MainPageController_playList extends Controller implements Initializ
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) 
     {
+        NewPlaylistButton.setText(EmotionalSongs.language == 0 ? "Nuova Playlist" : "New Playlist");
+        PlayListName.setText(EmotionalSongs.language == 0 ? "Nome Playlist" : "Playlist Name");
+        PlayListElements.setText(EmotionalSongs.language == 0 ? "Numero canzoni" : "Songs Number");
+        DataCreazione.setText(EmotionalSongs.language == 0 ? "Data di creazione" : "Creation Data");
+        EditPlayList.setText(EmotionalSongs.language == 0 ? "Azioni" : "Actions");
+
         if(application.ConnectedAccount == null) return;
         //System.out.println("loding playlists data...");
 
