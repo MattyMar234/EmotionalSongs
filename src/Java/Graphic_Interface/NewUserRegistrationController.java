@@ -30,16 +30,28 @@ import javafx.stage.Stage;
 
 public class NewUserRegistrationController extends Controller implements Initializable 
 {
+    @FXML private Label UserRegistration;
+
     @FXML private Button confirmButton;
     @FXML private Button BackButton;
+
+    @FXML private Label testoNome;
     @FXML public TextField name;
+    @FXML public Label testoCognome;
     @FXML public TextField surname;
+    @FXML public Label titoloNomeUtente;
     @FXML public TextField userID;
     @FXML public TextField email;
     @FXML public PasswordField password;
+    @FXML public Label testoConfermaPassword;
     @FXML public PasswordField password2;
+    @FXML public Label testoNumeroCivico;
     @FXML public TextField civicNumber;
+    @FXML public Label testoComune;
+    @FXML public Label testoProvince;
+    @FXML public Label testoCodiceFiscale;
     @FXML public TextField codiceFiscale;
+    @FXML public Label testoViaPiazza;
     @FXML public TextField viaPiazza;
     
 
@@ -52,7 +64,6 @@ public class NewUserRegistrationController extends Controller implements Initial
     @FXML private ComboBox<String> cap;
     @FXML private ComboBox<String> common;
     @FXML private ComboBox<String> province;
-
 
     private AutoCompleteComboBoxListener<String> c1;
     private AutoCompleteComboBoxListener<String> c2;
@@ -288,6 +299,29 @@ public class NewUserRegistrationController extends Controller implements Initial
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+
+        UserRegistration.setText(EmotionalSongs.language == 0 ? "Registrazione Utente" : "User Registration");
+
+        testoNome.setText(EmotionalSongs.language == 0 ? "Nome" : "Name");
+        name.setText(EmotionalSongs.language == 0 ? "Nome" : "First Name");
+        testoCognome.setText(EmotionalSongs.language == 0 ? "Cognome" : "Surname");
+        surname.setText(EmotionalSongs.language == 0 ? "Cognome" : "Last Name");
+        titoloNomeUtente.setText(EmotionalSongs.language == 0 ? "Nome Utente" : "NickName");
+        userID.setText(EmotionalSongs.language == 0 ? "ID utente" : "userd ID");
+        testoConfermaPassword.setText(EmotionalSongs.language == 0 ? "Conferma Password" : "Confirm Password");
+        testoNumeroCivico.setText(EmotionalSongs.language == 0 ? "Numero Civico" : "Civic Number");
+        civicNumber.setText(EmotionalSongs.language == 0 ? "Numero" : "Number");
+        testoComune.setText(EmotionalSongs.language == 0 ? "Comune " : "Municipality");
+        testoProvince.setText(EmotionalSongs.language == 0 ? "Provincia" : "Province");
+        testoCodiceFiscale.setText(EmotionalSongs.language == 0 ? "Codice Fiscale" : "Fiscal Code");
+        codiceFiscale.setText(EmotionalSongs.language == 0 ? "Codice" : "Code");
+        testoViaPiazza.setText(EmotionalSongs.language == 0 ? "Via/Piazza" : "Street/Square");
+        viaPiazza.setText(EmotionalSongs.language == 0 ? "Via/Piazza" : "Street/Square");
+
+        BackButton.setText(EmotionalSongs.language == 0 ? "Torna indietro" : "Turn Back");
+        confirmButton.setText(EmotionalSongs.language == 0 ? "Registrati" : "Sig In");
+
+
         EmotionalSongs main = EmotionalSongs.classReference;
         ArrayList<Region> regions = main.locationsManager.getList();
 
