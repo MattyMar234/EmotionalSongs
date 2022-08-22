@@ -58,7 +58,7 @@
                         <TableView fx:id="emotionTableScores" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <columns>
                               <TableColumn fx:id="users" prefWidth="75.0" text="Users" />
-                              <TableColumn fx:id="emoji1" prefWidth="75.0" text="emoji" />
+                              <TableColumn fx:id="emoji1" prefWidth="75.0" text="Emoji" />
                               <TableColumn fx:id="category1" prefWidth="75.0" text="Category" />
                               <TableColumn fx:id="average" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" sortable="false" text="Average" />
                            </columns>
