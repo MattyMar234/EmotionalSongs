@@ -35,7 +35,7 @@
                                                       <Image url="@../../data/image/Security2.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="222.0" layoutY="22.0" prefHeight="27.0" prefWidth="149.0" text="User Registration" textFill="WHITE">
+                                                <Label fx:id="UserRegistration" layoutX="222.0" layoutY="22.0" prefHeight="27.0" prefWidth="198.0" text="User Registration" textFill="WHITE">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -69,7 +69,7 @@
                                                                <children>
                                                                   <VBox id="FildsVbox2" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                      <children>
-                                                                        <Label id="fildsLabel" text="Name" />
+                                                                        <Label id="fildsLabel" fx:id="testoNome" text="Name" />
                                                                      </children>
                                                                   </VBox>
                                                                   <VBox prefHeight="200.0" prefWidth="100.0">
@@ -108,7 +108,7 @@
                                                                <children>
                                                                   <VBox id="FildsVbox2" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                      <children>
-                                                                        <Label id="fildsLabel" text="Surname" />
+                                                                        <Label id="fildsLabel" fx:id="testoCognome" text="Surname" />
                                                                      </children>
                                                                   </VBox>
                                                                   <VBox prefHeight="200.0" prefWidth="100.0">
@@ -152,7 +152,7 @@
                                                                            <children>
                                                                               <VBox id="FildsVbox2" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                                  <children>
-                                                                                    <Label id="fildsLabel" text="NickName" />
+                                                                                    <Label id="fildsLabel" fx:id="titoloNomeUtente" text="NickName" />
                                                                                  </children>
                                                                               </VBox>
                                                                               <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
@@ -286,7 +286,7 @@
                                                                            <children>
                                                                               <VBox id="FildsVbox2" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                                  <children>
-                                                                                    <Label id="fildsLabel" text="Confirm Password" />
+                                                                                    <Label id="fildsLabel" fx:id="testoConfermaPassword" text="Confirm Password" />
                                                                                  </children>
                                                                               </VBox>
                                                                               <VBox prefHeight="200.0" prefWidth="100.0">
@@ -335,7 +335,7 @@
                                                                      <children>
                                                                         <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <Label id="fildsLabel" text="Civic Number" />
+                                                                              <Label id="fildsLabel" fx:id="testoNumeroCivico" text="Civic Number" />
                                                                            </children>
                                                                         </VBox>
                                                                         <VBox prefHeight="200.0" prefWidth="100.0">
@@ -420,7 +420,7 @@
                                                                      <children>
                                                                         <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <Label id="fildsLabel" text="Common">
+                                                                              <Label id="fildsLabel" fx:id="testoComune" text="Common">
                                                                                  <VBox.margin>
                                                                                     <Insets bottom="2.0" />
                                                                                  </VBox.margin></Label>
@@ -468,7 +468,7 @@
                                                                      <children>
                                                                         <VBox id="FildsVbox2" alignment="BASELINE_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <Label id="fildsLabel" text="Province" />
+                                                                              <Label id="fildsLabel" fx:id="testoProvince" text="Provinces" />
                                                                            </children>
                                                                            <padding>
                                                                               <Insets bottom="4.0" />
@@ -514,7 +514,7 @@
                                                                      <children>
                                                                         <VBox id="FildsVbox2" alignment="BOTTOM_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <Label id="fildsLabel" text="FiscalCode" />
+                                                                              <Label id="fildsLabel" fx:id="testoCodiceFiscale" text="FiscalCode" />
                                                                            </children>
                                                                         </VBox>
                                                                         <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
@@ -553,12 +553,12 @@
                                                                      <children>
                                                                         <VBox id="FildsVbox2" alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <Label id="fildsLabel" text="Via/Piazza" />
+                                                                              <Label id="fildsLabel" fx:id="testoViaPiazza" text="Via/Place" />
                                                                            </children>
                                                                         </VBox>
                                                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                                                            <children>
-                                                                              <TextField fx:id="viaPiazza" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Via/Piazza">
+                                                                              <TextField fx:id="viaPiazza" onKeyTyped="#typed" prefHeight="29.0" prefWidth="298.0" promptText="Via/Place">
                                                                                  <font>
                                                                                     <Font size="14.0" />
                                                                                  </font>
@@ -584,17 +584,19 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="38.0" prefWidth="553.0">
                                  <children>
-                                    <VBox alignment="CENTER" layoutY="16.0" prefHeight="142.0" prefWidth="551.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                                    <VBox alignment="CENTER" layoutY="16.0" prefHeight="142.0" prefWidth="551.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                              <children>
-                                                <VBox alignment="CENTER" prefHeight="94.0" prefWidth="280.0">
+                                                <VBox alignment="CENTER" prefHeight="94.0" prefWidth="278.0">
                                                    <children>
+                                                      <Label alignment="CENTER" prefHeight="18.0" prefWidth="189.0" />
                                                       <Button fx:id="BackButton" mnemonicParsing="false" onAction="#TurnBack" prefHeight="39.0" prefWidth="156.0" text="Turn Back" wrapText="true" />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="276.0">
                                                    <children>
+                                                      <Label fx:id="labelSing" alignment="CENTER" prefHeight="18.0" prefWidth="189.0" text="Label" />
                                                       <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#validateNewUser" prefHeight="39.0" prefWidth="156.0" text="Sig In" wrapText="true" />
                                                    </children>
                                                 </VBox>
@@ -602,7 +604,6 @@
                                           </HBox>
                                        </children>
                                     </VBox>
-                                    <Label fx:id="labelSing" alignment="CENTER" layoutX="335.0" layoutY="7.0" prefHeight="18.0" prefWidth="189.0" text="Label" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="7.0" />
                                  </children>
                               </AnchorPane>
                            </children>
