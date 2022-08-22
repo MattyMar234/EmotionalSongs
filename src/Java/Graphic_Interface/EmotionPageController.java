@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import Java.PlayList_Songs.Song;
 import Java.emotionalsongs.Emotion;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,14 +23,18 @@ public class EmotionPageController extends Controller implements Initializable{
     
     @FXML private TableView<Container> emotionTable;
     @FXML private TableColumn<Container, String> user;
+    @FXML private TableColumn<Container, String> emoji;
     @FXML private TableColumn<Container, String> category;
     @FXML private TableColumn<Container, String> explanation;
     @FXML private TableColumn<Container, String> score;
 
     @FXML private TableView<Container> emotionTableScores;
+    @FXML private TableColumn<Container, String> emoji1;
     @FXML private TableColumn<Container, Integer> users;
     @FXML private TableColumn<Container, String> category1;
     @FXML private TableColumn<Container, Float> average;
+    
+    
     
     private Song canzoneAssociata;
     private MainPageController mainController;
@@ -99,6 +104,17 @@ public class EmotionPageController extends Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
+
+        user.setText(EmotionalSongs.language == 0 ? "Utente" : "User");
+        category.setText(EmotionalSongs.language == 0 ? "Categoria" : "Category");
+        explanation.setText(EmotionalSongs.language == 0 ? "Spiegazione" : "Explanaton");
+        score.setText(EmotionalSongs.language == 0 ? "Punteggio" : "Score");
+
+        users.setText(EmotionalSongs.language == 0 ? "Utenti" : "Users");
+        category1.setText(EmotionalSongs.language == 0 ? "Categoria" : "Category");
+        average.setText(EmotionalSongs.language == 0 ? "Media" : "Average");
 
         for(Emotion e : canzoneAssociata.getEmotions()) {
             list.add(new Container(e, canzoneAssociata));

@@ -58,7 +58,8 @@ public class NewPlaylistController extends Controller implements Initializable {
     @FXML private TableColumn<Song, String> Album;
     @FXML private TableColumn<Song, String> Autor;
     @FXML private TableColumn<Song, String> Title;
-    @FXML private TableColumn<Song, String> Actions;
+    @FXML private TableColumn<Song, String> SongDate;
+    @FXML private TableColumn<Song, String> Actions;    
 
     // ========================= textField ========================= //
     @FXML private TextField playlistNameField;
@@ -86,6 +87,11 @@ public class NewPlaylistController extends Controller implements Initializable {
         salva.setText(EmotionalSongs.language == 0 ? "Salva Modifiche" : "Save Changes");
         addSong.setText(EmotionalSongs.language == 0 ? "Aggiungi Canzoni" : "Add Songs");
         AddSongAutor.setText(EmotionalSongs.language == 0 ? "Aggiungi canzoni dall'Autore" : "Add Author songs");
+
+        Title.setText(EmotionalSongs.language == 0 ? "Titolo" : "Title");
+        Autor.setText(EmotionalSongs.language == 0 ? "Autore" : "Autor");
+        SongDate.setText(EmotionalSongs.language == 0 ? "Data" : "Date");
+        Actions.setText(EmotionalSongs.language == 0 ? "Azioni" : "Actions");
 
        
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
