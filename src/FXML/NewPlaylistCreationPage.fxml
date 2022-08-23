@@ -39,7 +39,7 @@
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Button id="addElement_Button" fx:id="salva" mnemonicParsing="false" onAction="#save" prefHeight="32.0" prefWidth="170.0" text="Save Changes">
+                                          <Button id="addElement_Button" fx:id="salva" mnemonicParsing="false" onAction="#save" prefHeight="38.0" prefWidth="110.0" text="Save">
                                              <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -69,7 +69,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button id="addElement_Button" fx:id="AddSongAutor" mnemonicParsing="false" onAction="#AddAutor" prefHeight="32.0" prefWidth="228.0" text="Add Author songs">
+                                          <Button id="addElement_Button" fx:id="AddSongAutor" mnemonicParsing="false" onAction="#AddAutor" prefHeight="38.0" prefWidth="280.0" text="Add Author songs">
                                              <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -110,7 +110,7 @@
                                     </Button>
                                     <HBox alignment="CENTER" layoutX="260.0" layoutY="-15.0" prefHeight="44.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Label id="labelmenuPlaylist" prefHeight="33.0" prefWidth="271.0" text="PLAYLIST CREATION MENU'" />
+                                          <Label id="labelmenuPlaylist" fx:id="titoloPagina" prefHeight="33.0" prefWidth="271.0" text="PLAYLIST CREATION MENU'" />
                                        </children>
                                        <cursor>
                                           <Cursor fx:constant="DEFAULT" />
@@ -130,7 +130,7 @@
                                        <top>
                                           <HBox alignment="CENTER_LEFT" prefHeight="16.0" prefWidth="720.0" BorderPane.alignment="BOTTOM_CENTER">
                                              <children>
-                                                <Label id="labelSongList" contentDisplay="CENTER" prefHeight="27.0" prefWidth="144.0" text="Selected Songs:" />
+                                                <Label id="labelSongList" fx:id="selectedSong" contentDisplay="CENTER" prefHeight="27.0" prefWidth="206.0" text="Selected Songs:" />
                                              </children>
                                              <padding>
                                                 <Insets bottom="10.0" />
@@ -148,7 +148,7 @@
                                                                <children>
                                                                   <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                      <center>
-                                                                        <TableView fx:id="PlaylistsTable" onMouseClicked="#elementSelected" prefHeight="384.0" prefWidth="620.0" BorderPane.alignment="CENTER">
+                                                                        <TableView fx:id="emotionTable" onMouseClicked="#elementSelected" prefHeight="384.0" prefWidth="620.0" BorderPane.alignment="CENTER">
                                                                            <columns>
                                                                               <TableColumn fx:id="Title" prefWidth="113.0" text="Title" />
                                                                               <TableColumn fx:id="Autor" prefWidth="111.0" text="Autor" />
@@ -180,7 +180,7 @@
                                     <Label fx:id="labelError" prefHeight="18.0" prefWidth="415.0" text="Label" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="10.0" />
                                     <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Label id="FieldNameLabel" prefHeight="27.0" prefWidth="124.0" text="Playlist Name:" textFill="#f59d06">
+                                          <Label id="FieldNameLabel" fx:id="playlistName" prefHeight="27.0" prefWidth="124.0" text="Playlist Name:" textFill="#f59d06">
                                              <font>
                                                 <Font name="Arial Bold" size="13.0" />
                                              </font>
@@ -211,5 +211,6 @@
    <stylesheets>
       <URL value="@../css/mainPageStyle.css" />
       <URL value="@../css/FunctionButton.css" />
+      <URL value="@../css/EmotionPage.css" />
    </stylesheets>
 </AnchorPane>

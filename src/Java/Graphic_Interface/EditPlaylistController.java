@@ -37,6 +37,8 @@ public class EditPlaylistController extends Controller implements Initializable
     @FXML private Button Back;
     @FXML private Button salva;
 
+    @FXML private Label titoloEditPlaylist;
+
     
     public ObservableList<CustomSong> list = FXCollections.observableArrayList();
     private MainPageController classeReferences;
@@ -107,6 +109,9 @@ public class EditPlaylistController extends Controller implements Initializable
     public void initialize(URL location, ResourceBundle resources) 
     {
         playlistCopy = playlist.copy();
+
+        titoloEditPlaylist.setText(EmotionalSongs.language == 0 ? "MODIFICA PLAYLIST" : "EDIT PLAYLIST");
+        salva.setText(EmotionalSongs.language == 0 ? "Salva" : "Save");
 
         Back.setText(EmotionalSongs.language == 0 ? "Indietro" : "Turn Back");
         Title.setText(EmotionalSongs.language == 0 ? "Titolo" : "Title");
