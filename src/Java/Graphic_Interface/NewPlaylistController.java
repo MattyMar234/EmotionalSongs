@@ -40,7 +40,6 @@ public class NewPlaylistController extends Controller implements Initializable {
 
 
     // ========================= Buttons ========================= //
-
     @FXML private Button AlbumButton;
     @FXML private Button AutorButton;
     @FXML private Button songButton;
@@ -52,9 +51,8 @@ public class NewPlaylistController extends Controller implements Initializable {
     @FXML private Button BackButton;
 
 
-    // ========================= tabelle =========================//
-
-    @FXML private TableView<Song> PLaylistSongs;
+    // ========================= tabella =========================//
+    @FXML private TableView<Song> PlaylistsTable;
     @FXML private TableColumn<Song, String> Album;
     @FXML private TableColumn<Song, String> Autor;
     @FXML private TableColumn<Song, String> Title;
@@ -64,10 +62,14 @@ public class NewPlaylistController extends Controller implements Initializable {
     // ========================= textField ========================= //
     @FXML private TextField playlistNameField;
 
-     // ========================= variabili =========================//
-     MainPageController mainPageReference;
-     AddSongWindow addSongWindow;
-     HashMap<String,ArrayList<String>> SelectedData = new HashMap<String,ArrayList<String>>();
+    // ========================= Labels ========================= //
+    @FXML private Label labelError;
+
+    
+    // ========================= Altro ========================= //
+    MainPageController mainPageReference;
+    AddSongWindow addSongWindow;
+    HashMap<String,ArrayList<String>> SelectedData = new HashMap<String,ArrayList<String>>();
   
 
 
@@ -83,7 +85,7 @@ public class NewPlaylistController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        BackButton.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
+        Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
         salva.setText(EmotionalSongs.language == 0 ? "Salva Modifiche" : "Save Changes");
         addSong.setText(EmotionalSongs.language == 0 ? "Aggiungi Canzoni" : "Add Songs");
         AddSongAutor.setText(EmotionalSongs.language == 0 ? "Aggiungi canzoni dall'Autore" : "Add Author songs");
@@ -93,11 +95,13 @@ public class NewPlaylistController extends Controller implements Initializable {
         SongDate.setText(EmotionalSongs.language == 0 ? "Data" : "Date");
         Actions.setText(EmotionalSongs.language == 0 ? "Azioni" : "Actions");
 
+        labelError.setStyle("-fx-font-size:13px; -fx-text-fill: transparent;");
+
        
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
         //Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
-        PLaylistSongs.setItems(list);
+        PlaylistsTable.setItems(list);
 
     }
 
@@ -109,30 +113,25 @@ public class NewPlaylistController extends Controller implements Initializable {
             list.add(s);
         }
 
-        PLaylistSongs.refresh();
+        PlaylistsTable.refresh();
     }
 
     // ====================== Button Action ================= //
 
-    @FXML
     void ConfermeNewPlayList(ActionEvent event) throws IOException {
         
-        if(playlistNameField != null && playlistNameField.getText().length() > 0) {
+        if(playlistNameField != null && playlistNameField.getText().length() > 0 && playlistNameField.getText() != "name") {
              
-            ArrayList<Song> songlist = new ArrayList<Song>();
-
-            for(Song s : list) {
-                songlist.add(s);
-                System.out.println(s);
-            }
-
-            
+            PlayList p = new PlayList(this.playlistNameField.getText(), new ArrayList<>(list));
             RegisteredAccount account = (RegisteredAccount)this.application.ConnectedAccount;
-            account.addPlaylist(new PlayList(playlistNameField.getText(), songlist));
+            account.addPlaylist(p);
             
             mainPageReference.SetPlayListPage();
         }
-        
+        else {
+            labelError.setStyle("-fx-font-size:13px; -fx-text-fill: red;");
+            labelError.setText( EmotionalSongs.language == 0 ? "Nome playlist mancante" : "Missing playlist name");
+        }  
     }
 
     
@@ -180,13 +179,14 @@ public class NewPlaylistController extends Controller implements Initializable {
 
 
     @FXML
-    void save(ActionEvent event) {
+    void save(ActionEvent event) throws IOException {
+        ConfermeNewPlayList(event);
 
     }
 
     @FXML
-    void turnBack(ActionEvent event) {
-
+    void turnBack(ActionEvent event) throws IOException {
+        mainPageReference.SetPlayListPage();
     }
 
 

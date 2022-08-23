@@ -50,29 +50,27 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
                            <children>
-                              <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="labelCommenti" fitHeight="28.0" fitWidth="24.0" onMouseClicked="#viewComment" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../data/icon/icon2.png" />
                                  </image>
                                  <HBox.margin>
                                     <Insets bottom="6.0" />
                                  </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </ImageView>
-                              <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="EmotionLabel" fitHeight="28.0" fitWidth="24.0" onMouseClicked="#viewEmotions" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../data/icon/icon1.png" />
                                  </image>
                                  <HBox.margin>
-                                    <Insets bottom="6.0" left="8.0" />
+                                    <Insets bottom="6.0" left="8.0" right="12.0" />
                                  </HBox.margin>
-                              </ImageView>
-                              <ImageView fitHeight="28.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../data/icon/icon4.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets bottom="6.0" left="8.0" right="10.0" />
-                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </ImageView>
                            </children>
                         </HBox>

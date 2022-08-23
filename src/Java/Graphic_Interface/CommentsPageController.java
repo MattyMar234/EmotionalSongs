@@ -41,7 +41,7 @@ public class CommentsPageController extends Controller implements Initializable
 
     @FXML private AnchorPane writerElement;
 
-    @FXML private Label Back;
+    @FXML private Button Back;
 
 
     private ObservableList<Comment> commnetsList = FXCollections.observableArrayList();
@@ -116,6 +116,8 @@ public class CommentsPageController extends Controller implements Initializable
         if(playlist == null) {
             writerElement.setVisible(false);
         }
+
+        
         
         textArea.setWrapText(true);
         textArea.setStyle("-fx-font-family: 'monospaced';");
@@ -123,8 +125,13 @@ public class CommentsPageController extends Controller implements Initializable
         textArea.setMinHeight(texAreaBaseHeight + 3 * 16);
         textArea.setMaxHeight(400);
 
+        
+        System.out.println("size: " + textArea.getWidth());
+        System.out.println("size: " + textArea.getHeight());
+        System.out.println("font:" + textArea.fontProperty().get().getSize());
+        
         String d = Integer.toString(textArea.getText().length());
-        counter.setText(EmotionalSongs.language == 0 ? "carattere: " + d + " di 256" : "char: " + d + " di 256");
+        counter.setText(EmotionalSongs.language == 0 ? "caratteri: " + d + " di 256" : "chars: " + d + " di 256");
         //counter.setVisible(false);
 
 
@@ -213,7 +220,7 @@ public class CommentsPageController extends Controller implements Initializable
 
   
     @FXML
-    void turnBack(MouseEvent event) throws IOException {
+    void turnBack(ActionEvent  event) throws IOException {
         if(playlist == null) {
             this.mainControllerPage.Comment_To_repository();
         }

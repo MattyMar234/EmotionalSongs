@@ -1,6 +1,4 @@
-#back {
-    -fx-background-color: rgb(65, 65, 65);
-}
+
 #Label, #counter {
     -fx-text-fill: #fcfcfc;
     -fx-font-size: 14px;
@@ -28,13 +26,19 @@
 
 }
 
+#anchor {
+    -fx-background-color: transparent;
+}
+
+
+
 
 
 
 /* =============== Tabella =============== */
 .table-view {
 
-    -fx-background-color: rgb(65, 65, 65);
+    -fx-background-color: transparent;
     -fx-padding: 0px;
     -fx-text-fill: #fcfcfc;
 }

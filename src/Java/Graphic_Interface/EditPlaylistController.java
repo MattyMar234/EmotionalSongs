@@ -108,6 +108,17 @@ public class EditPlaylistController extends Controller implements Initializable
     {
         playlistCopy = playlist.copy();
 
+        Back.setText(EmotionalSongs.language == 0 ? "Indietro" : "Turn Back");
+        Title.setText(EmotionalSongs.language == 0 ? "Titolo" : "Title");
+        Autor.setText(EmotionalSongs.language == 0 ? "Autore" : "Autor");
+        SongDate.setText(EmotionalSongs.language == 0 ? "Data" : "Date");
+        Actions.setText(EmotionalSongs.language == 0 ? "Azioni" : "Actions");
+
+        addSong.setText(EmotionalSongs.language == 0 ? "Aggiungi Canzone" : "Add Song");
+        AddSongAutor.setText(EmotionalSongs.language == 0 ? "Aggiungi Canzoni Autore" : "Add Author's songs");
+
+
+
         for(Song song : playlistCopy.getSongs()) {
             list.add(new CustomSong(song, this.playlistCopy, classeReferences,this));
         }
