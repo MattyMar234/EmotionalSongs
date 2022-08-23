@@ -102,7 +102,7 @@ public class AccessController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
-
+        
         updatePageText();
 
         File folder = new File(EmotionalSongs.flagFolder);
@@ -248,7 +248,7 @@ public class AccessController extends Controller implements Initializable {
 
         //verifico validità del campo
         if(userName == null || userName.getText().length() == 0) {
-            this.LabelName.setText("missing data");
+            this.LabelName.setText(EmotionalSongs.language == 0 ? "dati mancanti" : "missing data");
             this.userName.setStyle("-fx-border-color: #a50303;");
             this.LabelName.setVisible(true);
             error = true;
@@ -257,12 +257,12 @@ public class AccessController extends Controller implements Initializable {
             //verifica email
             if(userName.getText().contains("@")) {
                 TempAccount = application.AccountsManager.SearchByEmail(userName.getText());
-                this.LabelName.setText("invalid email");
+                this.LabelName.setText(EmotionalSongs.language == 0 ? "email non valida" : "invalid email");
             }
             //verifica userID
             else {
                 TempAccount = application.AccountsManager.SearchByID(userName.getText());
-                this.LabelName.setText("invalid user ID");
+                this.LabelName.setText(EmotionalSongs.language == 0 ? "ID utente non valido" : "invalid user ID");
             }
 
             if(TempAccount == null) {
@@ -274,7 +274,7 @@ public class AccessController extends Controller implements Initializable {
 
         //verifico validità del campo
         if(password == null || password.getText().length() == 0) {
-            this.labelPassword.setText("missing data");
+            this.labelPassword.setText(EmotionalSongs.language == 0 ? "dati mancanti" : "missing data");
             this.password.setStyle("-fx-border-color: #a50303;");
             this.labelPassword.setVisible(true);
             error = true;
@@ -286,7 +286,7 @@ public class AccessController extends Controller implements Initializable {
         }
 
         if(!TempAccount.getPassword().equals(password.getText())) {
-            this.labelPassword.setText("incorrect password");
+            this.labelPassword.setText(EmotionalSongs.language == 0 ? "password non valida" : "wrong password");
             this.password.setStyle("-fx-border-color: #a50303;");
             this.password.clear();
             this.labelPassword.setVisible(true);

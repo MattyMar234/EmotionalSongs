@@ -45,10 +45,10 @@
                      <children>
                         <TableView fx:id="emotionTable" prefHeight="200.0" prefWidth="200.0">
                            <columns>
-                              <TableColumn fx:id="user" prefWidth="75.0" text="User" />
-                              <TableColumn fx:id="emoji" prefWidth="75.0" text="Emoji" />
-                              <TableColumn fx:id="category" prefWidth="75.0" text="Category" />
-                              <TableColumn fx:id="explanation" prefWidth="75.0" text="Explanation" />
+                              <TableColumn fx:id="user" minWidth="100.0" prefWidth="-1.0" text="User" />
+                              <TableColumn fx:id="emoji" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="Emoji" />
+                              <TableColumn fx:id="category" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Category" />
+                              <TableColumn fx:id="explanation" minWidth="100.0" prefWidth="-1.0" text="Explanation" />
                               <TableColumn fx:id="score" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" sortable="false" text="Score" />
                            </columns>
                            <columnResizePolicy>
@@ -57,9 +57,9 @@
                         </TableView>
                         <TableView fx:id="emotionTableScores" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                            <columns>
-                              <TableColumn fx:id="users" prefWidth="75.0" text="Users" />
-                              <TableColumn fx:id="emoji1" prefWidth="75.0" text="Emoji" />
-                              <TableColumn fx:id="category1" prefWidth="75.0" text="Category" />
+                              <TableColumn fx:id="users" minWidth="150.0" prefWidth="-1.0" text="Users" />
+                              <TableColumn fx:id="emoji1" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Emoji" />
+                              <TableColumn fx:id="category1" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Category" />
                               <TableColumn fx:id="average" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" sortable="false" text="Average" />
                            </columns>
                            <columnResizePolicy>

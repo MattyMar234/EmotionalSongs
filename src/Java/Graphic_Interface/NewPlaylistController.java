@@ -52,7 +52,7 @@ public class NewPlaylistController extends Controller implements Initializable {
 
 
     // ========================= tabella =========================//
-    @FXML private TableView<Song> PlaylistsTable;
+    @FXML private TableView<Song> emotionTable;
     @FXML private TableColumn<Song, String> Album;
     @FXML private TableColumn<Song, String> Autor;
     @FXML private TableColumn<Song, String> Title;
@@ -64,7 +64,9 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     // ========================= Labels ========================= //
     @FXML private Label labelError;
-
+    @FXML private Label titoloPagina;
+    @FXML private Label playlistName;
+    @FXML private Label selectedSong;
     
     // ========================= Altro ========================= //
     MainPageController mainPageReference;
@@ -86,7 +88,7 @@ public class NewPlaylistController extends Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
-        salva.setText(EmotionalSongs.language == 0 ? "Salva Modifiche" : "Save Changes");
+        salva.setText(EmotionalSongs.language == 0 ? "Salva" : "Save");
         addSong.setText(EmotionalSongs.language == 0 ? "Aggiungi Canzoni" : "Add Songs");
         AddSongAutor.setText(EmotionalSongs.language == 0 ? "Aggiungi canzoni dall'Autore" : "Add Author songs");
 
@@ -95,13 +97,17 @@ public class NewPlaylistController extends Controller implements Initializable {
         SongDate.setText(EmotionalSongs.language == 0 ? "Data" : "Date");
         Actions.setText(EmotionalSongs.language == 0 ? "Azioni" : "Actions");
 
+        titoloPagina.setText(EmotionalSongs.language == 0 ? "MENÙ CREAZIONE PLAYLIST" : "PLAYLIST CREATION MENÙ");
+        playlistName.setText(EmotionalSongs.language == 0 ? "Nome playlist:" : "Playlist name:");
+        selectedSong.setText(EmotionalSongs.language == 0 ? "Canzoni selezionate:" : "Selected songs:");
+
         labelError.setStyle("-fx-font-size:13px; -fx-text-fill: transparent;");
 
        
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
         //Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
-        PlaylistsTable.setItems(list);
+        emotionTable.setItems(list);
 
     }
 
@@ -113,7 +119,7 @@ public class NewPlaylistController extends Controller implements Initializable {
             list.add(s);
         }
 
-        PlaylistsTable.refresh();
+        emotionTable.refresh();
     }
 
     // ====================== Button Action ================= //
@@ -130,7 +136,7 @@ public class NewPlaylistController extends Controller implements Initializable {
         }
         else {
             labelError.setStyle("-fx-font-size:13px; -fx-text-fill: red;");
-            labelError.setText( EmotionalSongs.language == 0 ? "Nome playlist mancante" : "Missing playlist name");
+            labelError.setText( EmotionalSongs.language == 0 ? "nome playlist mancante" : "missing playlist name");
         }  
     }
 

@@ -233,9 +233,10 @@ public class MainPageController extends Controller implements Initializable
 
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initOwner(this.application.mainStage);
-        alert.setTitle("Conferma");
+        alert.setTitle(EmotionalSongs.language == 0 ? "Conferma" : "Confirm");
+        alert.setHeaderText(buttons.get(4).getText());
         alert.initModality(Modality.WINDOW_MODAL);
-        alert.setContentText("vuoi cambiare Account ?");
+        alert.setContentText(EmotionalSongs.language == 0 ? "vuoi cambiare account?" : "do you want to change account?");
         
         Optional<ButtonType> result = alert.showAndWait();
 
@@ -255,9 +256,11 @@ public class MainPageController extends Controller implements Initializable
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initOwner(this.application.mainStage);
-        alert.setTitle("Conferma");
+        alert.setTitle(EmotionalSongs.language == 0 ? "Conferma" : "Confirm");
+        alert.setHeaderText(buttons.get(5).getText());
         alert.initModality(Modality.WINDOW_MODAL);
-        alert.setContentText("Vuoi uscire dal programma ?");
+        alert.setContentText(EmotionalSongs.language == 0 ? "vuoi uscire dal programma?" : "do you want to exit?");
+        
         
         Optional<ButtonType> result = alert.showAndWait();
 
