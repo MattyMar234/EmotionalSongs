@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 
 public class EmotionPageController extends Controller implements Initializable{
 
@@ -23,13 +24,13 @@ public class EmotionPageController extends Controller implements Initializable{
     
     @FXML private TableView<Container> emotionTable;
     @FXML private TableColumn<Container, String> user;
-    @FXML private TableColumn<Container, String> emoji;
+    @FXML private TableColumn<Container, ImageView> emoji;
     @FXML private TableColumn<Container, String> category;
     @FXML private TableColumn<Container, String> explanation;
     @FXML private TableColumn<Container, String> score;
 
     @FXML private TableView<Container> emotionTableScores;
-    @FXML private TableColumn<Container, String> emoji1;
+    @FXML private TableColumn<Container, ImageView> emoji1;
     @FXML private TableColumn<Container, Integer> users;
     @FXML private TableColumn<Container, String> category1;
     @FXML private TableColumn<Container, Float> average;
@@ -45,6 +46,8 @@ public class EmotionPageController extends Controller implements Initializable{
 
     public class Container 
     {
+        ImageView emotionIMG;
+
         private Emotion e;
         private Song s;
 
@@ -69,6 +72,14 @@ public class EmotionPageController extends Controller implements Initializable{
             this.category = e.getCategory();
             this.description = e.getExplanation();
             this.score = Integer.toString(e.getScore());
+
+            this.emotionIMG = new ImageView(Emotion.EmotionHashMap.get(this.name));
+            emotionIMG.setFitHeight(48);
+            emotionIMG.setFitWidth(48);
+        }
+
+        public ImageView getEmotionIMG() {
+            return emotionIMG;
         }
 
         public String getName() {
@@ -144,6 +155,10 @@ public class EmotionPageController extends Controller implements Initializable{
         users.setCellValueFactory(new PropertyValueFactory<Container, Integer>("users"));
         category1.setCellValueFactory(new PropertyValueFactory<Container, String>("category"));
         average.setCellValueFactory(new PropertyValueFactory<Container, Float>("media"));
+
+        emoji.setCellValueFactory(new PropertyValueFactory<Container, ImageView>("emotionIMG"));
+        emoji1.setCellValueFactory(new PropertyValueFactory<Container, ImageView>("emotionIMG"));
+
     
 
         emotionTable.setItems(list);

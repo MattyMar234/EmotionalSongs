@@ -67,19 +67,25 @@ public class MainPageController_reposity extends Controller implements Initializ
 
     private enum FilterState {
         
-        ANNO_CRESCENTE, 
-        ANNO_DECRESCENTE, 
-        COMMENTI_CRESCENTE, 
-        COMMENTI_DECRESCENTE, 
-        EMOZIONI_CRESCENTE,
-        EMOZIONI_DECRESCENTE;
+        ANNO_CRESCENTE("Per anno crescente", "For growing year"), 
+        ANNO_DECRESCENTE("Per anno decrescente", "By decreasing year"), 
+        COMMENTI_CRESCENTE("Per commenti crescente", "For growing comments"), 
+        COMMENTI_DECRESCENTE("Per commenti decrescente", "For decreasing comments"), 
+        EMOZIONI_CRESCENTE("Per emozioni crescente", "For growing emotions"),
+        EMOZIONI_DECRESCENTE("Per emozioni decrescente", "For decreasing emotions");
+
+        String it="";
+        String ing="";
+
+        FilterState(String it, String ing) {
+            this.it=it;
+            this.ing=ing;
+        }
+
 
         @Override
         public String toString() {
-            String s = super.toString();
-            s = "Per " + s.toString().toLowerCase().replace("_", " ");
-            
-            return s;
+            return EmotionalSongs.language == 0 ? it :  ing;            
         }
     }
 
