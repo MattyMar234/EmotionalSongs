@@ -55,7 +55,7 @@
                      <center>
                         <AnchorPane id="contornoTabella" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <TableView fx:id="SongsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="718.0" prefWidth="997.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+                              <TableView fx:id="SongsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="718.0" prefWidth="997.0" stylesheets="@../css/mainPageStyle.css" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                                  <columns>
                                     <TableColumn fx:id="Elements" prefWidth="92.0" />
                                  </columns>
@@ -66,6 +66,12 @@
                            </children>
                         </AnchorPane>
                      </center>
+                     <bottom>
+                        <AnchorPane id="tableFooter" prefHeight="16.0" prefWidth="803.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <right>
+                        <AnchorPane id="tableFooter" prefHeight="650.0" prefWidth="16.0" BorderPane.alignment="CENTER" />
+                     </right>
                   </BorderPane>
                </children>
             </AnchorPane>

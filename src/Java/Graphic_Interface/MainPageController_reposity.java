@@ -152,24 +152,24 @@ public class MainPageController_reposity extends Controller implements Initializ
         //verticalBar.setValue(0.49);
 
         //disabilito lo scroll con la rotella
-        /*SongsTable.addEventFilter(ScrollEvent.ANY, event -> {
+        /*
+        SongsTable.addEventFilter(ScrollEvent.ANY, event -> {
             int d = (int)event.getDeltaY();
 
-            SongsTable.scrollTo(((int)event.getY() + d/10)/100);
-            event.consume();
-        });
+            ScrollBar verticalBar = (ScrollBar) SongsTable.lookup(".scroll-bar:vertical");
+            System.out.println(verticalBar.getValue());
 
         
-        SongsTable.addEventFilter(ScrollEvent.ANY, new EventHandler<ScrollEvent>() {
-            
-            @Override
-            public void handle(ScrollEvent scrollEvent) {
-                System.out.println("Scrolled.");
-                System.out.println(scrollEvent.getDeltaY());
-               ;
-               //SongsTable.scrollTo();
-            }
-     });*/
+           
+            //counter +=  (d > 0 ? 10 : -10);6
+            //SongsTable.scrollTo(counter);
+            verticalBar.setValue(verticalBar.getValue() + (1/500000));
+            event.consume();
+        });
+        */
+
+        
+    
 
      
 

@@ -13,10 +13,10 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <AnchorPane id="BorderPaneTable" prefHeight="670.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+            <AnchorPane id="BorderPaneTable" prefHeight="650.0" prefWidth="52.0" BorderPane.alignment="CENTER" />
          </left>
          <right>
-            <AnchorPane id="BorderPaneTable" prefHeight="670.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+            <AnchorPane id="BorderPaneTable" prefHeight="650.0" prefWidth="52.0" BorderPane.alignment="CENTER" />
          </right>
          <bottom>
             <AnchorPane id="BorderPaneTable" prefHeight="50.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
@@ -30,10 +30,10 @@
                            <children>
                               <TableView fx:id="PlaylistsTable" onMouseClicked="#elementSelected" onSort="#Selezione" prefHeight="718.0" prefWidth="997.0" stylesheets="@../css/PlaylistsPage.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
-                                    <TableColumn fx:id="PlayListName" prefWidth="92.0" text="Playlist Name " />
-                                    <TableColumn fx:id="PlayListElements" prefWidth="244.00003051757812" text="Songs Number" />
-                                    <TableColumn fx:id="DataCreazione" minWidth="0.0" prefWidth="98.0" text="Creation Data" />
-                                    <TableColumn fx:id="EditPlayList" prefWidth="75.0" text="Actions" />
+                                    <TableColumn fx:id="PlayListName" prefWidth="200.0" text="Playlist Name " />
+                                    <TableColumn fx:id="PlayListElements" prefWidth="250.0" text="Songs Number" />
+                                    <TableColumn fx:id="DataCreazione" minWidth="0.0" prefWidth="100.0" text="Creation Data" />
+                                    <TableColumn fx:id="EditPlayList" minWidth="150.0" prefWidth="150.0" text="Actions" />
                                  </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -47,7 +47,7 @@
             </AnchorPane>
          </center>
          <top>
-            <AnchorPane fx:id="searchPane" prefHeight="80.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="searchPane" prefHeight="100.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane prefHeight="38.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
                      <children>

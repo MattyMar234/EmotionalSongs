@@ -52,7 +52,7 @@
                            <children>
                               <ImageView id="labelCommenti" fitHeight="28.0" fitWidth="24.0" onMouseClicked="#viewComment" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../data/icon/icon2.png" />
+                                    <Image url="@../../data/icon/CommentIconRepository.png" />
                                  </image>
                                  <HBox.margin>
                                     <Insets bottom="6.0" />

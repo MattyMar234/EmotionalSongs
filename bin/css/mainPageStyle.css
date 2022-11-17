@@ -64,12 +64,18 @@
     -fx-background-color: #222430/*#25282e*/;
 }
 
-#Vbox1 {
+#tableFooter {
     /*-fx-background-color: #6F5cc2;*/
     /*-fx-background-color: #343843;*/
     -fx-background-color: #262D37;
     /*-fx-border-width: 0 1 0 0;
     -fx-border-color: rgb(92, 92, 92);*/
+}
+
+#Vbox1 {
+    -fx-border-color: #1d2129;
+    -fx-border-width: 0 4px 0 0;
+    -fx-background-color: #262D37;
 }
 
 #BorderPaneTable {
@@ -156,15 +162,23 @@
 #songMenubackground {
     -fx-background-color: #313131;
     -fx-background-radius: 16px;
+    -fx-border-color: #525252;
+    -fx-border-width: 2px;
+    -fx-border-radius: 16px;
 }
 
 #menuSpace {
     -fx-background-color: transparent;
     -fx-padding: 15 10 15 10;
+    
+
 }
 
 #contornoTabella {
-    -fx-background-color: #424141;
+    /*-fx-background-color: #424141;*/
+    -fx-background-color: transparent;
+    -fx-border-color: #1d2129;
+    -fx-border-width: 2px 0px 2px 0;
 }
 
 
