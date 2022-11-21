@@ -16,16 +16,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Callback;
 
 public class EmotionCreationPageController extends Controller implements Initializable {
 
@@ -53,11 +57,15 @@ public class EmotionCreationPageController extends Controller implements Initial
     @FXML private TableColumn <EmotionContainer, String> values1;
     @FXML private Button Back;
 
+
+    @FXML private TableView<Container> EmotioTable;
+    @FXML private TableColumn<Container, Container> EmotionElement;
+
     private MainPageController classeReferences;
     private PlayList playlist;
     private Song song;
 
-    public ObservableList<EmotionContainer> list = FXCollections.observableArrayList();
+    private ObservableList<Container> list = FXCollections.observableArrayList();
     public ObservableList<EmotionContainer> Addedlist = FXCollections.observableArrayList();
 
     public EmotionCreationPageController(MainPageController classeReferences, PlayList playlist, Song song) {
@@ -66,6 +74,27 @@ public class EmotionCreationPageController extends Controller implements Initial
         this.playlist = playlist;
         this.song = song;
         //this.songCopy = new Song(song.toJSON());
+    }
+
+    public class Container {
+
+        public Song song;
+        public PlayList playlist;
+        public Emotion emotion;
+        public EmotionCreationPageController mainController;
+        public Container classReference;
+
+        public Container(Song song, PlayList playlist, Emotion emotion, EmotionCreationPageController mainController) {
+            this.song = song;
+            this.playlist = playlist;
+            this.emotion = emotion;
+            this.mainController = mainController;
+            classReference = this;
+        } 
+
+        public Container getClassReference() {
+            return this;
+        } 
     }
 
 
@@ -152,109 +181,65 @@ public class EmotionCreationPageController extends Controller implements Initial
     public void initialize(URL location, ResourceBundle resources) 
     {
 
+
         Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
 
-        emotionSelection.setText(EmotionCreationPageController.matrice[0][EmotionalSongs.language]);
-        emotionSelection1.setText(EmotionCreationPageController.matrice[0][EmotionalSongs.language]);
-        emotion.setText(EmotionCreationPageController.matrice[1][EmotionalSongs.language]);
-        emotion1.setText(EmotionCreationPageController.matrice[1][EmotionalSongs.language]);
-        name.setText(EmotionCreationPageController.matrice[2][EmotionalSongs.language]);
-        name1.setText(EmotionCreationPageController.matrice[2][EmotionalSongs.language]);
-        explanation.setText(EmotionCreationPageController.matrice[3][EmotionalSongs.language]);
-        explanation1.setText(EmotionCreationPageController.matrice[3][EmotionalSongs.language]);
-        values.setText(EmotionCreationPageController.matrice[4][EmotionalSongs.language]);
-        values1.setText(EmotionCreationPageController.matrice[4][EmotionalSongs.language]);
 
-
-        ArrayList<Emotion> userEmotion = song.getUserEmotions(super.application.ConnectedAccount.getID());
-        boolean [] missingEmotion = new boolean[9];
-
-
-        if(userEmotion.size() != 0) {
-
-            for(int  i = 0; i < 9; i++) {
-                missingEmotion[i] = true;
-            }
-
-            for(Emotion e : userEmotion) {
-                EmotionContainer c = new EmotionContainer(e, 2, this);
-                c.valuetext = Integer.toString(e.getScore());
-                Addedlist.add(c);
-
-                missingEmotion[Emotion.getEmotionID(e)] = false; // return n : 0 -> 8 e imposto false
-            
-            }
-
-            for(int  i = 0; i < 9; i++) {
-                if(missingEmotion[i]) {
-                    //inserisco l'emozioni che mi mancano
-                    list.add(new EmotionContainer(Emotion.Emotions[i], 1, this));
-                }
-            }
-        }
-        else {
-            for(int i = 0; i < 9; i++) {
-                list.add(new EmotionContainer(Emotion.Emotions[i], 1, this));
-            }
+        for(Emotion e : Emotion.Emotions) {
+            list.add(new Container(song,playlist, e, this));
         }
 
-        name.setCellValueFactory(new PropertyValueFactory<EmotionContainer, String>("name"));
-        explanation.setCellValueFactory(new PropertyValueFactory<EmotionContainer, String>("description"));
-        values.setCellValueFactory(new PropertyValueFactory<EmotionContainer, ComboBox<Integer>>("values"));
-        emotion.setCellValueFactory(new PropertyValueFactory<EmotionContainer, ImageView>("emotionIMG"));
-        emotionSelection.setCellValueFactory(new PropertyValueFactory<EmotionContainer, Button>("enable"));
 
-        name1.setCellValueFactory(new PropertyValueFactory<EmotionContainer, String>("name"));
-        explanation1.setCellValueFactory(new PropertyValueFactory<EmotionContainer, String>("description"));
-        values1.setCellValueFactory(new PropertyValueFactory<EmotionContainer, String>("valuetext"));
-        emotion1.setCellValueFactory(new PropertyValueFactory<EmotionContainer, ImageView>("emotionIMG"));
-        emotionSelection1.setCellValueFactory(new PropertyValueFactory<EmotionContainer, Button>("enable"));
-
-        EmotionTable.setRowFactory(tv -> new TableRow<EmotionContainer>() {
-            
-            @Override
-            protected void updateItem(EmotionContainer item, boolean empty) {
-                super.updateItem(item, empty);
+        Callback<TableColumn<Container, Container>, TableCell<Container, Container>> cellFoctory = (TableColumn<Container, Container> param) -> {
+            final TableCell<Container, Container> cell = new TableCell<Container, Container>() {
                 
-                if (item == null)
-                    setStyle("");
-                else if (item.selected)
-                    setStyle("-fx-background-color: #baffba;");
-                else
-                    setStyle("");
-            }
-        });
+                @Override
+                public void updateItem(Container item, boolean empty) {
+                    super.updateItem(item, empty);
+                    //that cell created only on non-empty rows
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+                    } 
+                    else 
+                    {
+                        try 
+                        {
+                            //carico la pagina
+                            String path = EmotionalSongs.XML_Paths[18]; 
+                            FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource(path));
+                            AnchorPane view = XMLloader.load();
 
-        EmotionTable.setItems(list);
-        EmotionTable.setSelectionModel(null);
+                            //carico i parametri
+                            EmotioTableElementController controller = XMLloader.getController();
+                            controller.injectData(item);
+                            //System.out.println(item);
 
-        AddedEmotionTable.setItems(Addedlist);
-        AddedEmotionTable.setSelectionModel(null);
+                            setGraphic(view);
+                        
+                        } catch (IOException e) {
+                            System.out.println(e);
+                        }  
+                        setText(null);
+                    }
+                }
+            };
+            return cell;
+        };
+
+        EmotionElement.setCellValueFactory(new PropertyValueFactory<Container, Container>("classReference"));
+        EmotionElement.setCellFactory(cellFoctory);
+
+        EmotioTable.setItems(list);
+        EmotioTable.setSelectionModel(null);
+
+        
  
     }
 
     public void move(int state, EmotionContainer emotion) {
         
-        //add
-        if(state == 1) {
-            list.remove(emotion);
-            EmotionContainer p = new EmotionContainer(emotion.emotion, 2, emotion.classRef);
-            p.valuetext = Integer.toString(emotion.values.getValue());
-            Addedlist.add(p);
-
-            song.getEmotions().add(new Emotion(p.emotion, emotion.values.getValue(), (RegisteredAccount)application.ConnectedAccount));
-      
-        }
-        //remove
-        else {
-            Addedlist.remove(emotion);
-            EmotionContainer p = new EmotionContainer(emotion.emotion, 1, emotion.classRef);
-            list.add(p);
-
-            song.getEmotions().remove(emotion.emotion);
         
-            
-        }
     }
 
     @FXML

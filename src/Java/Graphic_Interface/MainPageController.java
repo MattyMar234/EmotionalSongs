@@ -302,7 +302,7 @@ public class MainPageController extends Controller implements Initializable
     //AddEmotion 
     public void SetAddEmotionPage(PlayList playlist, Song song) throws IOException {
         
-        FXMLLoader loader = getScenePage("AddEmotionPage2");
+        FXMLLoader loader = getScenePage("AddEmotionPage3");
         currentLoader = loader;
 
         loader.setControllerFactory( c -> {

@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 public class Emotion 
 {
 
-    protected static final String[][] matrice = 
+    public static final String[][] matrice = 
     {
         {"Stupore", "Amazement"}, 
         {"Solennità", "Solemnity"}, 

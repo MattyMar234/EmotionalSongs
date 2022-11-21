@@ -39,8 +39,8 @@ public class EmotionalSongs extends Application{
     public static final String LocationsData      = Directory + "\\data\\comuni.json";
     public static final String songsDataFilePath2 = Directory + "\\data\\Song.csv";
 
-    private final String FileFXML_path      = "FXML/";
-    private final String [] XML_Paths = {
+    public static final String FileFXML_path = "FXML/";
+    public static final String [] XML_Paths = {
 
         FileFXML_path + "Container.fxml",
         FileFXML_path + "UserRegistration.fxml",
@@ -59,7 +59,8 @@ public class EmotionalSongs extends Application{
         FileFXML_path + "CommentsPage.fxml",
         FileFXML_path + "EmotionPage.fxml",
         FileFXML_path + "EditPlaylist.fxml",
-        FileFXML_path + "AddEmotionPage2.fxml"
+        FileFXML_path + "AddEmotionPage3.fxml",
+        FileFXML_path + "AddEmotionPageTableElement.fxml"
     };
 
 
