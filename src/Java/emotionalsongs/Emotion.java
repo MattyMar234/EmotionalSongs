@@ -75,8 +75,8 @@ public class Emotion
     {
         //number = Emotion.getEmotionID(emozione);
         
-        /*this.Explanation = emozione.getExplanation();
-        this.Category = emozione.getCategory();*/
+        this.Explanation = emozione.getExplanation();
+        this.Category = emozione.getCategory();
         number = emozione.number;
 
         this.Score = Score;
@@ -89,7 +89,6 @@ public class Emotion
     {
         this.Explanation = Explanation;
         this.Category = category;
-
         number = Emotion.init++;
  
     }
@@ -108,7 +107,7 @@ public class Emotion
 
     @Override
     public String toString() {
-        return new String("Category: " + Category + ", score: " + this.Score);
+        return new String("Category: " + this.Category + ", score: " + this.Score);
     }
 
 
@@ -139,12 +138,12 @@ public class Emotion
     }
 
     public String getAccountID() {
-        if(this.account == null) {
-            return EmotionalSongs.classReference.ConnectedAccount.getID();
-        }
-        else  {
-            return this.account.getID();
-        }
+        return this.account.getID();
+    }
+
+    public void SetAccount(RegisteredAccount account) {
+        this.account = account;
+        System.out.println("account: " + getAccountID());
     }
 
 }

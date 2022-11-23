@@ -41,32 +41,17 @@ public class EmotionCreationPageController extends Controller implements Initial
         {"Valore", "Value"}       
     };
    
-    @FXML private TableView   <EmotionContainer> EmotionTable;
-    @FXML private TableView   <EmotionContainer> AddedEmotionTable;
-    //@FXML private TableColumn <EmotionContainer, CheckBox> emotionSelection;
-    @FXML private TableColumn <EmotionContainer, Button> emotionSelection;
-    @FXML private TableColumn <EmotionContainer, ImageView> emotion;
-    @FXML private TableColumn <EmotionContainer, String> name;
-    @FXML private TableColumn <EmotionContainer, String> explanation;
-    @FXML private TableColumn <EmotionContainer, ComboBox<Integer>> values;
-
-    @FXML private TableColumn <EmotionContainer, Button> emotionSelection1;
-    @FXML private TableColumn <EmotionContainer, ImageView> emotion1;
-    @FXML private TableColumn <EmotionContainer, String> name1;
-    @FXML private TableColumn <EmotionContainer, String> explanation1;
-    @FXML private TableColumn <EmotionContainer, String> values1;
+    
     @FXML private Button Back;
-
-
     @FXML private TableView<Container> EmotioTable;
     @FXML private TableColumn<Container, Container> EmotionElement;
 
+    private ObservableList<Container> list = FXCollections.observableArrayList();
     private MainPageController classeReferences;
     private PlayList playlist;
     private Song song;
 
-    private ObservableList<Container> list = FXCollections.observableArrayList();
-    public ObservableList<EmotionContainer> Addedlist = FXCollections.observableArrayList();
+    
 
     public EmotionCreationPageController(MainPageController classeReferences, PlayList playlist, Song song) {
         super();
@@ -98,84 +83,7 @@ public class EmotionCreationPageController extends Controller implements Initial
     }
 
 
-    public class EmotionContainer 
-    {
-        ImageView emotionIMG;
-        String name;
-        String description;
-        String valuetext;
-        int state;
-        ComboBox<Integer> values;
-        //CheckBox enable;
-        Button enable;
-        Emotion emotion;
-
-        EmotionCreationPageController classRef;
-        EmotionContainer thisclass;
-
-        boolean selected = false;
-
-        
-        public EmotionContainer(Emotion emotion, int state, EmotionCreationPageController classRef) {
-            
-            this.name = emotion.getCategory();
-            this.description = emotion.getExplanation();
-            this.emotionIMG = new ImageView(Emotion.EmotionHashMap.get(this.name));
-            this.emotion = emotion;
-            this.state = state;
-            this.classRef = classRef;
-            this.thisclass = this;
-
-            emotionIMG.setFitHeight(48);
-            emotionIMG.setFitWidth(48);
-
-            values = new ComboBox<Integer>();
-            //enable = new CheckBox();
-
-            if(state == 1) {
-                enable = new Button();
-                enable.setId("save_Button");
-                enable.setText(EmotionalSongs.language == 0 ? "Includi Emozione" : "Include Emotion");
-            }
-            else {
-                enable = new Button();
-                enable.setId("cance_Button");
-                enable.setText(EmotionalSongs.language == 0 ? "Escludi Emozione" : "Exclude Emotion");
-            }
-
-            enable.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    classRef.move(state, thisclass);
-                }
-            });
-
-            for(int i = 1; i <= 5; i++) {
-                values.getItems().add(i);
-                values.setValue(1);
-            }
-        }
-        
-
-        public Button getEnable() {
-            return enable;
-        }
-        public ImageView getEmotionIMG() {
-            return emotionIMG;
-        }
-        public String getName() {
-            return name;
-        }
-        public String getDescription() {
-            return description;
-        }
-        public ComboBox<Integer> getValues() {
-            return values;
-        }
-        public String getValuetext() {
-            return valuetext;
-        }
-    }
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) 
@@ -237,46 +145,15 @@ public class EmotionCreationPageController extends Controller implements Initial
  
     }
 
-    public void move(int state, EmotionContainer emotion) {
-        
-        
-    }
+    
 
-    @FXML
-    void clicked(MouseEvent event) {
+    
 
-        /*
-        if(state == 0) {
-            selected1 = EmotionTable.getSelectionModel().getSelectedItem();
-            state++;
-        }
-        else {
-            selected2 = EmotionTable.getSelectionModel().getSelectedItem();
-            state = 0;
-            if(selected2 == selected1) {
-                EmotionContainer p = EmotionTable.getSelectionModel().getSelectedItem();
-                p.selected = !p.selected;
-            }
-        }*/
-    }
-
-    @FXML
-    void save(ActionEvent event) 
-    {
-        /*for(EmotionContainer row : list) {
-            if(row.enable.isSelected()) {
-                song.getEmotions().add(new Emotion(row.emotion, row.values.getValue()));
-            }
-        }*/
-        this.song.getEmotions().clear();
-        
-        for(Emotion e : this.song.getEmotions()) {
-            this.song.getEmotions().add(e);
-        }
-    }
+    
 
     @FXML
     void turnBack(ActionEvent event) throws IOException {
+        System.out.println("hereee");
         classeReferences.SetPlaylistEditPage(playlist, classeReferences);
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -10,13 +11,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.EmotionCreationPageController">
+<AnchorPane prefHeight="544.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.EmotionCreationPageController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="80.0" prefWidth="757.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="addElement_Button" fx:id="Back" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                  <Button id="addElement_Button" fx:id="Back" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" underline="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                            <image>
@@ -27,6 +28,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children></AnchorPane>
          </top>
@@ -40,7 +44,7 @@
             <AnchorPane prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
          </bottom>
          <center>
-            <TableView fx:id="EmotioTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="EmotioTable" maxHeight="710.0" maxWidth="700.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="EmotionElement" prefWidth="75.0" />
               </columns>

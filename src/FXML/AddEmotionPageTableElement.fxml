@@ -1,42 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="70.0" minHeight="50.0" prefHeight="70.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.EmotioTableElementController">
+<AnchorPane fx:id="elementBackGround" maxHeight="70.0" minHeight="50.0" prefHeight="70.0" prefWidth="677.0" stylesheets="@../css/EmotionPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.EmotioTableElementController">
    <children>
-      <CheckBox fx:id="checkBox" mnemonicParsing="false" onMouseClicked="#checkBoxClicked" prefHeight="30.0" prefWidth="158.0" text="Includi Amazement" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
-      <ImageView fx:id="EmojiIcon" fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="16.0">
-         <image>
-            <Image url="@../../data/EmojiIcon/Amazement%5B1%5D.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="SetScore1" fitHeight="40.0" fitWidth="40.0" layoutX="238.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="240.0" AnchorPane.topAnchor="15.0">
-         <image>
-            <Image url="@../../data/icon/FilledStar-64px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="SetScore2" fitHeight="40.0" fitWidth="40.0" layoutX="292.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="15.0">
-         <image>
-            <Image url="@../../data/icon/FilledStar-64px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="SetScore3" fitHeight="40.0" fitWidth="40.0" layoutX="339.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="15.0">
-         <image>
-            <Image url="@../../data/icon/FilledStar-64px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="SetScore4" fitHeight="40.0" fitWidth="40.0" layoutX="393.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="390.0" AnchorPane.topAnchor="15.0">
-         <image>
-            <Image url="@../../data/icon/FilledStar-64px.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="SetScore5" fitHeight="40.0" fitWidth="40.0" layoutX="439.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="15.0">
-         <image>
-            <Image url="@../../data/icon/EmptyStar-64px.png" />
-         </image>
-      </ImageView>
+      <AnchorPane id="ElementContainer1" prefHeight="70.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <CheckBox fx:id="checkBox" mnemonicParsing="false" onMouseClicked="#checkBoxClicked" prefHeight="30.0" prefWidth="187.0" text="Includi Amazement" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </CheckBox>
+            <ImageView fx:id="EmojiIcon" fitHeight="60.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@../../data/EmojiIcon/Amazement%5B1%5D.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <HBox alignment="CENTER" layoutX="367.0" layoutY="1.0" prefHeight="70.0" prefWidth="270.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="367.0" AnchorPane.topAnchor="1.0">
+         <children>
+            <ImageView fx:id="SetScore1" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../data/icon/FilledStar-64px.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="SetScore2" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../data/icon/FilledStar-64px.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="SetScore3" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../data/icon/FilledStar-64px.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="SetScore4" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../data/icon/FilledStar-64px.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fx:id="SetScore5" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../data/icon/EmptyStar-64px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label fx:id="labelValutazione" alignment="CENTER_RIGHT" layoutX="292.0" layoutY="21.0" prefHeight="30.0" prefWidth="69.0" text="Score:">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

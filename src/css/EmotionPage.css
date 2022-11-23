@@ -1,8 +1,33 @@
 
 
 
+#SetScore1,#SetScore2,#SetScore3,#SetScore4,#SetScore5
+{
+    -fx-margin: 0 0 0 20px;
+    
+}
 
-#EmotionTable, #AddedEmotionTable, #emotionTable 
+#elementBackGround {
+    -fx-background-color: rgb(54, 43, 65);
+}
+
+#ElementContainer1 {
+    -fx-border-width: 0 2px 0 0;
+    -fx-border-color: rgb(116, 116, 116); 
+    
+}
+
+#labelValutazione, #checkBox {
+    -fx-text-fill: blueviolet;
+}
+
+
+
+
+
+
+
+#EmotionTable, #AddedEmotionTable, #emotionTable
 {
     -fx-padding: 0px;
     -fx-text-fill: #fcfcfc;
@@ -48,8 +73,7 @@
 
 #EmotionTable .table-cell, 
 #AddedEmotionTable .table-cell, 
-#emotionTable .table-cell,
-#emotionTableScores .table-cell
+#emotionTable .table-cell
 {
     -fx-alignment: center;
     /*-fx-border-width: 0 0.5 0 0;*/
@@ -57,8 +81,7 @@
 
 #EmotionTable .table-row-cell , 
 #AddedEmotionTable .table-row-cell, 
-#emotionTable .table-row-cell,
-#emotionTableScores .table-row-cell
+#emotionTable .table-row-cell
 {
     -fx-padding: 0 0 0 0; 
     -fx-cell-size: 50px;
@@ -84,4 +107,104 @@
 {
     -fx-background: -fx-control-inner-background-alt ;
     -fx-border: 0px;
+}
+
+
+
+#EmotioTable 
+{
+    -fx-padding: 0px;
+    -fx-text-fill: #fcfcfc;
+    -fx-background-color:  transparent;
+}
+
+
+/* ===================== header tabella =====================*/
+/*      Individual Column Header        */
+#EmotioTable .column-header ,
+#EmotioTable .column-header-background .filler,
+#EmotioTable .column-header-background 
+{
+    -fx-padding: 0 0 0 0;
+}
+
+/* ===================== header della colonna ===================== */
+#EmotioTable .column-header-background .label 
+{
+    -fx-text-fill: #8f8f8f;
+    -fx-alignment: center;
+    
+}
+
+#EmotioTable .column {
+    /*-fx-border-width: 0 0.5 0 0;*/
+    -fx-border-width: 0px;
+    -fx-border-color: #666666;
+}
+
+
+/* ===================== Cells and Rows =====================*/
+/*Contenuto della cella*/
+#EmotioTable .table-cell
+{
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #313131;
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+
+    
+    -fx-border-color: #666666;
+    
+    
+
+}
+
+/**Spetto cella*/
+#EmotioTable .table-row-cell 
+{
+    /*-fx-border-width: 0.5 0 0 0;*/
+    -fx-border-color: #666666;
+   
+}
+
+#EmotioTable .table-row-cell:even {
+    /*-fx-background-color: #27303d;*/
+    -fx-background-color: transparent;
+    
+}
+
+#EmotioTable .table-row-cell:odd {
+    /*-fx-background-color: #333f50;*/
+    -fx-background-color: transparent;
+    
+}
+
+
+#EmotioTable .table-row-cell:hover {
+    
+}
+
+#EmotioTable .table-row-cell:selected
+{
+
+}
+
+
+/* ===================== scroll-bars ===================== */
+#EmotioTable .virtual-flow .scroll-bar:vertical .thumb {
+    /*-fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);*/
+}
+#EmotioTable .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  transparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+#EmotioTable *.scroll-bar:horizontal *.increment-arrow,
+#EmotioTable *.scroll-bar:horizontal *.decrement-arrow {
+  -fx-background-color: transparent;
+  -fx-background-radius: 0;
+  -fx-background-insets: 0;
+  -fx-shape: null;
 }

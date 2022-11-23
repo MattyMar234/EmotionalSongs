@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import Java.Account.RegisteredAccount;
 import Java.Graphic_Interface.EmotionCreationPageController.Container;
 import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
@@ -76,15 +77,14 @@ public class EmotioTableElementController extends Controller implements Initiali
         this.playlist = item.playlist;
         this.song = item.song;
 
-        int lang = EmotionalSongs.language;
-
-        checkBox.setText((lang == 0 ? "Includi " : "Include ") + emotion.getCategory());
+        //Imposto la stringa del checkbox e l'immagine
+        checkBox.setText((EmotionalSongs.language == 0 ? "Includi " : "Include ") + emotion.getCategory());
         EmojiIcon.setImage(Emotion.EmotionHashMap.get(emotion.getCategory()));
 
+        //cerco se è presenta quella che ho:
         ArrayList<Emotion> userEmotions = song.getUserEmotions(super.application.ConnectedAccount.getID());
-        
-        //cerco se è presenta queela che ho:
         boolean found = false;
+
         if(userEmotions.size() > 0) {
             for (Emotion e : userEmotions) {
 
@@ -101,8 +101,10 @@ public class EmotioTableElementController extends Controller implements Initiali
             }
         }
 
+        //se non ho trovato un Emotio già esistente, allora la creo una nuova
         if(!found) {
             clearScore(); 
+            emotion = new Emotion(emotion, 0, (RegisteredAccount) super.application.ConnectedAccount);
         }
         
     }
@@ -115,40 +117,45 @@ public class EmotioTableElementController extends Controller implements Initiali
     }
 
     private void setScore(int value) {
-        if(value >= 6)
+        if(value >= 6 || !checkBox.isSelected())
             return;
 
-        for(int i = 0; i < value; i++) {
-            ScoreArrey[i].setImage(filledStart);
-        }
+        //carico il valore
+        this.emotion = new Emotion(emotion, value, (RegisteredAccount) super.application.ConnectedAccount);
+        emotion.SetAccount((RegisteredAccount) super.application.ConnectedAccount);
 
-        for(int i = value; i < 5; i++) {
+        //passo i riferimenti dell' oggetto che ho creato
+        this.song.AddUserEmotions(this.emotion, (RegisteredAccount) super.application.ConnectedAccount);
+
+        //imposte le stelline 
+        for(int i = 0; i < value; i++)
+            ScoreArrey[i].setImage(filledStart);
+        for(int i = value; i < 5; i++)
             ScoreArrey[i].setImage(EmptyStart);
-        }
+        
     }
 
 
     @FXML
     void checkBoxClicked(MouseEvent event) 
     {
-        ArrayList<Emotion> userEmotions = song.getUserEmotions(super.application.ConnectedAccount.getID());
+        if(checkBox.isSelected()) 
+        {
+            for(int i = 0; i < 5; i++) {
+                ScoreArrey[i].setDisable(false);
+            }
+            setScore(1);
+        }
+        else {
+            clearScore(); 
 
-        if(checkBox.isSelected()) {
-            userEmotions.add(emotion);
-
+            //displable
             for(int i = 0; i < 5; i++) {
                 ScoreArrey[i].setDisable(false);
             }
 
-            //emotion = new Emotion(emotion,0);
-        }
-        else {
-            userEmotions.remove(emotion);
-            clearScore(); 
-
-            for(int i = 0; i < 5; i++) {
-                ScoreArrey[i].setDisable(true);
-            }
+            //rimuovo la la emotion dalla raccolta della canzone
+            this.song.removeEmotion(this.emotion, (RegisteredAccount) super.application.ConnectedAccount);
         }
     }
 

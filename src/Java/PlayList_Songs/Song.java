@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Random;
+import java.util.Stack;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -129,6 +130,41 @@ public class Song {
         }
 
         return m;
+    }
+
+    public void AddUserEmotions(Emotion emotion, RegisteredAccount account) 
+    {
+        boolean duplicato = false;
+        String ID = account.getID();
+
+
+        //verifico se tale emotion è gia presente e la elimino
+        removeEmotion(emotion, account);
+        emotions.add(emotion);
+        System.out.println("class SONG r144: emotion aggiunta");
+    }
+
+    public void removeEmotion(Emotion emotion, RegisteredAccount account) {
+
+        String ID = account.getID();
+
+        //elenco delle emotion da eliminare, anche per eventuali duplicati
+        Stack<Emotion> DelBuffer = new Stack<Emotion>();
+
+        //cerco nella raccolta
+        for(Emotion e : emotions) {
+            System.out.println("class SONG r159, IDs: " + e.getCategory() + " ==> " + emotion.getCategory());
+            //confronto gli ID e la tipologia
+            if(e.getAccountID().equals(ID) && e.getCategory().equals(emotion.getCategory())) {
+                DelBuffer.push(e);   
+                System.out.println(e);
+            }
+        }
+
+        while (DelBuffer.size() != 0) {
+            emotions.remove(DelBuffer.pop());
+            System.out.println("class SONG r169: emotion eliminata");
+        }
     }
 
     @SuppressWarnings("unchecked")

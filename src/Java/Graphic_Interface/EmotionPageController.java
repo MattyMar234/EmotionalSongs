@@ -127,15 +127,18 @@ public class EmotionPageController extends Controller implements Initializable{
         category1.setText(EmotionalSongs.language == 0 ? "Categoria" : "Category");
         average.setText(EmotionalSongs.language == 0 ? "Media" : "Average");
 
+        //scorro tutte le Emotio che ho sulla canzone
         for(Emotion e : canzoneAssociata.getEmotions()) {
             list.add(new Container(e, canzoneAssociata));
 
+            //il tipo di Emotion
             int i = Emotion.getEmotionID(e);
 
-            datiMedia[0][i]++;                  //contatori utenti
-            datiMedia[1][i] += e.getScore();    //contatori dei punteggi
+            datiMedia[0][i]++;                  //contatori numero di quella categoria
+            datiMedia[1][i] += e.getScore();    //somma dei punteggi
         }
 
+        /*
         for(int i = 0; i < 9; i++) {
             if(datiMedia[0][i] > 0) {
                 Container c = new Container(Emotion.Emotions[i], canzoneAssociata);
@@ -145,7 +148,7 @@ public class EmotionPageController extends Controller implements Initializable{
 
                 media.add(c);
             }
-        }
+        }*/
 
         user.setCellValueFactory(new PropertyValueFactory<Container, String>("name"));
         category.setCellValueFactory(new PropertyValueFactory<Container, String>("category"));
@@ -171,6 +174,7 @@ public class EmotionPageController extends Controller implements Initializable{
 
     @FXML
     void turnBack(ActionEvent event) throws IOException {
+        
         this.mainController.Emotion_To_repository();
     }
 
