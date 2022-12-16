@@ -1,10 +1,8 @@
 
 
-#PLaylistSongs {
 
-}
 
-#PLaylistSongs 
+#PLaylistSongs
 {
     -fx-padding: 0px;
     -fx-text-fill: #fcfcfc;
@@ -54,9 +52,6 @@
 
     /*-fx-border-width: 0 0.5 0 0;*/
     -fx-border-color: #666666;
-    
-    
-
 }
 
 /**Spetto cella*/
@@ -82,7 +77,6 @@
 #PLaylistSongs .table-row-cell:odd {
     /*-fx-background-color: #333f50;*/
     -fx-background-color: transparent;
-    
 }
 
 

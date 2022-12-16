@@ -22,68 +22,55 @@ public class EmotionPageController extends Controller implements Initializable{
 
     @FXML private Button back;
     
-    @FXML private TableView<Container> emotionTable;
-    @FXML private TableColumn<Container, String> user;
-    @FXML private TableColumn<Container, ImageView> emoji;
-    @FXML private TableColumn<Container, String> category;
-    @FXML private TableColumn<Container, String> explanation;
-    @FXML private TableColumn<Container, String> score;
+    // Tabella punteggi
+    @FXML private TableView<Container1> emotionTable;
+    @FXML private TableColumn<Container1, String> PunteggioUtente;
+    @FXML private TableColumn<Container1, ImageView> emoji;
+    @FXML private TableColumn<Container1, String> category;
+    @FXML private TableColumn<Container1, String> explanation;
+    @FXML private TableColumn<Container1, String> score;
 
-    @FXML private TableView<Container> emotionTableScores;
-    @FXML private TableColumn<Container, ImageView> emoji1;
-    @FXML private TableColumn<Container, Integer> users;
-    @FXML private TableColumn<Container, String> category1;
-    @FXML private TableColumn<Container, Float> average;
+    // Tabella valori
+    @FXML private TableView<Container2> emotionTableScores;
+    @FXML private TableColumn<Container2, Integer> users;
+    @FXML private TableColumn<Container2, ImageView> emoji1;
+    @FXML private TableColumn<Container2, String> category1;
+    @FXML private TableColumn<Container2, Float> average;
+    @FXML private TableColumn<Container2, Integer> massimo;
+    @FXML private TableColumn<Container2, Integer> minimo;
     
     
     
     private Song canzoneAssociata;
     private MainPageController mainController;
-    public ObservableList<Container> list = FXCollections.observableArrayList();
-    public ObservableList<Container> media = FXCollections.observableArrayList();
+    public ObservableList<Container1> list = FXCollections.observableArrayList();
+    public ObservableList<Container2> media = FXCollections.observableArrayList();
 
-    private int datiMedia [][] = new int[2][9];
 
-    public class Container 
+
+    public class ContainerBase 
     {
-        ImageView emotionIMG;
-
-        private Emotion e;
-        private Song s;
-
-        public String name;
+        public ImageView emotionIMG;
         public String category;
         public String description;
         public String score;
 
+        private Emotion e;
 
-        public float media;
-        public int users;
-
-        public Container(Song song) {
-            this.s = song;
-        }
-
-        public Container(Emotion e, Song song) {
-            this(song);
+        public ContainerBase(Emotion e) {
 
             this.e = e;
-            this.name = e.getAccountID();
             this.category = e.getCategory();
             this.description = e.getExplanation();
             this.score = Integer.toString(e.getScore());
 
-            this.emotionIMG = new ImageView(Emotion.EmotionHashMap.get(this.name));
+            this.emotionIMG = new ImageView(Emotion.emotionImage[Emotion.getEmotionID(e)]);
             emotionIMG.setFitHeight(48);
             emotionIMG.setFitWidth(48);
         }
 
         public ImageView getEmotionIMG() {
             return emotionIMG;
-        }
-
-        public String getName() {
-            return name;
         }
         public String getDescription() {
             return description;
@@ -95,12 +82,52 @@ public class EmotionPageController extends Controller implements Initializable{
             return category;
         }
 
+    }
+
+    public class Container1 extends ContainerBase 
+    {
+        public String UserID;
+
+        public Container1(Emotion e) {
+            super(e);
+            this.UserID = e.getAccountID();
+        }
+
+        public String getUserID() {
+            return UserID;
+        }
+
+    }
+
+    public class Container2 extends ContainerBase 
+    {
+        
+        public float media;
+        public float max;
+        public float min;
+        public int users;
+        
+        public Container2(Emotion e, float media, int users, float max, float min) {
+            super(e); 
+
+            this.media = media;
+            this.users = users;
+            this.max = max;
+            this.min = min;
+        }
+        
         public float getMedia() {
             return media;
         }
 
         public float getUsers() {
             return users;
+        }
+        public int getMax() {
+            return (int) max;
+        }
+        public int getMin() {
+            return (int) min;
         }
     }
 
@@ -114,59 +141,80 @@ public class EmotionPageController extends Controller implements Initializable{
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) 
+    {
+
+        int [] scores = new int[Emotion.Emotions.length];
+        int [] Maxs = new int[Emotion.Emotions.length];
+        int [] Mins = new int[Emotion.Emotions.length];
+        int [] EmotionNumbers = new int[Emotion.Emotions.length];
+    
 
         back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
 
-        user.setText(EmotionalSongs.language == 0 ? "Utente" : "User");
+        // Tabella punteggi
+        PunteggioUtente.setText(EmotionalSongs.language == 0 ? "Utenti" : "Users");
         category.setText(EmotionalSongs.language == 0 ? "Categoria" : "Category");
         explanation.setText(EmotionalSongs.language == 0 ? "Spiegazione" : "Explanaton");
         score.setText(EmotionalSongs.language == 0 ? "Punteggio" : "Score");
 
-        users.setText(EmotionalSongs.language == 0 ? "Utenti" : "Users");
+        // Tabella valori
+        users.setText(EmotionalSongs.language == 0 ? "Numero Utenti" : "Users Count");
         category1.setText(EmotionalSongs.language == 0 ? "Categoria" : "Category");
         average.setText(EmotionalSongs.language == 0 ? "Media" : "Average");
+        massimo.setText(EmotionalSongs.language == 0 ? "Massimo" : "Maxium");
+        minimo.setText(EmotionalSongs.language == 0 ? "Minimo" : "Minium");
 
-        //scorro tutte le Emotio che ho sulla canzone
-        for(Emotion e : canzoneAssociata.getEmotions()) {
-            list.add(new Container(e, canzoneAssociata));
-
-            //il tipo di Emotion
-            int i = Emotion.getEmotionID(e);
-
-            datiMedia[0][i]++;                  //contatori numero di quella categoria
-            datiMedia[1][i] += e.getScore();    //somma dei punteggi
+        //resetto i contatori
+        for(int i = 0; i < scores.length; i++) {
+            EmotionNumbers[i] = scores[i] = 0; 
+            Maxs[i] = Mins[i] = 1;
         }
 
-        /*
-        for(int i = 0; i < 9; i++) {
-            if(datiMedia[0][i] > 0) {
-                Container c = new Container(Emotion.Emotions[i], canzoneAssociata);
+        for(Emotion e : canzoneAssociata.getEmotions()) {
+            int EmotionIndex = Emotion.getEmotionID(e);
 
-                c.users = datiMedia[0][i];
-                c.media = datiMedia[1][i] / datiMedia[0][i];
+            //parte Tab Info
+            EmotionNumbers[EmotionIndex]++; 
+            scores[EmotionIndex] += e.getScore(); 
 
-                media.add(c);
-            }
-        }*/
+            if(Maxs[EmotionIndex] < e.getScore())
+                Maxs[EmotionIndex] = e.getScore();
 
-        user.setCellValueFactory(new PropertyValueFactory<Container, String>("name"));
-        category.setCellValueFactory(new PropertyValueFactory<Container, String>("category"));
-        explanation.setCellValueFactory(new PropertyValueFactory<Container, String>("description"));     
-        score.setCellValueFactory(new PropertyValueFactory<Container, String>("score"));
+            if(Mins[EmotionIndex] > e.getScore())
+                Mins[EmotionIndex] = e.getScore();
+
+            //parte Tab Utenti
+            list.add(new Container1(e));
+        }
+
+        //creazione elementi tab Info
+        for(Emotion e : Emotion.Emotions) {
+            int ID = Emotion.getEmotionID(e);
+
+            if(EmotionNumbers[ID] > 0) 
+                media.add(new Container2(e, (float)(scores[ID]/EmotionNumbers[ID]), EmotionNumbers[ID], Maxs[ID], Mins[ID]));
+            else
+                media.add(new Container2(e, 0,0, 0, 0));
+        }
+
         
-        users.setCellValueFactory(new PropertyValueFactory<Container, Integer>("users"));
-        category1.setCellValueFactory(new PropertyValueFactory<Container, String>("category"));
-        average.setCellValueFactory(new PropertyValueFactory<Container, Float>("media"));
 
-        emoji.setCellValueFactory(new PropertyValueFactory<Container, ImageView>("emotionIMG"));
-        emoji1.setCellValueFactory(new PropertyValueFactory<Container, ImageView>("emotionIMG"));
 
-    
-
+        PunteggioUtente.setCellValueFactory(new PropertyValueFactory<Container1, String>("UserID"));
+        emoji.setCellValueFactory(new PropertyValueFactory<Container1, ImageView>("emotionIMG"));        
+        category.setCellValueFactory(new PropertyValueFactory<Container1, String>("category"));
+        score.setCellValueFactory(new PropertyValueFactory<Container1, String>("score"));
+        explanation.setCellValueFactory(new PropertyValueFactory<Container1, String>("description"));     
         emotionTable.setItems(list);
         emotionTable.setSelectionModel(null);
 
+        users.setCellValueFactory(new PropertyValueFactory<Container2, Integer>("users"));
+        emoji1.setCellValueFactory(new PropertyValueFactory<Container2, ImageView>("emotionIMG"));
+        category1.setCellValueFactory(new PropertyValueFactory<Container2, String>("category"));
+        average.setCellValueFactory(new PropertyValueFactory<Container2, Float>("media")); 
+        massimo.setCellValueFactory(new PropertyValueFactory<Container2, Integer>("max")); 
+        minimo.setCellValueFactory(new PropertyValueFactory<Container2, Integer>("min")); 
         emotionTableScores.setItems(media);
         emotionTableScores.setSelectionModel(null);
     }

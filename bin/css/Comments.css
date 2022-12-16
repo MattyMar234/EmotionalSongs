@@ -5,7 +5,9 @@
 }
 
 #border {
-    -fx-background-color: rgb(224, 224, 224);
+    -fx-background-color: rgb(243, 243, 243);
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: rgb(160, 158, 158);
 }
 
 
@@ -30,6 +32,36 @@
     -fx-background-color: transparent;
 }
 
+#img {
+    -fx-border-width: 4px;
+    -fx-border-color: blueviolet;
+    -fx-background-insets: -20, -10;
+    
+}
+
+#TextArea, #text {
+    /*-fx-background-color: rgb(243, 243, 243);*/
+    -fx-font-size:14px;
+}
+
+#LabelName {
+    -fx-text-fill: rgb(27, 124, 172);
+    -fx-font-size:16px;
+    -fx-font-family: helvetica;
+    -fx-font-weight: bold;
+}
+
+#LabelSurname {
+    -fx-text-fill: rgb(53, 144, 189);
+    -fx-font-size:13px;
+    -fx-font-family: helvetica;
+    -fx-font-weight: bold;
+}
+
+#lateralLine {
+    -fx-border-width: 0 0 0 2px;
+    -fx-border-color: rgb(160, 158, 158);
+}
 
 
 
@@ -40,15 +72,51 @@
 
     -fx-background-color: transparent;
     -fx-padding: 0px;
-    -fx-text-fill: #fcfcfc;
+
 }
 
 .table-view .column-header ,
 .table-view .column-header-background .filler,
 .table-view .column-header-background 
 {
-    -fx-background-color: transparent;
     -fx-padding: 0 0 0 0;
     
+}
+
+.table-view .table-cell
+{
+    -fx-background-color: transparent;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #cecece38;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #cecece38;
+    -fx-padding: 0 0 0 0;
+    -fx-border-width: 0px;
+    -fx-margin: 0 0 0 0;
+}
+
+.table-view .table-row-cell:even {
+    /*-fx-background-color: #27303d;*/
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+    -fx-border-width: 0px;
+    -fx-margin: 0 0 0 0;
+    
+}
+
+.table-view .table-row-cell:odd {
+    /*-fx-background-color: #333f50;*/
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+    -fx-border-width: 0px;
+    -fx-margin: 0 0 0 0;
+}
+
+.table-view .table-row-cell:selected
+{
 
 }

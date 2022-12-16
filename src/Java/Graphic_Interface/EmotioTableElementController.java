@@ -24,6 +24,7 @@ public class EmotioTableElementController extends Controller implements Initiali
 
     private Image filledStart = null;
     private Image EmptyStart = null;
+    private Image LockedStart = null;
     
     private Song song;
     private PlayList playlist;
@@ -48,8 +49,12 @@ public class EmotioTableElementController extends Controller implements Initiali
         if(filledStart == null) {
             filledStart = SetScore1.getImage();
             EmptyStart  = SetScore5.getImage();
+            LockedStart = SetScore4.getImage();
+
+            
         }
 
+        
         ScoreArrey[0] = SetScore1;
         ScoreArrey[1] = SetScore2;
         ScoreArrey[2] = SetScore3;
@@ -65,9 +70,8 @@ public class EmotioTableElementController extends Controller implements Initiali
                 setScore(v);
                 event.consume();
             });
-
-            
         }
+  
     }
 
 
@@ -94,8 +98,8 @@ public class EmotioTableElementController extends Controller implements Initiali
                 {
                     found = true;
                     emotion = e;
-                    setScore(e.getScore());
                     checkBox.setSelected(true);
+                    setScore(e.getScore());
                     break;
                 }
             }
@@ -112,7 +116,7 @@ public class EmotioTableElementController extends Controller implements Initiali
 
     private void clearScore() {
         for(int i = 0; i < 5; i++) {
-            ScoreArrey[i].setImage(EmptyStart);
+            ScoreArrey[i].setImage(LockedStart);
         }
     }
 

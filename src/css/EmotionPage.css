@@ -27,7 +27,9 @@
 
 
 
-#EmotionTable, #AddedEmotionTable, #emotionTable
+/*#EmotionTable, */
+#AddedEmotionTable, 
+#emotionTable
 {
     -fx-padding: 0px;
     -fx-text-fill: #fcfcfc;
@@ -36,17 +38,17 @@
    
 }
 
-#EmotionTable .column-header, 
+
 #AddedEmotionTable .column-header,
 #emotionTable .column-header,
 #emotionTableScores .column-header,
 
-#EmotionTable .column-header-background .filler, 
+
 #AddedEmotionTable .column-header-background .filler,
 #emotionTable .column-header-background .filler,
 #emotionTableScores .column-header-background .filler,
 
-#EmotionTable .column-header-background, 
+
 #AddedEmotionTable .column-header-background,
 #emotionTable .column-header-background,
 #emotionTableScores .column-header-background
@@ -54,7 +56,7 @@
     -fx-padding: 0 0 0 0;
 }
 
-#EmotionTable .column-header-background .label , 
+
 #AddedEmotionTable .column-header-background .label, 
 #emotionTable .column-header-background .label,
 #emotionTableScores .column-header-background .label
@@ -66,12 +68,11 @@
     -fx-padding: 10 2 10 2;
 }
 
-#EmotionTable .column, #AddedEmotionTable .column {
+#AddedEmotionTable .column {
     /*-fx-border-width: 0 0.5 0 0;*/
     -fx-alignment: center;
 }
 
-#EmotionTable .table-cell, 
 #AddedEmotionTable .table-cell, 
 #emotionTable .table-cell
 {
@@ -79,7 +80,7 @@
     /*-fx-border-width: 0 0.5 0 0;*/
 }
 
-#EmotionTable .table-row-cell , 
+
 #AddedEmotionTable .table-row-cell, 
 #emotionTable .table-row-cell
 {
@@ -91,19 +92,19 @@
 
 
 /*tipo di riga*/
-#EmotionTable, #AddedEmotionTable .table-row-cell:even {
+#AddedEmotionTable .table-row-cell:even {
     /*-fx-background-color: #27303d;*/
     -fx-alignment: center;
     
 }
 
-#EmotionTable, #AddedEmotionTable .table-row-cell:odd {
+#AddedEmotionTable .table-row-cell:odd {
     /*-fx-background-color: #333f50;*/
 
     
 }
 
-#EmotionTable .table-row-cell:selected, #AddedEmotionTable .table-row-cell:selected
+#AddedEmotionTable .table-row-cell:selected
 {
     -fx-background: -fx-control-inner-background-alt ;
     -fx-border: 0px;
@@ -111,24 +112,21 @@
 
 
 
-#EmotioTable 
-{
-    -fx-padding: 0px;
-    -fx-text-fill: #fcfcfc;
-    -fx-background-color:  transparent;
-}
+
+
+
 
 
 /* ===================== header tabella =====================*/
-/*      Individual Column Header        */
-#EmotioTable .column-header ,
+/*      Individual Column Header        
+
 #EmotioTable .column-header-background .filler,
 #EmotioTable .column-header-background 
 {
     -fx-padding: 0 0 0 0;
 }
 
-/* ===================== header della colonna ===================== */
+/* ===================== header della colonna ===================== 
 #EmotioTable .column-header-background .label 
 {
     -fx-text-fill: #8f8f8f;
@@ -137,14 +135,14 @@
 }
 
 #EmotioTable .column {
-    /*-fx-border-width: 0 0.5 0 0;*/
+    /*-fx-border-width: 0 0.5 0 0;
     -fx-border-width: 0px;
     -fx-border-color: #666666;
 }
 
 
-/* ===================== Cells and Rows =====================*/
-/*Contenuto della cella*/
+/* ===================== Cells and Rows =====================
+/*Contenuto della cella
 #EmotioTable .table-cell
 {
     -fx-text-fill: #ffffff;
@@ -159,22 +157,22 @@
 
 }
 
-/**Spetto cella*/
+/**Spetto cella
 #EmotioTable .table-row-cell 
 {
-    /*-fx-border-width: 0.5 0 0 0;*/
+    /*-fx-border-width: 0.5 0 0 0;
     -fx-border-color: #666666;
    
 }
 
 #EmotioTable .table-row-cell:even {
-    /*-fx-background-color: #27303d;*/
+    /*-fx-background-color: #27303d;
     -fx-background-color: transparent;
     
 }
 
 #EmotioTable .table-row-cell:odd {
-    /*-fx-background-color: #333f50;*/
+    /*-fx-background-color: #333f50;
     -fx-background-color: transparent;
     
 }
@@ -190,12 +188,12 @@
 }
 
 
-/* ===================== scroll-bars ===================== */
+/* ===================== scroll-bars ===================== 
 #EmotioTable .virtual-flow .scroll-bar:vertical .thumb {
-    /*-fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);*/
+    /*-fx-background-color:  linear-gradient(to bottom, #4456D2, #a544d2);
 }
 #EmotioTable .virtual-flow .scroll-bar:horizontal .thumb {
-    -fx-background-color:  transparent;/*linear-gradient(to right, #4456D2, #a544d2);*/
+    -fx-background-color:  transparent;/*linear-gradient(to right, #4456D2, #a544d2);
     -fx-background-radius: 0;
     -fx-background-insets: 0;
     -fx-padding: 0;
@@ -207,4 +205,10 @@
   -fx-background-radius: 0;
   -fx-background-insets: 0;
   -fx-shape: null;
+}*/
+
+
+
+#tabBack {
+    
 }

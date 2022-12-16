@@ -13,6 +13,10 @@
     
 }
 
+#addElement_Button {
+    -fx-background-color: #9865ff;
+}
+
 
 #turnBack_Button {
 
@@ -111,3 +115,59 @@
 } 
 
 
+/*TABS*/
+/*#tabButton1, #tabButton2 */
+
+.tab
+{ 
+    -fx-pref-width: 150px;
+    -fx-pref-height: 32px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    
+}
+
+.tab-header-background {
+    
+}
+
+
+.tab:selected {
+   
+    
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+   
+}
+.tab-pane .tab
+{
+    
+
+}
+
+.tab-pane .tab:selected
+{
+    
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+   
+    -fx-font-size: 15px;
+    /*-fx-font-weight: italic;*/
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+   ;
+}

@@ -94,7 +94,8 @@ public class Song {
             }
         }
 
-        if(emotions != null) {
+        if(emotions != null && !emotions.isEmpty()) 
+        {
             for(Object emot : emotions) {
                 if(emot instanceof JSONObject) 
                 {
@@ -104,9 +105,10 @@ public class Song {
                     int score     = Integer.parseInt((String)d.get("score"));
                     String userID = (String) d.get("userID");
 
+
                     RegisteredAccount account = EmotionalSongs.classReference.AccountsManager.SearchByID(userID);
                     Emotion emotion = new Emotion(Emotion.Emotions[index], score, account);
- 
+                    
                     this.emotions.add(emotion);
                 }
             }

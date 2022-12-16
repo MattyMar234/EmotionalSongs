@@ -9,6 +9,7 @@ import Java.Managers.SongManager;
 import Java.PlayList_Songs.AddSongWindow;
 import Java.PlayList_Songs.PlayList;
 import Java.PlayList_Songs.Song;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -41,7 +42,7 @@ public class AddSongConstroller extends Controller implements Initializable
         }
 
         public Data(String title, int Elements, ArrayList<Song> songs) {
-            this.elements = (Elements == 0 ? "-" : Integer.toString(Elements));
+            this.elements = (Elements == 0 ? "1" : Integer.toString(Elements));
             this.songs = songs;
             this.title = title;
 
@@ -73,6 +74,8 @@ public class AddSongConstroller extends Controller implements Initializable
         name.setCellValueFactory(new PropertyValueFactory<Data, String>("title"));
         number.setCellValueFactory(new PropertyValueFactory<Data, String>("elements"));
 
+        name.setText(EmotionalSongs.language == 0 ? "Nome Canzone" : "Song Name");
+        number.setText(EmotionalSongs.language == 0 ? "Numero Elementi" : "Elements");
 
         switch (mode) {
             case 1:

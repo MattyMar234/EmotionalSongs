@@ -31,20 +31,18 @@ import javafx.util.Callback;
 public class CommentsPageController extends Controller implements Initializable 
 {
 
-    @FXML private TableView<Comment> CommentsTable;
-    @FXML private TableColumn<Comment, Comment> Commnts;
+    @FXML private TableView<CommentContainer> CommentsTable;
+    @FXML private TableColumn<CommentContainer, CommentContainer> Commnts;
     @FXML private ImageView BackArrow;
     @FXML private AnchorPane searchPane;
     @FXML private Label pubblica;
     @FXML volatile private Label counter;
     @FXML private TextArea textArea;
-
     @FXML private AnchorPane writerElement;
-
     @FXML private Button Back;
 
 
-    private ObservableList<Comment> commnetsList = FXCollections.observableArrayList();
+    private ObservableList<CommentContainer> commnetsList = FXCollections.observableArrayList();
     private MainPageController mainControllerPage;
     private Song song;
     private PlayList playlist;
@@ -53,6 +51,27 @@ public class CommentsPageController extends Controller implements Initializable
     private int commentLenght = 0;
     private int texAreaBaseHeight;
     private CharsCounter listener;
+
+
+    public class CommentContainer {
+
+        public Comment c;
+        public CommentsPageController controller;
+        public boolean mode;
+        public int index;
+
+        public CommentContainer(Comment c, CommentsPageController contr, boolean mode, int index) {
+            this.c = c;
+            this.controller = contr;
+            this.mode = mode;
+            this.index = index;
+        }
+
+        public CommentContainer getClassReference() {
+            return this;
+        }
+        
+    }
 
     public class CharsCounter extends Thread {
 
@@ -162,18 +181,18 @@ public class CommentsPageController extends Controller implements Initializable
             }
         });
 
-    
+        int counter = 0;
         for(Comment c : this.song.getComments()) {
-            commnetsList.add(c);
+            commnetsList.add(new CommentContainer(c,this, playlist != null, counter++));
             //System.out.println(c);
         }
 
-        
-        Callback<TableColumn<Comment, Comment>, TableCell<Comment, Comment>> cellFoctory = (TableColumn<Comment, Comment> param) -> {
-            final TableCell<Comment, Comment> cell = new TableCell<Comment, Comment>() {
+        Callback<TableColumn<CommentContainer, CommentContainer>, TableCell<CommentContainer, CommentContainer>> cellFoctory;
+        cellFoctory = (TableColumn<CommentContainer, CommentContainer> param) -> {
+            final TableCell<CommentContainer, CommentContainer> cell = new TableCell<CommentContainer, CommentContainer>() {
                 
                 @Override
-                public void updateItem(Comment item, boolean empty) {
+                public void updateItem(CommentContainer item, boolean empty) {
                     super.updateItem(item, empty);
 
                     if (empty) {
@@ -188,10 +207,10 @@ public class CommentsPageController extends Controller implements Initializable
                             FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource(application.pageLoaders.get("CommentElement")));
                             
                             XMLloader.setControllerFactory(c -> {    
-                                return new CommentElementController(item); // <-- parametri costruttore classe
+                                return new CommentElementController(item.c, item.controller, item.mode, item.index); // <-- parametri costruttore classe
                             });
 
-                             
+                            
                             AnchorPane view = XMLloader.load();
                             setGraphic(view);
                         
@@ -205,8 +224,9 @@ public class CommentsPageController extends Controller implements Initializable
             };
             return cell;
         };
+        
 
-        Commnts.setCellValueFactory(new PropertyValueFactory<Comment, Comment>("classReference"));
+        Commnts.setCellValueFactory(new PropertyValueFactory<CommentContainer, CommentContainer>("classReference"));
         Commnts.setCellFactory(cellFoctory);
 
         CommentsTable.setItems(commnetsList); 
@@ -235,8 +255,9 @@ public class CommentsPageController extends Controller implements Initializable
     @FXML
     void pubblicateComment(MouseEvent event) 
     {
+        int number = commnetsList.size();
         this.song.addComment(new Comment(textArea.getText(), application.ConnectedAccount));
-        commnetsList.add(this.song.getComments().get(this.song.getComments().size() - 1));
+        commnetsList.add(new CommentContainer(this.song.getComments().get(this.song.getComments().size() - 1),this, playlist != null, number));
         
         textArea.setText("");
         commentLenght = 0;
@@ -282,6 +303,11 @@ public class CommentsPageController extends Controller implements Initializable
 
         counter.setText("chars: " + Integer.toString(commentLenght) + " di 256");
         System.out.println("lines: " + line);
+    }
+
+    protected void removeComment(int index) {
+        this.song.removeComment(index);
+        commnetsList.remove(index);
     }
 
     

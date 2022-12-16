@@ -107,7 +107,12 @@ public class Emotion
 
     @Override
     public String toString() {
-        return new String("Category: " + this.Category + ", score: " + this.Score);
+        String str = "";
+
+        str += "Category: " + this.Category + "\n";
+        str += "score: " + this.Score + "\n";
+        str += "AccountID: " + this.account.getID() + "\n";
+        return new String(str);
     }
 
 

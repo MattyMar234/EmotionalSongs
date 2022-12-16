@@ -12,3 +12,10 @@
     /*-fx-background-color: linear-gradient(from 25% 10% to 100% 100%, #490e46, #a03616f5);*/
 
 }
+
+
+#Tableback {
+    -fx-background-color: #363a44;
+    -fx-border-width: 2px;
+    -fx-border-color: #676768;
+}

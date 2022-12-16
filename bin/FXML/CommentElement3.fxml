@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="border" prefHeight="235.0" prefWidth="950.0" stylesheets="@../css/Comments.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.CommentElementController">
+   <children>
+      <HBox alignment="CENTER" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane id="lateralLine" prefWidth="890.0">
+               <children>
+                  <TextArea fx:id="TextArea" maxHeight="100.0" maxWidth="800.0" minHeight="100.0" minWidth="800.0" prefWidth="800.0" promptText="i'm a text Area" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="80.0" />
+                  <AnchorPane id="border" prefHeight="64.0" prefWidth="600.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView id="img" fitHeight="60.0" fitWidth="69.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="16.0">
+                           <image>
+                              <Image url="@../../data/icon/profileCommentIcon.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="LabelName" layoutX="89.0" layoutY="14.0" prefHeight="18.0" prefWidth="129.0" text="Name" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="16.0" />
+                        <Label fx:id="LabelSurname" layoutX="84.0" layoutY="32.0" prefHeight="18.0" prefWidth="120.0" text="surname" underline="true" AnchorPane.leftAnchor="105.0" AnchorPane.topAnchor="37.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <ImageView fx:id="DeleteIcon" fitHeight="28.0" fitWidth="28.0" onMouseClicked="#removeComment" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="18.0">
+         <image>
+            <Image url="@../../data/image/trash.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

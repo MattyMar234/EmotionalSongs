@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane id="..\css\Comments.css" maxHeight="280.0" maxWidth="600.0" minHeight="280.0" minWidth="600.0" prefHeight="280.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Graphic_Interface.CommentElementController">
+   <children>
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="600.0" stylesheets="@../css/Comments.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TextArea fx:id="TextArea" prefHeight="200.0" prefWidth="200.0" promptText="i'm a text Area" BorderPane.alignment="CENTER" />
+         </center>
+         <top>
+            <AnchorPane id="border" prefHeight="64.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="5.0">
+                     <image>
+                        <Image url="@../../data/image/UserIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="LabelName" layoutX="89.0" layoutY="14.0" prefHeight="18.0" prefWidth="129.0" text="Name" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="10.0" />
+                  <Label fx:id="LabelSurname" layoutX="84.0" layoutY="32.0" prefHeight="18.0" prefWidth="120.0" text="surname" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="30.0" />
+                  <ImageView fx:id="DeleteIcon" fitHeight="28.0" fitWidth="28.0" layoutX="558.0" layoutY="18.0" onMouseClicked="#removeComment" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="18.0">
+                     <image>
+                        <Image url="@../../data/image/trash.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane id="border" prefHeight="336.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <AnchorPane id="border" prefHeight="336.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
+         </right>
+         <bottom>
+            <AnchorPane id="border" prefHeight="10.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

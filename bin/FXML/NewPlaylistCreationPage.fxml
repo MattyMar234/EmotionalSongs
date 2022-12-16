@@ -33,9 +33,9 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <bottom>
-                        <AnchorPane prefHeight="70.0" prefWidth="720.0" BorderPane.alignment="CENTER">
+                        <AnchorPane prefHeight="90.0" prefWidth="720.0" BorderPane.alignment="CENTER">
                            <children>
-                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="1208.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="16.0">
+                              <AnchorPane layoutX="10.0" layoutY="8.0" prefHeight="35.0" prefWidth="700.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="12.0">
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
@@ -96,18 +96,6 @@
                            <children>
                               <AnchorPane id="manuinfo" prefHeight="79.0" prefWidth="720.0">
                                  <children>
-                                    <Button id="addElement_Button" fx:id="Back" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="20.0">
-                                       <graphic>
-                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-                                             <image>
-                                                <Image url="@../../data/image/FrecciaIndietro.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
                                     <HBox alignment="CENTER" layoutX="260.0" layoutY="-15.0" prefHeight="44.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <Label id="labelmenuPlaylist" fx:id="titoloPagina" prefHeight="33.0" prefWidth="271.0" text="PLAYLIST CREATION MENU'" />
@@ -153,7 +141,6 @@
                                                                               <TableColumn fx:id="Title" prefWidth="113.0" text="Title" />
                                                                               <TableColumn fx:id="Autor" prefWidth="111.0" text="Autor" />
                                                                               <TableColumn fx:id="SongDate" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Data" />
-                                                                              <TableColumn fx:id="Actions" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Actions" />
                                                                            </columns>
                                                                            <columnResizePolicy>
                                                                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -188,7 +175,10 @@
                                                 <Insets left="44.0" right="10.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <TextField fx:id="playlistNameField" prefHeight="35.0" prefWidth="450.0" promptText=" name" />
+                                          <TextField fx:id="playlistNameField" prefHeight="35.0" prefWidth="450.0" promptText=" name">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></TextField>
                                        </children>
                                        <padding>
                                           <Insets top="10.0" />
@@ -200,6 +190,18 @@
                         </BorderPane>
                      </center>
                   </BorderPane>
+                  <Button id="addElement_Button" fx:id="Back" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" underline="true" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="20.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                           <image>
+                              <Image url="@../../data/image/FrecciaIndietro.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </AnchorPane>
          </center>

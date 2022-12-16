@@ -53,7 +53,7 @@
             </ImageView>
             <ImageView fx:id="SetScore4" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../data/icon/FilledStar-64px.png" />
+                  <Image url="@../../data/icon/FilledStarLocked-64px.png" />
                </image>
                <HBox.margin>
                   <Insets right="10.0" />
@@ -61,7 +61,7 @@
             </ImageView>
             <ImageView fx:id="SetScore5" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../data/icon/EmptyStar-64px.png" />
+                  <Image url="@../../data/icon/EmptyStarLocked-64px.png" />
                </image>
             </ImageView>
          </children>

@@ -57,7 +57,7 @@ public class NewPlaylistController extends Controller implements Initializable {
     @FXML private TableColumn<Song, String> Autor;
     @FXML private TableColumn<Song, String> Title;
     @FXML private TableColumn<Song, String> SongDate;
-    @FXML private TableColumn<Song, String> Actions;    
+    //@FXML private TableColumn<Song, String> Actions;    
 
     // ========================= textField ========================= //
     @FXML private TextField playlistNameField;
@@ -95,7 +95,7 @@ public class NewPlaylistController extends Controller implements Initializable {
         Title.setText(EmotionalSongs.language == 0 ? "Titolo" : "Title");
         Autor.setText(EmotionalSongs.language == 0 ? "Autore" : "Autor");
         SongDate.setText(EmotionalSongs.language == 0 ? "Data" : "Date");
-        Actions.setText(EmotionalSongs.language == 0 ? "Azioni" : "Actions");
+        //Actions.setText(EmotionalSongs.language == 0 ? "Azioni" : "Actions");
 
         titoloPagina.setText(EmotionalSongs.language == 0 ? "MENÙ CREAZIONE PLAYLIST" : "PLAYLIST CREATION MENÙ");
         playlistName.setText(EmotionalSongs.language == 0 ? "Nome playlist:" : "Playlist name:");
@@ -106,6 +106,7 @@ public class NewPlaylistController extends Controller implements Initializable {
        
         Title.setCellValueFactory(new PropertyValueFactory<Song, String>("title"));
         Autor.setCellValueFactory(new PropertyValueFactory<Song, String>("autor"));
+        SongDate.setCellValueFactory(new PropertyValueFactory<Song, String>("year"));
         //Album.setCellValueFactory(new PropertyValueFactory<Song, String>("album"));
         emotionTable.setItems(list);
 
