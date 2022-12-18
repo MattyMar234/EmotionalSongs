@@ -21,7 +21,7 @@
                            </image>
                         </ImageView>
                         <Label fx:id="LabelName" layoutX="89.0" layoutY="14.0" prefHeight="18.0" prefWidth="129.0" text="Name" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="16.0" />
-                        <Label fx:id="LabelSurname" layoutX="84.0" layoutY="32.0" prefHeight="18.0" prefWidth="120.0" text="surname" underline="true" AnchorPane.leftAnchor="105.0" AnchorPane.topAnchor="37.0" />
+                        <Label fx:id="LabelSurname" layoutX="84.0" layoutY="32.0" prefHeight="18.0" prefWidth="120.0" text="surname" underline="true" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="37.0" />
                      </children>
                   </AnchorPane>
                   <VBox fx:id="LabelContainer" alignment="CENTER_LEFT" layoutX="99.0" layoutY="41.0" prefHeight="424.0" prefWidth="793.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0" />
