@@ -1,4 +1,4 @@
-package Java.PlayList_Songs;
+package Java.PlayListSongs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,8 +13,8 @@ import org.json.simple.parser.ParseException;
 import Java.Account.Account;
 import Java.Account.RegisteredAccount;
 import Java.DataClasses.Comment;
+import Java.DataClasses.Emotion;
 import Java.Json.JsonParser;
-import Java.emotionalsongs.Emotion;
 import Java.emotionalsongs.EmotionalSongs;
 
 public class Song {

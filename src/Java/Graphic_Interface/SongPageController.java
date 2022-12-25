@@ -4,8 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Java.Account.RegisteredAccount;
-import Java.PlayList_Songs.Song;
-import Java.emotionalsongs.Emotion;
+import Java.DataClasses.Emotion;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

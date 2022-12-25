@@ -1,8 +1,9 @@
-package Java.emotionalsongs;
+package Java.DataClasses;
 
 import java.util.HashMap;
 
 import Java.Account.RegisteredAccount;
+import Java.emotionalsongs.EmotionalSongs;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

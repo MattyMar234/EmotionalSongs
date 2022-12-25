@@ -1,14 +1,9 @@
-package Java.PlayList_Songs;
+package Java.Graphic_Interface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-
-import Java.Graphic_Interface.AddSongConstroller;
-import Java.Graphic_Interface.EditPlaylistController;
-import Java.Graphic_Interface.MainPageController_playList;
-import Java.Graphic_Interface.NewPlaylistController;
+import Java.PlayListSongs.PlayList;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

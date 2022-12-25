@@ -5,18 +5,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import Java.Account.Account;
+import Java.DataClasses.Emotion;
 import Java.Graphic_Interface.WindowContainerController;
 import Java.Json.JsonParser;
 import Java.Managers.AccountsManager;
 import Java.Managers.LocationsManager;
 import Java.Managers.SongManager;
-import Java.PlayList_Songs.Song;
-
+import Java.PlayListSongs.Song;
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import javax.imageio.*;
@@ -69,9 +70,8 @@ public class EmotionalSongs extends Application{
     public static EmotionalSongs classReference;                    //riferimento globale di questa classe
     public static WindowContainerController windowPageReference;
     public static int language = 1; //italiano 0, inglese 1
+    public static HashMap<String, ImageView> globaApplicationImages = new HashMap<>();
 
-
-    public ArrayList<Song> ArchivioGolobaleCanzoni = new ArrayList<Song>();
     public HashMap<String, String> pageLoaders = new HashMap<String, String>();         
     public Account ConnectedAccount;                                             //Account in utilizzo
     public Stage mainStage;  
@@ -212,29 +212,50 @@ public class EmotionalSongs extends Application{
                 //System.out.println("sunImage " + i + "start:" + r + " end: " + (r + size) );
             }*/
 
+            String [] Dirpaths = { emojiFolder, flagFolder, imageFolder, iconsFolder };
 
-            //ottengo tutti i file nella directory
-            File folder = new File(emojiFolder);
-            File[] listOfFiles = folder.listFiles();
-            
-            
-            for(int  i = 0; i < 9; i++ ) {
-                for(int  k = 0; k < 9; k++ ) 
-                {
-                    //System.out.println(listOfFiles[k].getName());
-                    //System.out.println(listOfFiles[k].getName().indexOf(Integer.toString( i + 1)));
+            int counter = 0;
+            for(String Dirpath : Dirpaths)
+            {
+                //ottengo tutti i file nella directory
+                File folder = new File(Dirpath);
+                File[] listOfFiles = folder.listFiles();
 
-                    if(listOfFiles[k].getName().indexOf(Integer.toString( i + 1)) >= 0) 
-                    {
-                        Emotion.emotionImage[i] = SwingFXUtils.toFXImage(ImageIO.read(listOfFiles[k]), null);
-                        Emotion.EmotionHashMap.put(Emotion.matrice[i][0], Emotion.emotionImage[i]);
-                        Emotion.EmotionHashMap.put(Emotion.matrice[i][1], Emotion.emotionImage[i]);
-                        
-                        System.out.println(listOfFiles[k].getAbsolutePath());
-                        break;
+                if(counter == 0) {
+                    for(int  i = 0; i < 9; i++ ) {
+                        for(int  k = 0; k < 9; k++ )
+                        {
+                            //System.out.println(listOfFiles[k].getName());
+                            //System.out.println(listOfFiles[k].getName().indexOf(Integer.toString( i + 1)));
+
+                            if(listOfFiles[k].getName().indexOf(Integer.toString( i + 1)) >= 0)
+                            {
+                                System.out.println("loading image: " + listOfFiles[k].getAbsolutePath());
+                                Emotion.emotionImage[i] = SwingFXUtils.toFXImage(ImageIO.read(listOfFiles[k]), null);
+                                Emotion.EmotionHashMap.put(Emotion.matrice[i][0], Emotion.emotionImage[i]);
+                                Emotion.EmotionHashMap.put(Emotion.matrice[i][1], Emotion.emotionImage[i]);
+                                break;
+                            }
+                        }
                     }
                 }
+                else {
+                    for(File f : listOfFiles) {
+                        if(!f.isDirectory()) {
+                            System.out.println("loading image: " + f.getAbsolutePath() + " --> " + f.getName());
+                            Image img = SwingFXUtils.toFXImage(ImageIO.read(f), null);
+                            EmotionalSongs.globaApplicationImages.put(f.getName(), new ImageView(img));
+                        }
+                    }
+                }
+                counter++;
             }
+
+
+
+            
+            
+
             
             
             

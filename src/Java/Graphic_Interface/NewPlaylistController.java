@@ -8,10 +8,8 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import Java.Account.RegisteredAccount;
-import Java.PlayList_Songs.AddSongWindow;
-import Java.PlayList_Songs.PlayList;
-import Java.PlayList_Songs.Song;
-import Java.PlayList_Songs.SongWindow;
+import Java.PlayListSongs.PlayList;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;

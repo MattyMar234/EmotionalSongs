@@ -6,9 +6,8 @@ import java.util.LinkedHashMap;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import Java.PlayList_Songs.Album;
-import Java.PlayList_Songs.PlayList;
-import Java.PlayList_Songs.Song;
+import Java.PlayListSongs.PlayList;
+import Java.PlayListSongs.Song;
 
 public class RegisteredAccount extends Account {
 
@@ -24,7 +23,7 @@ public class RegisteredAccount extends Account {
     //dati canzoni
     protected ArrayList<PlayList> PlayLists = new ArrayList<PlayList>();
     public HashMap<String, String> accountKeys = new HashMap<String, String>();
-    protected Album album; 
+    
 
     public RegisteredAccount() {
 
@@ -186,7 +185,6 @@ public class RegisteredAccount extends Account {
         String nome="";
         ArrayList<Song> daje=new ArrayList<Song>();
         PlayList k = new PlayList(nome,daje);
-        album.add_playlist(k);
     }
 
     public void crea_playlist_con_qualche_canzone(ArrayList<Song> canzoni_scelte_prima) {
@@ -196,7 +194,6 @@ public class RegisteredAccount extends Account {
         for(int i=0;i<((CharSequence) canzoni_scelte_prima).length();i++){
             k.addSong(canzoni_scelte_prima.get(i));
         }
-        album.add_playlist(k);
     }
 
     public void addPlaylist(PlayList p) {

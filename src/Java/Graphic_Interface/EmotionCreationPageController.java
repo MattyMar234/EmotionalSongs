@@ -7,9 +7,9 @@ import java.util.ResourceBundle;
 import java.util.Stack;
 
 import Java.Account.RegisteredAccount;
-import Java.PlayList_Songs.PlayList;
-import Java.PlayList_Songs.Song;
-import Java.emotionalsongs.Emotion;
+import Java.DataClasses.Emotion;
+import Java.PlayListSongs.PlayList;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

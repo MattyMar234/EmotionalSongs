@@ -3,8 +3,9 @@ package Java.Graphic_Interface;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import Java.PlayList_Songs.Song;
-import Java.emotionalsongs.Emotion;
+
+import Java.DataClasses.Emotion;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

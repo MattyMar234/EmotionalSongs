@@ -1,6 +1,6 @@
-package Java.PlayList_Songs;
+package Java.Graphic_Interface;
 
-import Java.Graphic_Interface.SongPageController;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +40,7 @@ public class SongWindow {
         stage.setScene(scene);
         stage.show();
         
-        System.out.println("starting..."); 
+        //System.out.println("starting..."); 
         
     }
     

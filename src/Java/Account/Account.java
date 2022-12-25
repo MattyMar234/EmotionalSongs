@@ -7,9 +7,8 @@ import java.util.LinkedHashMap;
 import org.json.simple.JSONObject;
 
 import Java.Json.JsonParser;
-import Java.PlayList_Songs.Album;
-import Java.PlayList_Songs.PlayList;
-import Java.PlayList_Songs.Song;
+import Java.PlayListSongs.PlayList;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import java.util.ArrayList;
 

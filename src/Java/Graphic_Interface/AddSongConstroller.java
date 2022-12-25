@@ -6,9 +6,8 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import Java.Managers.SongManager;
-import Java.PlayList_Songs.AddSongWindow;
-import Java.PlayList_Songs.PlayList;
-import Java.PlayList_Songs.Song;
+import Java.PlayListSongs.PlayList;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

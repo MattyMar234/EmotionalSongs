@@ -7,7 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import Java.PlayList_Songs.*;
+
+import Java.PlayListSongs.*;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;

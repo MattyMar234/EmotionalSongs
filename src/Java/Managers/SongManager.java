@@ -15,22 +15,50 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import Java.Json.JsonParser;
-import Java.PlayList_Songs.Song;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 
-public class SongManager extends Manager <Song> {
+/**
+ * Questa classe estende la classe Manager ed viene utilizzata per la getione e ricera dei dati inerenti alle canzoni.
+ */
+public class SongManager extends Manager <Song> 
+{
 
+    /**
+    * HashMap utilizzata per la ricera dell'ID corrispondente alla canzone
+    */
     protected HashMap<String, Song> Songs_by_ID = new HashMap<String, Song>();
+    
+    /**
+    * HashMap utilizzata per la ricera delle canzoni che sono presenti in un album
+    */
     protected HashMap<String, ArrayList<Song>> Abum = new HashMap<String, ArrayList<Song>>();
+    
+    /**
+    * HashMap utilizzata per la ricera delle canzoni che sono associate a un determinato autore
+    */
     protected HashMap<String, ArrayList<Song>> Autor = new HashMap<String, ArrayList<Song>>();
     
+   
     private int loadingFile_type = 0;
    
+
+    /**
+    * Crea un oggeto per la gestione dei dati inerenti alle canzoni.
+    * @param Path Percorso del file da cui si prelevano e scrivono i dati.
+    * @param main Riferimento alla classe Main.
+    */
     public SongManager(String path, EmotionalSongs main) {
         super(path, main);
     }
 
 
+    
+    /** 
+     * Carica nel Manager i dati delle canzoni presenti nel file.
+     * @return Restituisce TRUE se l'operazione di caricamento va a buon fine altrimenti FALSE.
+     * 
+     */
     public boolean LoadSongs () throws ParseException 
     {
         if(loadingFile_type == 2)this.FilePath = EmotionalSongs.Directory + "\\data\\newSong.txt";
@@ -112,6 +140,7 @@ public class SongManager extends Manager <Song> {
         return true;
     }
 
+    
     private void setElements(Song song) 
     {
         this.Data.add(song);
@@ -119,9 +148,6 @@ public class SongManager extends Manager <Song> {
         /* ==== id ==== */
         this.Songs_by_ID.put(song.getSongID(), song);
         //System.out.println("keys: " + Songs_by_ID.size());
-        
-
-
         //System.out.println(Songs_by_ID.get(song.getSongID()));
 
         String key = song.getAutor();
@@ -143,6 +169,13 @@ public class SongManager extends Manager <Song> {
         Abum.get(key).add(song);*/
     }
 
+    
+    /** 
+     * Funzione che permette di salvare il contenuto del Manager in un determinato file.
+     * @param path percorso del file su cui salvare i dati.
+     * @return Restituisce TRUE se l'operazione di caricamento va a buon fine altrimenti FALSE.
+     * @throws IOException
+     */
     @SuppressWarnings("unchecked")
     public boolean saveData(String path) throws IOException
     {
@@ -161,15 +194,31 @@ public class SongManager extends Manager <Song> {
         return true;
     }
 
+    
+    /** 
+     * Funzione che ritorna la canzone corrispondente all'ID passato.
+     * @param ID L'ID della cnzione da ricercare.
+     * @return Ritorna la Canzone corrispondente a tale ID. Se non vi è associate nessuna canzone, il risultato sarà NULL.
+     */
     public Song getSong_by_ID(String ID) {
         //System.out.println("keys: " + Songs_by_ID.size());
         return this.Songs_by_ID.get(ID);
     }
 
+    
+    /** 
+     * Questa funzione ritorna l'arrayList contenente tutte le canzone che sono associate ad un album.
+     * @return se il nome dell'album è valido, viene restituito l'arrayList delle canzoni che sono presenti in quel album.
+     */
     public HashMap<String, ArrayList<Song>> getAlbms() {
         return this.Abum;
     }
 
+    
+    /** 
+     * Questa funzione ritorna l'arrayList contenente tutte le canzone che sono associate ad un determinato autore.
+     * @return se il nome dell'autore è valido, viene restituito l'arrayList delle canzoni che sono realizzata da tale autore.
+     */
     public HashMap<String, ArrayList<Song>> getAutors() {
         return this.Autor;
     }

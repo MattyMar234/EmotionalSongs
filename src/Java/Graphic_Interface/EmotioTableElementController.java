@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Java.Account.RegisteredAccount;
+import Java.DataClasses.Emotion;
 import Java.Graphic_Interface.EmotionCreationPageController.Container;
-import Java.PlayList_Songs.PlayList;
-import Java.PlayList_Songs.Song;
-import Java.emotionalsongs.Emotion;
+import Java.PlayListSongs.PlayList;
+import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

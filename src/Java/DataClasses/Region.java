@@ -10,7 +10,6 @@ public class Region
 
     public Region(String name) {
         this.name = name;
-        //this.name = (String)((JSONObject)json.get("regione")).get("Padova");
     }
 
     public void add(Province province) {
