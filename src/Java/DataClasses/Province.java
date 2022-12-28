@@ -3,6 +3,9 @@ package Java.DataClasses;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Questa classe è utilizzata per rappresentare le informazioni di una provincia, ai fini della realizzazione di un Account.
+ */
 public class Province {
 
     protected HashMap<String, Common> commons = new HashMap<String, Common>();

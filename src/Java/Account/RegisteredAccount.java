@@ -9,19 +9,55 @@ import org.json.simple.JSONObject;
 import Java.PlayListSongs.PlayList;
 import Java.PlayListSongs.Song;
 
+
+/**
+ * Questa classe rappresenta un Account registrato nell'Applicazione
+ */
 public class RegisteredAccount extends Account {
 
     //informazioni
+
+    /**
+    * Codice fiscale dell'utente
+    */
     protected String fiscalCode; 
+    
+    /**
+    * comune di residenza dell'utente
+    */
     protected String comune;
+
+    /**
+    * provincia di residenza dell'utente
+    */
     protected String provincia;
+
+    /**
+    * via/Piazza di residenza dell'utente
+    */
     protected String viaPiazza;
+
+    /**
+    * ID dell'utente
+    */
     protected String UserID;
+
+    /**
+    * Codice civico dell'utente
+    */
     protected String civicNumber;
+
+    /**
+    * CAP dell'utente
+    */
     protected String cap;
 
     //dati canzoni
+    /**
+    * Elenco PlayLists dell'utente
+    */
     protected ArrayList<PlayList> PlayLists = new ArrayList<PlayList>();
+    
     public HashMap<String, String> accountKeys = new HashMap<String, String>();
     
 
@@ -29,6 +65,9 @@ public class RegisteredAccount extends Account {
 
     }
 
+    /**
+     * Costruttore che inizializza l'instanza con un oggetto JSONObject, in quale contiene tutte le informazioni che tale instanza deve possedere
+     */
     public RegisteredAccount(JSONObject data) 
     {
         this.name        = (String) data.get("name");
@@ -48,6 +87,9 @@ public class RegisteredAccount extends Account {
 
     }
 
+    /**
+     * Aggiorna la struttura dati accountKeys
+     */
     public void updateHashMap() {
 
         accountKeys.clear();
@@ -65,6 +107,11 @@ public class RegisteredAccount extends Account {
         accountKeys.put("civicNumber"   , this.civicNumber);
     }
     
+    
+    /**
+    * Carica in memoria le playlist dell'utente
+    *  @param data Oggetto JSONObject che contiene le informazioni delle playlist create
+    */
     public void loadPlaylits(JSONObject data) {
         JSONArray PlayLists_array =  (JSONArray) data.get("PlayLists");
 
@@ -123,7 +170,10 @@ public class RegisteredAccount extends Account {
         return false;
     }
 
-
+    /**
+    * Questa funzione converte i dati dell'utente in un oggetto JSONObject.
+    * @return restituisce un oggetto JSONObject che rappresenta le informazioni dell'Account.
+    */
     @SuppressWarnings("unchecked")
     public JSONObject getAccountDataStructure() 
     {
@@ -171,88 +221,155 @@ public class RegisteredAccount extends Account {
     }
 
 
-
+    /** 
+     * Elimina tutte le playlist possedute dall'utente
+     */
     public void elimina_playlist(){
         PlayLists.clear();
     }
 
 
-    public void remove_playlist(PlayList a) {
-        PlayLists.remove(a);
+    
+    /** 
+     * Rimuove la playlist presente nella raccolta
+     * @param toRemove La playlist da rimuovere dalla raccolta. Tale valore, deve essere un riferimento a una delle playlist presenti nella raccolta.
+     */
+    public void remove_playlist(PlayList toRemove) {
+        PlayLists.remove(toRemove);
     }
 
-    public void crea_playlist_vuota(){
-        String nome="";
-        ArrayList<Song> daje=new ArrayList<Song>();
-        PlayList k = new PlayList(nome,daje);
+
+    
+    /** 
+     * Aggiunge una nuova playlist alla raccolta dell'utente
+     * @param NewPlaylist La nuova playlist da aggiungere alla raccolta delle playlist
+     */
+    public void addPlaylist(PlayList NewPlaylist) {
+        this.PlayLists.add(NewPlaylist);
     }
 
-    public void crea_playlist_con_qualche_canzone(ArrayList<Song> canzoni_scelte_prima) {
-        String nome="";
-        ArrayList<Song> daje=new ArrayList<Song>();
-        PlayList k=new PlayList(nome,daje);
-        for(int i=0;i<((CharSequence) canzoni_scelte_prima).length();i++){
-            k.addSong(canzoni_scelte_prima.get(i));
-        }
-    }
-
-    public void addPlaylist(PlayList p) {
-        this.PlayLists.add(p);
-    }
-
+    
+    /** 
+     * Restituisce l'userID auttoale dell'utente
+     * @return String
+     */
     public String getUserID() {
         return this.userID;
     }
 
+    
+    /** 
+     * Imposta l'user ID 
+     * @param userID il nuovo user ID
+     */
     public void setUserID(String userID) {
         this.userID = userID;
     }
 
 
+    
+    /** 
+     * Restituisce il codice fiscale posseduto dall'Utente
+     * @return String
+     */
     public String getFiscalCode() {
         return fiscalCode;
     }
 
+    
+    /** 
+     * Imposta il codice fiscle dell'utente
+     * @param taxIDcode il nuovo valore da assegnare.
+     */
     public void SetFiscalCode(String taxIDcode) {
         this.fiscalCode = taxIDcode;
     }
 
+    
+    /** 
+     * Restituisce la Playlist realizzata dall'utente
+     * @return ArrayList<PlayList>
+     */
     public ArrayList<PlayList> getPlayLists() {
         return this.PlayLists;
     }
 
+    
+    /** 
+     * Imposta un nuovo ArrayList di playlist sovrascrivendo quello precedente
+     * @param playLists La nuova playlist da assegnare
+     */
     public void setPlayLists(ArrayList<PlayList> playLists) {
         PlayLists = playLists;
     }
 
+    
+    /** 
+     * Restituisce il valore del Comune di residenza dell'utente
+     * @return String
+     */
     public String getComune() {
         return comune;
     }
 
+    
+    /** 
+     * Imposta il nuovo valore del comune
+     * @param comune
+     */
     public void setComune(String comune) {
         this.comune = comune;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getProvincia() {
         return provincia;
     }
 
+    
+    /** 
+     * Imposta il nuovo valore dalla provincia
+     * @param provincia
+     */
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
 
+    
+    /** 
+     * Restituisce il valore dalla via/Piazza
+     * @return String
+     */
     public String getViaPiazza() {
         return viaPiazza;
     }
 
+    
+    /** 
+     * Imposta il nuovo valore dalla via/Piazza
+     * @param viaPiazza
+     */
     public void setViaPiazza(String viaPiazza) {
         this.viaPiazza = viaPiazza;
     }
 
+    
+    /** 
+     * Restituisce il CAP dell'utente
+     * @return String
+     */
     public String getCap() {
         return cap;
     }
 
+    
+    /** 
+     * Imposta il nuovo valore dal CAP
+     * @param cap il nuovo CAP da Assegnare
+     */
     public void setCap(String cap) {
         this.cap = cap;
     }

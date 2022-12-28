@@ -7,6 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Questa classe è utilizzata per rappresentare le informazioni di base che ogni controller deve possedere.
+ */
 public abstract class Controller 
 {
     // ========================= variabili =========================//

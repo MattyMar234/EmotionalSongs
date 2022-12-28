@@ -7,9 +7,16 @@ import Java.emotionalsongs.EmotionalSongs;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+
+/**
+ * Questa classe è utilizzata per rappresentare tutte le informazioni associate a un'emozione.
+ */
 public class Emotion 
 {
 
+    /**
+    * Raccolta di tutti i testi presente nelle spiegazioni delle emozioni.
+    */
     public static final String[][] matrice = 
     {
         {"Stupore", "Amazement"}, 
@@ -45,6 +52,9 @@ public class Emotion
     public static Emotion Emotion_Sadness    = new Emotion(matrice[8][EmotionalSongs.language], matrice[17][EmotionalSongs.language]);
     public static Image [] emotionImage      = new Image[10];
     
+    /**
+    * HashMap utilizzata accedere alle immagini associate ai nomi delle emozioni
+    */
     public static HashMap<String,Image> EmotionHashMap = new HashMap<String,Image>();
     
     public static Emotion[] Emotions = {
@@ -61,17 +71,38 @@ public class Emotion
     };
 
     
-    
+    /**
+    * Categoria dell'emozione.
+    */
     private String Category;
+
+    /**
+    * Spiegazione dell'emozione.
+    */
     private String Explanation;
+
+    /**
+    * Immagine dell'emozione
+    */
     private Image image;
+
+    /**
+    * Punteggio dell'emozione dato dall'utente
+    */
     private int Score;
+
     private RegisteredAccount account;
     private int number;
 
     // ====================== Costruttori ====================== //
 
     //costruttore 1
+    /**
+    * costruttore dell'emozione finale
+    *@param emozione riferimento di base del tipo di emozione
+    *@param Score punteggio dell'emozione
+    *@param account riferimento al proprietario che ha assegnato tale emozione
+    */
     public Emotion(Emotion emozione, int Score, RegisteredAccount account) 
     {
         //number = Emotion.getEmotionID(emozione);
@@ -86,6 +117,9 @@ public class Emotion
     }
 
     //costruttore 2
+    /**
+    * Costruttore volutamente privato, utilizzato per la creazione base di un emozione
+    */
     private Emotion(String category, String Explanation) 
     {
         this.Explanation = Explanation;
@@ -95,6 +129,12 @@ public class Emotion
     }
 
     
+    
+    /** 
+     * Restituiasce l'ID dell'emozione dato il suo tipo
+     * @param e rappresenta l'emozione di cui si vole ottenere l'ID
+     * @return int il valore dell'ID corriposndente all'emozione.
+     */
     // ====================== funzioni ====================== //
 
     public static int getEmotionID(Emotion e) 
@@ -118,35 +158,75 @@ public class Emotion
 
 
 
+    
+    /** 
+     * Restiuisce la gategoria a cui appartiene l'emozione
+     * @return String
+     */
     public String getCategory() {
         return  Emotion.matrice[number][EmotionalSongs.language];
     }
 
+    
+    /** 
+     * Imposta la categoria da assegnare all'emozione.
+     * @param category
+     */
     public void setCategory(String category) {
         Category = category;
     }
 
+    
+    /** 
+     * Restituisce la spiegazione dell'emozione
+     * @return String
+     */
     public String getExplanation() {
         return Emotion.matrice[number + 9][EmotionalSongs.language];
     }
         
 
+    
+    /** 
+     * Imposta la spiegazione dell'emozione
+     * @param explanation
+     */
     public void setExplanation(String explanation) {
         Explanation = explanation;
     }
 
+    
+    /** 
+     * Restituisce il punteggio assegnato a tale emozione
+     * @return int
+     */
     public int getScore() {
         return Score;
     }
 
+    
+    /** 
+     * Imposta il valore del punteggio
+     * @param score
+     */
     public void setScore(int score) {
         Score = score;
     }
 
+    
+    /** 
+     * Restituisce L'ID del proprietario dell'emozione
+     * @return String
+     */
     public String getAccountID() {
         return this.account.getID();
     }
 
+    
+    /** 
+     * Imposta l'user ID del proprietario dell'emozione
+     * @param account
+     */
     public void SetAccount(RegisteredAccount account) {
         this.account = account;
         System.out.println("account: " + getAccountID());

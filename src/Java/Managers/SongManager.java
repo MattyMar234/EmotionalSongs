@@ -19,7 +19,7 @@ import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
 
 /**
- * Questa classe estende la classe Manager ed viene utilizzata per la getione e ricera dei dati inerenti alle canzoni.
+ * Questa classe estende la classe Manager e viene utilizzata per la getione e ricera dei dati inerenti alle canzoni.
  */
 public class SongManager extends Manager <Song> 
 {

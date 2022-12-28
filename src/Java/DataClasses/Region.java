@@ -3,6 +3,9 @@ package Java.DataClasses;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Questa classe è utilizzata per rappresentare le informazioni di una regione, ai fini della realizzazione di un Account.
+ */
 public class Region 
 {
     protected HashMap<String, Province> Provinces = new HashMap<String, Province>();

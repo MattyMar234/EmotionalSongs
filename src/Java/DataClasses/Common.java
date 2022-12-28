@@ -1,5 +1,8 @@
 package Java.DataClasses;
 
+/**
+ * Questa classe è utilizzata per rappresentare le informazioni di un comune, ai fini della realizzazione di un Account.
+ */
 public class Common {
 
     protected String name;
@@ -15,6 +18,11 @@ public class Common {
         return new String("commune: " + name);
     }
 
+    
+    /** 
+     * @param capToTest
+     * @return boolean
+     */
     public boolean testCap(String capToTest) {
         for(String c : cap) {
             if(c.equals(capToTest)) {
@@ -25,15 +33,28 @@ public class Common {
     }
 
 
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
 
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    
+    /** 
+     * @param index
+     * @return String
+     */
     public String getCap(int index) {
         if(index < cap.length) {
             return cap[index];
@@ -42,6 +63,11 @@ public class Common {
         return "00000";
     }
 
+    
+    /** 
+     * @param newCap
+     * @param index
+     */
     public void setCap(String newCap, int index) {
         if(index < cap.length) {
             this.cap[index] = newCap;

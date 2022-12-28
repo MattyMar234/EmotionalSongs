@@ -10,12 +10,27 @@ import Java.DataClasses.Province;
 import Java.DataClasses.Region;
 import Java.emotionalsongs.EmotionalSongs;
 
+
+/**
+ * Questa classe estende la classe Manager e viene utilizzata per la ricerca dei dati utilizzati in fase di inscrizione di un nuovo utente.
+ */
 public class LocationsManager extends Manager <Region> {
 
+    /**
+    * Crea un oggeto per la gestione dei dati inerenti alle regioni del paese.
+    * @param Path Percorso del file da cui si prelevano i dati.
+    * @param main Riferimento alla classe Main.
+    */
     public LocationsManager(String path, EmotionalSongs main) {
         super(path, main);
     }
 
+    
+    /** 
+     * Cerca in quale regione è situate la provincia che si sta cercando.
+     * @param Name nome della regione.
+     * @return ritorna l'oggetto che rappresenta tale regione. Se il nome passato non è valido, il risultato sarà NULL.
+     */
     public Province FindProvince(String Name) {
         for(Region region : Data) {
 
@@ -30,6 +45,11 @@ public class LocationsManager extends Manager <Region> {
     }
 
 
+    
+    /** 
+     * Carica i dati nel Manager
+     * @return Restituisce TRUE se l'operazione di caricamento va a buon fine altrimenti FALSE.
+     */
     public boolean LoadData() 
     {
         System.out.println("reading file " + this.FilePath);

@@ -25,6 +25,9 @@ import org.json.simple.JSONObject;
 import java.awt.image.BufferedImage;
 
 
+/**
+ * Classe Main dell'applicazione
+ */
 public class EmotionalSongs extends Application{
 
     // =================== percorsi =================== //
@@ -69,6 +72,10 @@ public class EmotionalSongs extends Application{
 
     public static EmotionalSongs classReference;                    //riferimento globale di questa classe
     public static WindowContainerController windowPageReference;
+
+    /**
+    * Linguaggio dei testi nell'Applicazione
+    */
     public static int language = 1; //italiano 0, inglese 1
     public static HashMap<String, ImageView> globaApplicationImages = new HashMap<>();
 
@@ -100,6 +107,10 @@ public class EmotionalSongs extends Application{
     }
 
 
+    
+    /** 
+     * Funzione per l'inizializzazione della finestra dell'applicazione e caricamento dei dati
+     */
     @Override
     public void start(Stage stage) 
     {
@@ -289,6 +300,11 @@ public class EmotionalSongs extends Application{
         }
     }
 
+    
+    /** 
+     * Funione che termina l'esecuzione dell'applicazione
+     * @param stage Lo stage attualmente in uso.
+     */
     public void logout(Stage stage) {
         try {
             AccountsManager.SaveAccounts(UsersFile);
@@ -308,6 +324,13 @@ public class EmotionalSongs extends Application{
     }
 
     
+    
+    /** 
+     * Funzione che permette di cambiare il file fxml persente nella finestra.
+     * @param stage Lo stage attualmente in uso.
+     * @param name Nome del nuovo file fxml da caricare.
+     * @throws IOException
+     */
     public void changeScreen(Stage stage, String name) throws IOException 
     {
         FXMLLoader XMLloader = new FXMLLoader(getClass().getClassLoader().getResource(pageLoaders.get(name)));
@@ -316,6 +339,13 @@ public class EmotionalSongs extends Application{
         stage.show();
     }
 
+    
+    /** 
+     * permette di ottenere l'FXMLLoader di un file fxml.
+     * @param name Nome del file fxml.
+     * @return Restituisce un oggetto FXMLLoader
+     * @throws IOException
+     */
     public FXMLLoader getNewStageWindow(String name) throws IOException  {
         return new FXMLLoader(getClass().getClassLoader().getResource(pageLoaders.get(name)));
     }

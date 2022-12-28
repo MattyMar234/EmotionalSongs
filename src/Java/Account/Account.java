@@ -1,17 +1,15 @@
 package Java.Account;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+
 
 import org.json.simple.JSONObject;
-
-import Java.Json.JsonParser;
-import Java.PlayListSongs.PlayList;
-import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
-import java.util.ArrayList;
 
+
+
+/**
+ * Questa classe rappresenta le informazioni base possedute da un Account qualsiasi.
+ */
 public class Account {
 
     protected EmotionalSongs main;
@@ -41,10 +39,21 @@ public class Account {
     }
 
     
+    
+    /** 
+     * Verifica se due account sono uguali
+     * @param toTest Account da verificare con questa classe
+     * @return L'esido dell'operazione di confronto
+     */
     public boolean IsIndentical(Account toTest)  {
         return false;
     }
 
+    
+    /** 
+     * Funzione che converte le informazioni delle classe in un oggetto JSONObject
+     * @return Restituisce un oggetto JSONObject che rappresenta le informazioni di un oggetto Account.
+     */
     @SuppressWarnings("unchecked")
     public JSONObject getDataStructure() {
         JSONObject data = new JSONObject();
@@ -59,41 +68,77 @@ public class Account {
     }
 
 
+    
+    /** 
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    
+    /** 
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
 
+    
+    /** 
+     * @return String
+     */
     public String getSurname() {
         return surname;
     }
 
+    
+    /** 
+     * @param surname
+     */
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
 
+    
+    /** 
+     * @return String
+     */
     public String getEmail() {
         return email;
     }
 
+    
+    /** 
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getID() {
         return this.userID;
     }
 
 
+    
+    /** 
+     * @return String
+     */
     public String getPassword() {
         return password;
     }
 
+    
+    /** 
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
