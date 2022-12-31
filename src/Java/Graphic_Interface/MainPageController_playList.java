@@ -54,6 +54,9 @@ public class MainPageController_playList extends Controller implements Initializ
     // ========================= variabili =========================//
     public MainPageController mainController;
 
+    @FXML
+    private ImageView IMG1;
+
 
     public class CustomPlayList 
     {
@@ -113,6 +116,7 @@ public class MainPageController_playList extends Controller implements Initializ
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) 
     {
+        super.setImage(IMG1);
         NewPlaylistButton.setText(EmotionalSongs.language == 0 ? "Nuova Playlist" : "New Playlist");
         PlayListName.setText(EmotionalSongs.language == 0 ? "Nome Playlist" : "Playlist Name");
         PlayListElements.setText(EmotionalSongs.language == 0 ? "Numero canzoni" : "Songs Number");
@@ -181,7 +185,7 @@ public class MainPageController_playList extends Controller implements Initializ
 
 
                         
-                            deleteButton.setStyle(
+                            /*deleteButton.setStyle(
                                     " -fx-cursor: hand ;"
                                     + "-fx-background-color:#ff00008e;"
                                     + "-fx-border-width: 1;"
@@ -191,8 +195,12 @@ public class MainPageController_playList extends Controller implements Initializ
                                     + "-fx-border-insets: 10px;"
                                     + "-fx-background-insets: 10px;"
                                     
-                            );
-                            editButton.setStyle(
+                            );*/
+
+                            deleteButton.setId("delete");
+
+
+                            /*editButton.setStyle(
                                     " -fx-cursor: hand ;"
                                     + "-fx-background-color:#11db0aa4;"
                                     + "-fx-border-width: 1;"
@@ -201,8 +209,9 @@ public class MainPageController_playList extends Controller implements Initializ
                                     + "-fx-padding: 8 8 8 8;"
                                     + "-fx-border-insets: 10px;"
                                     + "-fx-background-insets: 10px;"
+                            );*/
 
-                            );
+                            editButton.setId("emotions");
 
 
                             deleteButton.setOnMouseClicked((MouseEvent event) -> {
@@ -234,7 +243,7 @@ public class MainPageController_playList extends Controller implements Initializ
                             });
 
                             
-                            HBox managebtn = new HBox(deleteButton, editButton);
+                            HBox managebtn = new HBox(editButton,deleteButton);
                             managebtn.setStyle("-fx-alignment:center");
                             HBox.setMargin(deleteIcon, new Insets(2, 2, 0, 3));
                             HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));

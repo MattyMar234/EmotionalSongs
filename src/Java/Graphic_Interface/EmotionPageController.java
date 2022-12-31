@@ -21,6 +21,9 @@ import javafx.scene.image.ImageView;
 public class EmotionPageController extends Controller implements Initializable{
 
     @FXML private Button back;
+
+    @FXML
+    private ImageView IMG1;
     
     // Tabella punteggi
     @FXML private TableView<Container1> emotionTable;
@@ -143,6 +146,8 @@ public class EmotionPageController extends Controller implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+
+        super.setImage(IMG1);
 
         int [] scores = new int[Emotion.Emotions.length];
         int [] Maxs = new int[Emotion.Emotions.length];

@@ -27,9 +27,23 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
 
 public class NewUserRegistrationController extends Controller implements Initializable 
 {
+    @FXML private ImageView IMG1;
+    @FXML private ImageView IMG10;
+    @FXML private ImageView IMG11;
+    @FXML private ImageView IMG12;
+    @FXML private ImageView IMG13;
+    @FXML private ImageView IMG2;
+    @FXML private ImageView IMG3;
+    @FXML private ImageView IMG4;
+    @FXML private ImageView IMG5;
+    @FXML private ImageView IMG6;
+    @FXML private ImageView IMG7;
+    @FXML private ImageView IMG8;
+    @FXML private ImageView IMG9;
     @FXML private Label UserRegistration;
 
     @FXML private Button confirmButton;
@@ -299,24 +313,25 @@ public class NewUserRegistrationController extends Controller implements Initial
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
-
+        super.setImage(IMG1,IMG2,IMG3,IMG4,IMG5,IMG6,IMG7,IMG8,IMG9,IMG10,IMG11,IMG12,IMG13);
         UserRegistration.setText(EmotionalSongs.language == 0 ? "Registrazione Utente" : "User Registration");
 
         testoNome.setText(EmotionalSongs.language == 0 ? "Nome" : "Name");
-        name.setText(EmotionalSongs.language == 0 ? "Nome" : "First Name");
+        name.setPromptText(EmotionalSongs.language == 0 ? "Nome" : "First Name");
         testoCognome.setText(EmotionalSongs.language == 0 ? "Cognome" : "Surname");
-        surname.setText(EmotionalSongs.language == 0 ? "Cognome" : "Last Name");
+        surname.setPromptText(EmotionalSongs.language == 0 ? "Cognome" : "Last Name");
         titoloNomeUtente.setText(EmotionalSongs.language == 0 ? "Nome Utente" : "NickName");
-        userID.setText(EmotionalSongs.language == 0 ? "ID utente" : "userd ID");
+        userID.setPromptText(EmotionalSongs.language == 0 ? "ID utente" : "userd ID");
         testoConfermaPassword.setText(EmotionalSongs.language == 0 ? "Conferma Password" : "Confirm Password");
         testoNumeroCivico.setText(EmotionalSongs.language == 0 ? "Numero Civico" : "Civic Number");
-        civicNumber.setText(EmotionalSongs.language == 0 ? "Numero" : "Number");
+        civicNumber.setPromptText(EmotionalSongs.language == 0 ? "Numero" : "Number");
         testoComune.setText(EmotionalSongs.language == 0 ? "Comune " : "Municipality");
         testoProvince.setText(EmotionalSongs.language == 0 ? "Provincia" : "Province");
         testoCodiceFiscale.setText(EmotionalSongs.language == 0 ? "Codice Fiscale" : "Fiscal Code");
-        codiceFiscale.setText(EmotionalSongs.language == 0 ? "Codice" : "Code");
+        codiceFiscale.setPromptText(EmotionalSongs.language == 0 ? "Codice" : "Code");
         testoViaPiazza.setText(EmotionalSongs.language == 0 ? "Via/Piazza" : "Street/Square");
-        viaPiazza.setText(EmotionalSongs.language == 0 ? "Via/Piazza" : "Street/Square");
+        viaPiazza.setPromptText(EmotionalSongs.language == 0 ? "Via/Piazza" : "Street/Square");
+
 
         BackButton.setText(EmotionalSongs.language == 0 ? "Torna indietro" : "Turn Back");
         confirmButton.setText(EmotionalSongs.language == 0 ? "Registrati" : "Sig In");

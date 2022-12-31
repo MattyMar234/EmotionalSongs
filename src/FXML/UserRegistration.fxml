@@ -30,7 +30,7 @@
                                        <children>
                                           <AnchorPane fx:id="backGround" prefHeight="81.0" prefWidth="551.0">
                                              <children>
-                                                <ImageView fitHeight="42.0" fitWidth="75.0" layoutX="173.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="IMG1" fitHeight="42.0" fitWidth="75.0" layoutX="173.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../data/image/Security2.png" />
                                                    </image>
@@ -58,7 +58,7 @@
                                                          <children>
                                                             <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                <children>
-                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fx:id="IMG2" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../../data/image/utente.png" />
                                                                      </image>
@@ -97,7 +97,7 @@
                                                          <children>
                                                             <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                <children>
-                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fx:id="IMG3" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../../data/image/utente.png" />
                                                                      </image>
@@ -141,7 +141,7 @@
                                                                      <children>
                                                                         <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                            <children>
-                                                                              <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                              <ImageView fx:id="IMG4" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                                  <image>
                                                                                     <Image url="@../../data/image/utente.png" />
                                                                                  </image>
@@ -192,7 +192,7 @@
                                                                      <children>
                                                                         <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                            <children>
-                                                                              <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                              <ImageView fx:id="IMG5" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                                  <image>
                                                                                     <Image url="@../../data/image/email.png" />
                                                                                  </image>
@@ -235,7 +235,7 @@
                                                          <children>
                                                             <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                <children>
-                                                                  <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                  <ImageView fx:id="IMG6" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                      <image>
                                                                         <Image url="@../../data/image/lucchetto.png" />
                                                                      </image>
@@ -275,7 +275,7 @@
                                                                      <children>
                                                                         <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                            <children>
-                                                                              <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                              <ImageView fx:id="IMG7" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                                  <image>
                                                                                     <Image url="@../../data/image/lucchetto.png" />
                                                                                  </image>
@@ -324,7 +324,7 @@
                                                                <children>
                                                                   <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                      <children>
-                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView fx:id="IMG8" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                            <image>
                                                                               <Image url="@../../data/image/utente.png" />
                                                                            </image>
@@ -363,7 +363,7 @@
                                                                <children>
                                                                   <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                      <children>
-                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView fx:id="IMG9" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                            <image>
                                                                               <Image url="@../../data/image/utente.png" />
                                                                            </image>
@@ -409,7 +409,7 @@
                                                                <children>
                                                                   <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                      <children>
-                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView fx:id="IMG10" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                            <image>
                                                                               <Image url="@../../data/image/utente.png" />
                                                                            </image>
@@ -457,7 +457,7 @@
                                                                <children>
                                                                   <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                      <children>
-                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView fx:id="IMG11" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                            <image>
                                                                               <Image url="@../../data/image/utente.png" />
                                                                            </image>
@@ -503,7 +503,7 @@
                                                                <children>
                                                                   <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                      <children>
-                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView fx:id="IMG12" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                            <image>
                                                                               <Image url="@../../data/image/utente.png" />
                                                                            </image>
@@ -542,7 +542,7 @@
                                                                <children>
                                                                   <VBox alignment="CENTER" prefHeight="40.0" prefWidth="40.0">
                                                                      <children>
-                                                                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                        <ImageView fx:id="IMG13" fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                                                            <image>
                                                                               <Image url="@../../data/image/utente.png" />
                                                                            </image>

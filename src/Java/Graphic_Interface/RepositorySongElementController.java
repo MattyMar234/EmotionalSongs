@@ -30,6 +30,15 @@ public class RepositorySongElementController extends Controller implements Initi
     @FXML private HBox EmojiContainer;
     @FXML private Label EmotionLabel;
 
+    @FXML
+    private ImageView IMG1;
+
+    @FXML
+    private ImageView IMG2;
+
+    @FXML
+    private ImageView IMG3;
+
 
     @FXML private AnchorPane songMenubackground;
 
@@ -130,9 +139,7 @@ public class RepositorySongElementController extends Controller implements Initi
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
-        /*double x = songMenubackground.getWidth();
-        LabelTitle.setMaxWidth(x);
-        labelAutor.setMaxWidth(x);*/ 
+        super.setImage(IMG1, IMG2, IMG3);
 
         EmotionLabel.setText(EmotionalSongs.language == 0 ? "Emozioni: " : "Emotions: ");
     }

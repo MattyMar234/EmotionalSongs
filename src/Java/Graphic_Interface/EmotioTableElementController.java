@@ -46,6 +46,7 @@ public class EmotioTableElementController extends Controller implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+        super.setImage(SetScore1,SetScore2, SetScore3,SetScore4,SetScore5);
         if(filledStart == null) {
             filledStart = SetScore1.getImage();
             EmptyStart  = SetScore5.getImage();

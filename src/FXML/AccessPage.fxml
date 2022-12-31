@@ -31,7 +31,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="126.0" prefWidth="600.0">
                            <children>
-                              <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="IMG" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../data/image/Logo.png" />
                                  </image>

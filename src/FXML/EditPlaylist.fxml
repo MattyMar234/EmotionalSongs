@@ -38,7 +38,7 @@
                            <children>
                               <Button id="addElement_Button" fx:id="Back" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" AnchorPane.leftAnchor="54.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                                    <ImageView fx:id="IMG4" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                                        <image>
                                           <Image url="@../../data/image/FrecciaIndietro.png" />
                                        </image>
@@ -47,7 +47,7 @@
                               </Button>
                               <Button id="addElement_Button" fx:id="addSong" layoutX="313.0" layoutY="6.0" mnemonicParsing="false" onAction="#addSong" prefHeight="32.0" prefWidth="181.0" text="Add songs" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="IMG2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../data/icon/addSongIcon.png" />
                                        </image>
@@ -56,7 +56,7 @@
                               </Button>
                               <Button id="addElement_Button" fx:id="AddSongAutor" layoutX="541.0" layoutY="13.0" mnemonicParsing="false" onAction="#AddAutor" prefHeight="32.0" prefWidth="220.0" text="Add Author songs" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="IMG3" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../data/icon/addAlbumSong.png" />
                                        </image>
@@ -65,7 +65,7 @@
                               </Button>
                               <Button id="addElement_Button" fx:id="salva" layoutX="584.0" mnemonicParsing="false" onAction="#save" prefHeight="32.0" prefWidth="110.0" text="Save" AnchorPane.rightAnchor="505.0" AnchorPane.topAnchor="0.0">
                                  <graphic>
-                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="IMG1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../data/icon/saveIcon.png" />
                                        </image>

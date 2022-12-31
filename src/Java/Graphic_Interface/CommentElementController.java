@@ -20,6 +20,7 @@ public class CommentElementController extends Controller implements Initializabl
     @FXML private Label LabelSurname;
     @FXML private TextArea TextArea;
     @FXML private ImageView DeleteIcon;
+    @FXML private ImageView IMG1;
 
     @FXML private VBox LabelContainer;
     
@@ -41,7 +42,8 @@ public class CommentElementController extends Controller implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
+        super.setImage(IMG1,DeleteIcon);
         LabelName.setText(comment.getAutor().getName() + " " + comment.getAutor().getSurname());
         LabelSurname.setText(comment.getAutor().getID());
         //TextArea.setText(comment.getComment());
@@ -50,17 +52,14 @@ public class CommentElementController extends Controller implements Initializabl
         ArrayList<String> texts = new ArrayList<String>();
         String str = comment.getComment();
         String s = "";
-        int lenghtLimit = 64;
+        int lenghtLimit = 69;
 
         for(int i = 0; i < str.length(); i++) 
         {
-            if(str.charAt(i) == '\n')
-                continue;
-                
             s += str.charAt(i);
 
 
-            if(s.length() == lenghtLimit) {
+            if(s.length() == lenghtLimit || str.charAt(i) == '\n') {
                 texts.add(new String(s));
                 s = "";
             }
@@ -70,7 +69,6 @@ public class CommentElementController extends Controller implements Initializabl
 
         for(String st : texts) {
             Label l = new Label(st);
-            System.out.println("line: " + st);
             l.setId("text");
             LabelContainer.getChildren().addAll(l);
         }

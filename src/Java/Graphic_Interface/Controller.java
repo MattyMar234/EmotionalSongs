@@ -5,7 +5,7 @@ import java.awt.*;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
 
 /**
  * Questa classe è utilizzata per rappresentare le informazioni di base che ogni controller deve possedere.
@@ -63,6 +63,16 @@ public abstract class Controller
         
         this.application.windowPageReference.anchor.getChildren().removeAll();
         this.application.windowPageReference.anchor.setCenter(view);
+    }
+
+    protected void setImage(ImageView... imgArray) {
+
+        for(ImageView img : imgArray) {
+            String [] pathElements = img.getImage().getUrl().split("/");
+            String Name = pathElements[pathElements.length - 1];
+            img.setImage(EmotionalSongs.globaApplicationImages.get(Name));
+        }
+
     }
 
 

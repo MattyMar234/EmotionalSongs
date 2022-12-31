@@ -40,6 +40,18 @@ public class EditPlaylistController extends Controller implements Initializable
 
     @FXML private Label titoloEditPlaylist;
 
+    @FXML
+    private ImageView IMG1;
+
+    @FXML
+    private ImageView IMG2;
+
+    @FXML
+    private ImageView IMG3;
+
+    @FXML
+    private ImageView IMG4;
+
     
     public ObservableList<CustomSong> list = FXCollections.observableArrayList();
     private MainPageController classeReferences;
@@ -109,6 +121,7 @@ public class EditPlaylistController extends Controller implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+        super.setImage(IMG1,IMG2,IMG3,IMG4);
         playlistCopy = playlist.copy();
 
         titoloEditPlaylist.setText(EmotionalSongs.language == 0 ? "MODIFICA PLAYLIST" : "EDIT PLAYLIST");

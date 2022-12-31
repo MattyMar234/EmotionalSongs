@@ -52,7 +52,7 @@
                   <AnchorPane prefHeight="38.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Button id="addElement_Button" fx:id="NewPlaylistButton" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="26.0" mnemonicParsing="false" onAction="#AddNewPlayList" prefHeight="30.0" prefWidth="170.0" text="New Playlist" textAlignment="CENTER" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-                        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="29.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="IMG1" fitHeight="20.0" fitWidth="20.0" layoutX="29.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../data/image/AddPlayList.png" />
                            </image>

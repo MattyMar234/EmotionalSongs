@@ -77,7 +77,7 @@ public class EmotionalSongs extends Application{
     * Linguaggio dei testi nell'Applicazione
     */
     public static int language = 1; //italiano 0, inglese 1
-    public static HashMap<String, ImageView> globaApplicationImages = new HashMap<>();
+    public static HashMap<String, Image> globaApplicationImages = new HashMap<>();
 
     public HashMap<String, String> pageLoaders = new HashMap<String, String>();         
     public Account ConnectedAccount;                                             //Account in utilizzo
@@ -255,7 +255,7 @@ public class EmotionalSongs extends Application{
                         if(!f.isDirectory()) {
                             System.out.println("loading image: " + f.getAbsolutePath() + " --> " + f.getName());
                             Image img = SwingFXUtils.toFXImage(ImageIO.read(f), null);
-                            EmotionalSongs.globaApplicationImages.put(f.getName(), new ImageView(img));
+                            EmotionalSongs.globaApplicationImages.put(f.getName(), img);
                         }
                     }
                 }

@@ -46,6 +46,9 @@ public class EmotionCreationPageController extends Controller implements Initial
     @FXML private TableView<Container> EmotioTable;
     @FXML private TableColumn<Container, Container> EmotionElement;
 
+    @FXML
+    private ImageView IMG1;
+
     private ObservableList<Container> list = FXCollections.observableArrayList();
     private MainPageController classeReferences;
     private PlayList playlist;
@@ -88,7 +91,7 @@ public class EmotionCreationPageController extends Controller implements Initial
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
-
+        super.setImage(IMG1);
 
         Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
 

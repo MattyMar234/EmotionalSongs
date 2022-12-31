@@ -10,13 +10,11 @@ import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 
-import Java.Account.Account;
+
 import Java.Account.RegisteredAccount;
 import Java.Account.UnregisteredAccount;
-import Java.PlayListSongs.PlayList;
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -24,13 +22,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -40,6 +36,7 @@ import javafx.util.Callback;
 public class AccessController extends Controller implements Initializable {
 
     @FXML private Button LoginButton;
+    @FXML private ImageView IMG;
     @FXML private Label NewAccount;
     @FXML private Button NoAccountButton;
     @FXML private AnchorPane labelButton;
@@ -102,7 +99,7 @@ public class AccessController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
-        
+        super.setImage(IMG);
         updatePageText();
 
         File folder = new File(EmotionalSongs.flagFolder);

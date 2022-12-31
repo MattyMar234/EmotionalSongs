@@ -67,6 +67,15 @@ public class NewPlaylistController extends Controller implements Initializable {
     @FXML private Label selectedSong;
     
     // ========================= Altro ========================= //
+
+    @FXML
+    private ImageView IMG1;
+
+    @FXML
+    private ImageView IMG2;
+
+    @FXML
+    private ImageView IMG3;
     MainPageController mainPageReference;
     AddSongWindow addSongWindow;
     HashMap<String,ArrayList<String>> SelectedData = new HashMap<String,ArrayList<String>>();
@@ -84,6 +93,8 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        super.setImage(IMG1, IMG2, IMG3);
 
         Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
         salva.setText(EmotionalSongs.language == 0 ? "Salva" : "Save");

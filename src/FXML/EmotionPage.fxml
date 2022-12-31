@@ -81,7 +81,7 @@
       </BorderPane>
       <Button id="addElement_Button" fx:id="back" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#turnBack" prefHeight="25.0" prefWidth="120.0" text="back" underline="true" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
          <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+            <ImageView fx:id="IMG1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                <image>
                   <Image url="@../../data/image/FrecciaIndietro.png" />
                </image>

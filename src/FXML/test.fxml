@@ -18,7 +18,7 @@
          <children>
             <AnchorPane layoutX="-23.0" layoutY="-40.0" prefHeight="101.0" prefWidth="210.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="10.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0">
+                  <ImageView fx:id="IMG1" fitHeight="64.0" fitWidth="64.0" layoutX="10.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0">
                      <image>
                         <Image url="@../../data/icon/testMusic.png" />
                      </image>
@@ -50,7 +50,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
                            <children>
-                              <ImageView id="labelCommenti" fitHeight="28.0" fitWidth="24.0" onMouseClicked="#viewComment" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="labelCommenti" fx:id="IMG2" fitHeight="28.0" fitWidth="24.0" onMouseClicked="#viewComment" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../data/icon/CommentIconRepository.png" />
                                  </image>
@@ -61,7 +61,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView id="EmotionLabel" fitHeight="28.0" fitWidth="24.0" onMouseClicked="#viewEmotions" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="EmotionLabel" fx:id="IMG3" fitHeight="28.0" fitWidth="24.0" onMouseClicked="#viewEmotions" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../data/icon/icon1.png" />
                                  </image>

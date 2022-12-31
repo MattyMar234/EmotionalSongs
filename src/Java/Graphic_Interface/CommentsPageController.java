@@ -1,5 +1,6 @@
 package Java.Graphic_Interface;
 
+import Java.Account.Account;
 import javafx.fxml.Initializable;
 import java.io.IOException;
 import java.net.URL;
@@ -40,6 +41,12 @@ public class CommentsPageController extends Controller implements Initializable
     @FXML private TextArea textArea;
     @FXML private AnchorPane writerElement;
     @FXML private Button Back;
+
+    @FXML
+    private ImageView IMG1;
+
+    @FXML
+    private ImageView IMG2;
 
 
     private ObservableList<CommentContainer> commnetsList = FXCollections.observableArrayList();
@@ -122,14 +129,14 @@ public class CommentsPageController extends Controller implements Initializable
         
         String d = Integer.toString(textArea.getText().length());
         counter.setText(EmotionalSongs.language == 0 ? "carattere: " + d + " di 256" : "char: " + d + " di 256");
-        System.out.println(textArea.getText().length());
+        //System.out.println(textArea.getText().length());
     }
 
     
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
-
+        super.setImage(IMG1,IMG2);
         Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
 
         if(playlist == null) {
@@ -144,10 +151,6 @@ public class CommentsPageController extends Controller implements Initializable
         textArea.setMinHeight(texAreaBaseHeight + 3 * 16);
         textArea.setMaxHeight(400);
 
-        
-        System.out.println("size: " + textArea.getWidth());
-        System.out.println("size: " + textArea.getHeight());
-        System.out.println("font:" + textArea.fontProperty().get().getSize());
         
         String d = Integer.toString(textArea.getText().length());
         counter.setText(EmotionalSongs.language == 0 ? "caratteri: " + d + " di 256" : "chars: " + d + " di 256");
@@ -181,11 +184,8 @@ public class CommentsPageController extends Controller implements Initializable
             }
         });
 
-        int counter = 0;
-        for(Comment c : this.song.getComments()) {
-            commnetsList.add(new CommentContainer(c,this, playlist != null, counter++));
-            //System.out.println(c);
-        }
+        createCommentList();
+
 
         Callback<TableColumn<CommentContainer, CommentContainer>, TableCell<CommentContainer, CommentContainer>> cellFoctory;
         cellFoctory = (TableColumn<CommentContainer, CommentContainer> param) -> {
@@ -238,6 +238,29 @@ public class CommentsPageController extends Controller implements Initializable
     public void injectData(MainPageController controller, Song song) {
     }
 
+    private void createCommentList() {
+
+        commnetsList.clear();
+
+        int counter = 0;
+        if(playlist == null) { //se accedo dalla repository
+            for(Comment c : this.song.getComments()) {
+                commnetsList.add(new CommentContainer(c,this, playlist != null, counter++));
+                //System.out.println(c);
+            }
+        }
+        else {
+            for(Comment c : this.song.getComments()) {
+                Account a = c.getAutor();
+                Account b = EmotionalSongs.classReference.ConnectedAccount;
+
+                if(a.getID().equals(b.getID())) {
+                    commnetsList.add(new CommentContainer(c,this, playlist != null, counter++));
+                }
+            }
+        }
+    }
+
   
     @FXML
     void turnBack(ActionEvent  event) throws IOException {
@@ -267,18 +290,16 @@ public class CommentsPageController extends Controller implements Initializable
     @FXML
     void checkTextArea(KeyEvent event) {
 
+        int caratteriperLinea = 69;
         commentLenght = textArea.getText().length();
 
         if(commentLenght > 256) {
             String txt = textArea.getText();
-
             String out = "";
 
             for(int i = 0; i < 256; i++) {
                 out += txt.charAt(i);
             }
-            
-
 
             textArea.setText(out);
             textArea.positionCaret(256);
@@ -293,7 +314,7 @@ public class CommentsPageController extends Controller implements Initializable
             if(textArea.getText().charAt(i) == '\n') Newline++;
         }
 
-        int  line = commentLenght/67  + Newline + 3;
+        int line = commentLenght/caratteriperLinea  + Newline + 3;
         int value = texAreaBaseHeight + line * 16;
 
         if(value > 400) value = 400;
@@ -302,12 +323,13 @@ public class CommentsPageController extends Controller implements Initializable
 
 
         counter.setText("chars: " + Integer.toString(commentLenght) + " di 256");
-        System.out.println("lines: " + line);
+        //System.out.println("lines: " + line);
     }
 
     protected void removeComment(int index) {
         this.song.removeComment(index);
         commnetsList.remove(index);
+        createCommentList();
     }
 
     

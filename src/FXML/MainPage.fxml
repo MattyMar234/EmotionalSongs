@@ -31,7 +31,7 @@
                   </AnchorPane>
                   <Button fx:id="profileButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#AccountButtonSelected" prefHeight="48.0" prefWidth="200.0" text="Account">
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="IMG1" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../data/image/utente.png" />
                            </image>
@@ -43,7 +43,7 @@
                   </Button>
                   <Button fx:id="reposityButton" mnemonicParsing="false" onAction="#setReposity" prefHeight="48.0" prefWidth="200.0" text="Repository">
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="IMG2" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../data/image/repository.png" />
                            </image>
@@ -55,7 +55,7 @@
                   </Button>
                   <Button fx:id="playlistButton" mnemonicParsing="false" onAction="#SetPlayList" prefHeight="48.0" prefWidth="200.0" text="Playlists">
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="IMG3" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../data/image/playlist2.png" />
                            </image>
@@ -65,21 +65,9 @@
                         <Insets left="16.0" right="16.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#SetOptions" prefHeight="48.0" prefWidth="200.0" text="Settings">
-                     <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../data/image/impostazioni2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <VBox.margin>
-                        <Insets left="16.0" right="16.0" />
-                     </VBox.margin>
-                  </Button>
                   <Button fx:id="CambioButton" mnemonicParsing="false" onAction="#ChangeAccount" prefHeight="48.0" prefWidth="205.0" text="Change Account">
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="IMG5" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../data/image/cambio.png" />
                            </image>
@@ -91,7 +79,7 @@
                   </Button>
                   <Button fx:id="ExitButton" mnemonicParsing="false" onAction="#esci" prefHeight="48.0" prefWidth="200.0" text="Exit">
                      <graphic>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="IMG6" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../data/image/uscita.png" />
                            </image>

@@ -44,6 +44,10 @@
     -fx-font-size:14px;
 }
 
+#TextAre: selected {
+
+}
+
 #LabelName {
     -fx-text-fill: rgb(27, 124, 172);
     -fx-font-size:16px;

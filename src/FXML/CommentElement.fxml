@@ -15,7 +15,7 @@
                <children>
                   <AnchorPane prefHeight="64.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView id="img" fitHeight="60.0" fitWidth="69.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="16.0">
+                        <ImageView id="img" fx:id="IMG1" fitHeight="60.0" fitWidth="69.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="16.0">
                            <image>
                               <Image url="@../../data/icon/profileCommentIcon.png" />
                            </image>

@@ -23,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
+import javafx.scene.image.ImageView;
 
 
 public class MainPageController extends Controller implements Initializable 
@@ -39,7 +40,7 @@ public class MainPageController extends Controller implements Initializable
     @FXML public Button profileButton;
     @FXML public Button reposityButton;
     @FXML public Button playlistButton;
-    @FXML public Button optionsButton;
+    //@FXML public Button optionsButton;
     @FXML public Button CambioButton;
     @FXML public Button ExitButton;
 
@@ -50,6 +51,21 @@ public class MainPageController extends Controller implements Initializable
 
     
     // ========================= variabili - locali =========================//
+
+    @FXML
+    private ImageView IMG1;
+
+    @FXML
+    private ImageView IMG2;
+
+    @FXML
+    private ImageView IMG3;
+
+    @FXML
+    private ImageView IMG6;
+
+    @FXML
+    private ImageView IMG5;
     
     ArrayList<Button> buttons = new ArrayList<Button>();
     //private final String ButtonColor = "-fx-background-color: #0bb813;" + "-fx-text-fill:#ffffff;";
@@ -74,8 +90,8 @@ public class MainPageController extends Controller implements Initializable
     @Override
     public void initialize(URL arg0, ResourceBundle arg1)  
     {
-
-        optionsButton.setText(MainPageController.matrice[0][EmotionalSongs.language]);
+        super.setImage(IMG1,IMG2,IMG3,IMG6,IMG5);
+        //optionsButton.setText(MainPageController.matrice[0][EmotionalSongs.language]);
         CambioButton.setText(MainPageController.matrice[1][EmotionalSongs.language]);
         ExitButton.setText(MainPageController.matrice[2][EmotionalSongs.language]);
 
@@ -225,16 +241,16 @@ public class MainPageController extends Controller implements Initializable
     @FXML
     void ChangeAccount(ActionEvent event) throws IOException {
         
-        if(state != 4 ) {
-            state = 4;
+        if(state != 3 ) {
+            state = 3;
             ClearActiveButtons();
-            this.buttons.get(4).setStyle(ButtonColor);
+            this.buttons.get(3).setStyle(ButtonColor);
         } 
 
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initOwner(this.application.mainStage);
         alert.setTitle(EmotionalSongs.language == 0 ? "Conferma" : "Confirm");
-        alert.setHeaderText(buttons.get(4).getText());
+        alert.setHeaderText(buttons.get(3).getText());
         alert.initModality(Modality.WINDOW_MODAL);
         alert.setContentText(EmotionalSongs.language == 0 ? "vuoi cambiare account?" : "do you want to change account?");
         
@@ -248,16 +264,16 @@ public class MainPageController extends Controller implements Initializable
     @FXML
     void esci(ActionEvent event) {
 
-        if(state != 5 ) {
-            state = 5;
+        if(state != 4 ) {
+            state = 4;
             ClearActiveButtons();
-            this.buttons.get(5).setStyle(ButtonColor);
+            this.buttons.get(4).setStyle(ButtonColor);
         } 
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.initOwner(this.application.mainStage);
         alert.setTitle(EmotionalSongs.language == 0 ? "Conferma" : "Confirm");
-        alert.setHeaderText(buttons.get(5).getText());
+        alert.setHeaderText(buttons.get(4).getText());
         alert.initModality(Modality.WINDOW_MODAL);
         alert.setContentText(EmotionalSongs.language == 0 ? "vuoi uscire dal programma?" : "do you want to exit?");
         
