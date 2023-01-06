@@ -9,6 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Questa classe gestisce la finestra di selezione delle canzoni
+ */
 public class AddSongWindow {
 
     public EmotionalSongs main;

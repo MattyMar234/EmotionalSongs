@@ -33,6 +33,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+/**
+ * Questa classe gestisce l'accesso all'applicazione
+ */
 public class AccessController extends Controller implements Initializable {
 
     @FXML private Button LoginButton;

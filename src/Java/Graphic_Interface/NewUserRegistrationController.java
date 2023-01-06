@@ -29,6 +29,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 
+/**
+ * Questa classe grafica gestisce la registrazione di un nuovo account nell'applicazione
+ */
 public class NewUserRegistrationController extends Controller implements Initializable 
 {
     @FXML private ImageView IMG1;
@@ -111,10 +114,7 @@ public class NewUserRegistrationController extends Controller implements Initial
             this.comb = comboBox;
         }
 
-        //costruttore 2
-        public ElementsContainer() {
-        }
-
+    
 
         @Override
         public String toString() {
@@ -284,23 +284,18 @@ public class NewUserRegistrationController extends Controller implements Initial
         for(int i = lenght - 1; i >= 0; i--) {
             while(!l.isEmpty()) 
             {
-                w = l.poll();    //ottengo e rimuovo l'head
-
-                //System.out.println("String: " + w);
-                //System.out.println("index: " + i);
-                //System.out.println((int) w.charAt(i));
+                w = l.poll();                           //ottengo e rimuovo l'head
 
                 int e = (int) w.charAt(i) - offset;    //determina l’indice e della lista corrispondente alla i-esima lettera di w
-                bucket[e].add(w);       //sposto la stringa
+                bucket[e].add(w);                      //sposto la stringa
 
-                //System.out.println("move " + w + " to bucket[" + e + "]");
             }
+
             //sposto tutte le string in bucket[0] poi in l
             for(int j = 1; j < chars; j++ ) {
                 while(bucket[j].size() > 0) 
                 {
                     String str = bucket[j].poll();          //ottengo la string della j-esima lista 
-                    //System.out.println("move " + w + " to bucket[" + j + "]");
                     bucket[0].add(str);                     //sposto la stringa
                 }
             }
@@ -398,32 +393,7 @@ public class NewUserRegistrationController extends Controller implements Initial
             
         }
         
-        //creo gli array
-        /*for(Field f : variabili) {
-            if(f.getName().startsWith("label")) {
-                LabelsNome.add(f.getName());
-            }
-            else {
-                variabiliNome.add(f.getName());
-                //System.out.println("varName: " + f.getName());
-            }
-        }
-
-        //creo un un oggetto container che contiene un textField con la sua label
-        for(int  i = 0; i < variabiliNome.size(); i++) 
-        {
-            ElementsContainer container = new ElementsContainer();
-            try {
-                container.text  = (TextField) this.getClass().getField(variabiliNome.get(i)).get(this);
-                container.label = (Label)     this.getClass().getField(LabelsNome.get(i)).get(this);
-                //container.clearError();
-                contenitori.add(container);
-                //if(debug)System.out.println(container);
-            } 
-            catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
-                e.printStackTrace();
-            }
-        }*/
+        
 
                 
         contenitori.add(new ElementsContainer(name          , null));
@@ -584,33 +554,39 @@ public class NewUserRegistrationController extends Controller implements Initial
     @FXML
     void selectCap(ActionEvent event) {
         
-        if(common.getSelectionModel().getSelectedItem() == null && province.getSelectionModel().getSelectedItem() == null || true) {
-            String com = cap.getSelectionModel().getSelectedItem().split(" : ")[1];
-
-            //metto il comune
-            common.getSelectionModel().select(common.getItems().indexOf(com));
-
-            EmotionalSongs main = EmotionalSongs.classReference;
-            ArrayList<Region> regions = main.locationsManager.getList();
-            boolean finded = false;
-
-            for(Region r : regions) { 
-                if(finded) break;
-                
-                for(Province p : r.getProvincesList()) {
+        try {
+            if(common.getSelectionModel().getSelectedItem() == null && province.getSelectionModel().getSelectedItem() == null || true) {
+                String com = cap.getSelectionModel().getSelectedItem().split(" : ")[1];
+    
+                //metto il comune
+                common.getSelectionModel().select(common.getItems().indexOf(com));
+    
+                EmotionalSongs main = EmotionalSongs.classReference;
+                ArrayList<Region> regions = main.locationsManager.getList();
+                boolean finded = false;
+    
+                for(Region r : regions) { 
                     if(finded) break;
                     
-                    for(Common c : p.getCommonsList()) 
-                    {
-                        if(c.getName().equals(com)) {
-                            province.getSelectionModel().select(province.getItems().indexOf(p.getName()));
-                            finded = !finded;
-                            break;
+                    for(Province p : r.getProvincesList()) {
+                        if(finded) break;
+                        
+                        for(Common c : p.getCommonsList()) 
+                        {
+                            if(c.getName().equals(com)) {
+                                province.getSelectionModel().select(province.getItems().indexOf(p.getName()));
+                                finded = !finded;
+                                break;
+                            }
                         }
                     }
                 }
             }
         }
+        catch (ArrayIndexOutOfBoundsException e){
+            
+        }
+        
     }
 
     @FXML

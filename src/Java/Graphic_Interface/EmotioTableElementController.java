@@ -19,6 +19,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * Questa classe grafica gestisce l'assegnazione delle emozioni ad una canzone
+ */
 public class EmotioTableElementController extends Controller implements Initializable
 {
 

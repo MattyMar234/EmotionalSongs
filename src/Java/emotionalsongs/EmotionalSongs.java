@@ -263,13 +263,6 @@ public class EmotionalSongs extends Application{
             }
 
 
-
-            
-            
-
-            
-            
-            
             //************ Impostazioni pagina************//
             
             //pagina iniziale
@@ -316,11 +309,6 @@ public class EmotionalSongs extends Application{
             e.printStackTrace();
         }
         stage.close();
-    }
-
-    public EmotionalSongs() throws IOException
-    {
-
     }
 
     

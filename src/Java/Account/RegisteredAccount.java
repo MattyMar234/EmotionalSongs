@@ -287,7 +287,7 @@ public class RegisteredAccount extends Account {
 
     
     /** 
-     * Restituisce la Playlist realizzata dall'utente
+     * Restituisce le Playlist realizzate dall'utente
      * @return ArrayList<PlayList>
      */
     public ArrayList<PlayList> getPlayLists() {

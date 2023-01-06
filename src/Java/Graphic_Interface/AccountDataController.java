@@ -19,6 +19,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * Questa classe grafica mostra le informazioni dell'utente
+ */
 public class AccountDataController extends Controller implements Initializable  {
 
     private ArrayList<DataContainer> dataFields = new ArrayList<DataContainer>();

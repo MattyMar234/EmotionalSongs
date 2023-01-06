@@ -31,6 +31,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 
+/**
+ * Questa classe grafica gestisce l'assegnazione delle emozioni ad una canzone
+ */
 public class EmotionCreationPageController extends Controller implements Initializable {
 
     private final static String [][] matrice = {

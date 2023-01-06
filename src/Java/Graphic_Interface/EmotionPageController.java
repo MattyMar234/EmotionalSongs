@@ -18,6 +18,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 
+/**
+ * Questa classe grafica gestisce la visualizzazione dei dati delle emozioni che sono associate a una canzone
+ */
 public class EmotionPageController extends Controller implements Initializable{
 
     @FXML private Button back;
@@ -173,7 +176,8 @@ public class EmotionPageController extends Controller implements Initializable{
         //resetto i contatori
         for(int i = 0; i < scores.length; i++) {
             EmotionNumbers[i] = scores[i] = 0; 
-            Maxs[i] = Mins[i] = 1;
+            Maxs[i] = 1;
+            Mins[i] = 5;
         }
 
         for(Emotion e : canzoneAssociata.getEmotions()) {

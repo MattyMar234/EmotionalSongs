@@ -29,6 +29,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 
+/**
+ * Questa classe grafica gestisce la pagina di visualizzazione dei commenti
+ */
 public class CommentsPageController extends Controller implements Initializable 
 {
 

@@ -7,9 +7,11 @@ import java.util.ResourceBundle;
 
 import Java.emotionalsongs.EmotionalSongs;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
+/**
+ * Questa classe grafica viene utilizzata solo come base per ancorare gli elementi della finestra
+ */
 public class WindowContainerController extends Controller implements Initializable {
 
     public BorderPane anchor;

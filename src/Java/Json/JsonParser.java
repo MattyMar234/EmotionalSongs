@@ -74,6 +74,8 @@ public class JsonParser
             JSONArray jsonarray = ((JSONArray) data);
             dataList = new JSONObject[jsonarray.size()];
 
+            
+
             for(int  i = 0; i < dataList.length; i++) {
                 dataList[i] = (JSONObject) jsonarray.get(i);
             }

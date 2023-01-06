@@ -14,6 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
+/**
+ * Questa classe grafica gestisce l'elemento grafico del commento
+ */
 public class CommentElementController extends Controller implements Initializable {
 
     @FXML private Label LabelName;

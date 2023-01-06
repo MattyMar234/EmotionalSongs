@@ -18,6 +18,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * Questa classe grafica gestisce la selezione delle canzoni da aggiungere a una playlist
+ */
 public class AddSongConstroller extends Controller implements Initializable 
 {
     protected AddSongWindow window;

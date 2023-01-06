@@ -23,6 +23,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
+/**
+ * Questa classe grafica gestisce la finestra dove si modifica una playlist
+ */
 public class EditPlaylistController extends Controller implements Initializable 
 {
 

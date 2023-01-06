@@ -25,7 +25,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.scene.image.ImageView;
 
-
+/**
+ * Questa classe grafica gestisce il menù laterale della pagina principale dell'applicazione
+ */
 public class MainPageController extends Controller implements Initializable 
 {
     // ========================= Label ========================= //

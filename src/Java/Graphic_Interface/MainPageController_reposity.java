@@ -2,45 +2,34 @@ package Java.Graphic_Interface;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import Java.PlayListSongs.PlayList;
 import Java.PlayListSongs.Song;
 import Java.emotionalsongs.EmotionalSongs;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.util.Callback;
 
+/**
+ * Questa classe grafica gestisce la visualizzazione della repository dell'applicazione
+ */
 public class MainPageController_reposity extends Controller implements Initializable 
 {
 
@@ -61,7 +50,7 @@ public class MainPageController_reposity extends Controller implements Initializ
 
     private ObservableList<Container> list = FXCollections.observableArrayList();
     public MainPageController mainController;
-    private int counter = 0;
+  
 
 
     private enum FilterState {

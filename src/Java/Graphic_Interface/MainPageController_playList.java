@@ -30,7 +30,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
-
+/**
+ * Questa classe grafica gestisce la visualizzazione delle playlists dell'utente
+ */
 public class MainPageController_playList extends Controller implements Initializable {
 
     // ========================= TableView ========================= //

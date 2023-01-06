@@ -1,37 +1,67 @@
 package Java.PlayListSongs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.Random;
 import java.util.Stack;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
 
 import Java.Account.Account;
 import Java.Account.RegisteredAccount;
 import Java.DataClasses.Comment;
 import Java.DataClasses.Emotion;
-import Java.Json.JsonParser;
 import Java.emotionalsongs.EmotionalSongs;
 
+
+/**
+ * Questa classe viene utilizzata per rappresentare le informazioni su una canzone 
+ */
 public class Song {
 
+    
     protected String number;
+
+    /**
+     * Titolo della canzone 
+     */
     protected String title;
+
+    /**
+     * Autor della canzone 
+     */
     protected String autor;
+
+    /**
+     * Anno publicazione della canzone 
+     */
     protected String year;
+
+    /**
+     * Album in cui è presente la canzone
+     */
     protected String album;
     protected String duration;
+
+    /**
+     * Tipo di genere della canzone 
+     */
     protected String genre;
+
+    /**
+     * L'id della canzone
+     */
     protected String songID;
     protected int AlbumID;
 
-    private static int counter = 1;
-
+    /**
+     * Elenco delle emozioni messe dagli utenti
+     */
     protected ArrayList<Emotion> emotions = new ArrayList<Emotion>();
+
+    /**
+     * Elenco dei commenti fatti dagli utenti
+     */
     protected ArrayList<Comment> comments = new ArrayList<Comment>();
 
     //costruttore 1
@@ -40,6 +70,10 @@ public class Song {
     }
 
     //costruttore 2 per CSV
+    /**
+     * Inizializza un oggetto Song con le informazioni prese da un file CSV
+     * @param data eleneco delle colonne della singola linea
+     */
     public Song(String [] data) {
 
         int minutes = (int)Float.parseFloat(data[10])/60;
@@ -62,6 +96,10 @@ public class Song {
     }
 
     //costruttore 3 per JSON
+    /**
+     * Inizializza un oggetto Song con le informazioni prese da un file Json
+     * @param jsonData Oggetto JSONObject con le informazioni deserializzate prese dal file
+     */
     public Song(JSONObject jsonData) {
 
         this.title    = (String) jsonData.get("title");
@@ -115,10 +153,18 @@ public class Song {
         }
     }
 
+    
+
     public Song getClassReference() {
         return this;
     }
 
+    
+    /** 
+     * Restituisce l'elenco delle emozioni inserite dall'utente 
+     * @param ID l'Id dell'utente
+     * @return ArrayList<Emotion>
+     */
     public ArrayList<Emotion> getUserEmotions(String ID) {
         ArrayList<Emotion> m = new ArrayList<Emotion>();
 
@@ -134,18 +180,27 @@ public class Song {
         return m;
     }
 
+    
+    /** 
+     * Aggiunge un'emozione nell'elenco
+     * @param emotion emozione da inserire
+     * @param account l'utente che sta inserendo l'emozione
+     */
     public void AddUserEmotions(Emotion emotion, RegisteredAccount account) 
     {
-        boolean duplicato = false;
-        String ID = account.getID();
-
-
+       
         //verifico se tale emotion è gia presente e la elimino
         removeEmotion(emotion, account);
         emotions.add(emotion);
-        System.out.println("class SONG r144: emotion aggiunta");
+        //System.out.println("class SONG r144: emotion aggiunta");
     }
 
+    
+    /** 
+     * Rimuove un'emozione dall'elenco
+     * @param emotion L'emozione da rimuovere
+     * @param account L'utente che sta rimuovendo l'emozione
+     */
     public void removeEmotion(Emotion emotion, RegisteredAccount account) {
 
         String ID = account.getID();
@@ -155,20 +210,26 @@ public class Song {
 
         //cerco nella raccolta
         for(Emotion e : emotions) {
-            System.out.println("class SONG r159, IDs: " + e.getCategory() + " ==> " + emotion.getCategory());
+            //System.out.println("class SONG r159, IDs: " + e.getCategory() + " ==> " + emotion.getCategory());
+            
             //confronto gli ID e la tipologia
             if(e.getAccountID().equals(ID) && e.getCategory().equals(emotion.getCategory())) {
                 DelBuffer.push(e);   
-                System.out.println(e);
+                //System.out.println(e);
             }
         }
 
         while (DelBuffer.size() != 0) {
             emotions.remove(DelBuffer.pop());
-            System.out.println("class SONG r169: emotion eliminata");
+            //System.out.println("class SONG r169: emotion eliminata");
         }
     }
 
+    
+    /** 
+     * Trasforma le informazioni della canzone in un oggetto JSONObject per la serializzazione
+     * @return JSONObject
+     */
     @SuppressWarnings("unchecked")
     public JSONObject toJSON() 
     {
@@ -217,6 +278,10 @@ public class Song {
     
 
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString() {
         String information = "";
@@ -232,18 +297,40 @@ public class Song {
         return information;
     }
 
+    
+    /** 
+     * Restituisce l'elenco dei commenti
+     * @return ArrayList<Comment>
+     */
     public ArrayList<Comment> getComments() {
         return new ArrayList<Comment>(comments);
     }
 
+    
+    /** 
+     * Aggiunge un commento alla raccolta
+     * @param e Il commento da aggiungere
+     */
     public void addComment(Comment e ) {
         this.comments.add(e);
     }
 
+    
+    /** 
+     * Rimuove il commento presenta a un determinato indice della lista
+     * @param index L'indice della lista
+     * @return Risultato dell'operazione
+     */
     public boolean removeComment(int index) {
         return removeComment(comments.get(index));
     }
 
+    
+    /** 
+     * Rimuove il commento dalla lista
+     * @param e Il commento da rimuovere
+     * @return Risultato dell'operazione
+     */
     public boolean removeComment(Comment e) {
         if(e != null) {
             comments.remove(comments.indexOf(e));
@@ -255,58 +342,110 @@ public class Song {
 
     
 
+    
+    /** 
+     * Restituisce l'elenco di tutte le emozioni
+     * @return ArrayList<Emotion>
+     */
     public ArrayList<Emotion> getEmotions() {
         return this.emotions;
     }
 
-    public void setEmotions(ArrayList<Emotion> emotions) {
-        this.emotions = emotions;
-    }
+    
+   
 
+    
+    /** 
+     * @return String
+     */
     public String getTitle() {
         return title;
     }
 
+    
+    /** 
+     * @param title
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getAutor() {
         return autor;
     }
 
+    
+    /** 
+     * @param autor
+     */
     public void setAutor(String autor) {
         this.autor = autor;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getYear() {
         return year;
     }
 
+    
+    /** 
+     * @param year
+     */
     public void setYear(String year) {
         this.year = year;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getAlbum() {
         return album;
     }
 
+    
+    /** 
+     * @param album
+     */
     public void setAlbum(String album) {
         this.album = album;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getDuration() {
         return duration;
     }
 
+    
+    /** 
+     * @param duration
+     */
     public void setDuration(String duration) {
         this.duration = duration;
     }
 
+    
+    /** 
+     * @return String
+     */
     public String getNumber() {
         return number;
     }
 
+    
+    /** 
+     * @param number
+     */
     public void setNumber(String number) {
         this.number = number;
     }

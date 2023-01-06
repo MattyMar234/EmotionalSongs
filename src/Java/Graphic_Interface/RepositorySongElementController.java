@@ -17,6 +17,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
+/**
+ * Questa classe grafica gestisce l'elemento grafico della tabella contenente tutte le canzoni della repository 
+ */
 public class RepositorySongElementController extends Controller implements Initializable {
 
     private Song canzoneAssociata;

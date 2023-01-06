@@ -34,6 +34,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+/**
+ * Questa classe grafica gestisce la finestra di creazione di una nuova playlist
+ */
 public class NewPlaylistController extends Controller implements Initializable {
 
 
@@ -76,6 +79,9 @@ public class NewPlaylistController extends Controller implements Initializable {
 
     @FXML
     private ImageView IMG3;
+
+    @FXML
+    private ImageView IMG4;
     MainPageController mainPageReference;
     AddSongWindow addSongWindow;
     HashMap<String,ArrayList<String>> SelectedData = new HashMap<String,ArrayList<String>>();
@@ -94,7 +100,7 @@ public class NewPlaylistController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        super.setImage(IMG1, IMG2, IMG3);
+        super.setImage(IMG1, IMG2, IMG3, IMG4);
 
         Back.setText(EmotionalSongs.language == 0 ? "indietro" : "back");
         salva.setText(EmotionalSongs.language == 0 ? "Salva" : "Save");

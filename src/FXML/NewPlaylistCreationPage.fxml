@@ -192,7 +192,7 @@
                   </BorderPane>
                   <Button id="addElement_Button" fx:id="Back" alignment="CENTER" mnemonicParsing="false" onAction="#turnBack" prefHeight="32.0" prefWidth="120.0" text="back" underline="true" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="20.0">
                      <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                        <ImageView fx:id="IMG4" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
                            <image>
                               <Image url="@../../data/image/FrecciaIndietro.png" />
                            </image>
